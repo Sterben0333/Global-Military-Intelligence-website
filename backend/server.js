@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // ============================================
 // STATIC FILES — serve the existing frontend
 // ============================================
-app.use(express.static(path.join(__dirname), {
+app.use(express.static(path.join(__dirname, '../frontend'), {
     extensions: ['html'],
     index: 'index.html'
 }));
@@ -32,7 +32,7 @@ app.use('/api/auth', authRoutes);
 // ============================================
 app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, 'index.html'));
+        res.sendFile(path.join(__dirname, '../frontend/index.html'));
     }
 });
 
