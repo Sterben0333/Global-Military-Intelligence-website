@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Global Military Intelligence - Comprehensive military data for nations worldwide including army, navy, and air force statistics.">
+    <title>Global Military Intelligence | Defense Analysis Portal</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Full Page Loading Screen -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-radar">
+                <div class="radar-ring"></div>
+                <div class="radar-ring ring-2"></div>
+                <div class="radar-ring ring-3"></div>
+                <div class="radar-sweep"></div>
+                <div class="radar-dot"></div>
+            </div>
+            <h2 class="loader-title">GLOBAL MILITARY INTELLIGENCE</h2>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <p class="loader-status">Initializing systems...</p>
+        </div>
+    </div>
+
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container">
+                <a href="#hero" class="logo" style="text-decoration:none;cursor:pointer;"
+                    onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="GMI Logo"
+                            style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">GLOBAL MILITARY</span>
+                        <span class="logo-subtitle">INTELLIGENCE</span>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <a href="#hero" class="nav-link active" data-page="home">Home</a>
+                    <a href="#map-section" class="nav-link" data-page="nations">Nations</a>
+                    <a href="#compare-section" class="nav-link" data-page="compare">Compare</a>
+                    <a href="#news-section" class="nav-link" data-page="news">News</a>
+                    <a href="#conflicts-section" class="nav-link" data-page="conflicts">Conflicts</a>
+                    <a href="#history-section" class="nav-link" data-page="history">History</a>
+                    <a href="#footer" class="nav-link" data-page="about">About</a>
+                </nav>
+                <div class="search-container">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                        <input type="text" id="nation-search" class="search-input" placeholder="Search nations..."
+                            autocomplete="off">
+                        <button class="search-clear" id="search-clear" aria-label="Clear search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+                <!-- Auth Buttons (logged out) -->
+                <div class="auth-buttons" id="auth-buttons-guest">
+                    <button class="auth-btn auth-btn-signup" onclick="openSignupModal()">Sign Up</button>
+                    <button class="auth-btn auth-btn-login" onclick="openLoginModal()">Login</button>
+                </div>
+                <!-- User Menu (logged in) -->
+                <div class="auth-user-menu" id="auth-user-menu" style="display:none;">
+                    <button class="auth-user-btn" onclick="toggleUserDropdown()">
+                        <div class="auth-avatar" id="auth-avatar">U</div>
+                        <span class="auth-username" id="auth-username">User</span>
+                        <svg class="auth-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="auth-dropdown" id="auth-dropdown">
+                        <div class="auth-dropdown-header">
+                            <span class="auth-dropdown-name" id="auth-dropdown-name">Username</span>
+                            <span class="auth-dropdown-role" id="auth-dropdown-role">User</span>
+                        </div>
+                        <div class="auth-dropdown-divider"></div>
+                        <button class="auth-dropdown-item" onclick="showProfile()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Profile
+                        </button>
+                        <button class="auth-dropdown-item auth-dropdown-logout" onclick="logoutUser()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- News Notification Bar -->
+        <div id="news-notify-bar" class="news-notify-bar">
+            <div class="notify-content">
+                <div class="notify-top-row">
+                    <span class="notify-pulse"></span>
+                    <span class="notify-label">BREAKING</span>
+                    <span class="notify-headline" id="notify-headline"></span>
+                </div>
+                <p class="notify-desc" id="notify-desc"></p>
+            </div>
+            <div class="notify-actions">
+                <button class="notify-view-btn" onclick="goToNotifyArticle()">View Article</button>
+                <button class="notify-dismiss" onclick="dismissNotifyBar()" aria-label="Dismiss">✕</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section id="hero" class="hero">
+                <div class="hero-bg">
+                    <div class="grid-overlay"></div>
+                    <div class="radar-sweep"></div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">GLOBAL DEFENCE</span>
+                        <span class="title-line accent">INTELLIGENCE NETWORK</span>
+                    </h1>
+                    <p class="hero-subtitle">Comprehensive military analysis for 30+ nations worldwide. Explore troop
+                        strength, armored vehicles, naval fleets, and air force capabilities.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="33">0</span>
+                            <span class="stat-label">Nations Tracked</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="14744000">0</span>
+                            <span class="stat-label">Military Personnel</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="380000">0</span>
+                            <span class="stat-label">Combat Vehicles</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="scrollToMap()">
+                            <span>Explore Map</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-secondary" onclick="showPage('nations')">
+                            <span>View All Nations</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </section>
+
+            <!-- Interactive Map Section -->
+            <section id="map-section" class="map-section">
+                <div class="section-header">
+                    <h2 class="section-title">Interactive World Map</h2>
+                    <p class="section-subtitle">Click on any nation to view detailed military intelligence</p>
+                </div>
+                <div class="map-container" style="position:relative;">
+                    <div id="map-loader" class="section-loader"
+                        style="position:absolute;inset:0;z-index:500;background:rgba(8,12,20,0.92);min-height:0;">
+                        <div class="loading-spinner"></div>
+                        <p>Rendering map tiles...</p>
+                    </div>
+                    <div id="world-map"></div>
+                    <div class="map-legend">
+                        <h4>Military Power Index</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #22c55e;"></span>
+                                <span>Top 5 Power</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #3b82f6;"></span>
+                                <span>Top 10 Power</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #f59e0b;"></span>
+                                <span>Top 20 Power</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #6b7280;"></span>
+                                <span>Other Nations</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-divider"></div>
+
+                        <h4>Nuclear Status</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-icon legend-nuclear">☢</span>
+                                <span>Nuclear Weapon State</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-line legend-prolif-line"></span>
+                                <span>Nuclear Proliferation Route</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-divider"></div>
+
+                        <h4>Interactions</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-icon legend-click">👆</span>
+                                <span>Click marker for details</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon legend-hover">🔍</span>
+                                <span>Hover line for info</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Nations -->
+            <section id="featured-nations" class="featured-nations">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Nations</h2>
+                    <p class="section-subtitle">Major military powers analyzed</p>
+                </div>
+                <div class="nations-grid" id="nations-grid">
+                    <div id="nations-loader" class="section-loader" style="grid-column:1/-1;">
+                        <div class="loading-spinner"></div>
+                        <p>Loading nation profiles...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Branch Overview -->
+            <section id="branches" class="branches-section">
+                <div class="section-header">
+                    <h2 class="section-title">Military Branches</h2>
+                    <p class="section-subtitle">Comprehensive data across all defense sectors</p>
+                </div>
+                <div class="branches-grid">
+                    <div class="branch-card" onclick="showBranchInfo('army')">
+                        <div class="branch-icon army">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="32" width="48" height="20" rx="4" fill="currentColor" />
+                                <rect x="14" y="24" width="36" height="12" rx="2" fill="currentColor" />
+                                <circle cx="18" cy="52" r="6" fill="#0a1628" />
+                                <circle cx="46" cy="52" r="6" fill="#0a1628" />
+                                <rect x="44" y="16" width="6" height="20" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h3>Army</h3>
+                        <p>Ground forces, tanks, artillery, and infantry</p>
+                        <div class="branch-stats">
+                            <span>15M+ Personnel</span>
+                            <span>100K+ Vehicles</span>
+                        </div>
+                    </div>
+                    <div class="branch-card" onclick="showBranchInfo('navy')">
+                        <div class="branch-icon navy">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 40L32 48L56 40V52C56 52 44 56 32 56C20 56 8 52 8 52V40Z"
+                                    fill="currentColor" />
+                                <path d="M12 28L32 20L52 28V40L32 48L12 40V28Z" fill="currentColor" />
+                                <rect x="28" y="8" width="8" height="16" fill="currentColor" />
+                                <rect x="24" y="12" width="16" height="4" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h3>Navy</h3>
+                        <p>Surface fleet, submarines, and coastal defense</p>
+                        <div class="branch-stats">
+                            <span>2K+ Vessels</span>
+                            <span>500+ Submarines</span>
+                        </div>
+                    </div>
+                    <div class="branch-card" onclick="showBranchInfo('airforce')">
+                        <div class="branch-icon airforce">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 8L36 24H56L40 32L32 56L24 32L8 24H28L32 8Z" fill="currentColor" />
+                                <ellipse cx="32" cy="32" rx="4" ry="8" fill="#0a1628" />
+                            </svg>
+                        </div>
+                        <h3>Air Force</h3>
+                        <p>Fighter jets, bombers, and air defense</p>
+                        <div class="branch-stats">
+                            <span>15K+ Aircraft</span>
+                            <span>5K+ Helicopters</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compare Nations Section -->
+            <section id="compare-section" class="compare-section" style="position:relative;">
+                <div id="compare-loader" class="section-loader"
+                    style="position:absolute;inset:0;z-index:10;background:rgba(8,12,20,0.92);">
+                    <div class="loading-spinner"></div>
+                    <p>Preparing comparison engine...</p>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title">Compare Nations</h2>
+                    <p class="section-subtitle">Select two nations to compare their military capabilities</p>
+                </div>
+                <div class="compare-container">
+                    <div class="compare-selectors">
+                        <div class="selector-group">
+                            <label for="nation1-select">Nation 1</label>
+                            <select id="nation1-select" onchange="updateComparison()">
+                                <option value="">Select a nation...</option>
+                            </select>
+                        </div>
+                        <div class="vs-badge">VS</div>
+                        <div class="selector-group">
+                            <label for="nation2-select">Nation 2</label>
+                            <select id="nation2-select" onchange="updateComparison()">
+                                <option value="">Select a nation...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="compare-results" id="compare-results">
+                        <div class="compare-placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                            <p>Select two nations above to compare their military capabilities</p>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- Live News Section -->
+            <section id="news-section" class="news-section">
+                <div class="section-header">
+                    <h2 class="section-title">Live Military News</h2>
+                    <p class="section-subtitle">Real-time defense and military updates from around the world</p>
+                </div>
+                <div class="news-container">
+                    <div class="news-controls">
+                        <div class="news-categories">
+                            <button class="category-btn active" data-category="all">All News</button>
+                            <button class="category-btn" data-category="defense">Defense</button>
+                            <button class="category-btn" data-category="conflict">Conflicts</button>
+                            <button class="category-btn" data-category="tech">Military Tech</button>
+                        </div>
+                        <div class="news-controls-right">
+                        <div class="news-date-filter">
+                            <svg class="news-date-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <select id="news-date-select" onchange="filterNewsByDate()">
+                                <option value="all">All Dates</option>
+                            </select>
+                        </div>
+                        <button class="refresh-btn" onclick="refreshNews()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M23 4v6h-6M1 20v-6h6" />
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                            </svg>
+                            <span>Refresh</span>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="news-status">
+                        <span class="live-indicator"></span>
+                        <span id="news-timestamp">Last updated: --</span>
+                    </div>
+                    <div class="news-search-bar" id="news-search-bar">
+                        <svg class="news-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                        <input type="text" id="news-search-input"
+                            placeholder="Search articles — e.g. India, BrahMos, F-35, Ukraine..." autocomplete="off" />
+                        <button class="news-search-clear" id="news-search-clear" title="Clear search">✕</button>
+                    </div>
+                    <div class="news-grid" id="news-grid">
+                        <div class="news-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Fetching latest military news...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Global Conflicts Section -->
+            <section id="conflicts-section" class="conflicts-section">
+                <div class="section-header">
+                    <h2 class="section-title">Live Global Conflicts</h2>
+                    <p class="section-subtitle">Active armed conflicts and military operations around the world</p>
+                </div>
+                <div class="conflicts-container">
+                    <div class="conflicts-controls">
+                        <div class="conflict-categories">
+                            <button class="conflict-cat-btn active" data-conflict-type="all">All Conflicts</button>
+                            <button class="conflict-cat-btn" data-conflict-type="war">Wars</button>
+                            <button class="conflict-cat-btn" data-conflict-type="civil-war">Civil Wars</button>
+                            <button class="conflict-cat-btn" data-conflict-type="insurgency">Insurgencies</button>
+                            <button class="conflict-cat-btn" data-conflict-type="territorial">Territorial</button>
+                        </div>
+                        <button class="refresh-btn" onclick="refreshConflicts()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M23 4v6h-6M1 20v-6h6" />
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                            </svg>
+                            <span>Refresh</span>
+                        </button>
+                    </div>
+                    <div class="conflicts-status">
+                        <span class="live-indicator conflict-live"></span>
+                        <span id="conflicts-timestamp">Last updated: --</span>
+                    </div>
+
+                    <!-- Conflict Zone Map -->
+                    <div class="conflict-map-wrapper">
+                        <div class="conflict-map-header">
+                            <h3 class="conflict-map-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                Conflict Zone Map
+                            </h3>
+                            <div class="conflict-map-legend">
+                                <span class="cmap-legend-item"><span class="cmap-dot cmap-high"></span> High
+                                    Intensity</span>
+                                <span class="cmap-legend-item"><span class="cmap-dot cmap-medium"></span> Medium</span>
+                                <span class="cmap-legend-item"><span class="cmap-dot cmap-low"></span> Low</span>
+                            </div>
+                        </div>
+                        <div id="conflict-map" class="conflict-map"></div>
+                    </div>
+
+                    <div class="conflicts-grid" id="conflicts-grid">
+                        <div class="conflicts-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Loading conflict data...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Divider -->
+            <div class="section-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- World War History Section -->
+            <section id="history-section" class="history-section" style="position:relative;">
+                <div id="history-loader" class="section-loader"
+                    style="position:absolute;inset:0;z-index:10;background:rgba(8,12,20,0.92);">
+                    <div class="loading-spinner"></div>
+                    <p>Loading historical archives...</p>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title">World War History</h2>
+                    <p class="section-subtitle">The defining conflicts that shaped the modern world</p>
+                </div>
+                <div class="history-container">
+                    <!-- War Toggle Tabs -->
+                    <div class="history-tabs">
+                        <button class="history-tab active" onclick="switchWar('ww1')" id="tab-ww1">
+                            <span class="history-tab-icon">⚔️</span>
+                            <span class="history-tab-title">World War I</span>
+                            <span class="history-tab-year">1914 – 1918</span>
+                        </button>
+                        <button class="history-tab" onclick="switchWar('ww2')" id="tab-ww2">
+                            <span class="history-tab-icon">💣</span>
+                            <span class="history-tab-title">World War II</span>
+                            <span class="history-tab-year">1939 – 1945</span>
+                        </button>
+                    </div>
+
+                    <!-- War Content Area -->
+                    <div class="history-content" id="history-content">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Conquest Map - Separate Section -->
+                <div class="conquest-map-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Conquest & Territorial Map</h2>
+                        <p class="section-subtitle">Interactive map showing invasions, fronts, and territorial changes
+                        </p>
+                    </div>
+
+                    <div class="conquest-controls">
+                        <div class="conquest-war-tabs">
+                            <button class="conquest-tab active" onclick="switchConquestMap('ww1')"
+                                id="conquest-tab-ww1">
+                                ⚔️ World War I
+                            </button>
+                            <button class="conquest-tab" onclick="switchConquestMap('ww2')" id="conquest-tab-ww2">
+                                💣 World War II
+                            </button>
+                        </div>
+                        <div class="conquest-alliance-filters" id="conquest-alliance-filters">
+                            <button class="alliance-filter active" onclick="filterConquestAlliance('all')"
+                                id="filter-all">
+                                🌍 All Forces
+                            </button>
+                            <button class="alliance-filter filter-side1" onclick="filterConquestAlliance('side1')"
+                                id="filter-side1">
+                                🔴 Central Powers
+                            </button>
+                            <button class="alliance-filter filter-side2" onclick="filterConquestAlliance('side2')"
+                                id="filter-side2">
+                                🔵 Entente Powers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="conquest-map-wrapper">
+                        <div id="conquest-map" class="conquest-map"></div>
+                        <div class="conquest-legend" id="conquest-legend">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="conquest-timeline" id="conquest-timeline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Nation Detail Modal -->
+        <div id="nation-modal" class="modal">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="modal-header">
+                    <div class="nation-flag" id="modal-flag"></div>
+                    <div class="nation-info">
+                        <h2 id="modal-nation-name">United States</h2>
+                        <p id="modal-nation-rank">Global Rank: #1</p>
+                    </div>
+                </div>
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="army">Army</button>
+                    <button class="tab-btn" data-tab="navy">Navy</button>
+                    <button class="tab-btn" data-tab="airforce">Air Force</button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Content populated by JavaScript -->
+                </div>
+                <div class="modal-scroll-indicator" id="modal-scroll-indicator" onclick="scrollModalDown()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M7 13l5 5 5-5" />
+                        <path d="M7 6l5 5 5-5" />
+                    </svg>
+                    <span>Scroll for more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Detail Modal -->
+        <div id="news-modal" class="modal news-modal">
+            <div class="modal-overlay" onclick="closeNewsModal()"></div>
+            <div class="modal-content news-modal-content">
+                <button class="modal-close" onclick="closeNewsModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="news-modal-image" id="news-modal-image"></div>
+                <div class="news-modal-body">
+                    <span class="news-modal-category" id="news-modal-category">DEFENSE</span>
+                    <h2 class="news-modal-title" id="news-modal-title">Article Title</h2>
+                    <div class="news-modal-meta">
+                        <span class="news-modal-source" id="news-modal-source">Source</span>
+                        <span class="news-modal-date" id="news-modal-date">Date</span>
+                    </div>
+                    <div class="news-modal-content-text" id="news-modal-text">
+                        <!-- Full article content -->
+                    </div>
+                    <div class="news-modal-actions">
+                        <button class="btn btn-primary" id="news-modal-external" onclick="">
+                            Read Original Article
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="footer" class="about-section">
+            <div class="about-container">
+
+                <!-- Mission -->
+                <div class="about-hero">
+                    <div class="about-badge">ABOUT THE PLATFORM</div>
+                    <h2 class="about-title">Global Military <span class="text-accent">Intelligence</span></h2>
+                    <p class="about-subtitle">A comprehensive, open-source defense analysis platform providing real-time
+                        military data, live conflict tracking, and strategic intelligence for researchers, analysts, and
+                        enthusiasts worldwide.</p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="about-features-grid">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">🌍</div>
+                        <h4>Nations Database</h4>
+                        <p>Detailed military profiles for 33+ nations including army, navy, and air force data with
+                            equipment inventories and personnel counts.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">⚔️</div>
+                        <h4>Live Conflicts</h4>
+                        <p>Real-time tracking of global conflicts with interactive maps, intensity ratings, and live
+                            news feeds from verified sources.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">📊</div>
+                        <h4>Compare Tool</h4>
+                        <p>Side-by-side comparison of military capabilities between nations — personnel, budget,
+                            equipment, and nuclear status.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">📡</div>
+                        <h4>Real-Time News</h4>
+                        <p>Aggregated defense news from 11+ verified military sources filtered by AI to exclude
+                            non-defense content.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">🗺️</div>
+                        <h4>Interactive Maps</h4>
+                        <p>Leaflet-powered world maps with military power markers, nuclear proliferation routes, and
+                            conflict zone overlays.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">📜</div>
+                        <h4>Military History</h4>
+                        <p>Explore major historical wars with interactive conquest maps, timelines, alliance networks,
+                            and territorial control visualizations.</p>
+                    </div>
+                </div>
+
+                <!-- Data Sources & Disclaimer -->
+                <div class="about-info-row">
+                    <div class="about-info-card">
+                        <h4>📁 Data Sources</h4>
+                        <ul>
+                            <li>GlobalFirepower (GFP) — Annual military rankings</li>
+                            <li>IISS Military Balance — Equipment & personnel data</li>
+                            <li>SIPRI — Defense expenditure database</li>
+                            <li>Federation of American Scientists — Nuclear arsenals</li>
+                            <li>ACLED — Armed conflict & event tracking</li>
+                            <li>Official government defense publications</li>
+                        </ul>
+                    </div>
+                    <div class="about-info-card">
+                        <h4>⚠️ Disclaimer</h4>
+                        <p>This platform is for <strong>educational and research purposes only</strong>. All data is
+                            compiled from publicly available sources and may not reflect classified or real-time
+                            operational details. Military statistics are approximate and updated periodically. This
+                            website is not affiliated with any government or military organization.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Global Military Intelligence</h4>
+                    <p>The world's most comprehensive open-source defense analysis platform — tracking 33+ nations, 15+
+                        active conflicts, and real-time military news.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#hero">Home</a>
+                    <a href="#map-section">Nations</a>
+                    <a href="#compare-section">Compare</a>
+                    <a href="#news-section">News</a>
+                    <a href="#conflicts-section">Conflicts</a>
+                    <a href="#history-section">History</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <p>Built with HTML5, CSS3, Vanilla JavaScript, Leaflet.js, GSAP, and RSS2JSON API. Designed for
+                        performance and accessibility.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Global Military Intelligence. For educational purposes only. Not affiliated with any
+                    government.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="auth-login-modal" class="auth-modal">
+        <div class="auth-modal-overlay" onclick="closeLoginModal()"></div>
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeLoginModal()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <!-- Role Selection -->
+            <div class="auth-role-select" id="auth-role-select">
+                <h2 class="auth-modal-title">Choose Login Type</h2>
+                <p class="auth-modal-subtitle">Select your account type to continue</p>
+                <div class="auth-role-cards">
+                    <button class="auth-role-card" onclick="showLoginForm('user')">
+                        <div class="auth-role-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>User Login</h3>
+                        <p>Access your personal dashboard</p>
+                    </button>
+                    <button class="auth-role-card auth-role-admin" onclick="showLoginForm('admin')">
+                        <div class="auth-role-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Admin Login</h3>
+                        <p>Administrative access</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Login Form -->
+            <div class="auth-form-container" id="auth-login-form" style="display:none;">
+                <button class="auth-back-btn" onclick="showRoleSelect()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back
+                </button>
+                <h2 class="auth-modal-title" id="login-form-title">User Login</h2>
+                <p class="auth-modal-subtitle">Enter your credentials to continue</p>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <input type="hidden" id="login-role" value="user">
+                    <div class="auth-input-group">
+                        <label for="login-username">Username or Email</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <input type="text" id="login-username" placeholder="Enter username or email" required autocomplete="username">
+                        </div>
+                    </div>
+                    <div class="auth-input-group">
+                        <label for="login-password">Password</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <input type="password" id="login-password" placeholder="Enter password" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-submit-btn" id="login-submit-btn">
+                        <span>Login</span>
+                        <div class="auth-btn-spinner" style="display:none;"></div>
+                    </button>
+                </form>
+                <p class="auth-switch-text" id="login-switch-text">Don't have an account? <a href="#" onclick="closeLoginModal();openSignupModal();return false;">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="auth-signup-modal" class="auth-modal">
+        <div class="auth-modal-overlay" onclick="closeSignupModal()"></div>
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeSignupModal()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <h2 class="auth-modal-title">Create Account</h2>
+            <p class="auth-modal-subtitle">Join Global Military Intelligence</p>
+            <form id="signup-form" onsubmit="handleSignup(event)">
+                <div class="auth-input-group">
+                    <label for="signup-username">Username</label>
+                    <div class="auth-input-wrap">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" id="signup-username" placeholder="Choose a username" required minlength="3" autocomplete="username">
+                    </div>
+                </div>
+                <div class="auth-input-group">
+                    <label for="signup-email">Email</label>
+                    <div class="auth-input-wrap">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="auth-input-group">
+                    <label for="signup-password">Password</label>
+                    <div class="auth-input-wrap">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="signup-password" placeholder="Min 6 characters" required minlength="6" autocomplete="new-password">
+                    </div>
+                </div>
+                <button type="submit" class="auth-submit-btn" id="signup-submit-btn">
+                    <span>Create Account</span>
+                    <div class="auth-btn-spinner" style="display:none;"></div>
+                </button>
+            </form>
+            <p class="auth-switch-text">Already have an account? <a href="#" onclick="closeSignupModal();openLoginModal();return false;">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
