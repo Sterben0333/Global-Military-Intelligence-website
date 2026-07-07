@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
-const { getDb, seedAdmin } = require('./database/db');
+const { connectDB } = require('./database/connection');
+const { seedAdmin } = require('./database/seed');
 const authRoutes = require('./routes/auth');
 
 const app = express();
@@ -39,18 +40,27 @@ app.get('*', (req, res) => {
 // ============================================
 // START SERVER
 // ============================================
-app.listen(PORT, () => {
-    // Initialize database and seed admin
-    getDb();
-    seedAdmin();
+async function startServer() {
+    // Connect to MongoDB Atlas
+    await connectDB();
 
-    console.log('');
-    console.log('╔════════════════════════════════════════════╗');
-    console.log('║   GLOBAL MILITARY INTELLIGENCE SERVER      ║');
-    console.log('╠════════════════════════════════════════════╣');
-    console.log(`║   🌐 Server:  http://localhost:${PORT}         ║`);
-    console.log('║   🗄️  Database: SQLite (database.db)       ║');
-    console.log('║   🛡️  Admin:   Pre-seeded from .env        ║');
-    console.log('╚════════════════════════════════════════════╝');
-    console.log('');
+    // Seed admin account
+    await seedAdmin();
+
+    app.listen(PORT, () => {
+        console.log('');
+        console.log('╔════════════════════════════════════════════╗');
+        console.log('║   GLOBAL MILITARY INTELLIGENCE SERVER      ║');
+        console.log('╠════════════════════════════════════════════╣');
+        console.log(`║   🌐 Server:  http://localhost:${PORT}         ║`);
+        console.log('║   🍃 Database: MongoDB Atlas               ║');
+        console.log('║   🛡️  Admin:   Pre-seeded from .env        ║');
+        console.log('╚════════════════════════════════════════════╝');
+        console.log('');
+    });
+}
+
+startServer().catch(err => {
+    console.error('🔴 Failed to start server:', err.message);
+    process.exit(1);
 });

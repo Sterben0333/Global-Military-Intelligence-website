@@ -1,7 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { getDb } = require('../database/db');
+const User = require('../database/models/User');
+const Admin = require('../database/models/Admin');
 const { authMiddleware } = require('../middleware/auth');
 
 const router = express.Router();
@@ -9,7 +10,7 @@ const router = express.Router();
 // ============================================
 // USER REGISTRATION
 // ============================================
-router.post('/user/register', (req, res) => {
+router.post('/user/register', async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
@@ -27,23 +28,26 @@ router.post('/user/register', (req, res) => {
             return res.status(400).json({ error: 'Invalid email format.' });
         }
 
-        const db = getDb();
-
         // Check if username or email already exists
-        const existingUser = db.prepare('SELECT id FROM users WHERE username = ? OR email = ?').get(username, email);
+        const existingUser = await User.findOne({
+            $or: [{ username }, { email }]
+        });
         if (existingUser) {
             return res.status(409).json({ error: 'Username or email already taken.' });
         }
 
         // Hash password and create user
         const hashedPassword = bcrypt.hashSync(password, 12);
-        const result = db.prepare(
-            'INSERT INTO users (username, email, password, displayName) VALUES (?, ?, ?, ?)'
-        ).run(username, email, hashedPassword, username);
+        const newUser = await User.create({
+            username,
+            email,
+            password: hashedPassword,
+            displayName: username
+        });
 
         // Generate JWT
         const token = jwt.sign(
-            { id: result.lastInsertRowid, username, role: 'user' },
+            { id: newUser._id, username, role: 'user' },
             process.env.JWT_SECRET,
             { expiresIn: '7d' }
         );
@@ -52,7 +56,7 @@ router.post('/user/register', (req, res) => {
         res.status(201).json({
             message: 'Account created successfully.',
             token,
-            user: { id: result.lastInsertRowid, username, email, role: 'user', displayName: username }
+            user: { id: newUser._id, username, email, role: 'user', displayName: username }
         });
 
     } catch (err) {
@@ -64,7 +68,7 @@ router.post('/user/register', (req, res) => {
 // ============================================
 // USER LOGIN
 // ============================================
-router.post('/user/login', (req, res) => {
+router.post('/user/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -72,8 +76,9 @@ router.post('/user/login', (req, res) => {
             return res.status(400).json({ error: 'Username and password are required.' });
         }
 
-        const db = getDb();
-        const user = db.prepare('SELECT * FROM users WHERE username = ? OR email = ?').get(username, username);
+        const user = await User.findOne({
+            $or: [{ username }, { email: username }]
+        });
 
         if (!user) {
             return res.status(401).json({ error: 'Invalid credentials.' });
@@ -85,11 +90,12 @@ router.post('/user/login', (req, res) => {
         }
 
         // Update last login
-        db.prepare('UPDATE users SET lastLogin = CURRENT_TIMESTAMP WHERE id = ?').run(user.id);
+        user.lastLogin = new Date();
+        await user.save();
 
         // Generate JWT
         const token = jwt.sign(
-            { id: user.id, username: user.username, role: 'user' },
+            { id: user._id, username: user.username, role: 'user' },
             process.env.JWT_SECRET,
             { expiresIn: '7d' }
         );
@@ -98,7 +104,7 @@ router.post('/user/login', (req, res) => {
         res.json({
             message: 'Login successful.',
             token,
-            user: { id: user.id, username: user.username, email: user.email, role: 'user', displayName: user.displayName }
+            user: { id: user._id, username: user.username, email: user.email, role: 'user', displayName: user.displayName }
         });
 
     } catch (err) {
@@ -110,7 +116,7 @@ router.post('/user/login', (req, res) => {
 // ============================================
 // ADMIN LOGIN
 // ============================================
-router.post('/admin/login', (req, res) => {
+router.post('/admin/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -118,8 +124,9 @@ router.post('/admin/login', (req, res) => {
             return res.status(400).json({ error: 'Username and password are required.' });
         }
 
-        const db = getDb();
-        const admin = db.prepare('SELECT * FROM admins WHERE username = ? OR email = ?').get(username, username);
+        const admin = await Admin.findOne({
+            $or: [{ username }, { email: username }]
+        });
 
         if (!admin) {
             return res.status(401).json({ error: 'Invalid admin credentials.' });
@@ -131,11 +138,12 @@ router.post('/admin/login', (req, res) => {
         }
 
         // Update last login
-        db.prepare('UPDATE admins SET lastLogin = CURRENT_TIMESTAMP WHERE id = ?').run(admin.id);
+        admin.lastLogin = new Date();
+        await admin.save();
 
         // Generate JWT
         const token = jwt.sign(
-            { id: admin.id, username: admin.username, role: 'admin' },
+            { id: admin._id, username: admin.username, role: 'admin' },
             process.env.JWT_SECRET,
             { expiresIn: '7d' }
         );
@@ -144,7 +152,7 @@ router.post('/admin/login', (req, res) => {
         res.json({
             message: 'Admin login successful.',
             token,
-            user: { id: admin.id, username: admin.username, email: admin.email, role: 'admin', displayName: admin.displayName }
+            user: { id: admin._id, username: admin.username, email: admin.email, role: 'admin', displayName: admin.displayName }
         });
 
     } catch (err) {
@@ -156,17 +164,24 @@ router.post('/admin/login', (req, res) => {
 // ============================================
 // GET PROFILE (requires auth)
 // ============================================
-router.get('/profile', authMiddleware, (req, res) => {
+router.get('/profile', authMiddleware, async (req, res) => {
     try {
-        const db = getDb();
-        const table = req.user.role === 'admin' ? 'admins' : 'users';
-        const user = db.prepare(`SELECT id, username, email, displayName, createdAt, lastLogin FROM ${table} WHERE id = ?`).get(req.user.id);
+        const Model = req.user.role === 'admin' ? Admin : User;
+        const user = await Model.findById(req.user.id).select('username email displayName createdAt lastLogin');
 
         if (!user) {
             return res.status(404).json({ error: 'User not found.' });
         }
 
-        res.json({ ...user, role: req.user.role });
+        res.json({
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            displayName: user.displayName,
+            createdAt: user.createdAt,
+            lastLogin: user.lastLogin,
+            role: req.user.role
+        });
 
     } catch (err) {
         console.error('Profile error:', err);
@@ -177,19 +192,27 @@ router.get('/profile', authMiddleware, (req, res) => {
 // ============================================
 // UPDATE PROFILE (requires auth)
 // ============================================
-router.put('/profile', authMiddleware, (req, res) => {
+router.put('/profile', authMiddleware, async (req, res) => {
     try {
         const { displayName } = req.body;
-        const db = getDb();
-        const table = req.user.role === 'admin' ? 'admins' : 'users';
+        const Model = req.user.role === 'admin' ? Admin : User;
 
         if (displayName !== undefined) {
-            db.prepare(`UPDATE ${table} SET displayName = ? WHERE id = ?`).run(displayName, req.user.id);
+            await Model.findByIdAndUpdate(req.user.id, { displayName });
         }
 
-        const user = db.prepare(`SELECT id, username, email, displayName, createdAt, lastLogin FROM ${table} WHERE id = ?`).get(req.user.id);
+        const user = await Model.findById(req.user.id).select('username email displayName createdAt lastLogin');
 
-        res.json({ ...user, role: req.user.role, message: 'Profile updated.' });
+        res.json({
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            displayName: user.displayName,
+            createdAt: user.createdAt,
+            lastLogin: user.lastLogin,
+            role: req.user.role,
+            message: 'Profile updated.'
+        });
 
     } catch (err) {
         console.error('Update profile error:', err);
