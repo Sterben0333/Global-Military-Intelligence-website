@@ -104,6 +104,10 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                             Profile
                         </button>
+                        <button class="auth-dropdown-item" onclick="openWatchlistDashboard()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            My Watchlist
+                        </button>
                         <button class="auth-dropdown-item auth-dropdown-logout" onclick="logoutUser()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                             Logout
@@ -849,6 +853,24 @@
                 </button>
             </form>
             <p class="auth-switch-text">Already have an account? <a href="#" onclick="closeSignupModal();openLoginModal();return false;">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Watchlist Dashboard Overlay -->
+    <div id="watchlist-dashboard" class="watchlist-dashboard">
+        <div class="watchlist-dashboard-inner">
+            <div class="watchlist-header">
+                <div class="watchlist-header-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <h2>Intel Watchlist</h2>
+                </div>
+                <button class="watchlist-close-btn" onclick="closeWatchlistDashboard()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="watchlist-body" id="watchlist-body">
+                <!-- Populated by JavaScript -->
+            </div>
         </div>
     </div>
 

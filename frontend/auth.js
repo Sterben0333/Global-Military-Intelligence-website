@@ -122,6 +122,7 @@ async function handleLogin(e) {
         updateAuthUI(data.user);
         closeLoginModal();
         showToast(`Welcome back, ${data.user.displayName || data.user.username}!`);
+        if (typeof loadWatchlist === 'function') loadWatchlist();
     } catch (err) {
         showToast('Connection error. Is the server running?', 'error');
     } finally {
@@ -163,6 +164,7 @@ async function handleSignup(e) {
         updateAuthUI(data.user);
         closeSignupModal();
         showToast(`Welcome to GMI, ${data.user.username}!`);
+        if (typeof loadWatchlist === 'function') loadWatchlist();
     } catch (err) {
         showToast('Connection error. Is the server running?', 'error');
     } finally {
@@ -177,6 +179,7 @@ function logoutUser() {
     localStorage.removeItem('gmi_token');
     localStorage.removeItem('gmi_user');
     updateAuthUI(null);
+    if (typeof clearWatchlistCache === 'function') clearWatchlistCache();
     const menu = document.getElementById('auth-user-menu');
     if (menu) menu.classList.remove('open');
     showToast('You have been logged out.');
@@ -226,6 +229,7 @@ function restoreAuthState() {
     const token = localStorage.getItem('gmi_token');
     if (user && token) {
         updateAuthUI(user);
+        if (typeof loadWatchlist === 'function') loadWatchlist();
     }
 }
 

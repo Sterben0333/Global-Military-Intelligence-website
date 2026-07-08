@@ -1,10 +1,11 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const express = require('express');
-const path = require('path');
 const { connectDB } = require('./database/connection');
 const { seedAdmin } = require('./database/seed');
 const authRoutes = require('./routes/auth');
+const watchlistRoutes = require('./routes/watchlist');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, '../frontend'), {
 // API ROUTES
 // ============================================
 app.use('/api/auth', authRoutes);
+app.use('/api/watchlist', watchlistRoutes);
 
 // ============================================
 // CATCH-ALL — serve index.html for any non-API route

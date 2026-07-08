@@ -632,6 +632,7 @@ function renderNationCard(key) {
         : '';
     return `
         <div class="nation-card" onclick="openNationModal('${key}')">
+            ${getFollowBtnHtml('nation', key)}
             <div class="nation-card-header">
                 <div class="nation-flag">
                     <img src="${getFlagUrl(nation.countryCode)}" alt="${nation.name} flag">
@@ -710,6 +711,19 @@ function openNationModal(nationKey) {
     document.getElementById('modal-flag').innerHTML = `<img src="${getFlagUrl(nation.countryCode, 'w160')}" alt="${nation.name} flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`;
     document.getElementById('modal-nation-name').textContent = nation.name;
     document.getElementById('modal-nation-rank').textContent = `Global Rank: #${nation.rank}`;
+
+    // Add follow button to modal header
+    const modalNationInfo = document.querySelector('#nation-modal .nation-info');
+    let existingFollowBtn = document.getElementById('modal-follow-btn');
+    if (existingFollowBtn) existingFollowBtn.remove();
+    if (isLoggedIn()) {
+        const followBtn = document.createElement('button');
+        followBtn.id = 'modal-follow-btn';
+        followBtn.className = 'modal-follow-btn' + (isFollowing('nation', nationKey) ? ' active' : '');
+        followBtn.innerHTML = isFollowing('nation', nationKey) ? '★ Following' : '☆ Follow Nation';
+        followBtn.onclick = function(e) { toggleWatchlistItem('nation', nationKey, e); };
+        modalNationInfo.appendChild(followBtn);
+    }
 
     // Set active tab
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -3865,6 +3879,7 @@ function renderConflicts(type) {
 
         return `
         <div class="conflict-card" style="animation-delay: ${idx * 0.08}s" onclick="openConflictDetail(${conflictsData.indexOf(conflict)})">
+            ${getFollowBtnHtml('conflict', String(conflictsData.indexOf(conflict)))}
             <img class="conflict-card-image" src="${conflict.image}" alt="${conflict.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1580227974546-fbd48825d991?w=600&h=300&fit=crop'">
             <div class="conflict-card-body">
                 <div class="conflict-card-header">
@@ -5479,3 +5494,341 @@ function filterNewsCards(query) {
         ring.classList.remove('cursor-click');
     });
 })();
+
+// ============================================
+// WATCHLIST SYSTEM
+// ============================================
+let watchlistCache = [];
+
+function isLoggedIn() {
+    return !!localStorage.getItem('gmi_token');
+}
+
+function getAuthHeaders() {
+    const token = localStorage.getItem('gmi_token');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
+}
+
+async function loadWatchlist() {
+    if (!isLoggedIn()) {
+        watchlistCache = [];
+        return;
+    }
+    try {
+        const res = await fetch('/api/watchlist', { headers: getAuthHeaders() });
+        if (res.ok) {
+            const data = await res.json();
+            watchlistCache = data.items || [];
+            refreshFollowButtons();
+        }
+    } catch (err) {
+        console.error('Failed to load watchlist:', err);
+    }
+}
+
+function isFollowing(targetType, targetId) {
+    return watchlistCache.some(item => item.targetType === targetType && item.targetId === targetId);
+}
+
+async function toggleWatchlistItem(targetType, targetId, event) {
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+    if (!isLoggedIn()) {
+        showToast('Please sign up or login to follow items.', 'error');
+        openSignupModal();
+        return;
+    }
+    const alreadyFollowing = isFollowing(targetType, targetId);
+    try {
+        if (alreadyFollowing) {
+            const res = await fetch('/api/watchlist/' + targetType + '/' + targetId, {
+                method: 'DELETE',
+                headers: getAuthHeaders()
+            });
+            if (res.ok) {
+                watchlistCache = watchlistCache.filter(
+                    item => !(item.targetType === targetType && item.targetId === targetId)
+                );
+                const name = getTargetDisplayName(targetType, targetId);
+                showToast('Unfollowed ' + name, 'success');
+            }
+        } else {
+            const res = await fetch('/api/watchlist', {
+                method: 'POST',
+                headers: getAuthHeaders(),
+                body: JSON.stringify({ targetType, targetId })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                watchlistCache.push(data.item);
+                const name = getTargetDisplayName(targetType, targetId);
+                showToast('Following ' + name + ' ?', 'success');
+            }
+        }
+        refreshFollowButtons();
+    } catch (err) {
+        showToast('Connection error. Please try again.', 'error');
+    }
+}
+
+function getTargetDisplayName(targetType, targetId) {
+    if (targetType === 'nation' && nationsData[targetId]) {
+        return nationsData[targetId].name;
+    }
+    if (targetType === 'conflict' && conflictsData[parseInt(targetId)]) {
+        return conflictsData[parseInt(targetId)].name;
+    }
+    return targetId;
+}
+
+function refreshFollowButtons() {
+    document.querySelectorAll('.follow-btn').forEach(function(btn) {
+        var type = btn.dataset.targetType;
+        var id = btn.dataset.targetId;
+        if (isFollowing(type, id)) {
+            btn.classList.add('active');
+            btn.innerHTML = '\u2605';
+            btn.title = 'Unfollow';
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '\u2606';
+            btn.title = 'Follow';
+        }
+    });
+    var modalBtn = document.getElementById('modal-follow-btn');
+    if (modalBtn && currentNation) {
+        if (isFollowing('nation', currentNation)) {
+            modalBtn.classList.add('active');
+            modalBtn.innerHTML = '\u2605 Following';
+        } else {
+            modalBtn.classList.remove('active');
+            modalBtn.innerHTML = '\u2606 Follow Nation';
+        }
+    }
+}
+
+function getFollowBtnHtml(targetType, targetId) {
+    if (!isLoggedIn()) return '';
+    var active = isFollowing(targetType, targetId);
+    return '<button class="follow-btn ' + (active ? 'active' : '') + '" data-target-type="' + targetType + '" data-target-id="' + targetId + '" onclick="toggleWatchlistItem(\'' + targetType + '\', \'' + targetId + '\', event)" title="' + (active ? 'Unfollow' : 'Follow') + '">' + (active ? '\u2605' : '\u2606') + '</button>';
+}
+
+// ============================================
+// WATCHLIST DASHBOARD
+// ============================================
+function openWatchlistDashboard() {
+    var dashboard = document.getElementById('watchlist-dashboard');
+    if (dashboard) {
+        dashboard.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        renderWatchlistDashboard();
+    }
+    var menu = document.getElementById('auth-user-menu');
+    if (menu) menu.classList.remove('open');
+}
+
+function closeWatchlistDashboard() {
+    var dashboard = document.getElementById('watchlist-dashboard');
+    if (dashboard) {
+        dashboard.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Nation search keywords for personalized feed matching
+const nationKeywords = {
+    USA: ["usa", "u.s.", "united states", "american", "pentagon", "washington"],
+    Russia: ["russia", "russian", "moscow", "kremlin"],
+    China: ["china", "chinese", "beijing", "plan ", "pla "],
+    India: ["india", "indian", "delhi"],
+    UK: ["uk ", "u.k.", "britain", "british", "london", "royal navy"],
+    France: ["france", "french", "paris"],
+    NorthKorea: ["north korea", "pyongyang", "dprk"],
+    Japan: ["japan", "japanese", "tokyo"],
+    SouthKorea: ["south korea", "seoul"],
+    Israel: ["israel", "israeli", "tel aviv", "idf", "mossad"],
+    Iran: ["iran", "iranian", "tehran", "irgc"],
+    Germany: ["germany", "german", "berlin"],
+    Turkey: ["turkey", "turkish", "ankara"],
+    Pakistan: ["pakistan", "pakistani", "islamabad"],
+    SaudiArabia: ["saudi", "riyadh"],
+    Egypt: ["egypt", "egyptian", "cairo"],
+    Ukraine: ["ukraine", "ukrainian", "kyiv"],
+    Taiwan: ["taiwan", "taiwanese", "taipei"],
+    Canada: ["canada", "canadian", "ottawa"],
+    Australia: ["australia", "australian", "canberra"],
+    Brazil: ["brazil", "brazilian", "brasilia"]
+};
+
+function getPersonalizedIntelFeed(nations, conflicts) {
+    var feed = [];
+
+    // 1. Match from global newsData
+    if (typeof newsData !== 'undefined' && Array.isArray(newsData)) {
+        newsData.forEach(function(article) {
+            var title = (article.title || '').toLowerCase();
+            var desc = (article.description || '').toLowerCase();
+
+            // Match followed nations
+            nations.forEach(function(n) {
+                var keywords = nationKeywords[n.targetId] || [nationsData[n.targetId] ? nationsData[n.targetId].name.toLowerCase() : n.targetId.toLowerCase()];
+                var matches = keywords.some(function(kw) { return title.includes(kw) || desc.includes(kw); });
+                if (matches) {
+                    feed.push({
+                        type: 'news',
+                        tag: '🌍 ' + (nationsData[n.targetId] ? nationsData[n.targetId].name : n.targetId),
+                        title: article.title,
+                        desc: article.description,
+                        time: article.publishedAt ? new Date(article.publishedAt) : new Date(),
+                        source: article.source || 'Intel Feed'
+                    });
+                }
+            });
+
+            // Match followed conflicts
+            conflicts.forEach(function(c) {
+                var conflictIndex = parseInt(c.targetId);
+                var conflict = conflictsData[conflictIndex];
+                if (conflict) {
+                    var nameWords = conflict.name.toLowerCase().split(/[\s-]+/);
+                    var matches = nameWords.some(function(word) {
+                        if (['war', 'vs', 'and', 'the', 'of', 'in', 'crisis'].includes(word)) return false;
+                        return title.includes(word) || desc.includes(word);
+                    });
+                    if (matches) {
+                        feed.push({
+                            type: 'news',
+                            tag: '⚔️ ' + conflict.name,
+                            title: article.title,
+                            desc: article.description,
+                            time: article.publishedAt ? new Date(article.publishedAt) : new Date(),
+                            source: article.source || 'Intel Feed'
+                        });
+                    }
+                }
+            });
+        });
+    }
+
+    // 2. Match specific updates embedded in conflict objects
+    conflicts.forEach(function(c) {
+        var conflictIndex = parseInt(c.targetId);
+        var conflict = conflictsData[conflictIndex];
+        if (conflict && Array.isArray(conflict.news)) {
+            conflict.news.forEach(function(item) {
+                feed.push({
+                    type: 'update',
+                    tag: '📡 ' + conflict.name + ' UPDATE',
+                    title: item.title,
+                    desc: 'Reported by ' + item.source,
+                    time: item.date ? new Date(item.date) : new Date(),
+                    source: item.source
+                });
+            });
+        }
+    });
+
+    // 3. Dynamic force adjustment alerts for followed nations
+    nations.forEach(function(n) {
+        var nation = nationsData[n.targetId];
+        if (nation) {
+            feed.push({
+                type: 'alert',
+                tag: '📊 FORCE ASSIGNMENT',
+                title: nation.name + ' Global Military Projection Report',
+                desc: nation.name + ' maintains active military personnel count of ' + nation.personnel.active.toLocaleString() + ' with a total defense budget of ' + nation.budget + ', ranked #' + nation.rank + ' globally.',
+                time: new Date(Date.now() - 3600000 * 6), // 6 hours ago
+                source: 'GMI OSINT System'
+            });
+        }
+    });
+
+    // Sort feed items by time (newest first)
+    feed.sort(function(a, b) { return b.time - a.time; });
+
+    // Deduplicate
+    var seen = new Set();
+    return feed.filter(function(item) {
+        var key = item.title.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+}
+
+function renderWatchlistDashboard() {
+    var body = document.getElementById('watchlist-body');
+    if (!body) return;
+    var nations = watchlistCache.filter(function(item) { return item.targetType === 'nation'; });
+    var conflicts = watchlistCache.filter(function(item) { return item.targetType === 'conflict'; });
+
+    if (nations.length === 0 && conflicts.length === 0) {
+        body.innerHTML = '<div class="watchlist-empty"><div class="watchlist-empty-icon">\uD83D\uDCE1</div><h3>No Intel Tracked Yet</h3><p>Use the \u2606 button on nation cards and conflict cards to add items to your watchlist. Your followed intelligence will appear here.</p></div>';
+        return;
+    }
+
+    var assetsHtml = '';
+
+    if (nations.length > 0) {
+        assetsHtml += '<div class="watchlist-section"><div class="watchlist-section-title">\uD83C\uDF0D Followed Nations <span class="wl-count">' + nations.length + '</span></div><div class="watchlist-grid">';
+        nations.forEach(function(item) {
+            var nation = nationsData[item.targetId];
+            if (nation) {
+                assetsHtml += '<div class="watchlist-item" onclick="closeWatchlistDashboard(); setTimeout(function() { openNationModal(\'' + item.targetId + '\'); }, 300);"><img class="watchlist-item-flag" src="' + getFlagUrl(nation.countryCode, 'w80') + '" alt="' + nation.name + '" onerror="this.style.display=\'none\'"><div class="watchlist-item-info"><div class="watchlist-item-name">' + nation.name + '</div><div class="watchlist-item-meta">Rank #' + nation.rank + ' \u2022 ' + nation.budget + '</div></div><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'nation\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
+            }
+        });
+        assetsHtml += '</div></div>';
+    }
+
+    if (conflicts.length > 0) {
+        assetsHtml += '<div class="watchlist-section"><div class="watchlist-section-title">\u2694\uFE0F Followed Conflicts <span class="wl-count">' + conflicts.length + '</span></div><div class="watchlist-grid">';
+        conflicts.forEach(function(item) {
+            var conflict = conflictsData[parseInt(item.targetId)];
+            if (conflict) {
+                assetsHtml += '<div class="watchlist-item" onclick="closeWatchlistDashboard(); setTimeout(function() { openConflictDetail(' + parseInt(item.targetId) + '); }, 300);"><div class="watchlist-item-icon">' + conflict.regionIcon + '</div><div class="watchlist-item-info"><div class="watchlist-item-name">' + conflict.name + '</div><div class="watchlist-item-meta">' + conflict.region + ' \u2022 ' + conflict.status + '</div></div><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'conflict\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
+            }
+        });
+        assetsHtml += '</div></div>';
+    }
+
+    // Build the personalized feed HTML
+    var feedData = getPersonalizedIntelFeed(nations, conflicts);
+    var feedHtml = '<div class="intel-feed-container">';
+    feedHtml += '<div class="intel-feed-header"><div class="intel-feed-header-left"><div class="intel-feed-badge-pulse"></div><span>Personalized Intel Feed & Alerts</span></div></div>';
+    feedHtml += '<div class="intel-feed-list">';
+
+    if (feedData.length === 0) {
+        feedHtml += '<div style="color: var(--color-text-muted); font-size: 0.85rem; font-style: italic; padding: 20px 0; text-align: center;">Waiting for incoming intelligence telemetry...</div>';
+    } else {
+        feedData.forEach(function(item) {
+            var timeAgo = getTimeAgo(item.time);
+            feedHtml += '<div class="intel-feed-item">';
+            feedHtml += '<div class="intel-feed-item-header">';
+            feedHtml += '<span class="intel-feed-tag">' + item.tag + '</span>';
+            feedHtml += '<span class="intel-feed-time">' + (timeAgo || 'Recent') + '</span>';
+            feedHtml += '</div>';
+            feedHtml += '<div class="intel-feed-title">' + item.title + '</div>';
+            feedHtml += '<div class="intel-feed-desc">' + item.desc + '</div>';
+            feedHtml += '</div>';
+        });
+    }
+    feedHtml += '</div></div>';
+
+    // Output into a responsive two-column grid
+    body.innerHTML = '<div class="watchlist-layout"><div class="watchlist-assets-col">' + assetsHtml + '</div><div class="watchlist-feed-col">' + feedHtml + '</div></div>';
+}
+
+async function unfollowFromDashboard(targetType, targetId) {
+    await toggleWatchlistItem(targetType, targetId);
+    renderWatchlistDashboard();
+}
+
+function clearWatchlistCache() {
+    watchlistCache = [];
+    refreshFollowButtons();
+}

@@ -11,5 +11,6 @@ echo.
 :: Open browser after a short delay
 start "" "http://localhost:3000"
 
-:: Start the server (this keeps running until you close the window)
-npx -y serve "e:\Anti gravity files\Web files ig\military-intel-website" -l 3000
+:: Start the Express backend server
+node backend/server.js
+

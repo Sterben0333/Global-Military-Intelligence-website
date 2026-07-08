@@ -5808,3 +5808,465 @@ body {
         left: 10px;
     }
 }
+
+/* ============================================
+   FOLLOW BUTTON ON CARDS
+   ============================================ */
+.follow-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    background: rgba(10, 22, 40, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+    padding: 0;
+    line-height: 1;
+}
+
+.follow-btn:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    color: rgba(212, 175, 55, 0.8);
+    background: rgba(212, 175, 55, 0.1);
+    transform: scale(1.1);
+}
+
+.follow-btn.active {
+    border-color: rgba(212, 175, 55, 0.6);
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.follow-btn.active:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Make nation-card and conflict-card position relative for follow btn */
+.nation-card,
+.conflict-card {
+    position: relative;
+}
+
+/* Follow button inside nation modal header */
+.modal-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.03em;
+    margin-top: 8px;
+}
+
+.modal-follow-btn:hover {
+    border-color: var(--color-accent-gold);
+    color: var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.modal-follow-btn.active {
+    border-color: rgba(212, 175, 55, 0.6);
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.2);
+}
+
+.modal-follow-btn.active:hover {
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ============================================
+   WATCHLIST DASHBOARD OVERLAY
+   ============================================ */
+.watchlist-dashboard {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    background: rgba(6, 10, 18, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: none;
+    overflow-y: auto;
+}
+
+.watchlist-dashboard.active {
+    display: block;
+    animation: watchlistFadeIn 0.3s ease;
+}
+
+@keyframes watchlistFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.watchlist-dashboard-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+.watchlist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.watchlist-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-accent-gold);
+}
+
+.watchlist-header-left h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.watchlist-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.watchlist-close-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+/* Watchlist Sections */
+.watchlist-section {
+    margin-bottom: 40px;
+}
+
+.watchlist-section-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.watchlist-section-title .wl-count {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: var(--color-accent-gold);
+}
+
+.watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* Watchlist Item Card */
+.watchlist-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.watchlist-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.watchlist-item-flag {
+    width: 48px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.watchlist-item-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.watchlist-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.watchlist-item-name {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.watchlist-item-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.watchlist-unfollow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.08);
+    color: rgba(239, 68, 68, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+
+.watchlist-unfollow-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #f87171;
+    transform: scale(1.1);
+}
+
+/* Empty State */
+.watchlist-empty {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.watchlist-empty-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    opacity: 0.4;
+}
+
+.watchlist-empty h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+}
+
+.watchlist-empty p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .watchlist-dashboard-inner {
+        padding: 20px 16px 60px;
+    }
+
+    .watchlist-header-left h2 {
+        font-size: 1.2rem;
+    }
+
+    .watchlist-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   WATCHLIST LAYOUT & INTEL FEED STYLES
+   ============================================ */
+.watchlist-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .watchlist-layout {
+        grid-template-columns: 420px 1fr;
+    }
+}
+
+.intel-feed-container {
+    background: rgba(10, 20, 38, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.intel-feed-header {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.intel-feed-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.intel-feed-badge-pulse {
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ef4444;
+    animation: livePulse 1.5s infinite;
+}
+
+.intel-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Custom scrollbar for feed list */
+.intel-feed-list::-webkit-scrollbar {
+    width: 6px;
+}
+.intel-feed-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3px;
+}
+.intel-feed-list::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 3px;
+}
+.intel-feed-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.4);
+}
+
+.intel-feed-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.intel-feed-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(212, 175, 55, 0.15);
+    transform: translateX(3px);
+}
+
+.intel-feed-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.intel-feed-tag {
+    font-size: 0.65rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.intel-feed-time {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+}
+
+.intel-feed-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.intel-feed-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
