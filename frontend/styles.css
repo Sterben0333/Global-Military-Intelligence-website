@@ -6269,4 +6269,37 @@ body {
     font-size: 0.8rem;
     color: var(--color-text-secondary);
     line-height: 1.5;
-}
+}
+
+/* Selected state for filtering */
+.watchlist-item.selected {
+    border-color: rgba(212, 175, 55, 0.6) !important;
+    background: rgba(212, 175, 55, 0.08) !important;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.15);
+}
+
+/* Details view button */
+.watchlist-view-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-right: 6px;
+    padding: 0;
+}
+
+.watchlist-view-btn:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--color-accent-gold);
+}
+

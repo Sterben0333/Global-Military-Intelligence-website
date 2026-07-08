@@ -5632,12 +5632,27 @@ function openWatchlistDashboard() {
     if (menu) menu.classList.remove('open');
 }
 
+let watchlistFilter = { type: null, id: null };
+
+function toggleWatchlistFilter(type, id, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    if (watchlistFilter.type === type && watchlistFilter.id === id) {
+        watchlistFilter = { type: null, id: null };
+    } else {
+        watchlistFilter = { type: type, id: id };
+    }
+    renderWatchlistDashboard();
+}
+
 function closeWatchlistDashboard() {
     var dashboard = document.getElementById('watchlist-dashboard');
     if (dashboard) {
         dashboard.classList.remove('active');
         document.body.style.overflow = '';
     }
+    watchlistFilter = { type: null, id: null };
 }
 
 // Nation search keywords for personalized feed matching
@@ -5667,6 +5682,17 @@ const nationKeywords = {
 
 function getPersonalizedIntelFeed(nations, conflicts) {
     var feed = [];
+    var activeNations = nations;
+    var activeConflicts = conflicts;
+
+    // Filter feed items according to selected watchlist filter
+    if (watchlistFilter.type === 'nation') {
+        activeNations = nations.filter(function(n) { return n.targetId === watchlistFilter.id; });
+        activeConflicts = [];
+    } else if (watchlistFilter.type === 'conflict') {
+        activeNations = [];
+        activeConflicts = conflicts.filter(function(c) { return c.targetId === watchlistFilter.id; });
+    }
 
     // 1. Match from global newsData
     if (typeof newsData !== 'undefined' && Array.isArray(newsData)) {
@@ -5675,7 +5701,7 @@ function getPersonalizedIntelFeed(nations, conflicts) {
             var desc = (article.description || '').toLowerCase();
 
             // Match followed nations
-            nations.forEach(function(n) {
+            activeNations.forEach(function(n) {
                 var keywords = nationKeywords[n.targetId] || [nationsData[n.targetId] ? nationsData[n.targetId].name.toLowerCase() : n.targetId.toLowerCase()];
                 var matches = keywords.some(function(kw) { return title.includes(kw) || desc.includes(kw); });
                 if (matches) {
@@ -5691,7 +5717,7 @@ function getPersonalizedIntelFeed(nations, conflicts) {
             });
 
             // Match followed conflicts
-            conflicts.forEach(function(c) {
+            activeConflicts.forEach(function(c) {
                 var conflictIndex = parseInt(c.targetId);
                 var conflict = conflictsData[conflictIndex];
                 if (conflict) {
@@ -5716,7 +5742,7 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     }
 
     // 2. Match specific updates embedded in conflict objects
-    conflicts.forEach(function(c) {
+    activeConflicts.forEach(function(c) {
         var conflictIndex = parseInt(c.targetId);
         var conflict = conflictsData[conflictIndex];
         if (conflict && Array.isArray(conflict.news)) {
@@ -5734,7 +5760,7 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     });
 
     // 3. Dynamic force adjustment alerts for followed nations
-    nations.forEach(function(n) {
+    activeNations.forEach(function(n) {
         var nation = nationsData[n.targetId];
         if (nation) {
             feed.push({
@@ -5779,7 +5805,8 @@ function renderWatchlistDashboard() {
         nations.forEach(function(item) {
             var nation = nationsData[item.targetId];
             if (nation) {
-                assetsHtml += '<div class="watchlist-item" onclick="closeWatchlistDashboard(); setTimeout(function() { openNationModal(\'' + item.targetId + '\'); }, 300);"><img class="watchlist-item-flag" src="' + getFlagUrl(nation.countryCode, 'w80') + '" alt="' + nation.name + '" onerror="this.style.display=\'none\'"><div class="watchlist-item-info"><div class="watchlist-item-name">' + nation.name + '</div><div class="watchlist-item-meta">Rank #' + nation.rank + ' \u2022 ' + nation.budget + '</div></div><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'nation\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
+                var isSel = (watchlistFilter.type === 'nation' && watchlistFilter.id === item.targetId);
+                assetsHtml += '<div class="watchlist-item' + (isSel ? ' selected' : '') + '" onclick="toggleWatchlistFilter(\'nation\', \'' + item.targetId + '\', event)"><img class="watchlist-item-flag" src="' + getFlagUrl(nation.countryCode, 'w80') + '" alt="' + nation.name + '" onerror="this.style.display=\'none\'"><div class="watchlist-item-info"><div class="watchlist-item-name">' + nation.name + '</div><div class="watchlist-item-meta">Rank #' + nation.rank + ' \u2022 ' + nation.budget + '</div></div><button class="watchlist-view-btn" onclick="event.stopPropagation(); closeWatchlistDashboard(); setTimeout(function() { openNationModal(\'' + item.targetId + '\'); }, 300);" title="View Full Profile">👁️</button><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'nation\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
             }
         });
         assetsHtml += '</div></div>';
@@ -5790,7 +5817,8 @@ function renderWatchlistDashboard() {
         conflicts.forEach(function(item) {
             var conflict = conflictsData[parseInt(item.targetId)];
             if (conflict) {
-                assetsHtml += '<div class="watchlist-item" onclick="closeWatchlistDashboard(); setTimeout(function() { openConflictDetail(' + parseInt(item.targetId) + '); }, 300);"><div class="watchlist-item-icon">' + conflict.regionIcon + '</div><div class="watchlist-item-info"><div class="watchlist-item-name">' + conflict.name + '</div><div class="watchlist-item-meta">' + conflict.region + ' \u2022 ' + conflict.status + '</div></div><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'conflict\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
+                var isSel = (watchlistFilter.type === 'conflict' && watchlistFilter.id === item.targetId);
+                assetsHtml += '<div class="watchlist-item' + (isSel ? ' selected' : '') + '" onclick="toggleWatchlistFilter(\'conflict\', \'' + item.targetId + '\', event)"><div class="watchlist-item-icon">' + conflict.regionIcon + '</div><div class="watchlist-item-info"><div class="watchlist-item-name">' + conflict.name + '</div><div class="watchlist-item-meta">' + conflict.region + ' \u2022 ' + conflict.status + '</div></div><button class="watchlist-view-btn" onclick="event.stopPropagation(); closeWatchlistDashboard(); setTimeout(function() { openConflictDetail(' + parseInt(item.targetId) + '); }, 300);" title="View Conflict Details">👁️</button><button class="watchlist-unfollow-btn" onclick="event.stopPropagation(); unfollowFromDashboard(\'conflict\', \'' + item.targetId + '\')" title="Unfollow">\u2715</button></div>';
             }
         });
         assetsHtml += '</div></div>';
@@ -5798,12 +5826,21 @@ function renderWatchlistDashboard() {
 
     // Build the personalized feed HTML
     var feedData = getPersonalizedIntelFeed(nations, conflicts);
+    
+    var feedHeaderTitle = 'Personalized Intel Feed & Alerts';
+    var showAllBtn = '';
+    if (watchlistFilter.type) {
+        var filterName = getTargetDisplayName(watchlistFilter.type, watchlistFilter.id);
+        feedHeaderTitle = 'Intel Feed: ' + filterName;
+        showAllBtn = '<button onclick="toggleWatchlistFilter(watchlistFilter.type, watchlistFilter.id, event)" style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; color: var(--color-accent-gold); font-size: 0.72rem; padding: 3px 8px; cursor: pointer; transition: all 0.2s ease;">Show All</button>';
+    }
+
     var feedHtml = '<div class="intel-feed-container">';
-    feedHtml += '<div class="intel-feed-header"><div class="intel-feed-header-left"><div class="intel-feed-badge-pulse"></div><span>Personalized Intel Feed & Alerts</span></div></div>';
+    feedHtml += '<div class="intel-feed-header"><div class="intel-feed-header-left"><div class="intel-feed-badge-pulse"></div><span>' + feedHeaderTitle + '</span></div>' + showAllBtn + '</div>';
     feedHtml += '<div class="intel-feed-list">';
 
     if (feedData.length === 0) {
-        feedHtml += '<div style="color: var(--color-text-muted); font-size: 0.85rem; font-style: italic; padding: 20px 0; text-align: center;">Waiting for incoming intelligence telemetry...</div>';
+        feedHtml += '<div style="color: var(--color-text-muted); font-size: 0.85rem; font-style: italic; padding: 20px 0; text-align: center;">No intelligence telemetry matches this item...</div>';
     } else {
         feedData.forEach(function(item) {
             var timeAgo = getTimeAgo(item.time);
@@ -5830,5 +5867,6 @@ async function unfollowFromDashboard(targetType, targetId) {
 
 function clearWatchlistCache() {
     watchlistCache = [];
+    watchlistFilter = { type: null, id: null };
     refreshFollowButtons();
 }
