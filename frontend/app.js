@@ -5192,6 +5192,18 @@ function updateAllianceFilterLabels(data) {
     if (side2Btn) side2Btn.innerHTML = `${data.side2Emoji} ${data.side2Name}`;
 }
 
+function toggleConquestLegend(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    const legend = document.getElementById('conquest-legend');
+    const openBtn = document.getElementById('conquest-legend-open-btn');
+    if (legend && openBtn) {
+        legend.classList.toggle('hidden');
+        openBtn.classList.toggle('hidden');
+    }
+}
+
 function updateConquestLegend(data, filter) {
     const legend = document.getElementById('conquest-legend');
     if (!legend) return;
@@ -5220,7 +5232,13 @@ function updateConquestLegend(data, filter) {
     }
 
     legend.innerHTML = `
-        <h4 class="conquest-legend-title">Map Legend</h4>
+        <div class="conquest-legend-header">
+            <h4 class="conquest-legend-title" style="margin: 0; padding: 0; border: none;">Map Legend</h4>
+            <button class="conquest-legend-close-btn" onclick="toggleConquestLegend(event)" title="Hide Legend">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="conquest-legend-divider"></div>
         ${showSide1 ? `<div class="conquest-legend-item"><span class="conquest-legend-line" style="background: #ef4444;"></span><span>${data.side1Name} Zones</span></div>` : ''}
         ${showSide2 ? `<div class="conquest-legend-item"><span class="conquest-legend-line" style="background: #3b82f6;"></span><span>${data.side2Name} Zones</span></div>` : ''}
         <div class="conquest-legend-divider"></div>

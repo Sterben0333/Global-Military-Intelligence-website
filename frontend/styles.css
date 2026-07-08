@@ -6302,4 +6302,82 @@ body {
     border-color: rgba(212, 175, 55, 0.3);
     color: var(--color-accent-gold);
 }
+
+/* ============================================
+   CONQUEST MAP LEGEND COLLAPSIBLE STYLES
+   ============================================ */
+.conquest-legend-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 12px;
+}
+
+.conquest-legend-close-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.conquest-legend-close-btn:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.conquest-legend-open-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 500;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    padding: 8px 14px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
+}
+
+.conquest-legend-open-btn:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--color-accent-gold);
+    color: var(--color-accent-gold);
+    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.25);
+    transform: translateY(-1px);
+}
+
+.conquest-legend-open-btn svg {
+    color: var(--color-accent-gold);
+}
+
+.conquest-legend-open-btn.hidden {
+    display: none !important;
+}
+
+.conquest-legend.hidden {
+    display: none !important;
+}
+
 
