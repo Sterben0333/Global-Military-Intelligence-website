@@ -6185,11 +6185,11 @@ function parseMarkdown(md) {
     // Blockquotes
     html = html.replace(/^&gt; (.+)$/gm, '<blockquote class="nb-blockquote">$1</blockquote>');
 
-    // Bold and italic
-    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-    html = html.replace(/_(.+?)_/g, '<em>$1</em>');
+    // Bold and italic (matches across newlines)
+    html = html.replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/__([\s\S]+?)__/g, '<strong>$1</strong>');
+    html = html.replace(/\*([\s\S]+?)\*/g, '<em>$1</em>');
+    html = html.replace(/_([\s\S]+?)_/g, '<em>$1</em>');
 
     // Unordered lists
     html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
@@ -6475,7 +6475,7 @@ function exportReportPDF() {
     var printWin = window.open('', '_blank', 'width=900,height=700');
     printWin.document.write('<!DOCTYPE html><html><head><title>' + escapeHtml(title) + '</title>');
     printWin.document.write('<style>');
-    printWin.document.write('* { margin: 0; padding: 0; box-sizing: border-box; }');
+    printWin.document.write('* { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }');
     printWin.document.write('body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #1a1a2e; padding: 40px 60px; line-height: 1.7; background: #fff; }');
     printWin.document.write('h1 { font-size: 28px; margin-bottom: 8px; color: #0a0a1a; border-bottom: 3px solid #d4af37; padding-bottom: 12px; }');
     printWin.document.write('h2 { font-size: 22px; margin: 28px 0 10px; color: #16213e; border-bottom: 1px solid #ddd; padding-bottom: 6px; }');
@@ -6494,7 +6494,7 @@ function exportReportPDF() {
     printWin.document.write('th { background: #16213e; color: #fff; padding: 10px 12px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }');
     printWin.document.write('td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }');
     printWin.document.write('tr:nth-child(even) td { background: #f8f8f8; }');
-    printWin.document.write('.nb-widget { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; page-break-inside: avoid; }');
+    printWin.document.write('.nb-widget { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; page-break-inside: avoid; background: rgba(0, 0, 0, 0.02); }');
     printWin.document.write('.nb-widget-header { font-weight: 700; font-size: 13px; margin-bottom: 12px; color: #16213e; }');
     printWin.document.write('.nb-widget-badge { background: #16213e; color: #d4af37; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; }');
     printWin.document.write('.nb-compare-nations { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 700; font-size: 15px; }');
@@ -6502,13 +6502,15 @@ function exportReportPDF() {
     printWin.document.write('.nb-compare-row { margin: 6px 0; }');
     printWin.document.write('.nb-compare-label { font-size: 12px; color: #666; margin-bottom: 2px; }');
     printWin.document.write('.nb-compare-bars { display: flex; gap: 4px; }');
-    printWin.document.write('.nb-compare-bar-wrap { flex: 1; background: #f0f0f0; border-radius: 4px; height: 22px; position: relative; overflow: hidden; }');
+    printWin.document.write('.nb-compare-bar-wrap { flex: 1; background: #f0f0f0; border: 1px solid #ddd; border-radius: 4px; height: 22px; position: relative; overflow: hidden; }');
     printWin.document.write('.nb-compare-bar { height: 100%; border-radius: 4px; min-width: 2px; }');
-    printWin.document.write('.nb-compare-bar.left { background: #4a9eff; }');
-    printWin.document.write('.nb-compare-bar.right { background: #ff6b6b; }');
-    printWin.document.write('.nb-compare-val { position: absolute; right: 6px; top: 2px; font-size: 11px; font-weight: 600; color: #333; }');
+    printWin.document.write('.nb-compare-bar.left { background: #4a9eff; float: right; }');
+    printWin.document.write('.nb-compare-bar.right { background: #ff6b6b; float: left; }');
+    printWin.document.write('.nb-compare-val { position: absolute; top: 2px; font-size: 11px; font-weight: 600; color: #333; }');
+    printWin.document.write('.nb-compare-bar-wrap.left .nb-compare-val { left: 8px; }');
+    printWin.document.write('.nb-compare-bar-wrap.right .nb-compare-val { right: 8px; }');
     printWin.document.write('.nb-pie-layout { display: flex; align-items: center; gap: 24px; }');
-    printWin.document.write('.nb-pie-chart { width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0; }');
+    printWin.document.write('.nb-pie-chart { width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }');
     printWin.document.write('.nb-pie-legend-item { font-size: 13px; margin: 4px 0; }');
     printWin.document.write('.nb-pie-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }');
     printWin.document.write('.print-header { text-align: center; margin-bottom: 30px; }');
