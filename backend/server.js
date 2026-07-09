@@ -6,6 +6,7 @@ const { connectDB } = require('./database/connection');
 const { seedAdmin } = require('./database/seed');
 const authRoutes = require('./routes/auth');
 const watchlistRoutes = require('./routes/watchlist');
+const reportRoutes = require('./routes/reports');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, '../frontend'), {
 // ============================================
 app.use('/api/auth', authRoutes);
 app.use('/api/watchlist', watchlistRoutes);
+app.use('/api/reports', reportRoutes);
 
 // ============================================
 // CATCH-ALL — serve index.html for any non-API route

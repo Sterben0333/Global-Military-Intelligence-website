@@ -866,15 +866,147 @@
             <div class="watchlist-header">
                 <div class="watchlist-header-left">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <h2>Intel Watchlist</h2>
+                    <h2>Analyst Workspace</h2>
                 </div>
                 <button class="watchlist-close-btn" onclick="closeWatchlistDashboard()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
             </div>
-            <div class="watchlist-body" id="watchlist-body">
-                <!-- Populated by JavaScript -->
+
+            <!-- Tab Bar -->
+            <div class="notebook-tabs" id="notebook-tabs">
+                <button class="notebook-tab active" data-tab="watchlist" onclick="switchDashboardTab('watchlist')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Intel Watchlist
+                </button>
+                <button class="notebook-tab" data-tab="notebook" onclick="switchDashboardTab('notebook')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Analyst Notebook
+                </button>
             </div>
+
+            <!-- Watchlist Tab Content -->
+            <div class="dashboard-tab-content active" id="tab-watchlist">
+                <div class="watchlist-body" id="watchlist-body">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Notebook Tab Content -->
+            <div class="dashboard-tab-content" id="tab-notebook">
+                <div class="notebook-layout" id="notebook-layout">
+                    <!-- Left: Reports List -->
+                    <div class="notebook-sidebar" id="notebook-sidebar">
+                        <button class="notebook-new-btn" onclick="createNewReport()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            New Report
+                        </button>
+                        <div class="notebook-reports-list" id="notebook-reports-list">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Editor + Preview -->
+                    <div class="notebook-main" id="notebook-main">
+                        <div class="notebook-empty-state" id="notebook-empty-state">
+                            <div class="notebook-empty-icon">📝</div>
+                            <h3>Defense Analyst Notebook</h3>
+                            <p>Create strategic analyses with live data widgets from the GMI database. Select a report or create a new one to begin.</p>
+                        </div>
+                        <div class="notebook-editor-area" id="notebook-editor-area" style="display:none;">
+                            <!-- Title -->
+                            <input type="text" class="notebook-title-input" id="notebook-title" placeholder="Report Title..." maxlength="200">
+                            <!-- Toolbar -->
+                            <div class="notebook-toolbar">
+                                <div class="notebook-toolbar-group">
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('bold')" title="Bold"><b>B</b></button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('italic')" title="Italic"><i>I</i></button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('heading')" title="Heading"><b>H</b></button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('ul')" title="Bullet List">⋮≡</button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('ol')" title="Numbered List">1.</button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('code')" title="Code Block">&lt;/&gt;</button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('quote')" title="Blockquote">❝</button>
+                                    <button class="nb-tool-btn" onclick="nbInsertMd('hr')" title="Horizontal Rule">―</button>
+                                </div>
+                                <div class="notebook-toolbar-group">
+                                    <button class="nb-tool-btn nb-widget-btn" onclick="openWidgetInsertModal()" title="Insert Data Widget">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                                        Insert Widget
+                                    </button>
+                                </div>
+                                <div class="notebook-toolbar-group notebook-toolbar-right">
+                                    <label class="nb-public-toggle" title="Make this report visible to the community">
+                                        <input type="checkbox" id="notebook-public-toggle" onchange="toggleReportPublic()">
+                                        <span class="nb-public-label">Public</span>
+                                    </label>
+                                    <button class="nb-tool-btn nb-save-btn" onclick="saveReport()" title="Save Report">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                                        Save
+                                    </button>
+                                    <button class="nb-tool-btn nb-export-btn" onclick="exportReportPDF()" title="Export as PDF">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                        PDF
+                                    </button>
+                                    <button class="nb-tool-btn nb-delete-btn" onclick="deleteCurrentReport()" title="Delete Report">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Editor + Preview Split -->
+                            <div class="notebook-split">
+                                <div class="notebook-edit-pane">
+                                    <textarea class="notebook-textarea" id="notebook-content" placeholder="Write your strategic analysis in Markdown...&#10;&#10;Use the toolbar to format text or insert data widgets from the GMI database." oninput="updateNotebookPreview()"></textarea>
+                                </div>
+                                <div class="notebook-preview-pane" id="notebook-preview">
+                                    <div class="notebook-preview-placeholder">Live preview will appear here...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget Insert Modal -->
+            <div class="widget-insert-modal" id="widget-insert-modal" style="display:none;">
+                <div class="widget-modal-inner">
+                    <div class="widget-modal-header">
+                        <h3>Insert Data Widget</h3>
+                        <button class="widget-modal-close" onclick="closeWidgetInsertModal()">&times;</button>
+                    </div>
+                    <div class="widget-modal-body">
+                        <div class="widget-type-card" onclick="selectWidgetType('comparison')">
+                            <div class="widget-type-icon">📊</div>
+                            <div class="widget-type-info">
+                                <div class="widget-type-name">Nation Comparison Chart</div>
+                                <div class="widget-type-desc">Compare military stats between two nations side-by-side</div>
+                            </div>
+                        </div>
+                        <div class="widget-type-card" onclick="selectWidgetType('pie-fleet')">
+                            <div class="widget-type-icon">🍩</div>
+                            <div class="widget-type-info">
+                                <div class="widget-type-name">Fleet Distribution</div>
+                                <div class="widget-type-desc">Pie chart of a nation's naval fleet composition</div>
+                            </div>
+                        </div>
+                        <div class="widget-type-card" onclick="selectWidgetType('force-table')">
+                            <div class="widget-type-icon">📋</div>
+                            <div class="widget-type-info">
+                                <div class="widget-type-name">Force Summary Table</div>
+                                <div class="widget-type-desc">Side-by-side comparison table of ranks, budgets & personnel</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Widget config step (shown after type selection) -->
+                    <div class="widget-config-step" id="widget-config-step" style="display:none;">
+                        <div class="widget-config-body" id="widget-config-body"></div>
+                        <div class="widget-config-actions">
+                            <button class="widget-config-back" onclick="widgetConfigBack()">← Back</button>
+                            <button class="widget-config-insert" onclick="insertWidgetTag()">Insert Widget</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

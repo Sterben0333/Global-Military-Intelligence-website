@@ -5644,6 +5644,7 @@ function openWatchlistDashboard() {
     if (dashboard) {
         dashboard.classList.add('active');
         document.body.style.overflow = 'hidden';
+        switchDashboardTab('watchlist');
         renderWatchlistDashboard();
     }
     var menu = document.getElementById('auth-user-menu');
@@ -5805,6 +5806,17 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     });
 }
 
+function getTargetDisplayName(type, id) {
+    if (type === 'nation') {
+        var nation = nationsData[id];
+        return nation ? nation.name : id;
+    } else if (type === 'conflict') {
+        var conflict = conflictsData[parseInt(id)];
+        return conflict ? conflict.name : 'Conflict #' + id;
+    }
+    return id;
+}
+
 function renderWatchlistDashboard() {
     var body = document.getElementById('watchlist-body');
     if (!body) return;
@@ -5881,6 +5893,640 @@ function renderWatchlistDashboard() {
 async function unfollowFromDashboard(targetType, targetId) {
     await toggleWatchlistItem(targetType, targetId);
     renderWatchlistDashboard();
+}
+
+// ============================================
+// DEFENSE ANALYST NOTEBOOK — Report Builder
+// ============================================
+let notebookReports = [];
+let currentReportId = null;
+let currentReportDirty = false;
+let pendingWidgetType = null;
+
+// ─── Dashboard Tab Switching ───
+function switchDashboardTab(tab) {
+    document.querySelectorAll('.notebook-tab').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
+    });
+    document.querySelectorAll('.dashboard-tab-content').forEach(function(pane) {
+        pane.classList.remove('active');
+    });
+    var target = document.getElementById('tab-' + tab);
+    if (target) target.classList.add('active');
+
+    if (tab === 'notebook') {
+        loadReports();
+    }
+}
+
+// ─── Report CRUD ───
+async function loadReports() {
+    var token = localStorage.getItem('gmi_token');
+    if (!token) return;
+
+    try {
+        var resp = await fetch('/api/reports', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        var data = await resp.json();
+        if (resp.ok) {
+            notebookReports = data.reports || [];
+            renderReportsList();
+        }
+    } catch (err) {
+        console.error('Failed to load reports:', err);
+    }
+}
+
+function renderReportsList() {
+    var container = document.getElementById('notebook-reports-list');
+    if (!container) return;
+
+    if (notebookReports.length === 0) {
+        container.innerHTML = '<div class="notebook-list-empty">No reports yet.<br>Click "New Report" to begin.</div>';
+        return;
+    }
+
+    var html = '';
+    notebookReports.forEach(function(r) {
+        var isActive = currentReportId === r._id;
+        var dateStr = new Date(r.updatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        html += '<div class="notebook-report-item' + (isActive ? ' active' : '') + '" onclick="openReport(\'' + r._id + '\')">';
+        html += '<div class="notebook-report-item-title">' + escapeHtml(r.title) + '</div>';
+        html += '<div class="notebook-report-item-meta">';
+        html += '<span>' + dateStr + '</span>';
+        if (r.isPublic) html += '<span class="nb-public-badge">Public</span>';
+        html += '</div>';
+        html += '</div>';
+    });
+    container.innerHTML = html;
+}
+
+function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+async function createNewReport() {
+    var token = localStorage.getItem('gmi_token');
+    if (!token) return;
+
+    try {
+        var resp = await fetch('/api/reports', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: 'Untitled Report',
+                content: '# Strategic Analysis\n\nBegin your defense analysis here...\n'
+            })
+        });
+        var data = await resp.json();
+        if (resp.ok && data.report) {
+            showToast('📝 New report created', 'success');
+            await loadReports();
+            openReport(data.report._id);
+        }
+    } catch (err) {
+        console.error('Failed to create report:', err);
+        showToast('Failed to create report', 'error');
+    }
+}
+
+async function openReport(id) {
+    var token = localStorage.getItem('gmi_token');
+    if (!token) return;
+
+    try {
+        var resp = await fetch('/api/reports/' + id, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        var data = await resp.json();
+        if (resp.ok && data.report) {
+            currentReportId = data.report._id;
+            currentReportDirty = false;
+
+            // Populate editor
+            document.getElementById('notebook-title').value = data.report.title;
+            document.getElementById('notebook-content').value = data.report.content;
+            document.getElementById('notebook-public-toggle').checked = data.report.isPublic;
+
+            // Show editor, hide empty state
+            document.getElementById('notebook-empty-state').style.display = 'none';
+            document.getElementById('notebook-editor-area').style.display = 'flex';
+
+            updateNotebookPreview();
+            renderReportsList();
+        }
+    } catch (err) {
+        console.error('Failed to open report:', err);
+    }
+}
+
+async function saveReport() {
+    if (!currentReportId) return;
+    var token = localStorage.getItem('gmi_token');
+    if (!token) return;
+
+    var title = document.getElementById('notebook-title').value.trim();
+    var content = document.getElementById('notebook-content').value;
+    var isPublic = document.getElementById('notebook-public-toggle').checked;
+
+    if (!title) {
+        showToast('Report title is required', 'error');
+        return;
+    }
+
+    try {
+        var resp = await fetch('/api/reports/' + currentReportId, {
+            method: 'PUT',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: title, content: content, isPublic: isPublic })
+        });
+        if (resp.ok) {
+            currentReportDirty = false;
+            showToast('✅ Report saved', 'success');
+            loadReports();
+        } else {
+            showToast('Failed to save', 'error');
+        }
+    } catch (err) {
+        console.error('Failed to save report:', err);
+        showToast('Failed to save report', 'error');
+    }
+}
+
+function toggleReportPublic() {
+    currentReportDirty = true;
+}
+
+async function deleteCurrentReport() {
+    if (!currentReportId) return;
+    if (!confirm('Delete this report permanently?')) return;
+
+    var token = localStorage.getItem('gmi_token');
+    if (!token) return;
+
+    try {
+        var resp = await fetch('/api/reports/' + currentReportId, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (resp.ok) {
+            showToast('🗑️ Report deleted', 'success');
+            currentReportId = null;
+            document.getElementById('notebook-editor-area').style.display = 'none';
+            document.getElementById('notebook-empty-state').style.display = 'flex';
+            loadReports();
+        }
+    } catch (err) {
+        console.error('Failed to delete report:', err);
+    }
+}
+
+// ─── Markdown Toolbar Insertion ───
+function nbInsertMd(type) {
+    var ta = document.getElementById('notebook-content');
+    if (!ta) return;
+    var start = ta.selectionStart;
+    var end = ta.selectionEnd;
+    var selected = ta.value.substring(start, end);
+    var before = ta.value.substring(0, start);
+    var after = ta.value.substring(end);
+    var insert = '';
+    var cursorOffset = 0;
+
+    switch (type) {
+        case 'bold':
+            insert = '**' + (selected || 'bold text') + '**';
+            cursorOffset = selected ? insert.length : 2;
+            break;
+        case 'italic':
+            insert = '_' + (selected || 'italic text') + '_';
+            cursorOffset = selected ? insert.length : 1;
+            break;
+        case 'heading':
+            insert = '\n## ' + (selected || 'Heading') + '\n';
+            cursorOffset = selected ? insert.length : 4;
+            break;
+        case 'ul':
+            insert = '\n- ' + (selected || 'List item') + '\n';
+            cursorOffset = selected ? insert.length : 3;
+            break;
+        case 'ol':
+            insert = '\n1. ' + (selected || 'List item') + '\n';
+            cursorOffset = selected ? insert.length : 4;
+            break;
+        case 'code':
+            insert = '\n```\n' + (selected || 'code') + '\n```\n';
+            cursorOffset = selected ? insert.length : 5;
+            break;
+        case 'quote':
+            insert = '\n> ' + (selected || 'Quote') + '\n';
+            cursorOffset = selected ? insert.length : 3;
+            break;
+        case 'hr':
+            insert = '\n---\n';
+            cursorOffset = insert.length;
+            break;
+    }
+
+    ta.value = before + insert + after;
+    ta.focus();
+    var newPos = start + cursorOffset;
+    ta.setSelectionRange(newPos, newPos);
+    updateNotebookPreview();
+}
+
+// ─── Lightweight Markdown Parser ───
+function parseMarkdown(md) {
+    if (!md) return '';
+
+    // First: render widget tags before any escaping
+    var html = md;
+
+    // Escape HTML (but preserve our widget tags)
+    html = html.replace(/\[widget:(comparison|pie-fleet|force-table)\|([^\]]+)\]/g, function(match) {
+        return '%%WIDGET_' + btoa(match) + '%%';
+    });
+
+    // Escape angle brackets
+    html = html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // Restore widget placeholders
+    html = html.replace(/%%WIDGET_([A-Za-z0-9+/=]+)%%/g, function(_, encoded) {
+        var original = atob(encoded);
+        return original; // will be processed below
+    });
+
+    // Code blocks (```)
+    html = html.replace(/```([\s\S]*?)```/g, function(_, code) {
+        return '<pre class="nb-code-block"><code>' + code.trim() + '</code></pre>';
+    });
+
+    // Inline code
+    html = html.replace(/`([^`]+)`/g, '<code class="nb-inline-code">$1</code>');
+
+    // Headings
+    html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+    // Horizontal rules
+    html = html.replace(/^---$/gm, '<hr class="nb-hr">');
+
+    // Blockquotes
+    html = html.replace(/^&gt; (.+)$/gm, '<blockquote class="nb-blockquote">$1</blockquote>');
+
+    // Bold and italic
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/_(.+?)_/g, '<em>$1</em>');
+
+    // Unordered lists
+    html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>[\s\S]*?<\/li>)/g, function(match) {
+        if (match.indexOf('<ul>') === -1) {
+            return '<ul class="nb-list">' + match + '</ul>';
+        }
+        return match;
+    });
+
+    // Ordered lists
+    html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+
+    // Paragraphs (double newline)
+    html = html.replace(/\n\n+/g, '</p><p>');
+    html = '<p>' + html + '</p>';
+
+    // Clean up empty paragraphs
+    html = html.replace(/<p>\s*<\/p>/g, '');
+    html = html.replace(/<p>(<h[1-4]>)/g, '$1');
+    html = html.replace(/(<\/h[1-4]>)<\/p>/g, '$1');
+    html = html.replace(/<p>(<pre)/g, '$1');
+    html = html.replace(/(<\/pre>)<\/p>/g, '$1');
+    html = html.replace(/<p>(<hr[^>]*>)<\/p>/g, '$1');
+    html = html.replace(/<p>(<ul)/g, '$1');
+    html = html.replace(/(<\/ul>)<\/p>/g, '$1');
+    html = html.replace(/<p>(<blockquote)/g, '$1');
+    html = html.replace(/(<\/blockquote>)<\/p>/g, '$1');
+
+    // Single newlines to <br>
+    html = html.replace(/\n/g, '<br>');
+
+    // Now render widget tags
+    html = html.replace(/\[widget:comparison\|([^\]]+)\]/g, function(_, config) {
+        return renderComparisonWidget(config);
+    });
+    html = html.replace(/\[widget:pie-fleet\|([^\]]+)\]/g, function(_, config) {
+        return renderPieFleetWidget(config);
+    });
+    html = html.replace(/\[widget:force-table\|([^\]]+)\]/g, function(_, config) {
+        return renderForceTableWidget(config);
+    });
+
+    return html;
+}
+
+function updateNotebookPreview() {
+    var content = document.getElementById('notebook-content').value;
+    var preview = document.getElementById('notebook-preview');
+    if (!preview) return;
+
+    if (!content.trim()) {
+        preview.innerHTML = '<div class="notebook-preview-placeholder">Live preview will appear here...</div>';
+        return;
+    }
+
+    preview.innerHTML = parseMarkdown(content);
+    currentReportDirty = true;
+}
+
+// ─── Widget Rendering ───
+function renderComparisonWidget(config) {
+    var parts = config.split(',');
+    if (parts.length < 2) return '<div class="nb-widget-error">⚠ Comparison requires 2 nations</div>';
+
+    var n1 = nationsData[parts[0].trim()];
+    var n2 = nationsData[parts[1].trim()];
+    if (!n1 || !n2) return '<div class="nb-widget-error">⚠ Nation not found: ' + config + '</div>';
+
+    var metrics = [
+        { label: 'Active Personnel', v1: n1.personnel.active, v2: n2.personnel.active },
+        { label: 'Reserve Personnel', v1: n1.personnel.reserve, v2: n2.personnel.reserve },
+        { label: 'Tanks', v1: n1.army.tanks, v2: n2.army.tanks },
+        { label: 'Aircraft', v1: n1.airforce.fighters + n1.airforce.bombers, v2: n2.airforce.fighters + n2.airforce.bombers },
+        { label: 'Submarines', v1: n1.navy.submarines, v2: n2.navy.submarines },
+        { label: 'Destroyers', v1: n1.navy.destroyers, v2: n2.navy.destroyers }
+    ];
+
+    var html = '<div class="nb-widget nb-widget-comparison">';
+    html += '<div class="nb-widget-header"><span class="nb-widget-badge">📊 COMPARISON</span></div>';
+    html += '<div class="nb-compare-nations">';
+    html += '<div class="nb-compare-nation-label">' + n1.flag + ' ' + n1.name + '</div>';
+    html += '<div class="nb-compare-vs">VS</div>';
+    html += '<div class="nb-compare-nation-label">' + n2.flag + ' ' + n2.name + '</div>';
+    html += '</div>';
+
+    metrics.forEach(function(m) {
+        var max = Math.max(m.v1, m.v2) || 1;
+        var pct1 = Math.round((m.v1 / max) * 100);
+        var pct2 = Math.round((m.v2 / max) * 100);
+        html += '<div class="nb-compare-row">';
+        html += '<div class="nb-compare-label">' + m.label + '</div>';
+        html += '<div class="nb-compare-bars">';
+        html += '<div class="nb-compare-bar-wrap left"><div class="nb-compare-bar left" style="width:' + pct1 + '%"></div><span class="nb-compare-val">' + m.v1.toLocaleString() + '</span></div>';
+        html += '<div class="nb-compare-bar-wrap right"><div class="nb-compare-bar right" style="width:' + pct2 + '%"></div><span class="nb-compare-val">' + m.v2.toLocaleString() + '</span></div>';
+        html += '</div>';
+        html += '</div>';
+    });
+
+    html += '</div>';
+    return html;
+}
+
+function renderPieFleetWidget(config) {
+    var parts = config.split('|');
+    var nationKey = parts[0].trim();
+    var nation = nationsData[nationKey];
+    if (!nation) return '<div class="nb-widget-error">⚠ Nation not found: ' + nationKey + '</div>';
+
+    var navy = nation.navy;
+    var segments = [
+        { label: 'Carriers', value: navy.carriers, color: '#d4af37' },
+        { label: 'Submarines', value: navy.submarines, color: '#4a9eff' },
+        { label: 'Destroyers', value: navy.destroyers, color: '#ff6b6b' },
+        { label: 'Frigates', value: navy.frigates, color: '#51cf66' }
+    ].filter(function(s) { return s.value > 0; });
+
+    var total = segments.reduce(function(sum, s) { return sum + s.value; }, 0);
+
+    // Build CSS conic gradient
+    var gradientParts = [];
+    var currentDeg = 0;
+    segments.forEach(function(s) {
+        var degrees = (s.value / total) * 360;
+        gradientParts.push(s.color + ' ' + currentDeg + 'deg ' + (currentDeg + degrees) + 'deg');
+        currentDeg += degrees;
+    });
+
+    var html = '<div class="nb-widget nb-widget-pie">';
+    html += '<div class="nb-widget-header"><span class="nb-widget-badge">🍩 FLEET DISTRIBUTION</span> ' + nation.flag + ' ' + nation.name + ' Navy</div>';
+    html += '<div class="nb-pie-layout">';
+    html += '<div class="nb-pie-chart" style="background: conic-gradient(' + gradientParts.join(', ') + ');"></div>';
+    html += '<div class="nb-pie-legend">';
+    segments.forEach(function(s) {
+        var pct = Math.round((s.value / total) * 100);
+        html += '<div class="nb-pie-legend-item"><span class="nb-pie-dot" style="background:' + s.color + '"></span>' + s.label + ': <strong>' + s.value + '</strong> (' + pct + '%)</div>';
+    });
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
+    return html;
+}
+
+function renderForceTableWidget(config) {
+    var keys = config.split(',').map(function(k) { return k.trim(); });
+    var nations = keys.map(function(k) { return nationsData[k]; }).filter(Boolean);
+    if (nations.length === 0) return '<div class="nb-widget-error">⚠ No valid nations found</div>';
+
+    var html = '<div class="nb-widget nb-widget-table">';
+    html += '<div class="nb-widget-header"><span class="nb-widget-badge">📋 FORCE SUMMARY</span></div>';
+    html += '<div class="nb-table-scroll"><table class="nb-force-table">';
+    html += '<thead><tr><th>Metric</th>';
+    nations.forEach(function(n) {
+        html += '<th>' + n.flag + ' ' + n.name + '</th>';
+    });
+    html += '</tr></thead><tbody>';
+
+    var rows = [
+        { label: 'Global Rank', fn: function(n) { return '#' + n.rank; } },
+        { label: 'Defense Budget', fn: function(n) { return n.budget; } },
+        { label: 'Active Personnel', fn: function(n) { return n.personnel.active.toLocaleString(); } },
+        { label: 'Reserve Personnel', fn: function(n) { return n.personnel.reserve.toLocaleString(); } },
+        { label: 'Nuclear Warheads', fn: function(n) { return n.nuclear.status ? n.nuclear.warheads.toLocaleString() : 'None'; } },
+        { label: 'Tanks', fn: function(n) { return n.army.tanks.toLocaleString(); } },
+        { label: 'Fighters', fn: function(n) { return n.airforce.fighters.toLocaleString(); } },
+        { label: 'Submarines', fn: function(n) { return n.navy.submarines.toLocaleString(); } },
+        { label: 'Carriers', fn: function(n) { return n.navy.carriers.toLocaleString(); } }
+    ];
+
+    rows.forEach(function(row) {
+        html += '<tr><td class="nb-table-label">' + row.label + '</td>';
+        nations.forEach(function(n) {
+            html += '<td>' + row.fn(n) + '</td>';
+        });
+        html += '</tr>';
+    });
+
+    html += '</tbody></table></div></div>';
+    return html;
+}
+
+// ─── Widget Insert Modal ───
+function openWidgetInsertModal() {
+    var modal = document.getElementById('widget-insert-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.getElementById('widget-config-step').style.display = 'none';
+        document.querySelector('.widget-modal-body').style.display = 'block';
+        pendingWidgetType = null;
+    }
+}
+
+function closeWidgetInsertModal() {
+    var modal = document.getElementById('widget-insert-modal');
+    if (modal) modal.style.display = 'none';
+    pendingWidgetType = null;
+}
+
+function selectWidgetType(type) {
+    pendingWidgetType = type;
+    document.querySelector('.widget-modal-body').style.display = 'none';
+    document.getElementById('widget-config-step').style.display = 'block';
+
+    var configBody = document.getElementById('widget-config-body');
+    var nationOptions = Object.keys(nationsData).map(function(key) {
+        return '<option value="' + key + '">' + nationsData[key].flag + ' ' + nationsData[key].name + '</option>';
+    }).join('');
+
+    switch (type) {
+        case 'comparison':
+            configBody.innerHTML = '<h4>📊 Nation Comparison Chart</h4><p>Select two nations to compare:</p>' +
+                '<div class="widget-config-row"><label>Nation 1:</label><select id="widget-nation-1" class="widget-select">' + nationOptions + '</select></div>' +
+                '<div class="widget-config-row"><label>Nation 2:</label><select id="widget-nation-2" class="widget-select"><option value="">— Select —</option>' + nationOptions + '</select></div>';
+            // Default nation 2 to something different
+            var sel2 = document.getElementById('widget-nation-2');
+            if (sel2 && sel2.options.length > 2) sel2.selectedIndex = 2;
+            break;
+        case 'pie-fleet':
+            configBody.innerHTML = '<h4>🍩 Fleet Distribution</h4><p>Select a nation to display naval fleet composition:</p>' +
+                '<div class="widget-config-row"><label>Nation:</label><select id="widget-nation-1" class="widget-select">' + nationOptions + '</select></div>';
+            break;
+        case 'force-table':
+            configBody.innerHTML = '<h4>📋 Force Summary Table</h4><p>Select nations to compare (hold Ctrl to select multiple):</p>' +
+                '<div class="widget-config-row"><label>Nations:</label><select id="widget-nations-multi" class="widget-select widget-multi-select" multiple size="8">' + nationOptions + '</select></div>' +
+                '<div class="widget-config-hint">Hold Ctrl/Cmd + Click to select multiple</div>';
+            break;
+    }
+}
+
+function widgetConfigBack() {
+    document.getElementById('widget-config-step').style.display = 'none';
+    document.querySelector('.widget-modal-body').style.display = 'block';
+    pendingWidgetType = null;
+}
+
+function insertWidgetTag() {
+    var ta = document.getElementById('notebook-content');
+    if (!ta || !pendingWidgetType) return;
+
+    var tag = '';
+    switch (pendingWidgetType) {
+        case 'comparison':
+            var n1 = document.getElementById('widget-nation-1').value;
+            var n2 = document.getElementById('widget-nation-2').value;
+            if (!n1 || !n2) { showToast('Please select both nations', 'error'); return; }
+            if (n1 === n2) { showToast('Please select two different nations', 'error'); return; }
+            tag = '[widget:comparison|' + n1 + ',' + n2 + ']';
+            break;
+        case 'pie-fleet':
+            var n = document.getElementById('widget-nation-1').value;
+            if (!n) { showToast('Please select a nation', 'error'); return; }
+            tag = '[widget:pie-fleet|' + n + ']';
+            break;
+        case 'force-table':
+            var select = document.getElementById('widget-nations-multi');
+            var selected = Array.from(select.selectedOptions).map(function(opt) { return opt.value; });
+            if (selected.length === 0) { showToast('Please select at least one nation', 'error'); return; }
+            tag = '[widget:force-table|' + selected.join(',') + ']';
+            break;
+    }
+
+    // Insert at cursor
+    var start = ta.selectionStart;
+    var before = ta.value.substring(0, start);
+    var after = ta.value.substring(ta.selectionEnd);
+    ta.value = before + '\n' + tag + '\n' + after;
+    ta.focus();
+    var newPos = start + tag.length + 2;
+    ta.setSelectionRange(newPos, newPos);
+
+    closeWidgetInsertModal();
+    updateNotebookPreview();
+    showToast('Widget inserted ✓', 'success');
+}
+
+// ─── PDF Export ───
+function exportReportPDF() {
+    var preview = document.getElementById('notebook-preview');
+    var title = document.getElementById('notebook-title').value || 'Untitled Report';
+    if (!preview) return;
+
+    // Create a print-specific window
+    var printWin = window.open('', '_blank', 'width=900,height=700');
+    printWin.document.write('<!DOCTYPE html><html><head><title>' + escapeHtml(title) + '</title>');
+    printWin.document.write('<style>');
+    printWin.document.write('* { margin: 0; padding: 0; box-sizing: border-box; }');
+    printWin.document.write('body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #1a1a2e; padding: 40px 60px; line-height: 1.7; background: #fff; }');
+    printWin.document.write('h1 { font-size: 28px; margin-bottom: 8px; color: #0a0a1a; border-bottom: 3px solid #d4af37; padding-bottom: 12px; }');
+    printWin.document.write('h2 { font-size: 22px; margin: 28px 0 10px; color: #16213e; border-bottom: 1px solid #ddd; padding-bottom: 6px; }');
+    printWin.document.write('h3 { font-size: 18px; margin: 20px 0 8px; color: #1a1a2e; }');
+    printWin.document.write('h4 { font-size: 15px; margin: 16px 0 6px; color: #333; }');
+    printWin.document.write('p { margin: 8px 0; font-size: 14px; }');
+    printWin.document.write('strong { color: #16213e; }');
+    printWin.document.write('blockquote { border-left: 4px solid #d4af37; padding: 8px 16px; margin: 12px 0; background: #f9f6ed; color: #444; font-style: italic; }');
+    printWin.document.write('pre { background: #f4f4f4; padding: 14px; border-radius: 6px; font-size: 12px; overflow-x: auto; margin: 12px 0; }');
+    printWin.document.write('code { font-family: "Consolas", monospace; background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 13px; }');
+    printWin.document.write('pre code { background: none; padding: 0; }');
+    printWin.document.write('hr { border: none; border-top: 2px solid #d4af37; margin: 24px 0; }');
+    printWin.document.write('ul, ol { margin: 8px 0 8px 24px; font-size: 14px; }');
+    printWin.document.write('li { margin: 4px 0; }');
+    printWin.document.write('table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }');
+    printWin.document.write('th { background: #16213e; color: #fff; padding: 10px 12px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }');
+    printWin.document.write('td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }');
+    printWin.document.write('tr:nth-child(even) td { background: #f8f8f8; }');
+    printWin.document.write('.nb-widget { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; page-break-inside: avoid; }');
+    printWin.document.write('.nb-widget-header { font-weight: 700; font-size: 13px; margin-bottom: 12px; color: #16213e; }');
+    printWin.document.write('.nb-widget-badge { background: #16213e; color: #d4af37; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; }');
+    printWin.document.write('.nb-compare-nations { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 700; font-size: 15px; }');
+    printWin.document.write('.nb-compare-vs { color: #999; font-size: 12px; }');
+    printWin.document.write('.nb-compare-row { margin: 6px 0; }');
+    printWin.document.write('.nb-compare-label { font-size: 12px; color: #666; margin-bottom: 2px; }');
+    printWin.document.write('.nb-compare-bars { display: flex; gap: 4px; }');
+    printWin.document.write('.nb-compare-bar-wrap { flex: 1; background: #f0f0f0; border-radius: 4px; height: 22px; position: relative; overflow: hidden; }');
+    printWin.document.write('.nb-compare-bar { height: 100%; border-radius: 4px; min-width: 2px; }');
+    printWin.document.write('.nb-compare-bar.left { background: #4a9eff; }');
+    printWin.document.write('.nb-compare-bar.right { background: #ff6b6b; }');
+    printWin.document.write('.nb-compare-val { position: absolute; right: 6px; top: 2px; font-size: 11px; font-weight: 600; color: #333; }');
+    printWin.document.write('.nb-pie-layout { display: flex; align-items: center; gap: 24px; }');
+    printWin.document.write('.nb-pie-chart { width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0; }');
+    printWin.document.write('.nb-pie-legend-item { font-size: 13px; margin: 4px 0; }');
+    printWin.document.write('.nb-pie-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }');
+    printWin.document.write('.print-header { text-align: center; margin-bottom: 30px; }');
+    printWin.document.write('.print-header h1 { border-bottom: 3px solid #d4af37; display: inline-block; padding: 0 20px 8px; }');
+    printWin.document.write('.print-footer { text-align: center; margin-top: 40px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 11px; color: #888; }');
+    printWin.document.write('.nb-table-label { font-weight: 600; color: #16213e; }');
+    printWin.document.write('@media print { body { padding: 20px 40px; } }');
+    printWin.document.write('</style></head><body>');
+    printWin.document.write('<div class="print-header"><h1>' + escapeHtml(title) + '</h1>');
+    printWin.document.write('<p style="color:#888; font-size:12px; margin-top:6px;">Global Military Intelligence — Defense Analyst Report • ' + new Date().toLocaleDateString() + '</p></div>');
+    printWin.document.write(preview.innerHTML);
+    printWin.document.write('<div class="print-footer">Generated by Global Military Intelligence (GMI) Defense Analysis Platform</div>');
+    printWin.document.write('</body></html>');
+    printWin.document.close();
+
+    setTimeout(function() {
+        printWin.print();
+    }, 400);
 }
 
 function clearWatchlistCache() {
