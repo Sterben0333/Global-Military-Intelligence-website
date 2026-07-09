@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0.1">
 </head>
 
 <body>
@@ -973,7 +973,7 @@
                         <h3>Insert Data Widget</h3>
                         <button class="widget-modal-close" onclick="closeWidgetInsertModal()">&times;</button>
                     </div>
-                    <div class="widget-modal-body">
+                    <div class="widget-modal-body" style="display: flex; flex-direction: column; gap: 16px; padding: 16px 22px 22px;">
                         <div class="widget-type-card" onclick="selectWidgetType('comparison')">
                             <div class="widget-type-icon">📊</div>
                             <div class="widget-type-info">

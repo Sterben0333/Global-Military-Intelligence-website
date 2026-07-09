@@ -6377,7 +6377,7 @@ function openWidgetInsertModal() {
     if (modal) {
         modal.style.display = 'flex';
         document.getElementById('widget-config-step').style.display = 'none';
-        document.querySelector('.widget-modal-body').style.display = 'block';
+        document.querySelector('.widget-modal-body').style.display = 'flex';
         pendingWidgetType = null;
     }
 }
@@ -6421,7 +6421,7 @@ function selectWidgetType(type) {
 
 function widgetConfigBack() {
     document.getElementById('widget-config-step').style.display = 'none';
-    document.querySelector('.widget-modal-body').style.display = 'block';
+    document.querySelector('.widget-modal-body').style.display = 'flex';
     pendingWidgetType = null;
 }
 
