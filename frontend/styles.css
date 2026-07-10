@@ -1893,7 +1893,9 @@ body {
 
 .war-overview-image {
     position: relative;
-    min-height: 320px;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    align-self: center;
     overflow: hidden;
 }
 
@@ -2253,10 +2255,6 @@ body {
 @media (max-width: 1024px) {
     .war-overview {
         grid-template-columns: 1fr;
-    }
-
-    .war-overview-image {
-        min-height: 240px;
     }
 
     .alliances-grid {

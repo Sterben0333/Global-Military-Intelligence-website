@@ -745,7 +745,7 @@ function openNationModal(nationKey) {
         followBtn.id = 'modal-follow-btn';
         followBtn.className = 'modal-follow-btn' + (isFollowing('nation', nationKey) ? ' active' : '');
         followBtn.innerHTML = isFollowing('nation', nationKey) ? '★ Following' : '☆ Follow Nation';
-        followBtn.onclick = function(e) { toggleWatchlistItem('nation', nationKey, e); };
+        followBtn.onclick = function (e) { toggleWatchlistItem('nation', nationKey, e); };
         modalNationInfo.appendChild(followBtn);
     }
 
@@ -1971,128 +1971,154 @@ function renderNews() {
 // Keyword-based image matching for news articles — large pool to avoid repeats
 // Using verified Unsplash photo URLs with proper sizing parameters
 const MILITARY_IMAGE_MAP = [
-    { keywords: ['fighter', 'jet', 'f-35', 'f-16', 'f-22', 'su-57', 'rafale', 'eurofighter', 'typhoon', 'tejas', 'mig', 'su-30', 'air force', 'airforce', 'iaf', 'stealth', 'bomber', 'b-21', 'b-52', 'aircraft'],
-      images: [
-        'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1474302694023-51549ad57c7e?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1616455220967-3a8608ac516a?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1599583863916-e06c29087f51?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['navy', 'naval', 'warship', 'destroyer', 'frigate', 'carrier', 'aircraft carrier', 'submarine', 'ins ', 'uss ', 'hms ', 'corvette', 'amphibious', 'fleet'],
-      images: [
-        'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1570052425899-f9223285b5c0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1562507049-4e9e3c253e2e?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1580130732478-4e339fb6836f?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1567956376-3a34c4914bc4?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['tank', 'armor', 'armored', 'abrams', 'leopard', 'arjun', 'artillery', 'howitzer', 'infantry', 'troops', 'soldiers', 'army', 'battalion', 'brigade', 'regiment', 'ground forces'],
-      images: [
-        'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['missile', 'ballistic', 'icbm', 'hypersonic', 'brahmos', 'patriot', 'iron dome', 's-400', 'himars', 'rocket', 'launch', 'nuclear', 'warhead', 'deterrence'],
-      images: [
-        'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1541185934-01b600ea069c?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['drone', 'uav', 'unmanned', 'reconnaissance', 'surveillance', 'radar', 'cyber', 'electronic warfare', 'intelligence'],
-      images: [
-        'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['nato', 'alliance', 'summit', 'pentagon', 'defense budget', 'defence budget', 'military spending', 'contract', 'lockheed', 'raytheon', 'northrop', 'boeing', 'bae'],
-      images: [
-        'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1541354329998-f4d927d9b2b8?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1577415124269-fc1140815fdc?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['special forces', 'commando', 'sniper', 'marine', 'seal', 'delta', 'sas', 'paratrooper', 'combat', 'operation', 'raid'],
-      images: [
-        'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['helicopter', 'apache', 'blackhawk', 'chinook', 'chopper'],
-      images: [
-        'https://images.unsplash.com/photo-1562939803-1d4b46d3a3b1?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1571034136731-065fc7ed6830?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['war', 'conflict', 'strike', 'airstrike', 'invasion', 'siege', 'ceasefire', 'deployment'],
-      images: [
-        'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['india', 'indian', 'modi', 'delhi', 'drdo', 'hal ', 'isro'],
-      images: [
-        'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['china', 'chinese', 'pla ', 'beijing', 'taiwan', 'south china sea'],
-      images: [
-        'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['russia', 'russian', 'moscow', 'ukraine', 'kremlin', 'putin'],
-      images: [
-        'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
-    ]},
-    { keywords: ['israel', 'idf', 'iron dome', 'hamas', 'hezbollah', 'gaza', 'mossad'],
-      images: [
-        'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
-    ]}
+    {
+        keywords: ['fighter', 'jet', 'f-35', 'f-16', 'f-22', 'su-57', 'rafale', 'eurofighter', 'typhoon', 'tejas', 'mig', 'su-30', 'air force', 'airforce', 'iaf', 'stealth', 'bomber', 'b-21', 'b-52', 'aircraft'],
+        images: [
+            'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1474302694023-51549ad57c7e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1616455220967-3a8608ac516a?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1599583863916-e06c29087f51?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['navy', 'naval', 'warship', 'destroyer', 'frigate', 'carrier', 'aircraft carrier', 'submarine', 'ins ', 'uss ', 'hms ', 'corvette', 'amphibious', 'fleet'],
+        images: [
+            'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1570052425899-f9223285b5c0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1562507049-4e9e3c253e2e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1580130732478-4e339fb6836f?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1567956376-3a34c4914bc4?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['tank', 'armor', 'armored', 'abrams', 'leopard', 'arjun', 'artillery', 'howitzer', 'infantry', 'troops', 'soldiers', 'army', 'battalion', 'brigade', 'regiment', 'ground forces'],
+        images: [
+            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['missile', 'ballistic', 'icbm', 'hypersonic', 'brahmos', 'patriot', 'iron dome', 's-400', 'himars', 'rocket', 'launch', 'nuclear', 'warhead', 'deterrence'],
+        images: [
+            'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1541185934-01b600ea069c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['drone', 'uav', 'unmanned', 'reconnaissance', 'surveillance', 'radar', 'cyber', 'electronic warfare', 'intelligence'],
+        images: [
+            'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['nato', 'alliance', 'summit', 'pentagon', 'defense budget', 'defence budget', 'military spending', 'contract', 'lockheed', 'raytheon', 'northrop', 'boeing', 'bae'],
+        images: [
+            'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1541354329998-f4d927d9b2b8?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1577415124269-fc1140815fdc?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['special forces', 'commando', 'sniper', 'marine', 'seal', 'delta', 'sas', 'paratrooper', 'combat', 'operation', 'raid'],
+        images: [
+            'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['helicopter', 'apache', 'blackhawk', 'chinook', 'chopper'],
+        images: [
+            'https://images.unsplash.com/photo-1562939803-1d4b46d3a3b1?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1571034136731-065fc7ed6830?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['war', 'conflict', 'strike', 'airstrike', 'invasion', 'siege', 'ceasefire', 'deployment'],
+        images: [
+            'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['india', 'indian', 'modi', 'delhi', 'drdo', 'hal ', 'isro'],
+        images: [
+            'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['china', 'chinese', 'pla ', 'beijing', 'taiwan', 'south china sea'],
+        images: [
+            'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['russia', 'russian', 'moscow', 'ukraine', 'kremlin', 'putin'],
+        images: [
+            'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+        ]
+    },
+    {
+        keywords: ['israel', 'idf', 'iron dome', 'hamas', 'hezbollah', 'gaza', 'mossad'],
+        images: [
+            'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
+        ]
+    }
 ];
 
 // Large generic pool as final fallback — all verified working Unsplash URLs
@@ -2361,7 +2387,7 @@ function openNewsModal(index) {
     });
 
     // Set detailed content — strip embedded images so only the top image shows
-    var stripImgs = function(h) {
+    var stripImgs = function (h) {
         return (h || '').replace(/<img[^>]*\/?>/gi, '').replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, '').replace(/<picture[^>]*>[\s\S]*?<\/picture>/gi, '');
     };
     var cleanDesc = stripImgs(article.description);
@@ -2369,7 +2395,7 @@ function openNewsModal(index) {
 
     // Set external link
     if (article.url && article.url !== '#') {
-        externalBtn.onclick = function() { window.open(article.url, '_blank'); };
+        externalBtn.onclick = function () { window.open(article.url, '_blank'); };
         externalBtn.style.display = 'inline-flex';
     } else {
         externalBtn.style.display = 'none';
@@ -4232,7 +4258,7 @@ const worldWarData = {
         duration: "4 years, 3 months, 14 days",
         totalCasualties: "~40 million (20M dead, 21M wounded)",
         overview: "World War I was one of the deadliest conflicts in history, originating in Europe after the assassination of Archduke Franz Ferdinand of Austria. It pitted the Central Powers against the Allied Powers (Entente), involving over 70 million military personnel. The war saw the introduction of modern warfare technologies including machine guns, poison gas, tanks, and aircraft. It led to the collapse of four empires — Russian, Ottoman, Austro-Hungarian, and German — and reshaped the political map of Europe and the Middle East.",
-        image: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=800&h=400&fit=crop",
+        image: "History_section/worldwar_1.png",
         alliances: {
             side1: {
                 name: "Central Powers",
@@ -4279,7 +4305,7 @@ const worldWarData = {
         duration: "6 years and 1 day",
         totalCasualties: "~70–85 million dead (including civilians)",
         overview: "World War II was the deadliest and most widespread conflict in human history, involving more than 100 million personnel from over 30 countries. The war pitted the Axis powers — led by Nazi Germany, Imperial Japan, and Fascist Italy — against the Allied powers. It saw unprecedented destruction, the Holocaust, the strategic bombing of cities, and the only use of nuclear weapons in warfare. The war fundamentally reshaped the global order, leading to the United Nations, the Cold War, decolonization, and the emergence of the United States and Soviet Union as superpowers.",
-        image: "https://images.unsplash.com/photo-1584386450988-0643e83faec3?w=800&h=400&fit=crop",
+        image: "History_section/worldwar_2.png",
         alliances: {
             side1: {
                 name: "Axis Powers",
@@ -5629,7 +5655,7 @@ function getTargetDisplayName(targetType, targetId) {
 }
 
 function refreshFollowButtons() {
-    document.querySelectorAll('.follow-btn').forEach(function(btn) {
+    document.querySelectorAll('.follow-btn').forEach(function (btn) {
         var type = btn.dataset.targetType;
         var id = btn.dataset.targetId;
         if (isFollowing(type, id)) {
@@ -5730,23 +5756,23 @@ function getPersonalizedIntelFeed(nations, conflicts) {
 
     // Filter feed items according to selected watchlist filter
     if (watchlistFilter.type === 'nation') {
-        activeNations = nations.filter(function(n) { return n.targetId === watchlistFilter.id; });
+        activeNations = nations.filter(function (n) { return n.targetId === watchlistFilter.id; });
         activeConflicts = [];
     } else if (watchlistFilter.type === 'conflict') {
         activeNations = [];
-        activeConflicts = conflicts.filter(function(c) { return c.targetId === watchlistFilter.id; });
+        activeConflicts = conflicts.filter(function (c) { return c.targetId === watchlistFilter.id; });
     }
 
     // 1. Match from global newsData
     if (typeof newsData !== 'undefined' && Array.isArray(newsData)) {
-        newsData.forEach(function(article) {
+        newsData.forEach(function (article) {
             var title = (article.title || '').toLowerCase();
             var desc = (article.description || '').toLowerCase();
 
             // Match followed nations
-            activeNations.forEach(function(n) {
+            activeNations.forEach(function (n) {
                 var keywords = nationKeywords[n.targetId] || [nationsData[n.targetId] ? nationsData[n.targetId].name.toLowerCase() : n.targetId.toLowerCase()];
-                var matches = keywords.some(function(kw) { return title.includes(kw) || desc.includes(kw); });
+                var matches = keywords.some(function (kw) { return title.includes(kw) || desc.includes(kw); });
                 if (matches) {
                     feed.push({
                         type: 'news',
@@ -5760,12 +5786,12 @@ function getPersonalizedIntelFeed(nations, conflicts) {
             });
 
             // Match followed conflicts
-            activeConflicts.forEach(function(c) {
+            activeConflicts.forEach(function (c) {
                 var conflictIndex = parseInt(c.targetId);
                 var conflict = conflictsData[conflictIndex];
                 if (conflict) {
                     var nameWords = conflict.name.toLowerCase().split(/[\s-]+/);
-                    var matches = nameWords.some(function(word) {
+                    var matches = nameWords.some(function (word) {
                         if (['war', 'vs', 'and', 'the', 'of', 'in', 'crisis'].includes(word)) return false;
                         return title.includes(word) || desc.includes(word);
                     });
@@ -5785,11 +5811,11 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     }
 
     // 2. Match specific updates embedded in conflict objects
-    activeConflicts.forEach(function(c) {
+    activeConflicts.forEach(function (c) {
         var conflictIndex = parseInt(c.targetId);
         var conflict = conflictsData[conflictIndex];
         if (conflict && Array.isArray(conflict.news)) {
-            conflict.news.forEach(function(item) {
+            conflict.news.forEach(function (item) {
                 feed.push({
                     type: 'update',
                     tag: '📡 ' + conflict.name + ' UPDATE',
@@ -5803,7 +5829,7 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     });
 
     // 3. Dynamic force adjustment alerts for followed nations
-    activeNations.forEach(function(n) {
+    activeNations.forEach(function (n) {
         var nation = nationsData[n.targetId];
         if (nation) {
             feed.push({
@@ -5818,11 +5844,11 @@ function getPersonalizedIntelFeed(nations, conflicts) {
     });
 
     // Sort feed items by time (newest first)
-    feed.sort(function(a, b) { return b.time - a.time; });
+    feed.sort(function (a, b) { return b.time - a.time; });
 
     // Deduplicate
     var seen = new Set();
-    return feed.filter(function(item) {
+    return feed.filter(function (item) {
         var key = item.title.toLowerCase();
         if (seen.has(key)) return false;
         seen.add(key);
@@ -5844,8 +5870,8 @@ function getTargetDisplayName(type, id) {
 function renderWatchlistDashboard() {
     var body = document.getElementById('watchlist-body');
     if (!body) return;
-    var nations = watchlistCache.filter(function(item) { return item.targetType === 'nation'; });
-    var conflicts = watchlistCache.filter(function(item) { return item.targetType === 'conflict'; });
+    var nations = watchlistCache.filter(function (item) { return item.targetType === 'nation'; });
+    var conflicts = watchlistCache.filter(function (item) { return item.targetType === 'conflict'; });
 
     if (nations.length === 0 && conflicts.length === 0) {
         body.innerHTML = '<div class="watchlist-empty"><div class="watchlist-empty-icon">\uD83D\uDCE1</div><h3>No Intel Tracked Yet</h3><p>Use the \u2606 button on nation cards and conflict cards to add items to your watchlist. Your followed intelligence will appear here.</p></div>';
@@ -5856,7 +5882,7 @@ function renderWatchlistDashboard() {
 
     if (nations.length > 0) {
         assetsHtml += '<div class="watchlist-section"><div class="watchlist-section-title">\uD83C\uDF0D Followed Nations <span class="wl-count">' + nations.length + '</span></div><div class="watchlist-grid">';
-        nations.forEach(function(item) {
+        nations.forEach(function (item) {
             var nation = nationsData[item.targetId];
             if (nation) {
                 var isSel = (watchlistFilter.type === 'nation' && watchlistFilter.id === item.targetId);
@@ -5868,7 +5894,7 @@ function renderWatchlistDashboard() {
 
     if (conflicts.length > 0) {
         assetsHtml += '<div class="watchlist-section"><div class="watchlist-section-title">\u2694\uFE0F Followed Conflicts <span class="wl-count">' + conflicts.length + '</span></div><div class="watchlist-grid">';
-        conflicts.forEach(function(item) {
+        conflicts.forEach(function (item) {
             var conflict = conflictsData[parseInt(item.targetId)];
             if (conflict) {
                 var isSel = (watchlistFilter.type === 'conflict' && watchlistFilter.id === item.targetId);
@@ -5880,7 +5906,7 @@ function renderWatchlistDashboard() {
 
     // Build the personalized feed HTML
     var feedData = getPersonalizedIntelFeed(nations, conflicts);
-    
+
     var feedHeaderTitle = 'Personalized Intel Feed & Alerts';
     var showAllBtn = '';
     if (watchlistFilter.type) {
@@ -5896,7 +5922,7 @@ function renderWatchlistDashboard() {
     if (feedData.length === 0) {
         feedHtml += '<div style="color: var(--color-text-muted); font-size: 0.85rem; font-style: italic; padding: 20px 0; text-align: center;">No intelligence telemetry matches this item...</div>';
     } else {
-        feedData.forEach(function(item) {
+        feedData.forEach(function (item) {
             var timeAgo = getTimeAgo(item.time);
             feedHtml += '<div class="intel-feed-item">';
             feedHtml += '<div class="intel-feed-item-header">';
@@ -5929,10 +5955,10 @@ let pendingWidgetType = null;
 
 // ─── Dashboard Tab Switching ───
 function switchDashboardTab(tab) {
-    document.querySelectorAll('.notebook-tab').forEach(function(btn) {
+    document.querySelectorAll('.notebook-tab').forEach(function (btn) {
         btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
     });
-    document.querySelectorAll('.dashboard-tab-content').forEach(function(pane) {
+    document.querySelectorAll('.dashboard-tab-content').forEach(function (pane) {
         pane.classList.remove('active');
     });
     var target = document.getElementById('tab-' + tab);
@@ -5972,7 +5998,7 @@ function renderReportsList() {
     }
 
     var html = '';
-    notebookReports.forEach(function(r) {
+    notebookReports.forEach(function (r) {
         var isActive = currentReportId === r._id;
         var dateStr = new Date(r.updatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         html += '<div class="notebook-report-item' + (isActive ? ' active' : '') + '" onclick="openReport(\'' + r._id + '\')">';
@@ -6176,7 +6202,7 @@ function parseMarkdown(md) {
     var html = md;
 
     // Escape HTML (but preserve our widget tags)
-    html = html.replace(/\[widget:(comparison|pie-fleet|force-table)\|([^\]]+)\]/g, function(match) {
+    html = html.replace(/\[widget:(comparison|pie-fleet|force-table)\|([^\]]+)\]/g, function (match) {
         return '%%WIDGET_' + btoa(match) + '%%';
     });
 
@@ -6184,13 +6210,13 @@ function parseMarkdown(md) {
     html = html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
     // Restore widget placeholders
-    html = html.replace(/%%WIDGET_([A-Za-z0-9+/=]+)%%/g, function(_, encoded) {
+    html = html.replace(/%%WIDGET_([A-Za-z0-9+/=]+)%%/g, function (_, encoded) {
         var original = atob(encoded);
         return original; // will be processed below
     });
 
     // Code blocks (```)
-    html = html.replace(/```([\s\S]*?)```/g, function(_, code) {
+    html = html.replace(/```([\s\S]*?)```/g, function (_, code) {
         return '<pre class="nb-code-block"><code>' + code.trim() + '</code></pre>';
     });
 
@@ -6217,7 +6243,7 @@ function parseMarkdown(md) {
 
     // Unordered lists
     html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>[\s\S]*?<\/li>)/g, function(match) {
+    html = html.replace(/(<li>[\s\S]*?<\/li>)/g, function (match) {
         if (match.indexOf('<ul>') === -1) {
             return '<ul class="nb-list">' + match + '</ul>';
         }
@@ -6247,13 +6273,13 @@ function parseMarkdown(md) {
     html = html.replace(/\n/g, '<br>');
 
     // Now render widget tags
-    html = html.replace(/\[widget:comparison\|([^\]]+)\]/g, function(_, config) {
+    html = html.replace(/\[widget:comparison\|([^\]]+)\]/g, function (_, config) {
         return renderComparisonWidget(config);
     });
-    html = html.replace(/\[widget:pie-fleet\|([^\]]+)\]/g, function(_, config) {
+    html = html.replace(/\[widget:pie-fleet\|([^\]]+)\]/g, function (_, config) {
         return renderPieFleetWidget(config);
     });
-    html = html.replace(/\[widget:force-table\|([^\]]+)\]/g, function(_, config) {
+    html = html.replace(/\[widget:force-table\|([^\]]+)\]/g, function (_, config) {
         return renderForceTableWidget(config);
     });
 
@@ -6300,7 +6326,7 @@ function renderComparisonWidget(config) {
     html += '<div class="nb-compare-nation-label">' + n2.flag + ' ' + n2.name + '</div>';
     html += '</div>';
 
-    metrics.forEach(function(m) {
+    metrics.forEach(function (m) {
         var max = Math.max(m.v1, m.v2) || 1;
         var pct1 = Math.round((m.v1 / max) * 100);
         var pct2 = Math.round((m.v2 / max) * 100);
@@ -6329,14 +6355,14 @@ function renderPieFleetWidget(config) {
         { label: 'Submarines', value: navy.submarines, color: '#4a9eff' },
         { label: 'Destroyers', value: navy.destroyers, color: '#ff6b6b' },
         { label: 'Frigates', value: navy.frigates, color: '#51cf66' }
-    ].filter(function(s) { return s.value > 0; });
+    ].filter(function (s) { return s.value > 0; });
 
-    var total = segments.reduce(function(sum, s) { return sum + s.value; }, 0);
+    var total = segments.reduce(function (sum, s) { return sum + s.value; }, 0);
 
     // Build CSS conic gradient
     var gradientParts = [];
     var currentDeg = 0;
-    segments.forEach(function(s) {
+    segments.forEach(function (s) {
         var degrees = (s.value / total) * 360;
         gradientParts.push(s.color + ' ' + currentDeg + 'deg ' + (currentDeg + degrees) + 'deg');
         currentDeg += degrees;
@@ -6347,7 +6373,7 @@ function renderPieFleetWidget(config) {
     html += '<div class="nb-pie-layout">';
     html += '<div class="nb-pie-chart" style="background: conic-gradient(' + gradientParts.join(', ') + ');"></div>';
     html += '<div class="nb-pie-legend">';
-    segments.forEach(function(s) {
+    segments.forEach(function (s) {
         var pct = Math.round((s.value / total) * 100);
         html += '<div class="nb-pie-legend-item"><span class="nb-pie-dot" style="background:' + s.color + '"></span>' + s.label + ': <strong>' + s.value + '</strong> (' + pct + '%)</div>';
     });
@@ -6358,34 +6384,34 @@ function renderPieFleetWidget(config) {
 }
 
 function renderForceTableWidget(config) {
-    var keys = config.split(',').map(function(k) { return k.trim(); });
-    var nations = keys.map(function(k) { return nationsData[k]; }).filter(Boolean);
+    var keys = config.split(',').map(function (k) { return k.trim(); });
+    var nations = keys.map(function (k) { return nationsData[k]; }).filter(Boolean);
     if (nations.length === 0) return '<div class="nb-widget-error">⚠ No valid nations found</div>';
 
     var html = '<div class="nb-widget nb-widget-table">';
     html += '<div class="nb-widget-header"><span class="nb-widget-badge">📋 FORCE SUMMARY</span></div>';
     html += '<div class="nb-table-scroll"><table class="nb-force-table">';
     html += '<thead><tr><th>Metric</th>';
-    nations.forEach(function(n) {
+    nations.forEach(function (n) {
         html += '<th>' + n.flag + ' ' + n.name + '</th>';
     });
     html += '</tr></thead><tbody>';
 
     var rows = [
-        { label: 'Global Rank', fn: function(n) { return '#' + n.rank; } },
-        { label: 'Defense Budget', fn: function(n) { return n.budget; } },
-        { label: 'Active Personnel', fn: function(n) { return n.personnel.active.toLocaleString(); } },
-        { label: 'Reserve Personnel', fn: function(n) { return n.personnel.reserve.toLocaleString(); } },
-        { label: 'Nuclear Warheads', fn: function(n) { return n.nuclear.status ? n.nuclear.warheads.toLocaleString() : 'None'; } },
-        { label: 'Tanks', fn: function(n) { return n.army.tanks.toLocaleString(); } },
-        { label: 'Fighters', fn: function(n) { return n.airforce.fighters.toLocaleString(); } },
-        { label: 'Submarines', fn: function(n) { return n.navy.submarines.toLocaleString(); } },
-        { label: 'Carriers', fn: function(n) { return n.navy.carriers.toLocaleString(); } }
+        { label: 'Global Rank', fn: function (n) { return '#' + n.rank; } },
+        { label: 'Defense Budget', fn: function (n) { return n.budget; } },
+        { label: 'Active Personnel', fn: function (n) { return n.personnel.active.toLocaleString(); } },
+        { label: 'Reserve Personnel', fn: function (n) { return n.personnel.reserve.toLocaleString(); } },
+        { label: 'Nuclear Warheads', fn: function (n) { return n.nuclear.status ? n.nuclear.warheads.toLocaleString() : 'None'; } },
+        { label: 'Tanks', fn: function (n) { return n.army.tanks.toLocaleString(); } },
+        { label: 'Fighters', fn: function (n) { return n.airforce.fighters.toLocaleString(); } },
+        { label: 'Submarines', fn: function (n) { return n.navy.submarines.toLocaleString(); } },
+        { label: 'Carriers', fn: function (n) { return n.navy.carriers.toLocaleString(); } }
     ];
 
-    rows.forEach(function(row) {
+    rows.forEach(function (row) {
         html += '<tr><td class="nb-table-label">' + row.label + '</td>';
-        nations.forEach(function(n) {
+        nations.forEach(function (n) {
             html += '<td>' + row.fn(n) + '</td>';
         });
         html += '</tr>';
@@ -6418,7 +6444,7 @@ function selectWidgetType(type) {
     document.getElementById('widget-config-step').style.display = 'block';
 
     var configBody = document.getElementById('widget-config-body');
-    var nationOptions = Object.keys(nationsData).map(function(key) {
+    var nationOptions = Object.keys(nationsData).map(function (key) {
         return '<option value="' + key + '">' + nationsData[key].flag + ' ' + nationsData[key].name + '</option>';
     }).join('');
 
@@ -6469,7 +6495,7 @@ function insertWidgetTag() {
             break;
         case 'force-table':
             var select = document.getElementById('widget-nations-multi');
-            var selected = Array.from(select.selectedOptions).map(function(opt) { return opt.value; });
+            var selected = Array.from(select.selectedOptions).map(function (opt) { return opt.value; });
             if (selected.length === 0) { showToast('Please select at least one nation', 'error'); return; }
             tag = '[widget:force-table|' + selected.join(',') + ']';
             break;
@@ -6550,7 +6576,7 @@ function exportReportPDF() {
     printWin.document.write('</body></html>');
     printWin.document.close();
 
-    setTimeout(function() {
+    setTimeout(function () {
         printWin.print();
     }, 400);
 }
