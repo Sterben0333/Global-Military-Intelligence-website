@@ -6138,17 +6138,21 @@ function parseMarkdown(md) {
     html = html.replace(/\*([\s\S]+?)\*/g, '<em>$1</em>');
     html = html.replace(/_([\s\S]+?)_/g, '<em>$1</em>');
 
-    // Unordered lists
-    html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>[\s\S]*?<\/li>)/g, function (match) {
-        if (match.indexOf('<ul>') === -1) {
-            return '<ul class="nb-list">' + match + '</ul>';
-        }
-        return match;
+    // Unordered lists (consecutive lines starting with - or *)
+    html = html.replace(/(?:^[\-\*] .+(?:\r?\n|$))+/gm, function (match) {
+        var items = match.trim().split(/\r?\n/).map(function (line) {
+            return '<li>' + line.replace(/^[\-\*] /, '').trim() + '</li>';
+        }).join('');
+        return '<ul class="nb-list">' + items + '</ul>';
     });
 
-    // Ordered lists
-    html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+    // Ordered lists (consecutive lines starting with a number and dot)
+    html = html.replace(/(?:^\d+\. .+(?:\r?\n|$))+/gm, function (match) {
+        var items = match.trim().split(/\r?\n/).map(function (line) {
+            return '<li>' + line.replace(/^\d+\.\s+/, '').trim() + '</li>';
+        }).join('');
+        return '<ol class="nb-list-ordered">' + items + '</ol>';
+    });
 
     // Paragraphs (double newline)
     html = html.replace(/\n\n+/g, '</p><p>');

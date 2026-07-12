@@ -6803,6 +6803,16 @@ body {
     margin: 4px 0;
 }
 
+.nb-list-ordered {
+    padding-left: 20px;
+    margin: 8px 0;
+    list-style-type: decimal;
+}
+
+.nb-list-ordered li {
+    margin: 4px 0;
+}
+
 /* ─── WIDGET PREVIEW ─── */
 .nb-widget {
     border: 1px solid rgba(212, 175, 55, 0.12);
@@ -6901,9 +6911,18 @@ body {
     background: linear-gradient(90deg, #ff6b6b, #e05555);
 }
 
+.nb-compare-bar-wrap.left .nb-compare-val {
+    left: 8px;
+    right: auto;
+}
+
+.nb-compare-bar-wrap.right .nb-compare-val {
+    right: 8px;
+    left: auto;
+}
+
 .nb-compare-val {
     position: absolute;
-    right: 8px;
     top: 3px;
     font-size: 0.7rem;
     font-weight: 600;
