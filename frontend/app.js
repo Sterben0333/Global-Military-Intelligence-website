@@ -3396,7 +3396,7 @@ const conflictsData = [
         casualties: "30,000+ killed, 11M+ displaced",
         intensity: "high",
         description: "The civil war enters its third year with intensified fighting and drone attacks in Kordofan and Blue Nile States. Sudan accused Ethiopia of conducting drone attacks 'from inside Ethiopian territory.' Over 11 million displaced — the world's largest displacement crisis. 30 million require humanitarian assistance. Mediation efforts have failed.",
-        image: "https://images.unsplash.com/photo-1590845947670-c009801ffa74?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Sudan_civil_war_news.png",
         coords: [15.5, 32.5],
         news: [
             { title: "Sudan accuses Ethiopia of conducting drone attacks from its territory", date: "Mar 3, 2026", source: "Al Arabiya" },
@@ -3416,7 +3416,7 @@ const conflictsData = [
         casualties: "75,000+ killed, 3M+ displaced",
         intensity: "high",
         description: "Myanmar military government controls only 21% of the country while rebel forces hold 42%. Over 3 million displaced and 75,000+ deaths. Junta held sham elections in Dec 2025-Jan 2026. Military granted amnesty to thousands of prisoners on March 2. Arakan Army controls most of Rakhine State. 16 million projected to need humanitarian assistance in 2026.",
-        image: "https://images.unsplash.com/photo-1570799655570-e937431f7a2d?w=600&h=300&fit=crop",
+        image: "Conflicts_section/myanmar_civil_war_news.png",
         coords: [19.8, 96.5],
         news: [
             { title: "Military junta controls only 21% of Myanmar — CFR report", date: "Mar 2026", source: "Council on Foreign Relations" },
@@ -3436,7 +3436,7 @@ const conflictsData = [
         casualties: "150,000+ killed, 230,000+ (famine)",
         intensity: "high",
         description: "The Yemeni conflict ongoing since 2014. Houthis remain a substantive military force but have notably not yet resumed attacks on Red Sea shipping in direct response to the February-March 2026 US-Iran escalation. US and UK continue military strikes against Houthi positions. The humanitarian crisis remains severe with 230,000+ famine deaths.",
-        image: "https://images.unsplash.com/photo-1596066190600-3af9aadaaea1?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Houthi_news.png",
         coords: [15.3, 44.2],
         news: [
             { title: "Houthis have not resumed Red Sea attacks despite US-Iran war escalation", date: "Mar 3, 2026", source: "UK Parliament" },
@@ -3456,7 +3456,7 @@ const conflictsData = [
         casualties: "500,000+ killed",
         intensity: "medium",
         description: "The Syrian conflict continues with new territorial shifts. Multiple foreign powers remain involved including Russia, Turkey, Iran, and the US. The situation has grown more complex with the US-Iran conflict potentially affecting Iranian positions in Syria.",
-        image: "https://images.unsplash.com/photo-1542810205-0a5b379f9c52?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Syrian_civil_war_news.png",
         coords: [35.0, 38.5],
         news: [
             { title: "Syrian conflict complicated by US-Iran strikes affecting Iranian positions", date: "Mar 2026", source: "Al Monitor" },
@@ -3475,7 +3475,7 @@ const conflictsData = [
         casualties: "600,000+ (Tigray war est.)",
         intensity: "medium",
         description: "Despite the 2022 Tigray ceasefire, Ethiopia faces continued instability from Fano militia insurgency in Amhara region and Oromo Liberation Army operations. Sudan has accused Ethiopia of conducting cross-border drone strikes, adding a new dimension to regional tensions.",
-        image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Ethiopia_news.png",
         coords: [9.1, 40.5],
         news: [
             { title: "Sudan accuses Ethiopia of cross-border drone attacks", date: "Mar 3, 2026", source: "Al Arabiya" },
