@@ -3330,7 +3330,7 @@ const conflictsData = [
         casualties: "500,000+ (est.)",
         intensity: "high",
         description: "Full-scale invasion launched by Russia in February 2022. Ukraine reclaimed 460 sq km of territory since the start of 2026, capturing more territory in February 2026 than Russia. Russia is losing approximately 35,000 troops per month. The war involves extensive trench warfare, FPV drone warfare, and long-range missile strikes on civilian infrastructure.",
-        image: "https://images.unsplash.com/photo-1646659377539-d1bcf027c817?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Russia_ukraine_news.png",
         coords: [48.3, 35.0],
         news: [
             { title: "Ukraine reclaims 460 sq km of territory since January 2026", date: "Mar 3, 2026", source: "Kyiv Independent" },
@@ -3350,7 +3350,7 @@ const conflictsData = [
         casualties: "45,000+ Palestinian, 1,200+ Israeli, 12 killed (Iran strikes), 31+ in Lebanon",
         intensity: "high",
         description: "What began with the October 7, 2023 Hamas attack has escalated into a full-scale multi-front regional war. Israel's October 2025 ceasefire with Hamas is fragile as a renewed Israeli offensive in Gaza is planned for March 2026. Hezbollah began launching strikes against Israel on March 2, 2026 in retaliation for the killing of Iran's Supreme Leader and 'repeated Israeli aggressions,' firing missiles and drones into northern Israel. Israel has responded with airstrikes in Beirut and southern Lebanon. Lebanon condemned Hezbollah's actions and demanded it hand over weapons.",
-        image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Israel_iran_news.png",
         coords: [31.4, 34.4],
         news: [
             { title: "Hezbollah launches strikes on Israel in retaliation for killing of Iranian Supreme Leader", date: "Mar 2, 2026", source: "Breaking Defense" },
@@ -3371,7 +3371,7 @@ const conflictsData = [
         casualties: "787+ Iranian killed, 12+ Israeli killed, 6 US service members killed, 31+ in Lebanon, Gulf state casualties",
         intensity: "high",
         description: "Israel ('Operation Roaring Lion') and the US ('Operation Epic Fury') launched coordinated strikes against Iran on February 28, 2026, targeting leadership, nuclear sites, and military infrastructure. Supreme Leader Ali Khamenei was assassinated in the initial strikes. IAEA confirmed damage to Natanz underground enrichment plant. On March 3, Israel struck Iran's presidential office and National Security Council building in Tehran. Iran retaliated with ballistic missile and drone barrages against Israel, US bases in Qatar/Kuwait/Bahrain/Jordan/Iraq, and the UAE. The US Embassy in Saudi Arabia was hit by two drones. A friendly fire incident saw Kuwait shoot down 3 US F-15s. Qatar halted LNG production. Trump indicated the war could last 4-5 weeks; ground troops not ruled out.",
-        image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600&h=300&fit=crop",
+        image: "Conflicts_section/US_iran_news.png",
         coords: [35.7, 51.4],
         news: [
             { title: "Israel strikes Iran's presidential office and NSC building in Tehran", date: "Mar 3, 2026", source: "The Hindu" },
