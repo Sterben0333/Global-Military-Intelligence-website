@@ -3494,7 +3494,7 @@ const conflictsData = [
         casualties: "Tens of thousands",
         intensity: "high",
         description: "Jihadist insurgencies continue to destabilize the Sahel. Military juntas in Mali, Burkina Faso, and Niger have expelled French and UN forces, instead relying on Russia's Africa Corps (formerly Wagner) mercenaries. Violence against civilians continues to rise.",
-        image: "https://images.unsplash.com/photo-1580227974546-fbd48825d991?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Sahel_insurgency_news.png",
         coords: [14.0, -1.5],
         news: [
             { title: "Russia's Africa Corps expands operations across Sahel states", date: "Feb 2026", source: "Breaking Defense" },
