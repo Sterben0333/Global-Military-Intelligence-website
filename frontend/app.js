@@ -3416,7 +3416,7 @@ const conflictsData = [
         casualties: "75,000+ killed, 3M+ displaced",
         intensity: "high",
         description: "Myanmar military government controls only 21% of the country while rebel forces hold 42%. Over 3 million displaced and 75,000+ deaths. Junta held sham elections in Dec 2025-Jan 2026. Military granted amnesty to thousands of prisoners on March 2. Arakan Army controls most of Rakhine State. 16 million projected to need humanitarian assistance in 2026.",
-        image: "Conflicts_section/myanmar_civil_war_news.png",
+        image: "Conflicts_section/Myanmar_civil_war_news.png",
         coords: [19.8, 96.5],
         news: [
             { title: "Military junta controls only 21% of Myanmar — CFR report", date: "Mar 2026", source: "Council on Foreign Relations" },
@@ -3608,7 +3608,7 @@ const conflictsData = [
         casualties: "Ongoing",
         intensity: "low",
         description: "Despite the 2016 FARC peace deal, Colombia faces ongoing violence from ELN guerrillas, FARC dissident groups, and drug trafficking organizations. The government continues 'Total Peace' negotiations with armed groups.",
-        image: "Conflicts_section/colombia_news.png",
+        image: "Conflicts_section/Colombia_news.png",
         coords: [4.6, -74.1],
         news: [
             { title: "ELN ceasefire negotiations stall amid continued attacks", date: "Feb 2026", source: "Reuters" },
@@ -3665,7 +3665,7 @@ const conflictsData = [
         casualties: "Hundreds killed in cross-border strikes",
         intensity: "high",
         description: "Pakistan launched military operations and airstrikes inside Afghan territory targeting TTP militants sheltered by the Taliban. Cross-border tensions escalated sharply in 2024-2026 with Pakistan conducting Operation Azm-e-Istehkam and retaliatory strikes after deadly TTP attacks.",
-        image: "Conflicts_section/Porkistan_Afghanistan_news.png",
+        image: "Conflicts_section/Porkistan_afghanistan_news.png",
         coords: [33.0, 69.5],
         news: [
             { title: "Pakistan conducts fresh airstrikes on TTP camps inside Afghanistan", date: "Feb 2026", source: "Dawn" },

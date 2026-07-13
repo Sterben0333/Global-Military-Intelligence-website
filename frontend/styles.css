@@ -1643,6 +1643,27 @@ body {
     margin-bottom: var(--space-sm);
 }
 
+.conflict-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-bottom: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+}
+
+.conflict-meta-item {
+    text-align: center;
+}
+
+.conflict-meta-item:first-child {
+    text-align: left;
+}
+
+.conflict-meta-item:last-child {
+    text-align: right;
+}
+
 .equipment-card-name {
     font-family: var(--font-display);
     font-weight: 600;
@@ -4483,14 +4504,13 @@ body {
 
 .conflict-card-image {
     width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    height: auto;
     display: block;
-    background: #080c14;
 }
 
 .conflict-card-body {
     padding: var(--space-lg);
+    flex-grow: 1;
 }
 
 .conflict-card-header {
@@ -4726,10 +4746,9 @@ body {
 
 .conflict-modal-image {
     width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    height: auto;
+    display: block;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    background: #080c14;
 }
 
 .conflict-modal-body {
