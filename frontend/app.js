@@ -3570,7 +3570,7 @@ const conflictsData = [
         casualties: "Thousands killed",
         intensity: "medium",
         description: "Haiti has descended into gang-controlled chaos with armed groups controlling 80% of Port-au-Prince. A Kenyan-led multinational security support mission is attempting to restore order amid widespread violence.",
-        image: "https://images.unsplash.com/photo-1562483159-8a3b1ec05371?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Haiti_gang_news.png",
         coords: [18.9, -72.1],
         news: [
             { title: "Kenyan-led multinational force struggles to contain gang violence", date: "Feb 2026", source: "AP News" },
@@ -3589,7 +3589,7 @@ const conflictsData = [
         casualties: "Ongoing",
         intensity: "low",
         description: "Libya remains divided between the internationally recognized government in Tripoli and General Haftar's Libyan National Army in the east. Foreign mercenaries from Russia and Turkey remain deployed in the country.",
-        image: "https://images.unsplash.com/photo-1601911164538-5c05883a9fa1?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Libya_news.png",
         coords: [26.3, 17.2],
         news: [
             { title: "Libya's rival governments continue power struggle despite mediation", date: "Feb 2026", source: "Libya Herald" },
@@ -3608,7 +3608,7 @@ const conflictsData = [
         casualties: "Ongoing",
         intensity: "low",
         description: "Despite the 2016 FARC peace deal, Colombia faces ongoing violence from ELN guerrillas, FARC dissident groups, and drug trafficking organizations. The government continues 'Total Peace' negotiations with armed groups.",
-        image: "https://images.unsplash.com/photo-1534643960519-11ad79bc19df?w=600&h=300&fit=crop",
+        image: "Conflicts_section/colombia_news.png",
         coords: [4.6, -74.1],
         news: [
             { title: "ELN ceasefire negotiations stall amid continued attacks", date: "Feb 2026", source: "Reuters" },
@@ -3627,7 +3627,7 @@ const conflictsData = [
         casualties: "30,000+ (all wars)",
         intensity: "low",
         description: "Azerbaijan recaptured Nagorno-Karabakh in September 2023, causing the exodus of 100,000+ ethnic Armenians. Tensions remain high along the border with periodic Azerbaijan military provocations.",
-        image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Nagorno_Karabakh_news.png",
         coords: [39.8, 46.8],
         news: [
             { title: "Armenia-Azerbaijan border demarcation talks continue", date: "Feb 2026", source: "Eurasianet" },
@@ -3646,7 +3646,7 @@ const conflictsData = [
         casualties: "Naval confrontations",
         intensity: "medium",
         description: "China's militarization of artificial islands and aggressive coast guard/militia actions have led to frequent confrontations with Philippine vessels. The US regularly conducts freedom of navigation operations in disputed waters.",
-        image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=600&h=300&fit=crop",
+        image: "Conflicts_section/South_china_sea_news.png",
         coords: [12.0, 114.5],
         news: [
             { title: "Chinese coast guard increases aggressive actions against Philippine vessels", date: "Feb 2026", source: "USNI News" },
@@ -3665,7 +3665,7 @@ const conflictsData = [
         casualties: "Hundreds killed in cross-border strikes",
         intensity: "high",
         description: "Pakistan launched military operations and airstrikes inside Afghan territory targeting TTP militants sheltered by the Taliban. Cross-border tensions escalated sharply in 2024-2026 with Pakistan conducting Operation Azm-e-Istehkam and retaliatory strikes after deadly TTP attacks.",
-        image: "https://images.unsplash.com/photo-1585593700906-99f2e15b7f73?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Porkistan_Afghanistan_news.png",
         coords: [33.0, 69.5],
         news: [
             { title: "Pakistan conducts fresh airstrikes on TTP camps inside Afghanistan", date: "Feb 2026", source: "Dawn" },
@@ -3684,7 +3684,7 @@ const conflictsData = [
         casualties: "Military standoff",
         intensity: "medium",
         description: "China has intensified military drills around Taiwan, sending record numbers of fighter jets and naval vessels across the median line. The US continues arms sales to Taiwan and freedom of navigation operations through the strait.",
-        image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Taiwan_news.png",
         coords: [24.0, 121.0],
         news: [
             { title: "PLA conducts large-scale military exercises near Taiwan", date: "Feb 2026", source: "Defense News" },
@@ -3703,7 +3703,7 @@ const conflictsData = [
         casualties: "20+ killed (Galwan 2020)",
         intensity: "low",
         description: "India and China remain in a military standoff along the Line of Actual Control (LAC) in eastern Ladakh despite partial disengagement. Both sides continue to build up infrastructure and deploy troops along the disputed border.",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=300&fit=crop",
+        image: "Conflicts_section/India_china_LAC_news.png",
         coords: [34.5, 78.0],
         news: [
             { title: "India-China border talks continue without full resolution", date: "Feb 2026", source: "IDRW" },
@@ -3722,7 +3722,7 @@ const conflictsData = [
         casualties: "5,000+ killed, 1M displaced",
         intensity: "medium",
         description: "ISIS-linked militants continue an insurgency in Cabo Delgado province, threatening major natural gas projects. Rwandan and SADC forces are assisting the Mozambican military.",
-        image: "https://images.unsplash.com/photo-1590845947670-c009801ffa74?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Mozambique_news.png",
         coords: [-12.5, 40.5],
         news: [
             { title: "Rwandan forces assist Mozambique in Cabo Delgado operations", date: "Feb 2026", source: "Defense Web" },
@@ -3741,7 +3741,7 @@ const conflictsData = [
         casualties: "Ongoing attacks",
         intensity: "low",
         description: "Despite the territorial defeat of ISIS in 2017, sleeper cells continue guerrilla attacks and ambushes in rural Iraq. Iraqi military conducts regular clearance operations. US-Iran tensions complicate the security situation.",
-        image: "https://images.unsplash.com/photo-1542810205-0a5b379f9c52?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Iraq_news.png",
         coords: [34.5, 43.5],
         news: [
             { title: "Iraqi forces conduct clearance operations against ISIS cells", date: "Feb 2026", source: "Stars and Stripes" },
@@ -3760,7 +3760,7 @@ const conflictsData = [
         casualties: "350,000+ (est. total)",
         intensity: "high",
         description: "Nigeria faces a dual security crisis: Boko Haram/ISWAP insurgency in the northeast and mass banditry with kidnappings in the northwest. The military is stretched across multiple fronts.",
-        image: "https://images.unsplash.com/photo-1580227974546-fbd48825d991?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Nigeria_news.png",
         coords: [11.8, 13.1],
         news: [
             { title: "Nigerian military launches new offensive against ISWAP in Lake Chad", date: "Feb 2026", source: "Premium Times" },
