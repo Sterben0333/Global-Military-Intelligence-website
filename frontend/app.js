@@ -3513,7 +3513,7 @@ const conflictsData = [
         casualties: "7M+ displaced",
         intensity: "medium",
         description: "The M23 rebel group, allegedly backed by Rwanda, has captured significant territory in eastern Congo including the city of Goma. The conflict has created one of the world's worst humanitarian crises with millions displaced.",
-        image: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=600&h=300&fit=crop",
+        image: "Conflicts_section/dr_m23_news.png",
         coords: [-1.7, 29.2],
         news: [
             { title: "M23 rebels continue advance in eastern DR Congo", date: "Feb 2026", source: "Reuters" },
@@ -3532,7 +3532,7 @@ const conflictsData = [
         casualties: "Ongoing",
         intensity: "medium",
         description: "Al-Shabaab controls significant rural territory in southern Somalia and conducts regular attacks including complex assaults on hotels and military bases. The US conducts frequent drone strikes against the group.",
-        image: "https://images.unsplash.com/photo-1594662787449-20da0e9b0e47?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Somalia_news.png",
         coords: [2.0, 45.3],
         news: [
             { title: "Somali forces launch new offensive against Al-Shabaab strongholds", date: "Feb 2026", source: "Stars and Stripes" },
@@ -3551,7 +3551,7 @@ const conflictsData = [
         casualties: "Ongoing attacks",
         intensity: "medium",
         description: "Since the Taliban takeover in 2021, ISIS-K has conducted a campaign of bombings against the Taliban government, Shia minorities, and foreign targets. Cross-border tensions with Pakistan have escalated sharply.",
-        image: "https://images.unsplash.com/photo-1585593700906-99f2e15b7f73?w=600&h=300&fit=crop",
+        image: "Conflicts_section/Afghanistan_news.png",
         coords: [33.9, 67.7],
         news: [
             { title: "ISIS-K attacks increase in Kabul and eastern provinces", date: "Feb 2026", source: "Janes" },
