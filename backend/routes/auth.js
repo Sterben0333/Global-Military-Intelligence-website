@@ -194,11 +194,29 @@ router.get('/profile', authMiddleware, async (req, res) => {
 // ============================================
 router.put('/profile', authMiddleware, async (req, res) => {
     try {
-        const { displayName } = req.body;
+        const { displayName, currentPassword, newPassword } = req.body;
         const Model = req.user.role === 'admin' ? Admin : User;
 
+        // Update display name if provided
         if (displayName !== undefined) {
             await Model.findByIdAndUpdate(req.user.id, { displayName });
+        }
+
+        // Handle password change if requested
+        if (currentPassword && newPassword) {
+            if (newPassword.length < 6) {
+                return res.status(400).json({ error: 'New password must be at least 6 characters.' });
+            }
+
+            const user = await Model.findById(req.user.id);
+            const validPassword = bcrypt.compareSync(currentPassword, user.password);
+            if (!validPassword) {
+                return res.status(401).json({ error: 'Current password is incorrect.' });
+            }
+
+            const hashedPassword = bcrypt.hashSync(newPassword, 12);
+            await Model.findByIdAndUpdate(req.user.id, { password: hashedPassword });
+            console.log(`🔐 User ${req.user.username} changed their password`);
         }
 
         const user = await Model.findById(req.user.id).select('username email displayName createdAt lastLogin');

@@ -859,6 +859,143 @@
         </div>
     </div>
 
+    <!-- Profile Settings Modal -->
+    <div id="auth-profile-modal" class="auth-modal">
+        <div class="auth-modal-overlay" onclick="closeProfileModal()"></div>
+        <div class="auth-modal-content profile-modal-content">
+            <button class="auth-modal-close" onclick="closeProfileModal()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar-lg" id="profile-avatar-lg">U</div>
+                <div class="profile-header-info">
+                    <h2 class="auth-modal-title" style="text-align:left;margin-bottom:2px;" id="profile-display-title">Username</h2>
+                    <span class="profile-role-badge" id="profile-role-badge">User</span>
+                </div>
+            </div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-profile-tab="info" onclick="switchProfileTab('info')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Account Info
+                </button>
+                <button class="profile-tab" data-profile-tab="edit" onclick="switchProfileTab('edit')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    Edit Profile
+                </button>
+                <button class="profile-tab" data-profile-tab="security" onclick="switchProfileTab('security')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Security
+                </button>
+            </div>
+
+            <!-- Tab: Account Info -->
+            <div class="profile-tab-content active" id="profile-tab-info">
+                <div class="profile-info-grid" id="profile-info-grid">
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Username
+                        </div>
+                        <div class="profile-info-value" id="profile-info-username">—</div>
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Email
+                        </div>
+                        <div class="profile-info-value" id="profile-info-email">—</div>
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Joined
+                        </div>
+                        <div class="profile-info-value" id="profile-info-joined">—</div>
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Last Login
+                        </div>
+                        <div class="profile-info-value" id="profile-info-lastlogin">—</div>
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Role
+                        </div>
+                        <div class="profile-info-value" id="profile-info-role">—</div>
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            Watchlist Items
+                        </div>
+                        <div class="profile-info-value" id="profile-info-watchlist">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Edit Profile -->
+            <div class="profile-tab-content" id="profile-tab-edit">
+                <form id="profile-edit-form" onsubmit="handleProfileUpdate(event)">
+                    <div class="auth-input-group">
+                        <label for="profile-edit-displayname">Display Name</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <input type="text" id="profile-edit-displayname" placeholder="Enter your display name" autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="profile-form-note">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Your username and email cannot be changed. Contact an admin for assistance.
+                    </div>
+                    <button type="submit" class="auth-submit-btn" id="profile-edit-btn">
+                        <span>Save Changes</span>
+                        <div class="auth-btn-spinner" style="display:none;"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Tab: Security (Password Change) -->
+            <div class="profile-tab-content" id="profile-tab-security">
+                <form id="profile-password-form" onsubmit="handlePasswordChange(event)">
+                    <div class="auth-input-group">
+                        <label for="profile-current-password">Current Password</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <input type="password" id="profile-current-password" placeholder="Enter current password" required minlength="6" autocomplete="current-password">
+                        </div>
+                    </div>
+                    <div class="auth-input-group">
+                        <label for="profile-new-password">New Password</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <input type="password" id="profile-new-password" placeholder="Min 6 characters" required minlength="6" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="auth-input-group">
+                        <label for="profile-confirm-password">Confirm New Password</label>
+                        <div class="auth-input-wrap">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <input type="password" id="profile-confirm-password" placeholder="Re-enter new password" required minlength="6" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-submit-btn profile-password-btn" id="profile-password-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span>Update Password</span>
+                        <div class="auth-btn-spinner" style="display:none;"></div>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Watchlist Dashboard Overlay -->
     <div id="watchlist-dashboard" class="watchlist-dashboard">
         <div class="watchlist-dashboard-inner">
