@@ -4487,6 +4487,9 @@ body {
     opacity: 0;
     transform: translateY(20px);
     animation: conflictCardIn 0.5s ease forwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 @keyframes conflictCardIn {
@@ -4511,6 +4514,8 @@ body {
 .conflict-card-body {
     padding: var(--space-lg);
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .conflict-card-header {
@@ -4644,6 +4649,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-top: auto;
     margin-bottom: var(--space-md);
 }
 
@@ -4658,9 +4664,10 @@ body {
 }
 
 .conflict-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2.2fr 1.1fr 0.7fr;
+    gap: var(--space-md);
+    align-items: start;
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
 }
@@ -4668,8 +4675,23 @@ body {
 .conflict-meta-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2px;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
+}
+
+.conflict-meta-item:last-child {
+    align-items: flex-end;
+}
+
+@media (max-width: 480px) {
+    .conflict-meta {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    .conflict-meta-item:last-child {
+        align-items: flex-start;
+    }
 }
 
 .conflict-meta-label {
