@@ -4088,7 +4088,13 @@ async function refreshConflicts() {
 
             allArticles.forEach(article => {
                 const text = (article.title + ' ' + article.description).toLowerCase();
-                const isMatch = keywords.some(kw => text.includes(kw.toLowerCase()));
+                const isMatch = keywords.some(kw => {
+                    const cleanKw = kw.toLowerCase().trim();
+                    if (!cleanKw) return false;
+                    const escaped = cleanKw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const regex = new RegExp(`\\b${escaped}\\b`, 'i');
+                    return regex.test(text);
+                });
                 if (isMatch) {
                     matchedArticles.push(article);
                 }
