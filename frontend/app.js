@@ -2255,7 +2255,11 @@ function newsImageError(img) {
 }
 
 function renderNewsCard(article, index) {
-    const timeAgo = getTimeAgo(article.publishedAt);
+    const publishedDate = new Date(article.publishedAt).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    });
     const categoryLabel = getCategoryLabel(article.category);
     const fallbackImage = getRelevantImage(article.title, article.description, index);
     const imageUrl = (article.image && isValidNewsImage(article.image)) ? article.image : fallbackImage;
@@ -2284,10 +2288,12 @@ function renderNewsCard(article, index) {
                     </span>
                     <span class="news-card-time">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        ${timeAgo}
+                        ${publishedDate}
                     </span>
                 </div>
             </div>
@@ -2303,20 +2309,6 @@ function getCategoryLabel(category) {
         'tech': 'TECH'
     };
     return labels[category] || 'NEWS';
-}
-
-function getTimeAgo(dateString) {
-    const now = new Date();
-    const date = new Date(dateString);
-    const diffMs = now - date;
-    const diffMins = Math.floor(diffMs / 60000);
-    const diffHours = Math.floor(diffMs / 3600000);
-    const diffDays = Math.floor(diffMs / 86400000);
-
-    if (diffMins < 60) return `${diffMins}m ago`;
-    if (diffHours < 24) return `${diffHours}h ago`;
-    if (diffDays < 7) return `${diffDays}d ago`;
-    return date.toLocaleDateString();
 }
 
 function updateTimestamp() {
