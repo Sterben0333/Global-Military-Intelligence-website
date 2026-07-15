@@ -1745,19 +1745,17 @@ async function fetchNews() {
             }
         }
 
-        // Combine: live military articles first, then sample news as backup
+        // Populate newsData with live military articles only
         if (liveArticles.length > 0) {
-            newsData = [...liveArticles, ...sampleNews];
-            console.log(`✅ Loaded ${liveArticles.length} live military articles + ${sampleNews.length} sample articles`);
+            newsData = liveArticles;
+            // Sort newsData by date (newest first)
+            newsData.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+            console.log(`✅ Loaded ${liveArticles.length} live military articles`);
             // Show notification bar with latest live headline
-            showNewsNotification(liveArticles[0].title, liveArticles.length, liveArticles[0].link, liveArticles[0].description);
+            showNewsNotification(liveArticles[0].title, liveArticles.length, liveArticles[0].url || liveArticles[0].link, liveArticles[0].description);
         } else {
-            newsData = sampleNews;
-            console.log(`ℹ️ Using ${sampleNews.length} sample military articles (no live feeds available)`);
-            // Still show notification bar with sample news
-            if (sampleNews.length > 0) {
-                showNewsNotification(sampleNews[0].title, sampleNews.length, sampleNews[0].link, sampleNews[0].description);
-            }
+            newsData = [];
+            console.log(`ℹ️ No live military articles available`);
         }
 
         renderNews();
@@ -1861,27 +1859,33 @@ function populateDateDropdown() {
     newsData.forEach(article => {
         const d = new Date(article.publishedAt);
         if (isNaN(d.getTime())) return;
-        const key = d.getFullYear() + '-' +
+        
+        // Use the exact same formatting as the cards
+        const label = d.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+        });
+        
+        // Sort key: YYYY-MM-DD for correct chronological sorting
+        const sortKey = d.getFullYear() + '-' +
             String(d.getMonth() + 1).padStart(2, '0') + '-' +
             String(d.getDate()).padStart(2, '0');
-        if (!dateMap.has(key)) {
-            dateMap.set(key, d.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            }));
+            
+        if (!dateMap.has(label)) {
+            dateMap.set(label, sortKey);
         }
     });
 
-    // Sort dates newest first
-    const sortedDates = Array.from(dateMap.entries()).sort((a, b) => b[0].localeCompare(a[0]));
+    // Sort by the YYYY-MM-DD key (newest first)
+    const sortedDates = Array.from(dateMap.entries()).sort((a, b) => b[1].localeCompare(a[1]));
 
     // Rebuild options
     const prevValue = dateSelect.value;
     dateSelect.innerHTML = '<option value="all">All Dates</option>';
-    sortedDates.forEach(([key, label]) => {
+    sortedDates.forEach(([label, sortKey]) => {
         const opt = document.createElement('option');
-        opt.value = key;
+        opt.value = label; // Use formatted label (e.g. "Jul 15, 2026") as the filter value
         opt.textContent = label;
         dateSelect.appendChild(opt);
     });
@@ -1919,9 +1923,12 @@ function renderNews() {
         if (currentNewsDate !== 'all') {
             filteredNews = filteredNews.filter(article => {
                 const articleDate = new Date(article.publishedAt);
-                const dateStr = articleDate.getFullYear() + '-' +
-                    String(articleDate.getMonth() + 1).padStart(2, '0') + '-' +
-                    String(articleDate.getDate()).padStart(2, '0');
+                if (isNaN(articleDate.getTime())) return false;
+                const dateStr = articleDate.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
                 return dateStr === currentNewsDate;
             });
         }
@@ -2341,9 +2348,12 @@ function openNewsModal(index) {
     if (currentNewsDate !== 'all') {
         filteredNews = filteredNews.filter(article => {
             const articleDate = new Date(article.publishedAt);
-            const dateStr = articleDate.getFullYear() + '-' +
-                String(articleDate.getMonth() + 1).padStart(2, '0') + '-' +
-                String(articleDate.getDate()).padStart(2, '0');
+            if (isNaN(articleDate.getTime())) return false;
+            const dateStr = articleDate.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
             return dateStr === currentNewsDate;
         });
     }
@@ -2387,7 +2397,7 @@ function openNewsModal(index) {
 
     // Set external link
     if (article.url && article.url !== '#') {
-        externalBtn.onclick = function () { window.open(article.url, '_blank'); };
+        externalBtn.href = article.url;
         externalBtn.style.display = 'inline-flex';
     } else {
         externalBtn.style.display = 'none';
