@@ -37,4 +37,7 @@ const reportSchema = new mongoose.Schema({
 // Fast listing for user dashboard — newest first
 reportSchema.index({ userId: 1, updatedAt: -1 });
 
+// Community Hub — public reports, newest first
+reportSchema.index({ isPublic: 1, updatedAt: -1 });
+
 module.exports = mongoose.model('Report', reportSchema);

@@ -5869,6 +5869,8 @@ function switchDashboardTab(tab) {
 
     if (tab === 'notebook') {
         loadReports();
+    } else if (tab === 'community') {
+        loadCommunityReports(1);
     }
 }
 
@@ -6492,4 +6494,246 @@ function clearWatchlistCache() {
     watchlistCache = [];
     watchlistFilter = { type: null, id: null };
     refreshFollowButtons();
+}
+
+// ═══════════════════════════════════════════════
+// COMMUNITY HUB — Public Reports
+// ═══════════════════════════════════════════════
+
+var communityPage = 1;
+var communitySearchTimer = null;
+var communityLoaded = false;
+
+function debounceCommunitySearch() {
+    clearTimeout(communitySearchTimer);
+    communitySearchTimer = setTimeout(function () {
+        loadCommunityReports(1);
+    }, 350);
+}
+
+async function loadCommunityReports(page) {
+    communityPage = page || 1;
+    var grid = document.getElementById('community-grid');
+    var pagination = document.getElementById('community-pagination');
+    var reader = document.getElementById('community-reader');
+    if (!grid) return;
+
+    // Hide reader, show grid
+    if (reader) reader.style.display = 'none';
+    grid.style.display = '';
+    if (pagination) pagination.style.display = '';
+
+    // Show loading state
+    grid.innerHTML = '<div class="community-loading">Loading public reports...</div>';
+    if (pagination) pagination.style.display = 'none';
+
+    var searchVal = '';
+    var searchInput = document.getElementById('community-search');
+    if (searchInput) searchVal = searchInput.value.trim();
+
+    var sortVal = 'newest';
+    var sortSelect = document.getElementById('community-sort');
+    if (sortSelect) sortVal = sortSelect.value;
+
+    var params = 'page=' + communityPage + '&limit=12&sort=' + sortVal;
+    if (searchVal) params += '&search=' + encodeURIComponent(searchVal);
+
+    try {
+        var resp = await fetch('/api/reports/public?' + params);
+        var data = await resp.json();
+
+        if (!resp.ok) {
+            grid.innerHTML = '<div class="community-empty"><div class="community-empty-icon">⚠️</div><h3>Failed to Load</h3><p>' + (data.error || 'Server error') + '</p></div>';
+            return;
+        }
+
+        communityLoaded = true;
+        renderCommunityGrid(data.reports || [], data.total || 0, data.page || 1, data.totalPages || 1);
+    } catch (err) {
+        console.error('Community load error:', err);
+        grid.innerHTML = '<div class="community-empty"><div class="community-empty-icon">📡</div><h3>Connection Error</h3><p>Unable to reach the server. Please try again.</p></div>';
+    }
+}
+
+function renderCommunityGrid(reports, total, page, totalPages) {
+    var grid = document.getElementById('community-grid');
+    var pagination = document.getElementById('community-pagination');
+    if (!grid) return;
+
+    if (reports.length === 0) {
+        var searchVal = '';
+        var searchInput = document.getElementById('community-search');
+        if (searchInput) searchVal = searchInput.value.trim();
+
+        if (searchVal) {
+            grid.innerHTML = '<div class="community-empty"><div class="community-empty-icon">🔍</div><h3>No Results</h3><p>No public reports match "' + escapeHtml(searchVal) + '". Try a different search term.</p></div>';
+        } else {
+            grid.innerHTML = '<div class="community-empty"><div class="community-empty-icon">📋</div><h3>No Public Reports Yet</h3><p>Be the first to share your strategic analysis with the community! Toggle "Public" in the Analyst Notebook to publish a report.</p></div>';
+        }
+        if (pagination) pagination.style.display = 'none';
+        return;
+    }
+
+    var html = '';
+    reports.forEach(function (r) {
+        var dateStr = new Date(r.updatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        var initials = (r.author || 'U').substring(0, 2).toUpperCase();
+        var excerpt = r.excerpt || 'No content preview available.';
+
+        html += '<div class="community-card" onclick="openCommunityReport(\'' + r._id + '\')">';
+        html += '<div class="community-card-title">' + escapeHtml(r.title) + '</div>';
+        html += '<div class="community-card-excerpt">' + escapeHtml(excerpt) + '</div>';
+        html += '<div class="community-card-footer">';
+        html += '<div class="community-card-author">';
+        html += '<div class="community-card-author-avatar">' + initials + '</div>';
+        html += escapeHtml(r.author);
+        html += '</div>';
+        html += '<div class="community-card-date">' + dateStr + '</div>';
+        html += '</div>';
+        html += '</div>';
+    });
+    grid.innerHTML = html;
+
+    // Pagination
+    if (pagination) {
+        if (totalPages <= 1) {
+            pagination.style.display = 'none';
+        } else {
+            pagination.style.display = '';
+            var pagHtml = '';
+
+            // Previous button
+            pagHtml += '<button class="community-page-btn" onclick="loadCommunityReports(' + (page - 1) + ')" ' + (page <= 1 ? 'disabled' : '') + '>← Prev</button>';
+
+            // Page numbers
+            var startP = Math.max(1, page - 2);
+            var endP = Math.min(totalPages, page + 2);
+
+            if (startP > 1) {
+                pagHtml += '<button class="community-page-btn" onclick="loadCommunityReports(1)">1</button>';
+                if (startP > 2) pagHtml += '<span class="community-page-info">…</span>';
+            }
+
+            for (var i = startP; i <= endP; i++) {
+                pagHtml += '<button class="community-page-btn' + (i === page ? ' active' : '') + '" onclick="loadCommunityReports(' + i + ')">' + i + '</button>';
+            }
+
+            if (endP < totalPages) {
+                if (endP < totalPages - 1) pagHtml += '<span class="community-page-info">…</span>';
+                pagHtml += '<button class="community-page-btn" onclick="loadCommunityReports(' + totalPages + ')">' + totalPages + '</button>';
+            }
+
+            // Next button
+            pagHtml += '<button class="community-page-btn" onclick="loadCommunityReports(' + (page + 1) + ')" ' + (page >= totalPages ? 'disabled' : '') + '>Next →</button>';
+
+            pagination.innerHTML = pagHtml;
+        }
+    }
+}
+
+async function openCommunityReport(id) {
+    var grid = document.getElementById('community-grid');
+    var pagination = document.getElementById('community-pagination');
+    var reader = document.getElementById('community-reader');
+    if (!reader) return;
+
+    // Hide grid, show reader
+    if (grid) grid.style.display = 'none';
+    if (pagination) pagination.style.display = 'none';
+    reader.style.display = '';
+
+    // Loading state
+    document.getElementById('community-reader-title').textContent = 'Loading...';
+    document.getElementById('community-reader-meta').innerHTML = '';
+    document.getElementById('community-reader-body').innerHTML = '<div class="community-loading">Fetching report...</div>';
+
+    try {
+        var resp = await fetch('/api/reports/public/' + id);
+        var data = await resp.json();
+
+        if (!resp.ok || !data.report) {
+            document.getElementById('community-reader-title').textContent = 'Error';
+            document.getElementById('community-reader-body').innerHTML = '<p style="color:var(--color-text-muted);">' + (data.error || 'Failed to load report.') + '</p>';
+            return;
+        }
+
+        var r = data.report;
+        document.getElementById('community-reader-title').textContent = r.title;
+
+        var createdStr = new Date(r.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        var updatedStr = new Date(r.updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+        var metaHtml = '<span class="reader-author">';
+        metaHtml += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+        metaHtml += escapeHtml(r.author);
+        metaHtml += '</span>';
+        metaHtml += '<span class="reader-date">';
+        metaHtml += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+        metaHtml += 'Published ' + createdStr;
+        if (updatedStr !== createdStr) metaHtml += ' • Updated ' + updatedStr;
+        metaHtml += '</span>';
+        document.getElementById('community-reader-meta').innerHTML = metaHtml;
+
+        // Render markdown content
+        var bodyHtml = renderCommunityMarkdown(r.content || '');
+        document.getElementById('community-reader-body').innerHTML = bodyHtml;
+    } catch (err) {
+        console.error('Community report load error:', err);
+        document.getElementById('community-reader-title').textContent = 'Error';
+        document.getElementById('community-reader-body').innerHTML = '<p style="color:var(--color-text-muted);">Unable to connect to server.</p>';
+    }
+}
+
+function closeCommunityReader() {
+    var grid = document.getElementById('community-grid');
+    var pagination = document.getElementById('community-pagination');
+    var reader = document.getElementById('community-reader');
+
+    if (reader) reader.style.display = 'none';
+    if (grid) grid.style.display = '';
+    // Re-show pagination if there were multiple pages
+    if (pagination && pagination.innerHTML.trim()) pagination.style.display = '';
+}
+
+function renderCommunityMarkdown(md) {
+    if (!md) return '<p style="color:var(--color-text-muted);">This report has no content yet.</p>';
+
+    // Basic markdown → HTML conversion
+    var html = md;
+
+    // Code blocks (fenced)
+    html = html.replace(/```([\s\S]*?)```/g, function (m, code) {
+        return '<pre><code>' + escapeHtml(code.trim()) + '</code></pre>';
+    });
+
+    // Headings
+    html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+    // Bold & italic
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+    // Inline code
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+    // Blockquotes
+    html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+
+    // Horizontal rules
+    html = html.replace(/^---$/gm, '<hr>');
+
+    // Unordered lists
+    html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+    // Paragraphs — wrap loose lines
+    html = html.replace(/^(?!<[hupblo]|<\/|<li|<code|<pre|<blockquote|<hr)(.+)$/gm, '<p>$1</p>');
+
+    // Clean up multiple newlines
+    html = html.replace(/\n{2,}/g, '');
+
+    return html;
 }
