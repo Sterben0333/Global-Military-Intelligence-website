@@ -919,7 +919,7 @@ function renderOverview(nation) {
 }
 
 function renderArmy(nation) {
-    const armyImage = nation.army.image || 'https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop';
+    const armyImage = nation.army.image || 'https://images.unsplash.com/photo-1534996858221-380b92700493?w=800&h=400&fit=crop';
     const armyName = nation.army.name || `${nation.name} Army`;
     const armyFounded = nation.army.founded || 'N/A';
     const armyMotto = nation.army.motto || 'Land Forces';
@@ -970,7 +970,7 @@ function renderArmy(nation) {
 }
 
 function renderNavy(nation) {
-    const navyImage = nation.navy.image || 'https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop';
+    const navyImage = nation.navy.image || 'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=800&h=400&fit=crop';
     const navyName = nation.navy.name || `${nation.name} Navy`;
     const navyFounded = nation.navy.founded || 'N/A';
     const navyMotto = nation.navy.motto || 'Sea Power';
@@ -1982,11 +1982,8 @@ const MILITARY_IMAGE_MAP = [
         keywords: ['fighter', 'jet', 'f-35', 'f-16', 'f-22', 'su-57', 'rafale', 'eurofighter', 'typhoon', 'tejas', 'mig', 'su-30', 'air force', 'airforce', 'iaf', 'stealth', 'bomber', 'b-21', 'b-52', 'aircraft'],
         images: [
             'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1474302694023-51549ad57c7e?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1616455220967-3a8608ac516a?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1599583863916-e06c29087f51?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop'
         ]
@@ -1994,26 +1991,19 @@ const MILITARY_IMAGE_MAP = [
     {
         keywords: ['navy', 'naval', 'warship', 'destroyer', 'frigate', 'carrier', 'aircraft carrier', 'submarine', 'ins ', 'uss ', 'hms ', 'corvette', 'amphibious', 'fleet'],
         images: [
-            'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1570052425899-f9223285b5c0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1562507049-4e9e3c253e2e?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1580130732478-4e339fb6836f?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1567956376-3a34c4914bc4?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1544890225-2f3faec4cd60?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['tank', 'armor', 'armored', 'abrams', 'leopard', 'arjun', 'artillery', 'howitzer', 'infantry', 'troops', 'soldiers', 'army', 'battalion', 'brigade', 'regiment', 'ground forces'],
         images: [
             'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop'
         ]
     },
@@ -2033,24 +2023,21 @@ const MILITARY_IMAGE_MAP = [
     {
         keywords: ['drone', 'uav', 'unmanned', 'reconnaissance', 'surveillance', 'radar', 'cyber', 'electronic warfare', 'intelligence'],
         images: [
-            'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['nato', 'alliance', 'summit', 'pentagon', 'defense budget', 'defence budget', 'military spending', 'contract', 'lockheed', 'raytheon', 'northrop', 'boeing', 'bae'],
         images: [
-            'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1541354329998-f4d927d9b2b8?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1577415124269-fc1140815fdc?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
         ]
     },
@@ -2058,32 +2045,19 @@ const MILITARY_IMAGE_MAP = [
         keywords: ['special forces', 'commando', 'sniper', 'marine', 'seal', 'delta', 'sas', 'paratrooper', 'combat', 'operation', 'raid'],
         images: [
             'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['helicopter', 'apache', 'blackhawk', 'chinook', 'chopper'],
         images: [
-            'https://images.unsplash.com/photo-1562939803-1d4b46d3a3b1?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1571034136731-065fc7ed6830?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1593095948071-474c5cc2c990?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['war', 'conflict', 'strike', 'airstrike', 'invasion', 'siege', 'ceasefire', 'deployment'],
         images: [
-            'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop'
         ]
     },
     {
@@ -2091,18 +2065,13 @@ const MILITARY_IMAGE_MAP = [
         images: [
             'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['china', 'chinese', 'pla ', 'beijing', 'taiwan', 'south china sea'],
         images: [
-            'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1544551763-92ab472cad1d?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
         ]
     },
@@ -2110,20 +2079,14 @@ const MILITARY_IMAGE_MAP = [
         keywords: ['russia', 'russian', 'moscow', 'ukraine', 'kremlin', 'putin'],
         images: [
             'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1568708024297-2c7e9dc7b5cb?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1614094082869-cd4e4b2f44d8?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop'
         ]
     },
     {
         keywords: ['israel', 'idf', 'iron dome', 'hamas', 'hezbollah', 'gaza', 'mossad'],
         images: [
             'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop'
+            'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop'
         ]
     }
 ];
@@ -2131,19 +2094,13 @@ const MILITARY_IMAGE_MAP = [
 // Large generic pool as final fallback — all verified working Unsplash URLs
 const GENERIC_MILITARY_IMAGES = [
     'https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1541354329998-f4d927d9b2b8?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1580153215778-5a26e04da0b3?w=600&h=400&fit=crop',
+    'https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&h=400&fit=crop',
+    'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1474302694023-51549ad57c7e?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1569247782749-cb1b5c498af2?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=600&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1586182987320-4f376d39c787?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop',
     'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop'
 ];
@@ -2548,7 +2505,7 @@ function getSampleNews() {
                 <p>Regional analysts warn that the cycle of attacks and reprisals could spiral into a broader conflict, particularly if civilian casualties mount or critical infrastructure is damaged. The situation remains highly fluid, with both sides signaling readiness for further military action.</p>
             `,
             url: "https://www.jpost.com",
-            image: "https://images.unsplash.com/photo-1590486145985-f95b10c57694?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=800&h=500&fit=crop",
             source: "Jerusalem Post",
             publishedAt: new Date(now - 12 * 3600000).toISOString(),
             category: "conflict"
@@ -2574,7 +2531,7 @@ function getSampleNews() {
                 <p>Industry analysts note that the German defense sector will undergo significant expansion to meet production demands, with major contractors like Rheinmetall and TKMS expecting to double their workforce over the next five years.</p>
             `,
             url: "https://www.dw.com",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1534996858221-380b92700493?w=800&h=500&fit=crop",
             source: "DW News",
             publishedAt: new Date(now - 18 * 3600000).toISOString(),
             category: "defense"
@@ -2770,7 +2727,7 @@ function getSampleNews() {
                 <p>China has criticized France's increased military activity, calling it evidence of Western interference in Asian affairs. Beijing has warned against the formation of "mini-NATO" arrangements that it views as containment strategies.</p>
             `,
             url: "https://www.france24.com",
-            image: "https://images.unsplash.com/photo-1580974852861-c381510a43f7?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop",
             source: "France 24",
             publishedAt: new Date(now - 90 * 3600000).toISOString(),
             category: "defense"
@@ -2830,7 +2787,7 @@ function getSampleNews() {
                 <p>China responded by deploying fighter jets and naval vessels near the Taiwan Strait median line, conducting what Beijing described as "combat readiness patrols." The PLA Eastern Theater Command issued a statement warning that "Taiwan independence means war."</p>
             `,
             url: "https://www.taiwannews.com",
-            image: "https://images.unsplash.com/photo-1583425921710-a3787d545d63?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1580130732478-4e339fb6836f?w=800&h=500&fit=crop",
             source: "Taiwan News",
             publishedAt: new Date(now - 108 * 3600000).toISOString(),
             category: "conflict"
@@ -2958,7 +2915,7 @@ function getSampleNews() {
                 <p>The deal marks France's growing influence in Southeast Asian defense markets, competing with American and Russian suppliers. Indonesia chose the Rafale after evaluating the F-15EX, Eurofighter Typhoon, and Su-35.</p>
             `,
             url: "https://www.thejakartapost.com",
-            image: "https://images.unsplash.com/photo-1436891620584-232fd5ea8a01?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1457364887197-9150188c107b?w=800&h=500&fit=crop",
             source: "Jakarta Post",
             publishedAt: new Date(now - 156 * 3600000).toISOString(),
             category: "defense"
@@ -3062,7 +3019,7 @@ function getSampleNews() {
                 <p>Initial prototypes are expected by 2030, with low-rate production beginning in 2035 and full operational capability targeted for 2040. Several NATO allies, including the Netherlands, Belgium, and Italy, have expressed interest in joining the program.</p>
             `,
             url: "https://www.janes.com",
-            image: "https://images.unsplash.com/photo-1562676749-3fdc04eff7c8?w=800&h=500&fit=crop",
+            image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&h=500&fit=crop",
             source: "Janes Defence",
             publishedAt: new Date(now - 190 * 3600000).toISOString(),
             category: "tech"
