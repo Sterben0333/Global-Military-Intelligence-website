@@ -426,7 +426,7 @@ const nationsData = {
         }
     },
     "SouthKorea": {
-        name: "South Korea",
+        name: "Republic Of Korea",
         flag: "🇰🇷",
         countryCode: "kr",
         rank: 6,
@@ -434,14 +434,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 500000, reserve: 3100000 },
         description: "The Republic of Korea Armed Forces maintain a massive standing army and reserve force to deter North Korea. South Korea is also a major defense exporter, selling the K2 tank, K9 howitzer, KF-21 fighter, and FA-50 trainer globally.",
-        image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=400&fit=crop",
+        image: "ROK_flags/ROK_flag.jpg",
         army: {
             tanks: 2130, apc: 5100, artillery: 6350, mlrs: 584,
             name: "Republic of Korea Army",
             founded: "September 5, 1948",
             motto: "Win in Every Battle",
             description: "The ROK Army is one of the largest and most well-equipped in the world, maintaining readiness against the North Korean threat. It has developed world-class indigenous weapons systems.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "ROK_flags/ROK_army_flag.jpg",
             equipment: [
                 { name: "K2 Black Panther", count: 260, type: "Main Battle Tank", description: "Advanced indigenous MBT with composite/ERA armor, 120mm gun, and active protection system" },
                 { name: "K1A2", count: 1027, type: "Main Battle Tank", description: "Upgraded K1 MBT with improved fire control, thermal sights, and 120mm gun" },
@@ -455,7 +455,7 @@ const nationsData = {
             founded: "November 11, 1945",
             motto: "Protect the Seas, Serve the Nation",
             description: "The ROK Navy operates advanced Aegis destroyers, domestically-built submarines, and is developing a light aircraft carrier. It focuses on defending Korean waters and projecting power regionally.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "ROK_flags/ROK_navy_flag.jpg",
             equipment: [
                 { name: "Sejong the Great Destroyer", count: 3, type: "Guided Missile Destroyer", description: "KDX-III Aegis destroyer with 128 VLS cells for air defense and ballistic missile defense" },
                 { name: "Son Won-il Submarine", count: 9, type: "Attack Submarine", description: "Type 214 AIP submarine with fuel cell propulsion for extended underwater operations" },
@@ -469,7 +469,7 @@ const nationsData = {
             founded: "October 1, 1949",
             motto: "We Fly and Fight",
             description: "The ROKAF operates F-35A stealth fighters and is developing the indigenous KF-21 Boramae 4.5-gen fighter. It maintains a strong fighter force for air superiority over the Korean Peninsula.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "ROK_flags/ROK_airforce_flag.jpg",
             equipment: [
                 { name: "F-35A Lightning II", count: 60, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter enhancing ROKAF's air dominance and strike capabilities" },
                 { name: "KF-21 Boramae", count: 6, type: "4.5 Gen Fighter", description: "Indigenous twin-engine fighter with AESA radar, first Korean-developed fighter jet" },
@@ -487,14 +487,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 425000, reserve: 378700 },
         description: "Turkey has NATO's second-largest military and has developed a robust indigenous defense industry producing drones, armored vehicles, and naval vessels. Turkish combat drones have changed the nature of modern warfare.",
-        image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?w=800&h=400&fit=crop",
+        image: "Turkey_flags/turkey_flag.png",
         army: {
             tanks: 2200, apc: 7550, artillery: 1430, mlrs: 350,
             name: "Turkish Land Forces",
             founded: "1920",
             motto: "Strong Army, Peaceful Nation",
             description: "The Turkish Land Forces are one of the largest armies in NATO, experienced in counterinsurgency operations. Turkey is developing the indigenous Altay main battle tank.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Turkey_flags/turkey_army_flag.png",
             equipment: [
                 { name: "Leopard 2A4", count: 354, type: "Main Battle Tank", description: "German-built MBT with 120mm gun, the most modern tank in Turkish inventory" },
                 { name: "M60T Sabra", count: 170, type: "Main Battle Tank", description: "Israeli-upgraded M60 Patton with modern fire control and armor package" },
@@ -508,7 +508,7 @@ const nationsData = {
             founded: "1920",
             motto: "Denizlerin Hakimi (Sovereign of the Seas)",
             description: "The Turkish Navy operates the TCG Anadolu amphibious assault ship designed to carry Bayraktar TB3 drones and F-35Bs. It operates advanced Type 214 submarines and indigenous MILGEM corvettes.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Turkey_flags/turkey_navy_flag.png",
             equipment: [
                 { name: "TCG Anadolu LHD", count: 1, type: "Amphibious Assault Ship", description: "27,000-ton LHD serving as drone carrier for Bayraktar TB3 UCAVs" },
                 { name: "Type 214 Submarine", count: 6, type: "Attack Submarine", description: "German-designed AIP submarine with fuel cell propulsion" },
@@ -522,7 +522,7 @@ const nationsData = {
             founded: "June 1, 1911",
             motto: "Yurtta Sulh, Cihanda Sulh (Peace at Home, Peace in the World)",
             description: "The Turkish Air Force operates F-16 fighters and is developing the indigenous KAAN 5th-gen stealth fighter. Turkey's Bayraktar drones have become a global sensation.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Turkey_flags/turkey_airforce_flag.png",
             equipment: [
                 { name: "F-16 Fighting Falcon", count: 245, type: "Multirole Fighter", description: "Block 50+ variant with CCIP upgrades, backbone of Turkish airpower" },
                 { name: "KAAN (Development)", count: 1, type: "5th Gen Stealth Fighter", description: "Indigenous twin-engine stealth fighter under development, first flown 2024" },
@@ -532,7 +532,7 @@ const nationsData = {
         }
     },
     "NorthKorea": {
-        name: "North Korea",
+        name: "Democratic Peoples Republic of Korea",
         flag: "🇰🇵",
         countryCode: "kp",
         rank: 30,
@@ -593,14 +593,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 175300, reserve: 20000 },
         description: "The Italian Armed Forces are a strong NATO member with significant naval and air capabilities. Italy is a key partner in European defense projects and maintains expeditionary forces deployed across the Mediterranean and beyond.",
-        image: "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&h=400&fit=crop",
+        image: "Italy_flags/italy_flag.jpg",
         army: {
             tanks: 200, apc: 4500, artillery: 108, mlrs: 22,
             name: "Italian Army (Esercito Italiano)",
             founded: "May 4, 1861",
             motto: "Per l'Italia (For Italy)",
             description: "The Italian Army is organized for rapid overseas deployment and NATO duties. It operates the Ariete MBT and the Centauro wheeled tank destroyer, optimized for rapid deployment in diverse terrains.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Italy_flags/italy_army_flag.png",
             equipment: [
                 { name: "Ariete C1", count: 200, type: "Main Battle Tank", description: "Italian MBT with composite armor, 120mm smoothbore gun, and HITFIST turret" },
                 { name: "Centauro II", count: 150, type: "Wheeled Tank Destroyer", description: "8x8 wheeled armored vehicle with 120mm gun for rapid deployment" },
@@ -614,7 +614,7 @@ const nationsData = {
             founded: "March 17, 1861",
             motto: "Patria e Onore (Fatherland and Honor)",
             description: "The Marina Militare operates two aircraft carriers and a large fleet of FREMM frigates. Italy is a major naval shipbuilder through Fincantieri, supplying warships to navies worldwide.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Italy_flags/italy_navy_flag.png",
             equipment: [
                 { name: "Cavour Carrier", count: 1, type: "Light Aircraft Carrier", description: "27,100-ton STOVL carrier operating F-35B and AV-8B Harrier" },
                 { name: "Trieste LHD", count: 1, type: "Amphibious Assault Ship", description: "33,000-ton multi-role amphibious ship, largest Italian warship since WWII" },
@@ -628,7 +628,7 @@ const nationsData = {
             founded: "March 28, 1923",
             motto: "Virtute Siderum Tenus (With Valor to the Stars)",
             description: "The Aeronautica Militare operates Eurofighter Typhoons and F-35 stealth fighters, and is a key participant in European air policing missions across NATO's southern flank.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Italy_flags/italy_airforce_flag.png",
             equipment: [
                 { name: "F-35A/B Lightning II", count: 30, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter in both CTOL and STOVL variants for land and carrier operations" },
                 { name: "Eurofighter Typhoon", count: 94, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties" },
@@ -646,14 +646,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 150000, reserve: 0 },
         description: "Poland is undertaking the largest military modernization in Europe, spending 4% of GDP on defense. It is acquiring K2 tanks, K9 howitzers, HIMARS, Abrams tanks, and F-35s to build NATO's strongest land force on the eastern flank.",
-        image: "https://images.unsplash.com/photo-1519923041101-88da5d682d20?w=800&h=400&fit=crop",
+        image: "Poland_flags/poland_flag.jpg",
         army: {
             tanks: 863, apc: 2600, artillery: 575, mlrs: 257,
             name: "Polish Land Forces",
             founded: "1918",
             motto: "Bóg, Honor, Ojczyzna (God, Honor, Fatherland)",
             description: "The Polish Land Forces are rapidly modernizing with Korean K2 tanks and K9 howitzers, and American Abrams M1A2 SEPv3 tanks. Poland aims to field Europe's most powerful army by 2030.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Poland_flags/poland_army_flag.png",
             equipment: [
                 { name: "Leopard 2PL", count: 247, type: "Main Battle Tank", description: "Modernized Leopard 2A4 with upgraded fire control, armor, and thermal sights" },
                 { name: "PT-91 Twardy", count: 232, type: "Main Battle Tank", description: "Polish-upgraded T-72M1 with ERA armor, new fire control system, and engine" },
@@ -667,7 +667,7 @@ const nationsData = {
             founded: "1918",
             motto: "Chwała Marynarce (Glory to the Navy)",
             description: "The Polish Navy operates in the Baltic Sea and is planning major modernization with new submarines and frigates under the Miecznik program.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Poland_flags/poland_navy_flag.jpg",
             equipment: [
                 { name: "Orzel Submarine", count: 1, type: "Attack Submarine", description: "Kilo-class diesel-electric submarine for Baltic operations" },
                 { name: "Kobben-class", count: 2, type: "Coastal Submarine", description: "Norwegian-origin coastal submarine for shallow water operations" },
@@ -681,7 +681,7 @@ const nationsData = {
             founded: "1918",
             motto: "Love Demands Sacrifice",
             description: "The Polish Air Force operates F-16 fighters and is transitioning to F-35A stealth fighters. It has also acquired FA-50 light fighters from South Korea.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Poland_flags/poland_airforce_flag.jpg",
             equipment: [
                 { name: "F-16C/D", count: 48, type: "Multirole Fighter", description: "Block 52+ variant with conformal fuel tanks and advanced avionics" },
                 { name: "FA-50", count: 48, type: "Light Combat Aircraft", description: "Korean-built supersonic trainer/light fighter for gap-fill role" },
