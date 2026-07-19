@@ -9,14 +9,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 5500, type: "Confirmed" },
         personnel: { active: 1388100, reserve: 799500 },
         description: "The United States Armed Forces are the military forces of the United States. They consist of the Army, Marine Corps, Navy, Air Force, Space Force, and Coast Guard. The President is the Commander-in-Chief. With the world's largest defense budget and most advanced military technology, the U.S. maintains global power projection capabilities.",
-        image: "US_flags/US_flag.png",
+        image: "US_details/US_flag.png",
         army: {
             tanks: 5500, apc: 45000, artillery: 3000, mlrs: 1366,
             name: "United States Army",
             founded: "June 14, 1775",
             motto: "This We'll Defend",
             description: "The United States Army is the land warfare service branch of the U.S. Armed Forces. It is the largest and oldest established branch, responsible for land-based military operations. The Army is organized into active duty, Army Reserve, and Army National Guard components, providing a rapid response capability to defend the nation and its interests worldwide.",
-            image: "US_flags/Usa_army_flag.png",
+            image: "US_details/Usa_army_flag.png",
             equipment: [
                 { name: "M1A2 Abrams", count: 2509, type: "Main Battle Tank", description: "Third-generation main battle tank with advanced armor and 120mm smoothbore cannon" },
                 { name: "M2 Bradley", count: 4641, type: "Infantry Fighting Vehicle", description: "Armored fighting vehicle providing both transport and fire support" },
@@ -30,7 +30,7 @@ const nationsData = {
             founded: "October 13, 1775",
             motto: "Semper Fortis (Always Courageous)",
             description: "The United States Navy is the maritime service branch of the U.S. Armed Forces. It is the world's most capable navy, operating globally with 11 nuclear-powered aircraft carriers, nuclear submarine fleet, and over 290 deployable combat vessels. The Navy maintains forward presence, deterrence, sea control, and power projection capabilities across all oceans.",
-            image: "US_flags/US_navy_flag.jpg"
+            image: "US_details/US_navy_flag.jpg"
             ,
             equipment: [
                 { name: "Nimitz-class Carrier", count: 10, type: "Aircraft Carrier", description: "Nuclear-powered supercarrier carrying 90+ aircraft" },
@@ -45,7 +45,7 @@ const nationsData = {
             founded: "September 18, 1947",
             motto: "Aim High...Fly-Fight-Win",
             description: "The United States Air Force is the aerial and space warfare service branch of the U.S. Armed Forces. It is the world's largest and most technologically advanced air force, operating over 5,000 aircraft. The USAF provides air superiority, global strike, rapid global mobility, and intelligence, surveillance, and reconnaissance capabilities.",
-            image: "US_flags/US_airforce_flag.jpg",
+            image: "US_details/US_airforce_flag.jpg",
             equipment: [
                 { name: "F-35 Lightning II", count: 450, type: "5th Gen Stealth Fighter", description: "Multi-role stealth fighter with advanced sensors and networking" },
                 { name: "F-22 Raptor", count: 187, type: "Air Superiority Fighter", description: "5th generation stealth air dominance fighter" },
@@ -63,14 +63,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 6257, type: "Confirmed" },
         personnel: { active: 1150000, reserve: 2000000 },
         description: "The Russian Armed Forces are the military of the Russian Federation. They comprise the Ground Forces, Aerospace Forces, Navy, Strategic Missile Troops, and Airborne Troops. Russia possesses the world's largest nuclear arsenal and maintains significant conventional forces designed for territorial defense and regional power projection.",
-        image: "Russian_flags/Russian_flag.jpg",
+        image: "Russian_details/Russian_flag.jpg",
         army: {
             tanks: 12420, apc: 34000, artillery: 14564, mlrs: 3065,
             name: "Russian Ground Forces",
             founded: "May 7, 1992",
             motto: "Honor and Courage",
             description: "The Russian Ground Forces are the land forces of the Russian Federation. They possess one of the largest tank fleets in the world, with significant artillery and armored capabilities. The force emphasizes combined arms operations with mass artillery support and maintains a large reserve of armored vehicles.",
-            image: "Russian_flags/Russian_Ground_Forces_flag.jpg",
+            image: "Russian_details/Russian_Ground_Forces_flag.jpg",
             equipment: [
                 { name: "T-90M", count: 550, type: "Main Battle Tank", description: "Advanced main battle tank with Relikt ERA and improved fire control" },
                 { name: "T-72B3", count: 2000, type: "Main Battle Tank", description: "Modernized T-72 with improved armor and thermal sights" },
@@ -84,7 +84,7 @@ const nationsData = {
             founded: "October 30, 1696",
             motto: "Glory and Power on the Seas",
             description: "The Russian Navy is the naval warfare service branch of Russian Armed Forces. It operates four major fleets: Northern, Pacific, Black Sea, and Baltic. The Navy maintains Russia's nuclear triad through ballistic missile submarines and projecting power through surface combatants equipped with advanced cruise missiles.",
-            image: "Russian_flags/Russian_navy_flag.jpg",
+            image: "Russian_details/Russian_navy_flag.jpg",
             equipment: [
                 { name: "Admiral Kuznetsov", count: 1, type: "Aircraft Carrier", description: "Heavy aircraft-carrying cruiser with Su-33 fighters" },
                 { name: "Borei-class SSBN", count: 5, type: "Ballistic Missile Submarine", description: "Nuclear submarine carrying Bulava SLBMs" },
@@ -98,7 +98,7 @@ const nationsData = {
             founded: "August 1, 2015",
             motto: "To Defend and Protect the Skies",
             description: "The Russian Aerospace Forces are a branch of the Russian Armed Forces responsible for all aerial and space operations. They combine the former Air Force and Aerospace Defense Forces, operating advanced fighters, strategic bombers, and extensive air defense systems including the S-400 and S-500.",
-            image: "Russian_flags/Russian_airforce_flag.jpg",
+            image: "Russian_details/Russian_airforce_flag.jpg",
             equipment: [
                 { name: "Su-57", count: 22, type: "5th Gen Stealth Fighter", description: "Russia's first stealth multirole fighter aircraft" },
                 { name: "Su-35S", count: 140, type: "Air Superiority Fighter", description: "Highly maneuverable 4++ generation fighter" },
@@ -116,14 +116,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 500, type: "Confirmed" },
         personnel: { active: 2035000, reserve: 510000 },
         description: "The People's Liberation Army (PLA) is the armed wing of the Chinese Communist Party and the world's largest military by active personnel. China has undergone a massive military modernization program, developing advanced weapons systems, expanding its navy, and building artificial islands in the South China Sea.",
-        image: "Chinese_flags/Chinese_flag.jpg",
+        image: "Chinese_details/Chinese_flag.jpg",
         army: {
             tanks: 5800, apc: 35000, artillery: 5200, mlrs: 2990,
             name: "PLA Ground Force",
             founded: "August 1, 1927",
             motto: "Serve the People",
             description: "The PLA Ground Force is the land-based service branch of the People's Liberation Army. It is the largest standing ground force in the world, with approximately 975,000 active personnel organized into 13 group armies across five theater commands.",
-            image: "Chinese_flags/Pla_army_flag.png",
+            image: "Chinese_details/Pla_army_flag.png",
             equipment: [
                 { name: "Type 99A", count: 1200, type: "Main Battle Tank", description: "China's most advanced MBT with composite/ERA armor, 125mm smoothbore gun, and laser warning system" },
                 { name: "Type 96", count: 2500, type: "Main Battle Tank", description: "Cost-effective MBT forming the backbone of PLA armored forces with 125mm gun" },
@@ -137,7 +137,7 @@ const nationsData = {
             founded: "April 23, 1949",
             motto: "Defend the Seas",
             description: "The PLA Navy is the largest navy in the world by number of vessels. China has rapidly expanded its fleet with three aircraft carriers, advanced destroyers, and nuclear submarines, projecting power across the Western Pacific and into the Indian Ocean.",
-            image: "Chinese_flags/Pla_navy_flag.png",
+            image: "Chinese_details/Pla_navy_flag.png",
             equipment: [
                 { name: "Liaoning Carrier", count: 1, type: "Aircraft Carrier", description: "Refurbished Soviet Kuznetsov-class carrier operating J-15 fighters with ski-jump launch" },
                 { name: "Shandong Carrier", count: 1, type: "Aircraft Carrier", description: "First domestically built carrier with improved design and increased aircraft capacity" },
@@ -151,7 +151,7 @@ const nationsData = {
             founded: "November 11, 1949",
             motto: "Sky Shield of the Nation",
             description: "The PLA Air Force is the third-largest air force in the world and the largest in Asia. It has rapidly modernized with 5th-generation stealth fighters, advanced early warning aircraft, and long-range strategic bombers capable of striking targets across the Pacific.",
-            image: "Chinese_flags/Pla_airforce_flag.png",
+            image: "Chinese_details/Pla_airforce_flag.png",
             equipment: [
                 { name: "J-20", count: 200, type: "5th Gen Stealth Fighter", description: "Twin-engine stealth air superiority fighter with advanced sensors and supermaneuverability" },
                 { name: "J-16", count: 300, type: "Multirole Strike Fighter", description: "Twin-seat heavy multirole fighter based on Su-30 with AESA radar and PL-15 missiles" },
@@ -161,7 +161,7 @@ const nationsData = {
         }
     },
     "India": {
-        name: "India",
+        name: "Republic of India",
         flag: "🇮🇳",
         countryCode: "in",
         rank: 4,
@@ -176,7 +176,7 @@ const nationsData = {
             founded: "April 1, 1895",
             motto: "Service Before Self",
             description: "The Indian Army is the land-based branch and the largest component of the Indian Armed Forces. It is the world's second-largest standing army, with over 1.4 million active troops. The Indian Army is responsible for land-based military operations and maintaining territorial integrity along India's borders with Pakistan and China.",
-            image: "Indian_flags/Indian_army_flag.png",
+            image: "Indian_details/Indian_army_flag.png",
             equipment: [
                 { name: "T-90 Bhishma", count: 1200, type: "Main Battle Tank", description: "Russian-origin tank with Indian modifications and ERA armor" },
                 { name: "Arjun MBT Mk.1A", count: 124, type: "Main Battle Tank", description: "Indigenous third-generation main battle tank" },
@@ -190,7 +190,7 @@ const nationsData = {
             founded: "January 26, 1950",
             motto: "Sham No Varunah (May the Lord of Water be auspicious unto us)",
             description: "The Indian Navy is the naval branch of the Indian Armed Forces. It is a blue-water navy with significant capabilities for maritime security in the Indian Ocean region. The Indian Navy operates aircraft carriers, nuclear submarines, and modern destroyers, providing power projection across the Indo-Pacific.",
-            image: "Indian_flags/Indian_navy_flag.png",
+            image: "Indian_details/Indian_navy_flag.png",
             equipment: [
                 { name: "INS Vikramaditya", count: 1, type: "Aircraft Carrier", description: "Modified Kiev-class carrier operating MiG-29K fighters" },
                 { name: "INS Vikrant", count: 1, type: "Aircraft Carrier", description: "Indigenous aircraft carrier, India's first domestically built carrier" },
@@ -204,7 +204,7 @@ const nationsData = {
             founded: "October 8, 1932",
             motto: "Nabha Sprsham Deeptam (Touch the Sky with Glory)",
             description: "The Indian Air Force is the air arm of the Indian Armed Forces. It is the world's fourth-largest air force by fleet strength. The IAF provides air defense, tactical and strategic airlift, and close air support capabilities. Recent modernization includes the acquisition of Rafale fighters and development of indigenous Tejas aircraft.",
-            image: "Indian_flags/Indian_airforce_flag.png",
+            image: "Indian_details/Indian_airforce_flag.png",
             equipment: [
                 { name: "Su-30MKI", count: 260, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter with thrust vectoring" },
                 { name: "Dassault Rafale", count: 36, type: "Multirole Fighter", description: "French 4.5 generation omnirole combat aircraft" },
@@ -222,14 +222,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 225, type: "Confirmed" },
         personnel: { active: 148500, reserve: 37000 },
         description: "The British Armed Forces are the military forces of the United Kingdom. The UK maintains a blue-water navy with global reach, nuclear deterrent, and expeditionary capabilities. As a founding member of NATO, the UK plays a central role in European and global security.",
-        image: "UK_flags/UK_flag.jpg",
+        image: "UK_details/UK_flag.jpg",
         army: {
             tanks: 227, apc: 5015, artillery: 236, mlrs: 44,
             name: "British Army",
             founded: "1660",
             motto: "Be the Best",
             description: "The British Army is the principal land warfare force of the United Kingdom. It has served in conflicts worldwide and specializes in expeditionary operations, armored warfare, and counterinsurgency.",
-            image: "UK_flags/British_army_flag.webp",
+            image: "UK_details/British_army_flag.webp",
             equipment: [
                 { name: "Challenger 2", count: 227, type: "Main Battle Tank", description: "British MBT with Chobham/Dorchester armor and 120mm rifled gun, proven in Iraq" },
                 { name: "Warrior IFV", count: 450, type: "Infantry Fighting Vehicle", description: "Tracked armored vehicle carrying infantry with 30mm Rarden cannon" },
@@ -243,7 +243,7 @@ const nationsData = {
             founded: "1546",
             motto: "Si vis pacem, para bellum (If you wish peace, prepare for war)",
             description: "The Royal Navy is the UK's principal naval warfare force. It operates two Queen Elizabeth-class aircraft carriers, nuclear submarines, and maintains the UK's continuous at-sea nuclear deterrent.",
-            image: "UK_flags/Royal_navy_flag.png",
+            image: "UK_details/Royal_navy_flag.png",
             equipment: [
                 { name: "Queen Elizabeth Carrier", count: 2, type: "Aircraft Carrier", description: "65,000-ton STOVL carriers with twin-island design carrying F-35B fighters" },
                 { name: "Vanguard-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying Trident II D5 missiles" },
@@ -257,7 +257,7 @@ const nationsData = {
             founded: "April 1, 1918",
             motto: "Per Ardua Ad Astra (Through Adversity to the Stars)",
             description: "The Royal Air Force is the UK's aerial warfare force and the world's oldest independent air force. It operates Typhoon and F-35B fighters, strategic transport, and supports nuclear deterrence.",
-            image: "UK_flags/Royal_airforce_flag.png",
+            image: "UK_details/Royal_airforce_flag.png",
             equipment: [
                 { name: "F-35B Lightning II", count: 33, type: "5th Gen STOVL Fighter", description: "Stealth multirole fighter with short take-off and vertical landing for carrier operations" },
                 { name: "Typhoon FGR4", count: 137, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties" },
@@ -275,14 +275,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 290, type: "Confirmed" },
         personnel: { active: 203250, reserve: 35000 },
         description: "The French Armed Forces maintain full-spectrum military capabilities including nuclear deterrence, a nuclear-powered aircraft carrier, and expeditionary forces deployed across Africa and the Middle East. France has the strongest military in the European Union.",
-        image: "France_flags/France_flag.png",
+        image: "France_details/France_flag.png",
         army: {
             tanks: 222, apc: 6000, artillery: 301, mlrs: 13,
             name: "French Army (Armée de Terre)",
             founded: "1445",
             motto: "Honneur et Patrie (Honor and Fatherland)",
             description: "The French Army is one of NATO's most experienced land forces, regularly deployed in overseas operations across Africa and the Middle East. It is currently undergoing the Scorpion modernization program.",
-            image: "France_flags/French_army_flag.png",
+            image: "France_details/French_army_flag.png",
             equipment: [
                 { name: "Leclerc MBT", count: 222, type: "Main Battle Tank", description: "French 3rd-gen MBT with modular composite armor, 120mm smoothbore gun, and autoloader" },
                 { name: "VBCI", count: 630, type: "Infantry Fighting Vehicle", description: "8x8 wheeled armored IFV with 25mm cannon for mechanized infantry" },
@@ -296,7 +296,7 @@ const nationsData = {
             founded: "1624",
             motto: "Honneur, Patrie, Valeur, Discipline",
             description: "The French Navy operates the only nuclear-powered aircraft carrier outside the US Navy — the Charles de Gaulle. It maintains nuclear submarine deterrence and projects power globally.",
-            image: "France_flags/French_navy_flag.png",
+            image: "France_details/French_navy_flag.png",
             equipment: [
                 { name: "Charles de Gaulle", count: 1, type: "Nuclear Aircraft Carrier", description: "42,500-ton nuclear-powered carrier with catapult launch system for Rafale-M fighters" },
                 { name: "Triomphant-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying M51 submarine-launched ballistic missiles" },
@@ -310,7 +310,7 @@ const nationsData = {
             founded: "1909",
             motto: "Faire face (Face the Challenge)",
             description: "The French Air and Space Force operates the Rafale omnirole fighter and maintains France's airborne nuclear deterrent. It has extensive experience in combat operations across Libya, Mali, and Syria.",
-            image: "France_flags/French_airforce_flag.png",
+            image: "France_details/French_airforce_flag.png",
             equipment: [
                 { name: "Rafale", count: 234, type: "Omnirole Fighter", description: "Twin-engine 4.5-gen fighter with nuclear strike, air dominance, and reconnaissance capability" },
                 { name: "A400M Atlas", count: 18, type: "Strategic Transport", description: "Four-engine turboprop transport for tactical and strategic airlift operations" },
@@ -328,14 +328,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 183500, reserve: 30000 },
         description: "The Bundeswehr is undergoing a major rearmament following the 2022 €100 billion special fund. Germany is the backbone of NATO's conventional defense in Central Europe with world-class armored vehicles and the Eurofighter fleet.",
-        image: "German_flags/Germany_flag.jpg",
+        image: "Germany_details/Germany_flag.jpg",
         army: {
             tanks: 266, apc: 4800, artillery: 121, mlrs: 38,
             name: "German Army (Heer)",
             founded: "November 12, 1955",
             motto: "Schützen, Helfen, Vermitteln, Kämpfen (Protect, Help, Mediate, Fight)",
             description: "The German Army is the land component of the Bundeswehr. It produces some of the world's finest armored vehicles including the Leopard 2 tank and Puma IFV, which are exported to many NATO allies.",
-            image: "German_flags/German_army_flag.png",
+            image: "Germany_details/German_army_flag.png",
             equipment: [
                 { name: "Leopard 2A7", count: 266, type: "Main Battle Tank", description: "World-leading MBT with modular armor, 120mm L55A1 gun, and urban warfare package" },
                 { name: "Puma IFV", count: 350, type: "Infantry Fighting Vehicle", description: "Heavily armored tracked IFV with 30mm autocannon and Spike ATGM" },
@@ -349,7 +349,7 @@ const nationsData = {
             founded: "November 12, 1955",
             motto: "Wir. Dienen. Deutschland. (We. Serve. Germany.)",
             description: "The German Navy focuses on Baltic Sea defense and NATO maritime operations. It operates advanced conventional submarines and frigates specialized in air defense and anti-submarine warfare.",
-            image: "German_flags/German_navy_flag.png",
+            image: "Germany_details/German_navy_flag.png",
             equipment: [
                 { name: "Type 212A Submarine", count: 6, type: "Attack Submarine", description: "Air-independent propulsion submarine — world's first production fuel cell sub" },
                 { name: "F125 Frigate", count: 4, type: "Stabilization Frigate", description: "Baden-Württemberg-class designed for sustained low-intensity operations" },
@@ -363,7 +363,7 @@ const nationsData = {
             founded: "November 12, 1955",
             motto: "Suum Cuique (To Each His Own)",
             description: "The modern Luftwaffe operates Eurofighter Typhoons and Tornado strike aircraft. It is transitioning to the F-35A for nuclear sharing and participating in the Franco-German FCAS program.",
-            image: "German_flags/German_airforce_flag.png",
+            image: "Germany_details/German_airforce_flag.png",
             equipment: [
                 { name: "Eurofighter Typhoon", count: 140, type: "Multirole Fighter", description: "Twin-engine 4.5-gen delta-canard fighter for air superiority and ground attack" },
                 { name: "Tornado", count: 89, type: "Strike Fighter", description: "Variable-geometry strike/reconnaissance aircraft, nuclear strike capable" },
@@ -381,14 +381,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 247150, reserve: 56000 },
         description: "The Japan Self-Defense Forces are one of the most technologically advanced militaries in Asia. Japan has recently revised its pacifist defense policies, adopting counterstrike capabilities and doubling its defense budget to counter threats from China and North Korea.",
-        image: "Japan_flags/Japan_flag.jpg",
+        image: "Japan_details/Japan_flag.jpg",
         army: {
             tanks: 561, apc: 2000, artillery: 590, mlrs: 99,
             name: "Japan Ground Self-Defense Force",
             founded: "July 1, 1954",
             motto: "Defend the Nation",
             description: "The JGSDF is Japan's land warfare branch, specializing in island defense and anti-amphibious operations. It maintains advanced indigenous tanks and is developing rapid deployment capabilities for remote island defense.",
-            image: "Japan_flags/Japanese_army_flag.png",
+            image: "Japan_details/Japanese_army_flag.png",
             equipment: [
                 { name: "Type 10 MBT", count: 120, type: "Main Battle Tank", description: "Indigenous 4th-gen MBT with modular composite armor and C4I network integration" },
                 { name: "Type 90 MBT", count: 340, type: "Main Battle Tank", description: "Japanese MBT with Rheinmetall 120mm gun and automatic loader" },
@@ -402,7 +402,7 @@ const nationsData = {
             founded: "July 1, 1954",
             motto: "Guardian of the Sea",
             description: "The JMSDF is one of the most powerful navies in the Pacific. It operates helicopter carriers being converted for F-35B, advanced Aegis destroyers, and the world's most capable conventional submarine fleet.",
-            image: "Japan_flags/Japanese_navy_flag.jpg",
+            image: "Japan_details/Japanese_navy_flag.jpg",
             equipment: [
                 { name: "Izumo-class Carrier", count: 2, type: "Light Aircraft Carrier", description: "27,000-ton helicopter destroyer being converted to carry F-35B fighters" },
                 { name: "Soryu-class Submarine", count: 12, type: "Attack Submarine", description: "Diesel-electric submarine with Stirling AIP and lithium-ion battery variants" },
@@ -416,7 +416,7 @@ const nationsData = {
             founded: "July 1, 1954",
             motto: "Defend the Sky",
             description: "The JASDF operates 5th-gen F-35A stealth fighters and F-15J Eagles. Japan is developing the next-gen F-X fighter and investing heavily in stand-off missile capabilities.",
-            image: "Japan_flags/Japanese_airforce_flag.png",
+            image: "Japan_details/Japanese_airforce_flag.png",
             equipment: [
                 { name: "F-35A Lightning II", count: 42, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter with integrated sensor suite and data-linking" },
                 { name: "F-15J Eagle", count: 155, type: "Air Superiority Fighter", description: "Twin-engine air superiority fighter with Japanese-upgraded avionics and radar" },
@@ -434,14 +434,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 500000, reserve: 3100000 },
         description: "The Republic of Korea Armed Forces maintain a massive standing army and reserve force to deter North Korea. South Korea is also a major defense exporter, selling the K2 tank, K9 howitzer, KF-21 fighter, and FA-50 trainer globally.",
-        image: "ROK_flags/ROK_flag.jpg",
+        image: "ROK_details/ROK_flag.jpg",
         army: {
             tanks: 2130, apc: 5100, artillery: 6350, mlrs: 584,
             name: "Republic of Korea Army",
             founded: "September 5, 1948",
             motto: "Win in Every Battle",
             description: "The ROK Army is one of the largest and most well-equipped in the world, maintaining readiness against the North Korean threat. It has developed world-class indigenous weapons systems.",
-            image: "ROK_flags/ROK_army_flag.jpg",
+            image: "ROK_details/ROK_army_flag.jpg",
             equipment: [
                 { name: "K2 Black Panther", count: 260, type: "Main Battle Tank", description: "Advanced indigenous MBT with composite/ERA armor, 120mm gun, and active protection system" },
                 { name: "K1A2", count: 1027, type: "Main Battle Tank", description: "Upgraded K1 MBT with improved fire control, thermal sights, and 120mm gun" },
@@ -455,7 +455,7 @@ const nationsData = {
             founded: "November 11, 1945",
             motto: "Protect the Seas, Serve the Nation",
             description: "The ROK Navy operates advanced Aegis destroyers, domestically-built submarines, and is developing a light aircraft carrier. It focuses on defending Korean waters and projecting power regionally.",
-            image: "ROK_flags/ROK_navy_flag.jpg",
+            image: "ROK_details/ROK_navy_flag.jpg",
             equipment: [
                 { name: "Sejong the Great Destroyer", count: 3, type: "Guided Missile Destroyer", description: "KDX-III Aegis destroyer with 128 VLS cells for air defense and ballistic missile defense" },
                 { name: "Son Won-il Submarine", count: 9, type: "Attack Submarine", description: "Type 214 AIP submarine with fuel cell propulsion for extended underwater operations" },
@@ -469,7 +469,7 @@ const nationsData = {
             founded: "October 1, 1949",
             motto: "We Fly and Fight",
             description: "The ROKAF operates F-35A stealth fighters and is developing the indigenous KF-21 Boramae 4.5-gen fighter. It maintains a strong fighter force for air superiority over the Korean Peninsula.",
-            image: "ROK_flags/ROK_airforce_flag.jpg",
+            image: "ROK_details/ROK_airforce_flag.jpg",
             equipment: [
                 { name: "F-35A Lightning II", count: 60, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter enhancing ROKAF's air dominance and strike capabilities" },
                 { name: "KF-21 Boramae", count: 6, type: "4.5 Gen Fighter", description: "Indigenous twin-engine fighter with AESA radar, first Korean-developed fighter jet" },
@@ -487,14 +487,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 425000, reserve: 378700 },
         description: "Turkey has NATO's second-largest military and has developed a robust indigenous defense industry producing drones, armored vehicles, and naval vessels. Turkish combat drones have changed the nature of modern warfare.",
-        image: "Turkey_flags/turkey_flag.png",
+        image: "Turkey_details/turkey_flag.png",
         army: {
             tanks: 2200, apc: 7550, artillery: 1430, mlrs: 350,
             name: "Turkish Land Forces",
             founded: "1920",
             motto: "Strong Army, Peaceful Nation",
             description: "The Turkish Land Forces are one of the largest armies in NATO, experienced in counterinsurgency operations. Turkey is developing the indigenous Altay main battle tank.",
-            image: "Turkey_flags/turkey_army_flag.png",
+            image: "Turkey_details/turkey_army_flag.png",
             equipment: [
                 { name: "Leopard 2A4", count: 354, type: "Main Battle Tank", description: "German-built MBT with 120mm gun, the most modern tank in Turkish inventory" },
                 { name: "M60T Sabra", count: 170, type: "Main Battle Tank", description: "Israeli-upgraded M60 Patton with modern fire control and armor package" },
@@ -508,7 +508,7 @@ const nationsData = {
             founded: "1920",
             motto: "Denizlerin Hakimi (Sovereign of the Seas)",
             description: "The Turkish Navy operates the TCG Anadolu amphibious assault ship designed to carry Bayraktar TB3 drones and F-35Bs. It operates advanced Type 214 submarines and indigenous MILGEM corvettes.",
-            image: "Turkey_flags/turkey_navy_flag.png",
+            image: "Turkey_details/turkey_navy_flag.png",
             equipment: [
                 { name: "TCG Anadolu LHD", count: 1, type: "Amphibious Assault Ship", description: "27,000-ton LHD serving as drone carrier for Bayraktar TB3 UCAVs" },
                 { name: "Type 214 Submarine", count: 6, type: "Attack Submarine", description: "German-designed AIP submarine with fuel cell propulsion" },
@@ -522,7 +522,7 @@ const nationsData = {
             founded: "June 1, 1911",
             motto: "Yurtta Sulh, Cihanda Sulh (Peace at Home, Peace in the World)",
             description: "The Turkish Air Force operates F-16 fighters and is developing the indigenous KAAN 5th-gen stealth fighter. Turkey's Bayraktar drones have become a global sensation.",
-            image: "Turkey_flags/turkey_airforce_flag.png",
+            image: "Turkey_details/turkey_airforce_flag.png",
             equipment: [
                 { name: "F-16 Fighting Falcon", count: 245, type: "Multirole Fighter", description: "Block 50+ variant with CCIP upgrades, backbone of Turkish airpower" },
                 { name: "KAAN (Development)", count: 1, type: "5th Gen Stealth Fighter", description: "Indigenous twin-engine stealth fighter under development, first flown 2024" },
@@ -540,14 +540,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 50, type: "Confirmed" },
         personnel: { active: 1280000, reserve: 600000 },
         description: "The Korean People's Army is one of the world's largest military forces by personnel. Despite aging equipment, North Korea possesses nuclear weapons, ballistic missiles, and the world's largest artillery force positioned to threaten Seoul.",
-        image: "DPRK_flags/Northkorea_flag.png",
+        image: "DPRK_details/Northkorea_flag.png",
         army: {
             tanks: 5895, apc: 6000, artillery: 21100, mlrs: 5500,
             name: "Korean People's Army Ground Force",
             founded: "February 8, 1948",
             motto: "Defend the Fatherland",
             description: "The KPA Ground Force is the fourth-largest army in the world, maintaining massive artillery concentrations along the DMZ. Most equipment is Soviet/Chinese-origin from the Cold War era.",
-            image: "DPRK_flags/Northkorea_army_flag.png",
+            image: "DPRK_details/Northkorea_army_flag.png",
             equipment: [
                 { name: "Chonma-ho", count: 1000, type: "Main Battle Tank", description: "Indigenous MBT derived from T-62 with local modifications and ERA armor" },
                 { name: "Pokpung-ho", count: 200, type: "Main Battle Tank", description: "Most advanced North Korean tank combining T-72/Type 88 features with composite armor" },
@@ -561,7 +561,7 @@ const nationsData = {
             founded: "June 5, 1946",
             motto: "Defend the Coastal Waters",
             description: "The KPN operates one of the largest submarine fleets in the world, though mostly coastal midget and coastal submarines. It is developing submarine-launched ballistic missile capability.",
-            image: "DPRK_flags/Northkorea_navy_flag.png",
+            image: "DPRK_details/Northkorea_navy_flag.png",
             equipment: [
                 { name: "Sinpo-class Submarine", count: 3, type: "Ballistic Missile Submarine", description: "2,000-ton submarine capable of launching Pukguksong submarine-launched ballistic missiles" },
                 { name: "Romeo-class Submarine", count: 20, type: "Attack Submarine", description: "Soviet-designed diesel-electric submarine license-built in North Korea" },
@@ -575,7 +575,7 @@ const nationsData = {
             founded: "August 20, 1947",
             motto: "Guard the Skies of the Revolution",
             description: "The KPAF operates one of the largest air forces in Asia by number, but most aircraft are obsolete Soviet and Chinese designs. The MiG-29 is the most modern fighter in service.",
-            image: "DPRK_flags/Northkorea_airforce_flag.png",
+            image: "DPRK_details/Northkorea_airforce_flag.png",
             equipment: [
                 { name: "MiG-29", count: 40, type: "Air Superiority Fighter", description: "Most advanced NK fighter, 4th-gen twin-engine interceptor with limited modern weapons" },
                 { name: "MiG-23", count: 56, type: "Interceptor", description: "Variable-geometry 3rd-gen fighter used for air defense and ground attack" },
@@ -593,14 +593,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 175300, reserve: 20000 },
         description: "The Italian Armed Forces are a strong NATO member with significant naval and air capabilities. Italy is a key partner in European defense projects and maintains expeditionary forces deployed across the Mediterranean and beyond.",
-        image: "Italy_flags/italy_flag.jpg",
+        image: "Italy_details/italy_flag.jpg",
         army: {
             tanks: 200, apc: 4500, artillery: 108, mlrs: 22,
             name: "Italian Army (Esercito Italiano)",
             founded: "May 4, 1861",
             motto: "Per l'Italia (For Italy)",
             description: "The Italian Army is organized for rapid overseas deployment and NATO duties. It operates the Ariete MBT and the Centauro wheeled tank destroyer, optimized for rapid deployment in diverse terrains.",
-            image: "Italy_flags/italy_army_flag.png",
+            image: "Italy_details/italy_army_flag.png",
             equipment: [
                 { name: "Ariete C1", count: 200, type: "Main Battle Tank", description: "Italian MBT with composite armor, 120mm smoothbore gun, and HITFIST turret" },
                 { name: "Centauro II", count: 150, type: "Wheeled Tank Destroyer", description: "8x8 wheeled armored vehicle with 120mm gun for rapid deployment" },
@@ -614,7 +614,7 @@ const nationsData = {
             founded: "March 17, 1861",
             motto: "Patria e Onore (Fatherland and Honor)",
             description: "The Marina Militare operates two aircraft carriers and a large fleet of FREMM frigates. Italy is a major naval shipbuilder through Fincantieri, supplying warships to navies worldwide.",
-            image: "Italy_flags/italy_navy_flag.png",
+            image: "Italy_details/italy_navy_flag.png",
             equipment: [
                 { name: "Cavour Carrier", count: 1, type: "Light Aircraft Carrier", description: "27,100-ton STOVL carrier operating F-35B and AV-8B Harrier" },
                 { name: "Trieste LHD", count: 1, type: "Amphibious Assault Ship", description: "33,000-ton multi-role amphibious ship, largest Italian warship since WWII" },
@@ -628,7 +628,7 @@ const nationsData = {
             founded: "March 28, 1923",
             motto: "Virtute Siderum Tenus (With Valor to the Stars)",
             description: "The Aeronautica Militare operates Eurofighter Typhoons and F-35 stealth fighters, and is a key participant in European air policing missions across NATO's southern flank.",
-            image: "Italy_flags/italy_airforce_flag.png",
+            image: "Italy_details/italy_airforce_flag.png",
             equipment: [
                 { name: "F-35A/B Lightning II", count: 30, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter in both CTOL and STOVL variants for land and carrier operations" },
                 { name: "Eurofighter Typhoon", count: 94, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties" },
@@ -646,14 +646,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 150000, reserve: 0 },
         description: "Poland is undertaking the largest military modernization in Europe, spending 4% of GDP on defense. It is acquiring K2 tanks, K9 howitzers, HIMARS, Abrams tanks, and F-35s to build NATO's strongest land force on the eastern flank.",
-        image: "Poland_flags/poland_flag.jpg",
+        image: "Poland_details/poland_flag.jpg",
         army: {
             tanks: 863, apc: 2600, artillery: 575, mlrs: 257,
             name: "Polish Land Forces",
             founded: "1918",
             motto: "Bóg, Honor, Ojczyzna (God, Honor, Fatherland)",
             description: "The Polish Land Forces are rapidly modernizing with Korean K2 tanks and K9 howitzers, and American Abrams M1A2 SEPv3 tanks. Poland aims to field Europe's most powerful army by 2030.",
-            image: "Poland_flags/poland_army_flag.png",
+            image: "Poland_details/poland_army_flag.png",
             equipment: [
                 { name: "Leopard 2PL", count: 247, type: "Main Battle Tank", description: "Modernized Leopard 2A4 with upgraded fire control, armor, and thermal sights" },
                 { name: "PT-91 Twardy", count: 232, type: "Main Battle Tank", description: "Polish-upgraded T-72M1 with ERA armor, new fire control system, and engine" },
@@ -667,7 +667,7 @@ const nationsData = {
             founded: "1918",
             motto: "Chwała Marynarce (Glory to the Navy)",
             description: "The Polish Navy operates in the Baltic Sea and is planning major modernization with new submarines and frigates under the Miecznik program.",
-            image: "Poland_flags/poland_navy_flag.jpg",
+            image: "Poland_details/poland_navy_flag.jpg",
             equipment: [
                 { name: "Orzel Submarine", count: 1, type: "Attack Submarine", description: "Kilo-class diesel-electric submarine for Baltic operations" },
                 { name: "Kobben-class", count: 2, type: "Coastal Submarine", description: "Norwegian-origin coastal submarine for shallow water operations" },
@@ -681,7 +681,7 @@ const nationsData = {
             founded: "1918",
             motto: "Love Demands Sacrifice",
             description: "The Polish Air Force operates F-16 fighters and is transitioning to F-35A stealth fighters. It has also acquired FA-50 light fighters from South Korea.",
-            image: "Poland_flags/poland_airforce_flag.jpg",
+            image: "Poland_details/poland_airforce_flag.jpg",
             equipment: [
                 { name: "F-16C/D", count: 48, type: "Multirole Fighter", description: "Block 52+ variant with conformal fuel tanks and advanced avionics" },
                 { name: "FA-50", count: 48, type: "Light Combat Aircraft", description: "Korean-built supersonic trainer/light fighter for gap-fill role" },
@@ -699,14 +699,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 900000, reserve: 400000 },
         description: "The Armed Forces of Ukraine have become one of the most combat-experienced militaries in the world since 2022. They operate a mix of Soviet-era and Western-donated equipment and have pioneered modern drone warfare and combined arms tactics.",
-        image: "https://images.unsplash.com/photo-1589519160732-57fc498494f8?w=800&h=400&fit=crop",
+        image: "Ukraine_details/ukraine_flag.jpg",
         army: {
             tanks: 1890, apc: 8400, artillery: 2200, mlrs: 491,
             name: "Ukrainian Ground Forces",
             founded: "December 6, 1991",
             motto: "For Honor! For Glory! For the People!",
             description: "The Ukrainian Ground Forces have been battle-hardened since 2022, employing a diverse mix of Soviet-legacy and Western-donated armor, artillery, and vehicles in combined arms warfare.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Ukraine_details/ukraine_army_flag.jpg",
             equipment: [
                 { name: "T-64BV", count: 600, type: "Main Battle Tank", description: "Soviet-era MBT with composite armor and 125mm gun, Ukraine's workhorse tank" },
                 { name: "Leopard 2A6", count: 71, type: "Main Battle Tank", description: "German-donated advanced MBT with 120mm L55 gun and improved armor" },
@@ -720,7 +720,7 @@ const nationsData = {
             founded: "April 1, 1992",
             motto: "Vira! (Heave-ho!)",
             description: "The Ukrainian Navy was largely destroyed when Russia seized Crimea but has rebuilt using fast attack craft and unmanned naval drones that have successfully struck Russian warships.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Ukraine_details/ukraine_navy_flag.png",
             equipment: [
                 { name: "Hetman Sahaidachny Frigate", count: 1, type: "Frigate", description: "Krivak III-class frigate, flagship of the Ukrainian Navy" },
                 { name: "Gyurza-M Gunboat", count: 18, type: "Armored Gunboat", description: "Indigenous river/coastal gunboat with 30mm cannon and Barrier missiles" },
@@ -734,7 +734,7 @@ const nationsData = {
             founded: "March 17, 1992",
             motto: "Proud to Serve the Fatherland",
             description: "The Ukrainian Air Force operates Soviet-era fighters supplemented by incoming F-16s from Western allies. It has maintained air defense despite facing a much larger Russian air force.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Ukraine_details/ukraine_airforce_flag.jpg",
             equipment: [
                 { name: "MiG-29", count: 32, type: "Air Superiority Fighter", description: "Soviet 4th-gen twin-engine interceptor, augmented with Western-donated units" },
                 { name: "Su-27", count: 20, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter for air defense and escort missions" },
@@ -752,14 +752,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 122550, reserve: 15000 },
         description: "The Spanish Armed Forces focus on Mediterranean security and maintain expeditionary capabilities. Spain operates the Juan Carlos I LHD and is building the new S-80 submarine class, the largest conventional submarine in Europe.",
-        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=400&fit=crop",
+        image: "Spain_details/spain_flag.jpg",
         army: {
             tanks: 327, apc: 2000, artillery: 96, mlrs: 0,
             name: "Spanish Army (Ejército de Tierra)",
             founded: "1482",
             motto: "La Patria, Mi Honor (The Fatherland, My Honor)",
             description: "The Spanish Army operates Leopard 2 tanks and is modernizing with new IFVs. It contributes to NATO missions and EU battlegroups.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Spain_details/spain_army_flag.png",
             equipment: [
                 { name: "Leopard 2E", count: 239, type: "Main Battle Tank", description: "Spanish-built variant of Leopard 2A6 with local fire control upgrades" },
                 { name: "Leopard 2A4", count: 108, type: "Main Battle Tank", description: "Earlier Leopard 2 variant used as reserve and training tank" },
@@ -773,7 +773,7 @@ const nationsData = {
             founded: "1248",
             motto: "Pro Maris Liberis (For Free Seas)",
             description: "The Armada Española operates the Juan Carlos I multipurpose assault ship and is deploying new S-80 Plus submarines. Spain is one of Europe's major naval powers in the Mediterranean.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Spain_details/spain_navy_flag.png",
             equipment: [
                 { name: "Juan Carlos I LHD", count: 1, type: "Amphibious Assault Ship", description: "26,000-ton LHD capable of operating AV-8B Harrier and F-35B fighters" },
                 { name: "S-80 Plus Submarine", count: 4, type: "Attack Submarine", description: "Indigenous AIP submarine, largest conventional sub in Europe at 3,000 tons" },
@@ -787,7 +787,7 @@ const nationsData = {
             founded: "October 7, 1939",
             motto: "Per Aspera ad Astra (Through Hardship to the Stars)",
             description: "The Spanish Air Force operates Eurofighter Typhoons and EF-18 Hornets for air defense. It participates in NATO air policing missions and is a partner in the FCAS future fighter program.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Spain_details/spain_airforce_flag.png",
             equipment: [
                 { name: "Eurofighter Typhoon", count: 70, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority and QRA missions" },
                 { name: "EF-18 Hornet", count: 66, type: "Multirole Fighter", description: "US-designed twin-engine fighter adapted for Spanish operations" },
@@ -805,14 +805,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 42000, reserve: 5000 },
         description: "The Royal Netherlands Armed Forces punch above their weight with advanced F-35 fighters, Apache helicopters, and a capable navy. The Netherlands closely cooperates with Germany in the 1 (German/Netherlands) Corps.",
-        image: "https://images.unsplash.com/photo-1534351590666-13e3e96b5571?w=800&h=400&fit=crop",
+        image: "Netherlands_details/netherlands_flag.jpg",
         army: {
             tanks: 18, apc: 1400, artillery: 54, mlrs: 22,
             name: "Royal Netherlands Army",
             founded: "January 9, 1814",
             motto: "Je Maintiendrai (I Will Maintain)",
             description: "The Royal Netherlands Army focuses on mechanized infantry and airmobile operations. It closely integrates with the German Bundeswehr under joint formations.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Netherlands_details/netherlands_army_flag.jpg",
             equipment: [
                 { name: "Leopard 2A6 (leased)", count: 18, type: "Main Battle Tank", description: "German MBT leased from Germany for training and NATO commitments" },
                 { name: "CV90", count: 145, type: "Infantry Fighting Vehicle", description: "Swedish IFV with 35mm Bushmaster III cannon and advanced protection" },
@@ -826,7 +826,7 @@ const nationsData = {
             founded: "January 11, 1488",
             motto: "Patet Omnibus Mare (The Sea is Open to All)",
             description: "The Royal Netherlands Navy operates globally with De Zeven Provinciën-class frigates, Walrus-class submarines, and the Karel Doorman joint support ship.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Netherlands_details/netherlands_navy_flag.png",
             equipment: [
                 { name: "Walrus-class Submarine", count: 4, type: "Attack Submarine", description: "Diesel-electric submarine with advanced sonar and torpedo systems" },
                 { name: "De Zeven Provinciën Frigate", count: 4, type: "Air Defence Frigate", description: "LCF-class frigate with Thales SMART-L radar and SM-2 missiles" },
@@ -840,7 +840,7 @@ const nationsData = {
             founded: "July 1, 1913",
             motto: "Luctandum et Vigilandum (Strive and Watch)",
             description: "The Royal Netherlands Air Force is transitioning entirely to the F-35A, making it one of the first NATO air forces to operate an all-stealth fighter fleet.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Netherlands_details/netherlands_airforce_flag.jpg",
             equipment: [
                 { name: "F-35A Lightning II", count: 52, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter replacing F-16, nuclear-sharing capable" },
                 { name: "C-130H Hercules", count: 4, type: "Tactical Transport", description: "Four-engine turboprop tactical transport for air logistics" },
