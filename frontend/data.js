@@ -858,14 +858,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 24000, reserve: 32000 },
         description: "Sweden is NATO's newest major member, bringing advanced indigenous defense systems including the Gripen fighter, the CV90 IFV, and the Gotland-class submarine that famously 'sank' a US carrier in exercises.",
-        image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&h=400&fit=crop",
+        image: "Sweden_details/sweden_flag.jpg",
         army: {
             tanks: 120, apc: 600, artillery: 48, mlrs: 24,
             name: "Swedish Army (Armén)",
             founded: "1521",
             motto: "Skyldighet framför allt (Duty Before All)",
             description: "The Swedish Army specializes in Nordic and Arctic warfare. It produces world-class armored vehicles including the CV90 IFV, exported to 7 countries, and the Archer artillery system.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Sweden_details/sweden_army_flag.png",
             equipment: [
                 { name: "Stridsvagn 122 (Leopard 2)", count: 120, type: "Main Battle Tank", description: "Swedish Leopard 2A5 variant with additional composite armor and French thermal sights" },
                 { name: "CV90", count: 509, type: "Infantry Fighting Vehicle", description: "Indigenous tracked IFV family in multiple variants — exported to 7+ nations" },
@@ -879,7 +879,7 @@ const nationsData = {
             founded: "1522",
             motto: "With Strength and Vigilance",
             description: "The Swedish Navy specializes in Baltic Sea littoral warfare with world-class stealth corvettes and submarines. The Gotland-class submarine is legendary for defeating US carrier groups in exercises.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Sweden_details/sweden_navy_flag.png",
             equipment: [
                 { name: "Gotland-class Submarine", count: 2, type: "Attack Submarine", description: "World's first AIP submarine with Stirling engines — famously 'sank' USS Ronald Reagan in exercises" },
                 { name: "Blekinge-class Submarine", count: 2, type: "Attack Submarine", description: "Next-gen submarine replacing Gotland with enhanced stealth and endurance" },
@@ -893,7 +893,7 @@ const nationsData = {
             founded: "July 1, 1926",
             motto: "Med Vingarna Som Vapen (With Wings as Weapons)",
             description: "The Flygvapnet operates the indigenous Gripen fighter, designed for dispersed highway operations in wartime. The Gripen is one of the most cost-effective fighters in the world.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Sweden_details/sweden_airforce_flag.png",
             equipment: [
                 { name: "JAS 39 Gripen C/D", count: 71, type: "Multirole Fighter", description: "Swedish single-engine fighter designed for highway operations and rapid turnaround" },
                 { name: "JAS 39 Gripen E", count: 27, type: "Multirole Fighter", description: "Latest Gripen variant with AESA radar, increased range, and new avionics" },
@@ -911,14 +911,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 58600, reserve: 29560 },
         description: "The Australian Defence Force is modernizing rapidly under AUKUS, acquiring nuclear-powered submarines, long-range missiles, and expanding its F-35 fleet. Australia is a key US ally in the Indo-Pacific region.",
-        image: "https://images.unsplash.com/photo-1524482555409-3f5c7e39f7f4?w=800&h=400&fit=crop",
+        image: "Australia_details/australia_flag.jpg",
         army: {
             tanks: 59, apc: 1600, artillery: 75, mlrs: 0,
             name: "Australian Army",
             founded: "March 1, 1901",
             motto: "By Land",
             description: "The Australian Army is modernizing under the LAND 400 program, replacing aging vehicles with Boxer CRV and acquiring HIMARS for long-range strike capability.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Australia_details/australia_army_flag.jpg",
             equipment: [
                 { name: "M1A2 Abrams", count: 59, type: "Main Battle Tank", description: "US-built MBT with depleted uranium armor and 120mm smoothbore gun" },
                 { name: "ASLAV", count: 257, type: "Light Armored Vehicle", description: "8x8 wheeled reconnaissance vehicle based on LAV-25 platform" },
@@ -932,7 +932,7 @@ const nationsData = {
             founded: "July 10, 1911",
             motto: "Per Mare Per Terram (By Sea By Land)",
             description: "The RAN is set for massive expansion under AUKUS, acquiring SSN-AUKUS nuclear attack submarines. It currently operates Hobart-class Aegis destroyers and Collins-class submarines.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Australia_details/australia_navy_flag.jpg",
             equipment: [
                 { name: "Canberra-class LHD", count: 2, type: "Amphibious Assault Ship", description: "27,000-ton landing helicopter dock based on Spanish Juan Carlos I design" },
                 { name: "Collins-class Submarine", count: 6, type: "Attack Submarine", description: "Diesel-electric submarine being replaced by AUKUS nuclear-powered subs" },
@@ -946,7 +946,7 @@ const nationsData = {
             founded: "March 31, 1921",
             motto: "Per Ardua Ad Astra (Through Adversity to the Stars)",
             description: "The RAAF operates the largest F-35A fleet outside the US and is the only country operating the EA-18G Growler electronic warfare aircraft besides America.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Australia_details/australia_airforce_flag.jpg",
             equipment: [
                 { name: "F-35A Lightning II", count: 72, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter — Australia's primary air superiority platform" },
                 { name: "F/A-18F Super Hornet", count: 24, type: "Multirole Fighter", description: "Twin-engine naval fighter serving as bridge capability before full F-35 transition" },
@@ -964,14 +964,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 90, type: "Undeclared" },
         personnel: { active: 173000, reserve: 465000 },
         description: "The Israel Defense Forces are among the most combat-experienced and technologically advanced in the world. Israel has pioneered Iron Dome, Trophy APS, and has an undeclared nuclear arsenal. Mandatory conscription ensures a massive reserve force.",
-        image: "https://images.unsplash.com/photo-1544890225-2f3faec4cd60?w=800&h=400&fit=crop",
+        image: "Israel_details/israel_flag.jpg",
         army: {
             tanks: 1370, apc: 8500, artillery: 650, mlrs: 100,
             name: "Israel Defense Forces - Ground Command",
             founded: "May 26, 1948",
             motto: "Israel's Shield",
             description: "The IDF Ground Command operates the world-renowned Merkava MBT series and Namer IFV, both featuring revolutionary front-engine design and Trophy active protection system.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Israel_details/israel_army_flag.jpg",
             equipment: [
                 { name: "Merkava IV", count: 660, type: "Main Battle Tank", description: "Israel's indigenous MBT with Trophy APS, front-mounted engine, and troop compartment" },
                 { name: "Merkava III", count: 400, type: "Main Battle Tank", description: "Earlier Merkava variant still in active service with modular armor" },
@@ -985,7 +985,7 @@ const nationsData = {
             founded: "March 17, 1948",
             motto: "Onward to the Sea",
             description: "The Israeli Navy operates Dolphin-class submarines believed to be nuclear-capable, and Sa'ar 6 corvettes with Iron Dome missile defense. It focuses on coastal defense and submarine deterrence.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Israel_details/israel_navy_flag.jpg",
             equipment: [
                 { name: "Dolphin-class Submarine", count: 5, type: "Attack Submarine", description: "German-built diesel-electric submarine widely believed to carry nuclear-capable cruise missiles" },
                 { name: "Sa'ar 6 Corvette", count: 4, type: "Guided Missile Corvette", description: "German-designed corvette with C-Dome (naval Iron Dome) air defense system" },
@@ -999,7 +999,7 @@ const nationsData = {
             founded: "May 28, 1948",
             motto: "The Best to Flight",
             description: "The Israeli Air Force is one of the most experienced and capable in the world. It operates the unique F-35I Adir with Israeli modifications and has extensive combat experience in precision strikes.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Israel_details/israel_airforce_flag.jpg",
             equipment: [
                 { name: "F-35I Adir", count: 50, type: "5th Gen Stealth Fighter", description: "Israeli-modified F-35A with indigenous EW, sensors, and weapons integration" },
                 { name: "F-15I Ra'am", count: 25, type: "Strike Fighter", description: "Long-range strike variant of F-15E with conformal fuel tanks and Israeli avionics" },
@@ -1017,14 +1017,14 @@ const nationsData = {
         nuclear: { status: false },
         personnel: { active: 438500, reserve: 479000 },
         description: "The Egyptian Armed Forces are the largest military in Africa and the Arab world. Egypt operates a diverse fleet from both Western and Russian sources, including M1 Abrams tanks, Rafale fighters, and Mistral helicopter carriers.",
-        image: "https://images.unsplash.com/photo-1539768942893-daf53e736b68?w=800&h=400&fit=crop",
+        image: "Egypt_details/egypt_flag.jpg",
         army: {
             tanks: 4295, apc: 11000, artillery: 1665, mlrs: 1100,
             name: "Egyptian Army",
             founded: "1820",
             motto: "Victory or Martyrdom",
             description: "The Egyptian Army is the largest in the Middle East with a massive tank fleet combining American Abrams, Russian T-90S, and thousands of older M60 Pattons.",
-            image: "https://images.unsplash.com/photo-1567427361940-59a7d1172f0d?w=800&h=400&fit=crop",
+            image: "Egypt_details/egypt_army_flag.jpg",
             equipment: [
                 { name: "M1A1 Abrams", count: 1130, type: "Main Battle Tank", description: "US-built MBT co-produced in Egypt, backbone of Egyptian armored forces" },
                 { name: "T-90S", count: 500, type: "Main Battle Tank", description: "Russian MBT acquired to diversify tank fleet with Kontakt-5 ERA armor" },
@@ -1038,7 +1038,7 @@ const nationsData = {
             founded: "1820",
             motto: "Defend the Seas of Egypt",
             description: "The Egyptian Navy is the largest in the Middle East and Africa, operating two Mistral-class helicopter carriers purchased from France and a mixed fleet of submarines and frigates.",
-            image: "https://images.unsplash.com/photo-1580570274239-84e5cf347b86?w=800&h=400&fit=crop",
+            image: "Egypt_details/egypt_navy_flag.jpg",
             equipment: [
                 { name: "Mistral-class LHD", count: 2, type: "Helicopter Carrier", description: "French-built 21,000-ton amphibious assault ship with 16 helicopters" },
                 { name: "Type 209 Submarine", count: 4, type: "Attack Submarine", description: "German-designed diesel-electric submarine for Mediterranean operations" },
@@ -1052,7 +1052,7 @@ const nationsData = {
             founded: "1930",
             motto: "Higher and Higher for the Sake of Glory",
             description: "The Egyptian Air Force operates a diverse fleet from multiple sources — American F-16s, French Rafales, and Russian MiG-29s — giving it the largest fighter force in Africa.",
-            image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&h=400&fit=crop",
+            image: "Egypt_details/egypt_airforce_flag.jpg",
             equipment: [
                 { name: "F-16C/D", count: 220, type: "Multirole Fighter", description: "Block 40/52 variants forming the backbone of Egyptian airpower" },
                 { name: "Rafale", count: 54, type: "Omnirole Fighter", description: "French twin-engine fighter providing advanced air superiority capability" },
