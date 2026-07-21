@@ -1070,13 +1070,14 @@ const nationsData = {
         nuclear: { status: true, warheads: 170, type: "Confirmed", firstTest: "May 28, 1998 (Chagai-I)" },
         personnel: { active: 654000, reserve: 550000, paramilitary: 420000 },
         description: "Pakistan's nuclear weapons program began in the 1970s under Prime Minister Zulfikar Ali Bhutto after India's first nuclear test (Smiling Buddha, 1974). China played a crucial role in Pakistan's nuclear development — providing a tested nuclear weapon design (believed to be the CHIC-4 compact fission design), highly enriched uranium, and assistance in building the Khushab plutonium production reactor. Additionally, Dr. Abdul Qadeer Khan brought uranium centrifuge enrichment technology from the Netherlands (URENCO) and established the Kahuta Research Laboratories. China also transferred M-11 ballistic missile technology, forming the basis of Pakistan's delivery systems. Pakistan conducted its first nuclear tests on May 28, 1998 (Chagai-I — 5 simultaneous detonations) and May 30, 1998 (Chagai-II), in direct response to India's Pokhran-II tests. Pakistan now possesses an estimated 170 nuclear warheads — the fastest-growing arsenal in the world — deliverable by Shaheen ballistic missiles, Ra'ad air-launched cruise missiles, and Babur-3 submarine-launched cruise missiles.",
-        image: "https://images.unsplash.com/photo-1585593700906-99f2e15b7f73?w=800&h=400&fit=crop",
+        image: "Pakistan_details/pakistan_flag.jpg",
         army: {
             tanks: 3742, apc: 8500, artillery: 4472, mlrs: 560,
             name: "Pakistan Army",
             founded: "August 14, 1947",
             motto: "Faith, Piety, Jihad in the path of Allah",
             strength: "560,000 active",
+            image: "Pakistan_details/pakistan_army_flag.jpg",
             equipment: [
                 { name: "Al-Khalid MBT", count: 600, type: "Main Battle Tank", description: "Jointly developed with China, featuring 125mm smoothbore gun and composite armor" },
                 { name: "T-80UD", count: 320, type: "Main Battle Tank", description: "Ukrainian-built gas turbine tank with strong armor protection" },
@@ -1090,6 +1091,7 @@ const nationsData = {
             founded: "August 14, 1947",
             motto: "Power Through the Seas",
             strength: "30,000 active",
+            image: "Pakistan_details/pakistan_navy_flag.jpg",
             equipment: [
                 { name: "Agosta 90B Submarine", count: 3, type: "Attack Submarine", description: "French-designed AIP-equipped diesel submarine with SM39 Exocet capability" },
                 { name: "Type 054A/P Frigate", count: 4, type: "Guided Missile Frigate", description: "Chinese-built modern frigate with HQ-16 SAM and anti-ship missiles" },
@@ -1103,6 +1105,7 @@ const nationsData = {
             founded: "August 14, 1947",
             motto: "In God We Soar with Strength",
             strength: "70,000 active",
+            image: "Pakistan_details/pakistan_airforce_flag.jpg",
             equipment: [
                 { name: "JF-17 Thunder", count: 150, type: "Multirole Fighter", description: "Jointly developed with China, lightweight single-engine multi-role combat aircraft" },
                 { name: "F-16 Fighting Falcon", count: 85, type: "Multirole Fighter", description: "US-built 4th gen fighter, backbone of PAF air superiority" },
@@ -1120,13 +1123,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "Suspected Program" },
         personnel: { active: 610000, reserve: 350000, paramilitary: 220000 },
         description: "Iran wields significant asymmetric military capabilities through its ballistic missile arsenal and IRGC proxy network across the Middle East. Its drone technology has proven effective in multiple conflicts.",
-        image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&h=400&fit=crop",
+        image: "Iran_details/iran_flag.jpg",
         army: {
             tanks: 1513, apc: 2500, artillery: 3668, mlrs: 1474,
             name: "Islamic Republic of Iran Army",
             founded: "April 18, 1925",
             motto: "For Allah, the Country, the Leader",
             strength: "420,000 active",
+            image: "Iran_details/iran_army_flag.jpg",
             equipment: [
                 { name: "Karrar MBT", count: 100, type: "Main Battle Tank", description: "Domestically produced tank based on T-72 with advanced electronics and ERA" },
                 { name: "T-72S", count: 480, type: "Main Battle Tank", description: "Russian-built main battle tank, backbone of Iranian armored forces" },
@@ -1140,6 +1144,7 @@ const nationsData = {
             founded: "November 28, 1923",
             motto: "Power and Authority Over the Waters",
             strength: "28,000 active",
+            image: "Iran_details/iran_navy_flag.jpg",
             equipment: [
                 { name: "Kilo-class Submarine", count: 3, type: "Attack Submarine", description: "Russian-built diesel-electric submarine with torpedo and mine capability" },
                 { name: "Ghadir-class Mini-Sub", count: 14, type: "Midget Submarine", description: "Domestically built coastal defense submarine" },
@@ -1153,6 +1158,7 @@ const nationsData = {
             founded: "1924",
             motto: "Guardians of the Skies",
             strength: "52,000 active",
+            image: "Iran_details/iran_airforce_flag.jpg",
             equipment: [
                 { name: "F-14 Tomcat", count: 40, type: "Interceptor", description: "US-built twin-engine interceptor with AWG-9 radar, modernized with domestic avionics" },
                 { name: "Kowsar Fighter", count: 15, type: "Multirole Fighter", description: "Domestically produced 4th-gen fighter based on F/A-18 design" },
@@ -1170,13 +1176,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 257000, reserve: 25000, paramilitary: 100000 },
         description: "Saudi Arabia possesses one of the world's best-funded militaries with cutting-edge Western equipment. It operates advanced US and European fighter jets, tanks, and air defense systems.",
-        image: "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800&h=400&fit=crop",
+        image: "SaudiArabia_details/saudiarabia_flag.jpg",
         army: {
             tanks: 1062, apc: 5500, artillery: 680, mlrs: 322,
             name: "Royal Saudi Land Forces",
             founded: "1934",
             motto: "There is no god but God",
             strength: "160,000 active",
+            image: "SaudiArabia_details/saudiarabia_army_flag.jpg",
             equipment: [
                 { name: "M1A2S Abrams", count: 373, type: "Main Battle Tank", description: "Saudi variant of the M1A2 with improved armor package" },
                 { name: "AMX-30", count: 300, type: "Main Battle Tank", description: "French-built MBT being phased out" },
@@ -1190,6 +1197,7 @@ const nationsData = {
             founded: "1960",
             motto: "Guardians of the Seas",
             strength: "15,000 active",
+            image: "SaudiArabia_details/saudiarabia_navy_flag.jpg",
             equipment: [
                 { name: "Al-Riyadh Frigate", count: 3, type: "Guided Missile Frigate", description: "French La Fayette-class with Aster 15 SAM and Exocet missiles" },
                 { name: "Al-Madinah Frigate", count: 4, type: "Frigate", description: "French F-2000 type with Otomat anti-ship missiles" },
@@ -1203,6 +1211,7 @@ const nationsData = {
             founded: "1950",
             motto: "Soaring to Protect",
             strength: "45,000 active",
+            image: "SaudiArabia_details/saudiarabia_airforce_flag.jpg",
             equipment: [
                 { name: "F-15SA Strike Eagle", count: 84, type: "Air Superiority Fighter", description: "Advanced variant of F-15 with fly-by-wire flight controls and AESA radar" },
                 { name: "F-15S Eagle", count: 70, type: "Strike Fighter", description: "Saudi variant of the F-15E for air-to-ground missions" },
@@ -1220,13 +1229,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 360000, reserve: 1340000, paramilitary: 395000 },
         description: "Brazil is the dominant military power in Latin America with the largest armed forces in the region. It operates a carrier and maintains a nuclear submarine program.",
-        image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=400&fit=crop",
+        image: "Brazil_details/brazil_flag.jpg",
         army: {
             tanks: 437, apc: 2400, artillery: 756, mlrs: 70,
             name: "Brazilian Army",
             founded: "April 19, 1648",
             motto: "Arm Strong, Friendly Hand",
             strength: "223,000 active",
+            image: "Brazil_details/brazil_army_flag.png",
             equipment: [
                 { name: "Leopard 1A5 BR", count: 220, type: "Main Battle Tank", description: "Modernized German MBT with thermal imaging and fire control" },
                 { name: "M60A3 TTS", count: 91, type: "Main Battle Tank", description: "American MBT with thermal targeting system" },
@@ -1240,6 +1250,7 @@ const nationsData = {
             founded: "December 10, 1822",
             motto: "Homeland and Honor",
             strength: "80,000 active",
+            image: "Brazil_details/brazil_navy_flag.jpg",
             equipment: [
                 { name: "NAM Atlântico", count: 1, type: "Helicopter Carrier", description: "Multi-purpose amphibious assault ship (ex-HMS Ocean)" },
                 { name: "Scorpène-class Submarine", count: 4, type: "Attack Submarine", description: "French-designed diesel-electric submarine built in Brazil" },
@@ -1253,6 +1264,7 @@ const nationsData = {
             founded: "January 20, 1941",
             motto: "Wings That Protect the Country",
             strength: "70,000 active",
+            image: "Brazil_details/brazil_airforce_flag.jpg",
             equipment: [
                 { name: "Gripen E/F", count: 36, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with AESA radar and supercruise capability" },
                 { name: "AMX A-1", count: 43, type: "Ground Attack Aircraft", description: "Italian-Brazilian subsonic attack aircraft" },
