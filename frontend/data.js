@@ -1282,13 +1282,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 395000, reserve: 400000, paramilitary: 280000 },
         description: "Indonesia commands the largest military in Southeast Asia, strategically positioned across thousands of islands controlling vital sea lanes including the Strait of Malacca.",
-        image: "https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=800&h=400&fit=crop",
+        image: "Indonesia_details/indonesia_flag.jpg",
         army: {
             tanks: 396, apc: 1089, artillery: 283, mlrs: 36,
             name: "Indonesian Army (TNI-AD)",
             founded: "October 5, 1945",
             motto: "Kartika Eka Paksi (Unrivaled Single Bird)",
             strength: "300,000 active",
+            image: "Indonesia_details/indonesia_army_flag.png",
             equipment: [
                 { name: "Leopard 2A4", count: 61, type: "Main Battle Tank", description: "German-built 3rd gen MBT for heavy armored operations" },
                 { name: "Leopard 2 Revolution", count: 42, type: "Main Battle Tank", description: "Upgraded Leopard 2 with enhanced urban warfare protection" },
@@ -1302,6 +1303,7 @@ const nationsData = {
             founded: "September 10, 1945",
             motto: "Jalesveva Jayamahe (At Sea We Triumph)",
             strength: "65,000 active",
+            image: "Indonesia_details/indonesia_navy_flag.png",
             equipment: [
                 { name: "Type 209/1400 Submarine", count: 2, type: "Attack Submarine", description: "German-built diesel-electric submarine for patrol operations" },
                 { name: "Scorpène-class Submarine", count: 2, type: "Attack Submarine", description: "French-designed submarine (on order)" },
@@ -1315,6 +1317,7 @@ const nationsData = {
             founded: "April 9, 1946",
             motto: "Swa Bhuwana Paksa (Wings of the Motherland)",
             strength: "35,000 active",
+            image: "Indonesia_details/indonesia_airforce_flag.png",
             equipment: [
                 { name: "Su-27/30 Flanker", count: 16, type: "Air Superiority Fighter", description: "Russian heavy twin-engine fighter with long range and BVR capability" },
                 { name: "F-16 C/D Block 52", count: 33, type: "Multirole Fighter", description: "Upgraded US-built 4th gen multirole fighter" },
@@ -1332,13 +1335,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 68000, reserve: 27000, paramilitary: 0 },
         description: "Canada's military is a well-trained NATO force focused on Arctic sovereignty, peacekeeping, and interoperability with the United States. It is modernizing its fleet and fighter aircraft.",
-        image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&h=400&fit=crop",
+        image: "Canada_details/canada_flag.jpg",
         army: {
             tanks: 82, apc: 1800, artillery: 188, mlrs: 0,
             name: "Canadian Army",
             founded: "July 1, 1867",
             motto: "Vigilamus Pro Te (We Watch Over You)",
             strength: "42,000 active",
+            image: "Canada_details/canada_army_flag.jpg",
             equipment: [
                 { name: "Leopard 2A6M CAN", count: 82, type: "Main Battle Tank", description: "German MBT modified for Canadian service with mine protection" },
                 { name: "LAV 6.0", count: 550, type: "Armored Fighting Vehicle", description: "8x8 combat vehicle — backbone of Canadian mechanized forces" },
@@ -1352,6 +1356,7 @@ const nationsData = {
             founded: "May 4, 1910",
             motto: "Ready Aye Ready",
             strength: "12,000 active",
+            image: "Canada_details/canada_navy_flag.jpg",
             equipment: [
                 { name: "Halifax-class Frigate", count: 12, type: "Multi-Role Frigate", description: "Modernized Canadian patrol frigate with Sea Sparrow and Harpoon missiles" },
                 { name: "Victoria-class Submarine", count: 4, type: "Patrol Submarine", description: "Ex-British Upholder-class diesel-electric submarine" },
@@ -1365,6 +1370,7 @@ const nationsData = {
             founded: "April 1, 1924",
             motto: "Per Ardua Ad Astra (Through Adversity to the Stars)",
             strength: "14,500 active",
+            image: "Canada_details/canada_airforce_flag.jpg",
             equipment: [
                 { name: "CF-18 Hornet", count: 76, type: "Multirole Fighter", description: "Modernized F/A-18A/B for air defense and strike missions" },
                 { name: "F-35A Lightning II", count: 88, type: "5th Gen Stealth Fighter (on order)", description: "88 F-35A ordered to replace CF-18 fleet" },
@@ -1374,7 +1380,7 @@ const nationsData = {
         }
     },
     "Taiwan": {
-        name: "Taiwan",
+        name: "Republic of China",
         flag: "🇹🇼",
         countryCode: "tw",
         rank: 23,
@@ -1382,13 +1388,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 190000, reserve: 1657000, paramilitary: 17000 },
         description: "Taiwan maintains strong defensive capabilities to deter a potential Chinese invasion. It operates modern US-made equipment and is developing asymmetric warfare strategies.",
-        image: "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&h=400&fit=crop",
+        image: "ROC_details/roc_flag.jpg",
         army: {
             tanks: 1100, apc: 2600, artillery: 1600, mlrs: 57,
             name: "Republic of China Army",
             founded: "June 16, 1924",
             motto: "Defend the Nation",
             strength: "130,000 active",
+            image: "ROC_details/roc_army_flag.jpg",
             equipment: [
                 { name: "M1A2T Abrams", count: 108, type: "Main Battle Tank", description: "US-built MBT purchased for Taiwan with advanced armor and electronics" },
                 { name: "CM-11 Brave Tiger", count: 450, type: "Main Battle Tank", description: "Domestically assembled MBT based on M48/M60 design" },
@@ -1402,6 +1409,7 @@ const nationsData = {
             founded: "December 1, 1924",
             motto: "Seas of Honor",
             strength: "40,000 active",
+            image: "ROC_details/roc_navy_flag.jpg",
             equipment: [
                 { name: "Hai Kun-class Submarine", count: 1, type: "Indigenous Submarine", description: "Taiwan's first domestically built submarine (commissioned 2025)" },
                 { name: "Kee Lung-class Destroyer", count: 4, type: "Guided Missile Destroyer", description: "Ex-US Kidd-class with SM-2 SAMs and Harpoon missiles" },
@@ -1415,6 +1423,7 @@ const nationsData = {
             founded: "August 1, 1920",
             motto: "Above the Heavens",
             strength: "35,000 active",
+            image: "ROC_details/roc_airforce_flag.jpg",
             equipment: [
                 { name: "F-16V Viper", count: 141, type: "Multirole Fighter", description: "Upgraded Block 70/72 F-16 with AESA radar — most advanced F-16 variant" },
                 { name: "Mirage 2000-5", count: 47, type: "Multirole Fighter", description: "French-built delta-wing fighter with MICA missiles" },
@@ -1432,13 +1441,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 143000, reserve: 220000, paramilitary: 4000 },
         description: "Greece maintains one of the largest militaries in NATO Europe relative to population, driven by tensions with Turkey over the Aegean Sea and Cyprus.",
-        image: "https://images.unsplash.com/photo-1503152394-c571994fd383?w=800&h=400&fit=crop",
+        image: "Greece_details/greece_flag.jpg",
         army: {
             tanks: 1367, apc: 3000, artillery: 1800, mlrs: 198,
             name: "Hellenic Army",
             founded: "1828",
             motto: "Freedom or Death",
             strength: "99,000 active",
+            image: "Greece_details/greece_army_flag.png",
             equipment: [
                 { name: "Leopard 2A6 HEL", count: 170, type: "Main Battle Tank", description: "German-built heavy MBT with L/55 120mm gun" },
                 { name: "Leopard 2A4", count: 183, type: "Main Battle Tank", description: "German MBT forming backbone of armored forces" },
@@ -1452,6 +1462,7 @@ const nationsData = {
             founded: "1821",
             motto: "My Country, Right or Wrong",
             strength: "19,000 active",
+            image: "Greece_details/greece_navy_flag.png",
             equipment: [
                 { name: "Type 214 Submarine", count: 4, type: "AIP Submarine", description: "German-built air-independent propulsion submarine with stealth features" },
                 { name: "Type 209 Submarine", count: 7, type: "Attack Submarine", description: "German-designed patrol submarine" },
@@ -1465,6 +1476,7 @@ const nationsData = {
             founded: "November 11, 1930",
             motto: "Always Dare",
             strength: "26,600 active",
+            image: "Greece_details/greece_airforce_flag.jpg",
             equipment: [
                 { name: "F-16 Block 52+/Viper", count: 154, type: "Multirole Fighter", description: "84 upgraded to Viper configuration with AESA radar" },
                 { name: "Rafale F3R", count: 24, type: "Multirole Fighter", description: "French 4.5-gen omnirole fighter with Meteor missiles" },
