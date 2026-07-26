@@ -5830,6 +5830,8 @@ function switchDashboardTab(tab) {
         loadReports();
     } else if (tab === 'community') {
         loadCommunityReports(1);
+    } else if (tab === 'admin') {
+        if (typeof initAdminTab === 'function') initAdminTab();
     }
 }
 

@@ -193,6 +193,8 @@ function updateAuthUI(user) {
     const usernameEl = document.getElementById('auth-username');
     const dropdownName = document.getElementById('auth-dropdown-name');
     const dropdownRole = document.getElementById('auth-dropdown-role');
+    const adminDropdownBtn = document.getElementById('auth-dropdown-admin');
+    const adminTabBtn = document.getElementById('admin-tab-btn');
 
     if (user) {
         if (guestBtns) guestBtns.style.display = 'none';
@@ -207,9 +209,16 @@ function updateAuthUI(user) {
             dropdownRole.style.borderColor = user.role === 'admin' ? 'rgba(212, 175, 55, 0.3)' : 'rgba(59, 130, 246, 0.3)';
             dropdownRole.style.color = user.role === 'admin' ? '#d4af37' : '#3b82f6';
         }
+
+        // Show/hide admin-only elements
+        const isAdmin = user.role === 'admin';
+        if (adminDropdownBtn) adminDropdownBtn.style.display = isAdmin ? '' : 'none';
+        if (adminTabBtn) adminTabBtn.style.display = isAdmin ? '' : 'none';
     } else {
         if (guestBtns) guestBtns.style.display = '';
         if (userMenu) userMenu.style.display = 'none';
+        if (adminDropdownBtn) adminDropdownBtn.style.display = 'none';
+        if (adminTabBtn) adminTabBtn.style.display = 'none';
     }
 }
 
