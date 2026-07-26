@@ -1494,13 +1494,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 482000, reserve: 5000000, paramilitary: 40000 },
         description: "Vietnam's military is battle-hardened and focused on territorial defense, particularly in the South China Sea against Chinese encroachment. It operates a growing submarine fleet.",
-        image: "https://images.unsplash.com/photo-1557750255-c76072572da6?w=800&h=400&fit=crop",
+        image: "Vietnam_details/vietnam_flag.jpg",
         army: {
             tanks: 2575, apc: 2500, artillery: 2700, mlrs: 468,
             name: "Vietnam People's Army",
             founded: "December 22, 1944",
             motto: "Determined to Win",
             strength: "412,000 active",
+            image: "Vietnam_details/vietnam_army_flag.jpg",
             equipment: [
                 { name: "T-90S/SK", count: 64, type: "Main Battle Tank", description: "Russian 3rd-gen MBT with modern fire control and Shtora APS" },
                 { name: "T-54/55/M3", count: 1400, type: "Main Battle Tank", description: "Modernized Cold War-era tanks with improved electronics" },
@@ -1514,6 +1515,7 @@ const nationsData = {
             founded: "May 7, 1955",
             motto: "Defend the Seas",
             strength: "40,000 active",
+            image: "Vietnam_details/vietnam_navy_flag.jpg",
             equipment: [
                 { name: "Kilo-class Submarine", count: 6, type: "Attack Submarine", description: "Russian 'Black Hole' diesel-electric sub with Kalibr cruise missile capability" },
                 { name: "Gepard-class Frigate", count: 4, type: "Guided Missile Frigate", description: "Russian-built light frigate with Kh-35 anti-ship missiles" },
@@ -1527,6 +1529,7 @@ const nationsData = {
             founded: "March 3, 1955",
             motto: "Masters of the Sky",
             strength: "30,000 active",
+            image: "Vietnam_details/vietnam_airforce_flag.jpg",
             equipment: [
                 { name: "Su-30MK2V", count: 36, type: "Multirole Fighter", description: "Russian twin-engine heavy fighter with anti-ship capability" },
                 { name: "Su-27SK/UBK", count: 12, type: "Air Superiority Fighter", description: "Russian air dominance fighter with BVR missiles" },
@@ -1544,13 +1547,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 72000, reserve: 300000, paramilitary: 93000 },
         description: "Despite its tiny size, Singapore fields one of the most technologically advanced militaries in Asia with heavy defense spending per capita and cutting-edge equipment.",
-        image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&h=400&fit=crop",
+        image: "Singapore_details/singapore_flag.jpg",
         army: {
             tanks: 212, apc: 2200, artillery: 283, mlrs: 18,
             name: "Singapore Army",
             founded: "1965",
             motto: "Training to Fight, Fighting to Win",
             strength: "50,000 active",
+            image: "Singapore_details/singapore_army_flag.png",  //AI-generated image
             equipment: [
                 { name: "Leopard 2SG", count: 96, type: "Main Battle Tank", description: "Upgraded Leopard 2A4 with AMAP composite armor package" },
                 { name: "Hunter AFV", count: 100, type: "Infantry Fighting Vehicle", description: "Domestically developed next-gen IFV with 30mm cannon and ATGM" },
@@ -1564,6 +1568,7 @@ const nationsData = {
             founded: "1967",
             motto: "Defending Our Shores",
             strength: "9,000 active",
+            image: "Singapore_details/singapore_navy_flag.png",     //AI-generated image
             equipment: [
                 { name: "Invincible-class Submarine", count: 4, type: "AIP Submarine", description: "Type 218SG — Germany's most advanced export submarine with AIP" },
                 { name: "Formidable-class Frigate", count: 6, type: "Stealth Frigate", description: "French La Fayette-derived stealth frigate with Aster SAM" },
@@ -1577,6 +1582,7 @@ const nationsData = {
             founded: "September 1, 1968",
             motto: "Above All",
             strength: "13,500 active",
+            image: "Singapore_details/singapore_airforce_flag.png",     //AI-generated image
             equipment: [
                 { name: "F-15SG Strike Eagle", count: 40, type: "Air Superiority Fighter", description: "Advanced variant of F-15E with conformal fuel tanks and AESA radar" },
                 { name: "F-16D+ Block 52", count: 60, type: "Multirole Fighter", description: "Two-seat variant with conformal fuel tanks and advanced avionics" },
@@ -1594,13 +1600,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 63000, reserve: 0, paramilitary: 0 },
         description: "The UAE operates one of the most sophisticated and well-equipped militaries in the Middle East, with advanced Western and indigenous weapons systems and combat experience in Yemen.",
-        image: "https://images.unsplash.com/photo-1546412414-e1885259563a?w=800&h=400&fit=crop",
+        image: "UAE_details/uae_flag.jpg",
         army: {
             tanks: 549, apc: 2600, artillery: 397, mlrs: 72,
             name: "UAE Land Forces",
             founded: "1971",
             motto: "Strength and Honor",
             strength: "44,000 active",
+            image: "UAE_details/uae_army_flag.jpg",
             equipment: [
                 { name: "Leclerc MBT", count: 388, type: "Main Battle Tank", description: "French 3rd-gen MBT with autoloader, CITV, and composite armor — UAE is largest operator" },
                 { name: "BMP-3", count: 700, type: "Infantry Fighting Vehicle", description: "Russian IFV with 100mm gun and ATGM" },
@@ -1614,6 +1621,7 @@ const nationsData = {
             founded: "1971",
             motto: "Shield of the Coast",
             strength: "6,500 active",
+            image: "UAE_details/uae_navy_flag.png",
             equipment: [
                 { name: "Gowind-class Corvette", count: 2, type: "Corvette", description: "French-built modern multi-mission corvette" },
                 { name: "Abu Dhabi-class Corvette", count: 6, type: "Corvette", description: "Italian Falaj 2-class corvettes with Exocet missiles" },
@@ -1627,6 +1635,7 @@ const nationsData = {
             founded: "1968",
             motto: "Strike with Precision",
             strength: "12,000 active",
+            image: "UAE_details/uae_airforce_flag.jpg",
             equipment: [
                 { name: "F-16E/F Block 60 Desert Falcon", count: 80, type: "Multirole Fighter", description: "Most advanced F-16 variant with conformal fuel tanks and AESA radar" },
                 { name: "Mirage 2000-9", count: 62, type: "Multirole Fighter", description: "Upgraded French fighter with advanced strike capability" },
@@ -1644,13 +1653,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "Dismantled (had 6)" },
         personnel: { active: 73000, reserve: 15000, paramilitary: 0 },
         description: "South Africa is the most powerful military in sub-Saharan Africa. Once a nuclear weapon state, it voluntarily dismantled its arsenal. Its defense industry produces world-class armored vehicles and artillery.",
-        image: "https://images.unsplash.com/photo-1484318571209-661cf29a69c3?w=800&h=400&fit=crop",
+        image: "SouthAfrica_details/southafrica_flag.jpg",
         army: {
             tanks: 195, apc: 2070, artillery: 1367, mlrs: 100,
             name: "South African Army",
             founded: "July 1, 1912",
             motto: "Ex Unitate Vires (From Unity, Strength)",
             strength: "40,100 active",
+            image: "SouthAfrica_details/southafrica_army_flag.jpg",
             equipment: [
                 { name: "Olifant Mk2", count: 44, type: "Main Battle Tank", description: "Locally upgraded Centurion MBT with 105mm gun" },
                 { name: "Ratel 20/90 IFV", count: 1300, type: "Infantry Fighting Vehicle", description: "South African mine-protected wheeled IFV" },
@@ -1664,6 +1674,7 @@ const nationsData = {
             founded: "April 1, 1922",
             motto: "Ex Aequo Et Bono",
             strength: "7,500 active",
+            image: "SouthAfrica_details/southafrica_navy_flag.jpg",
             equipment: [
                 { name: "Type 209/1400 Submarine", count: 3, type: "Patrol Submarine", description: "German-built diesel-electric submarine" },
                 { name: "Valour-class Frigate", count: 4, type: "Stealth Frigate", description: "German MEKO A-200 stealth frigate with Exocet and Umkhonto SAM" },
@@ -1677,6 +1688,7 @@ const nationsData = {
             founded: "February 1, 1920",
             motto: "Per Aspera Ad Astra (Through Hardship to the Stars)",
             strength: "10,300 active",
+            image: "SouthAfrica_details/southafrica_airforce_flag.jpg",
             equipment: [
                 { name: "JAS-39 Gripen C/D", count: 26, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with Darter and A-Darter missiles" },
                 { name: "BAE Hawk Mk120", count: 24, type: "Lead-In Fighter Trainer", description: "British jet trainer and light combat aircraft" },
@@ -1694,13 +1706,14 @@ const nationsData = {
         nuclear: { status: false, warheads: 0, type: "No Program" },
         personnel: { active: 277000, reserve: 81000, paramilitary: 111000 },
         description: "Mexico's military is primarily focused on internal security, counter-narcotics, and disaster relief. It is modernizing with new naval vessels and expanding National Guard operations.",
-        image: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&h=400&fit=crop",
+        image: "Mexico_details/mexico_flag.jpg",
         army: {
             tanks: 0, apc: 700, artillery: 195, mlrs: 0,
             name: "Mexican Army (Ejército Mexicano)",
             founded: "1821",
             motto: "Fidelity, Patriotism, Honor",
             strength: "198,000 active",
+            image: "Mexico_details/mexico_army_flag.png",
             equipment: [
                 { name: "DN-XI Caballo APC", count: 220, type: "Armored Personnel Carrier", description: "Domestically built 4x4/6x6 armored vehicle" },
                 { name: "Oshkosh Sandcat", count: 250, type: "MRAP", description: "Mine-resistant vehicle for counter-narco operations" },
@@ -1714,6 +1727,7 @@ const nationsData = {
             founded: "November 23, 1821",
             motto: "Mexico, Homeland, Honor, Loyalty",
             strength: "63,000 active (incl. Marines)",
+            image: "Mexico_details/mexico_navy_flag.png",
             equipment: [
                 { name: "ARM Reformador Frigate", count: 4, type: "Frigate", description: "Locally built Oaxaca-class and Allende-class frigates" },
                 { name: "POLA-class OPV", count: 8, type: "Offshore Patrol Vessel", description: "Domestically built 1,680-ton long-range patrol vessels" },
@@ -1727,6 +1741,7 @@ const nationsData = {
             founded: "February 10, 1915",
             motto: "Honor, Bravery, Loyalty",
             strength: "11,770 active",
+            image: "Mexico_details/mexico_airforce_flag.png",
             equipment: [
                 { name: "T-6C Texan II", count: 6, type: "Trainer/Light Attack", description: "Advanced turboprop trainer for light strike missions" },
                 { name: "PC-7 Pilatus", count: 60, type: "Trainer/COIN", description: "Swiss turboprop trainer for counter-narcotics" },
