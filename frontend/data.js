@@ -63,19 +63,19 @@ const nationsData = {
         nuclear: { status: true, warheads: 6257, type: "Confirmed" },
         personnel: { active: 1150000, reserve: 2000000 },
         description: "The Russian Armed Forces are the military of the Russian Federation. They comprise the Ground Forces, Aerospace Forces, Navy, Strategic Missile Troops, and Airborne Troops. Russia possesses the world's largest nuclear arsenal and maintains significant conventional forces designed for territorial defense and regional power projection.",
-        image: "Russian_details/Russian_flag.jpg",
+        image: "Russia_details/Russia_flag.jpg",
         army: {
             tanks: 12420, apc: 34000, artillery: 14564, mlrs: 3065,
             name: "Russian Ground Forces",
             founded: "May 7, 1992",
             motto: "Honor and Courage",
             description: "The Russian Ground Forces are the land forces of the Russian Federation. They possess one of the largest tank fleets in the world, with significant artillery and armored capabilities. The force emphasizes combined arms operations with mass artillery support and maintains a large reserve of armored vehicles.",
-            image: "Russian_details/Russian_Ground_Forces_flag.jpg",
+            image: "Russia_details/Russia_army_flag.jpg",
             equipment: [
-                { name: "T-90M", count: 550, type: "Main Battle Tank", description: "Advanced main battle tank with Relikt ERA and improved fire control" },
-                { name: "T-72B3", count: 2000, type: "Main Battle Tank", description: "Modernized T-72 with improved armor and thermal sights" },
-                { name: "T-80BVM", count: 450, type: "Main Battle Tank", description: "Gas turbine-powered tank with modern electronics" },
-                { name: "BMP-3", count: 700, type: "Infantry Fighting Vehicle", description: "Amphibious IFV with 100mm gun and ATGM capability" }
+                { name: "T-90M", count: 550, type: "Main Battle Tank", description: "Advanced main battle tank with Relikt ERA and improved fire control", image: "Russia_details/Russia_army_details/t90_m.png" },
+                { name: "T-72B3", count: 2000, type: "Main Battle Tank", description: "Modernized T-72 with improved armor and thermal sights", image: "Russia_details/Russia_army_details/t72_b3.png" },
+                { name: "T-80BVM", count: 450, type: "Main Battle Tank", description: "Gas turbine-powered tank with modern electronics", image: "Russia_details/Russia_army_details/t80_bvm.png" },
+                { name: "BMP-3", count: 700, type: "Infantry Fighting Vehicle", description: "Amphibious IFV with 100mm gun and ATGM capability", image: "Russia_details/Russia_army_details/bmp_3.png" } // src: https://en.wikipedia.org/wiki/BMP-3#/media/File:Army2016demo-011.jpg
             ]
         },
         navy: {
@@ -84,12 +84,12 @@ const nationsData = {
             founded: "October 30, 1696",
             motto: "Glory and Power on the Seas",
             description: "The Russian Navy is the naval warfare service branch of Russian Armed Forces. It operates four major fleets: Northern, Pacific, Black Sea, and Baltic. The Navy maintains Russia's nuclear triad through ballistic missile submarines and projecting power through surface combatants equipped with advanced cruise missiles.",
-            image: "Russian_details/Russian_navy_flag.jpg",
+            image: "Russia_details/Russia_navy_flag.jpg",
             equipment: [
-                { name: "Admiral Kuznetsov", count: 1, type: "Aircraft Carrier", description: "Heavy aircraft-carrying cruiser with Su-33 fighters" },
-                { name: "Borei-class SSBN", count: 5, type: "Ballistic Missile Submarine", description: "Nuclear submarine carrying Bulava SLBMs" },
-                { name: "Yasen-class SSN", count: 4, type: "Attack Submarine", description: "Advanced nuclear attack submarine with Kalibr missiles" },
-                { name: "Admiral Gorshkov Frigate", count: 4, type: "Guided Missile Frigate", description: "Modern frigate with Zircon hypersonic missiles" }
+                { name: "Admiral Kuznetsov", count: 1, type: "Aircraft Carrier", description: "Heavy aircraft-carrying cruiser with Su-33 fighters", image: "Russia_details/Russia_navy_details/admiral_kuznetsov.png" }, // src: https://en.wikipedia.org/wiki/Russian_aircraft_carrier_Admiral_Kuznetsov#/media/File:MilitarySportsHoliday2017-03.jpg
+                { name: "Borei-class SSBN", count: 5, type: "Ballistic Missile Submarine", description: "Nuclear submarine carrying Bulava SLBMs", image: "Russia_details/Russia_navy_details/borei_class_ssbn.png" }, // src: https://en.wikipedia.org/wiki/Russian_submarine_Yury_Dolgorukiy#/media/File:%C2%AB%D0%AE%D1%80%D0%B8%D0%B9_%D0%94%D0%BE%D0%BB%D0%B3%D0%BE%D1%80%D1%83%D0%BA%D0%B8%D0%B9%C2%BB.jpg
+                { name: "Yasen-class SSN", count: 4, type: "Attack Submarine", description: "Advanced nuclear attack submarine with Kalibr missiles", image: "Russia_details/Russia_navy_details/yasen_class_ssn.png" }, // src: https://en.wikipedia.org/wiki/Yasen-class_submarine#/media/File:%D0%9A-560_%C2%AB%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%C2%BB.jpg
+                { name: "Admiral Gorshkov Frigate", count: 4, type: "Guided Missile Frigate", description: "Modern frigate with Zircon hypersonic missiles", image: "Russia_details/Russia_navy_details/admiral_gorshkov_frigate.png" } // src: https://en.wikipedia.org/wiki/Admiral_Gorshkov-class_frigate#/media/File:Admiral_Gorshkov_frigate_03.jpg
             ]
         },
         airforce: {
@@ -98,12 +98,12 @@ const nationsData = {
             founded: "August 1, 2015",
             motto: "To Defend and Protect the Skies",
             description: "The Russian Aerospace Forces are a branch of the Russian Armed Forces responsible for all aerial and space operations. They combine the former Air Force and Aerospace Defense Forces, operating advanced fighters, strategic bombers, and extensive air defense systems including the S-400 and S-500.",
-            image: "Russian_details/Russian_airforce_flag.jpg",
+            image: "Russia_details/Russia_airforce_flag.jpg",
             equipment: [
-                { name: "Su-57", count: 22, type: "5th Gen Stealth Fighter", description: "Russia's first stealth multirole fighter aircraft" },
-                { name: "Su-35S", count: 140, type: "Air Superiority Fighter", description: "Highly maneuverable 4++ generation fighter" },
-                { name: "Su-34", count: 146, type: "Fighter-Bomber", description: "Twin-seat strike fighter for ground attack missions" },
-                { name: "Tu-160M", count: 17, type: "Strategic Bomber", description: "Upgraded supersonic variable-sweep wing heavy bomber" }
+                { name: "Su-57", count: 22, type: "5th Gen Stealth Fighter", description: "Russia's first stealth multirole fighter aircraft", image: "Russia_details/Russia_airforce_details/su_57.png" }, // src: https://en.wikipedia.org/wiki/Sukhoi_Su-57#/media/File:Sukhoi_Design_Bureau,_054,_Sukhoi_T-50_(Su-57_prototype)_(49581303977).jpg
+                { name: "Su-35S", count: 140, type: "Air Superiority Fighter", description: "Highly maneuverable 4++ generation fighter", image: "Russia_details/Russia_airforce_details/su_35s.png" }, // src: https://en.wikipedia.org/wiki/Sukhoi_Su-35#/media/File:Russian_Air_Force,_RF-81719,_Sukhoi_Su-35S_(49581740157).jpg
+                { name: "Su-34", count: 146, type: "Fighter-Bomber", description: "Twin-seat strike fighter for ground attack missions", image: "Russia_details/Russia_airforce_details/su_34.png" }, // src: https://en.wikipedia.org/wiki/Sukhoi_Su-34#/media/File:Russian_Air_Force_Sukhoi_Su-34_Beltyukov-1.jpg
+                { name: "Tu-160M", count: 17, type: "Strategic Bomber", description: "Upgraded supersonic variable-sweep wing heavy bomber", image: "Russia_details/Russia_airforce_details/tu_160m.png" } // src: https://en.wikipedia.org/wiki/Tupolev_Tu-160#/media/File:2013_Moscow_Victory_Day_Parade_(57).jpg
             ]
         }
     },
