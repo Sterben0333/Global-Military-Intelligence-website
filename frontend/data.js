@@ -18,10 +18,10 @@ const nationsData = {
             description: "The United States Army is the land warfare service branch of the U.S. Armed Forces. It is the largest and oldest established branch, responsible for land-based military operations. The Army is organized into active duty, Army Reserve, and Army National Guard components, providing a rapid response capability to defend the nation and its interests worldwide.",
             image: "US_details/Usa_army_flag.png",
             equipment: [
-                { name: "M1A2 Abrams", count: 2509, type: "Main Battle Tank", description: "Third-generation main battle tank with advanced armor and 120mm smoothbore cannon" },
-                { name: "M2 Bradley", count: 4641, type: "Infantry Fighting Vehicle", description: "Armored fighting vehicle providing both transport and fire support" },
-                { name: "Stryker", count: 4900, type: "Armored Fighting Vehicle", description: "Eight-wheeled armored combat vehicle for rapid deployment" },
-                { name: "M109 Paladin", count: 950, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery piece with automated fire control" }
+                { name: "M1A2 Abrams", count: 2509, type: "Main Battle Tank", description: "Third-generation main battle tank with advanced armor and 120mm smoothbore cannon", image: "US_details/US_army_details/m1a2_abrams.png" },
+                { name: "M2 Bradley", count: 4641, type: "Infantry Fighting Vehicle", description: "Armored fighting vehicle providing both transport and fire support", image: "US_details/US_army_details/m2_bradley.png" },
+                { name: "Stryker", count: 4900, type: "Armored Fighting Vehicle", description: "Eight-wheeled armored combat vehicle for rapid deployment", image: "US_details/US_army_details/stryker.png" },
+                { name: "M109 Paladin", count: 950, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery piece with automated fire control", image: "US_details/US_army_details/m109_paladin.png" }
             ]
         },
         navy: {
@@ -33,10 +33,10 @@ const nationsData = {
             image: "US_details/US_navy_flag.jpg"
             ,
             equipment: [
-                { name: "Nimitz-class Carrier", count: 10, type: "Aircraft Carrier", description: "Nuclear-powered supercarrier carrying 90+ aircraft" },
-                { name: "Gerald R. Ford Carrier", count: 1, type: "Aircraft Carrier", description: "Most advanced carrier with electromagnetic launch system" },
-                { name: "Ohio-class SSBN", count: 14, type: "Ballistic Missile Submarine", description: "Nuclear submarine carrying Trident II ballistic missiles" },
-                { name: "Virginia-class SSN", count: 23, type: "Attack Submarine", description: "Fast attack submarine for anti-submarine and strike missions" }
+                { name: "Nimitz-class Carrier", count: 10, type: "Aircraft Carrier", description: "Nuclear-powered supercarrier carrying 90+ aircraft", image: "US_details/US_navy_details/nimitz_class_carrier.png" },
+                { name: "Gerald R. Ford Carrier", count: 1, type: "Aircraft Carrier", description: "Most advanced carrier with electromagnetic launch system", image: "US_details/US_navy_details/gerald_r_ford_carrier.png" },
+                { name: "Ohio-class SSBN", count: 14, type: "Ballistic Missile Submarine", description: "Nuclear submarine carrying Trident II ballistic missiles", image: "US_details/US_navy_details/ohio_class_ssbn.png" },
+                { name: "Virginia-class SSN", count: 23, type: "Attack Submarine", description: "Fast attack submarine for anti-submarine and strike missions", image: "US_details/US_navy_details/virginia_class_ssn.png" }
             ]
         },
         airforce: {
@@ -47,10 +47,10 @@ const nationsData = {
             description: "The United States Air Force is the aerial and space warfare service branch of the U.S. Armed Forces. It is the world's largest and most technologically advanced air force, operating over 5,000 aircraft. The USAF provides air superiority, global strike, rapid global mobility, and intelligence, surveillance, and reconnaissance capabilities.",
             image: "US_details/US_airforce_flag.jpg",
             equipment: [
-                { name: "F-35 Lightning II", count: 450, type: "5th Gen Stealth Fighter", description: "Multi-role stealth fighter with advanced sensors and networking" },
-                { name: "F-22 Raptor", count: 187, type: "Air Superiority Fighter", description: "5th generation stealth air dominance fighter" },
-                { name: "F-16 Fighting Falcon", count: 936, type: "Multirole Fighter", description: "Highly maneuverable 4th generation fighter aircraft" },
-                { name: "B-2 Spirit", count: 20, type: "Stealth Bomber", description: "Flying-wing strategic stealth bomber for nuclear/conventional strikes" }
+                { name: "F-35 Lightning II", count: 450, type: "5th Gen Stealth Fighter", description: "Multi-role stealth fighter with advanced sensors and networking", image: "US_details/US_airforce_details/f35_lightning_ii.png" },
+                { name: "F-22 Raptor", count: 187, type: "Air Superiority Fighter", description: "5th generation stealth air dominance fighter", image: "US_details/US_airforce_details/f22_raptor.png" },
+                { name: "F-16 Fighting Falcon", count: 936, type: "Multirole Fighter", description: "Highly maneuverable 4th generation fighter aircraft", image: "US_details/US_airforce_details/f16_fighting_falcon.png" },
+                { name: "B-2 Spirit", count: 20, type: "Stealth Bomber", description: "Flying-wing strategic stealth bomber for nuclear/conventional strikes", image: "US_details/US_airforce_details/b2_spirit.png" }
             ]
         }
     },

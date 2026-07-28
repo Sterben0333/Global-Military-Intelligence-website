@@ -58,7 +58,7 @@ async function startServer() {
         console.log('╔════════════════════════════════════════════╗');
         console.log('║   GLOBAL MILITARY INTELLIGENCE SERVER      ║');
         console.log('╠════════════════════════════════════════════╣');
-        console.log(`║   🌐 Server:  http://localhost:${PORT}         ║`);
+        console.log(`║   🌐 Server:  http://localhost:${PORT}     ║`);
         console.log('║   🍃 Database: MongoDB Atlas               ║');
         console.log('║   🛡️  Admin:   Pre-seeded from .env        ║');
         console.log('╚════════════════════════════════════════════╝');

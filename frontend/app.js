@@ -1170,7 +1170,7 @@ function getEquipmentImageUrl(name) {
 
 // Render a clickable equipment card with expandable detail view
 function renderEquipmentCard(eq, index) {
-    const imageUrl = getEquipmentImageUrl(eq.name);
+    const imageUrl = eq.image || getEquipmentImageUrl(eq.name);
     const cardId = `eq-${eq.name.replace(/[^a-zA-Z0-9]/g, '-')}-${index}`;
 
     const imageHtml = imageUrl
@@ -1859,19 +1859,19 @@ function populateDateDropdown() {
     newsData.forEach(article => {
         const d = new Date(article.publishedAt);
         if (isNaN(d.getTime())) return;
-        
+
         // Use the exact same formatting as the cards
         const label = d.toLocaleDateString('en-US', {
             month: 'short',
             day: 'numeric',
             year: 'numeric'
         });
-        
+
         // Sort key: YYYY-MM-DD for correct chronological sorting
         const sortKey = d.getFullYear() + '-' +
             String(d.getMonth() + 1).padStart(2, '0') + '-' +
             String(d.getDate()).padStart(2, '0');
-            
+
         if (!dateMap.has(label)) {
             dateMap.set(label, sortKey);
         }
