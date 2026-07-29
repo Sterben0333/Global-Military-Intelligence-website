@@ -176,12 +176,12 @@ const nationsData = {
             founded: "April 1, 1895",
             motto: "Service Before Self",
             description: "The Indian Army is the land-based branch and the largest component of the Indian Armed Forces. It is the world's second-largest standing army, with over 1.4 million active troops. The Indian Army is responsible for land-based military operations and maintaining territorial integrity along India's borders with Pakistan and China.",
-            image: "Indian_details/Indian_army_flag.png",
+            image: "India_details/Indian_army_flag.png",
             equipment: [
-                { name: "T-90 Bhishma", count: 1200, type: "Main Battle Tank", description: "Russian-origin tank with Indian modifications and ERA armor" },
-                { name: "Arjun MBT Mk.1A", count: 124, type: "Main Battle Tank", description: "Indigenous third-generation main battle tank" },
-                { name: "BMP-2 Sarath", count: 2500, type: "Infantry Fighting Vehicle", description: "License-built IFV with 30mm cannon" },
-                { name: "K9 Vajra-T", count: 100, type: "Self-Propelled Howitzer", description: "155mm howitzer built in collaboration with South Korea" }
+                { name: "T-90 Bhishma", count: 1200, type: "Main Battle Tank", description: "Russian-origin tank with Indian modifications and ERA armor", image: "India_details/India_army_details/t_90_bhishma.png" }, //src: https://upload.wikimedia.org/wikipedia/commons/1/1d/T-90_Bhisma_cropped.jpg
+                { name: "Arjun MBT Mk.1A", count: 124, type: "Main Battle Tank", description: "Indigenous third-generation main battle tank", image: "India_details/India_army_details/arjun_mbt_mk1a.png" }, //src: https://en.wikipedia.org/wiki/Arjun_(tank)#/media/File:Arjun_MK1A_field_trials.jpg
+                { name: "BMP-2 Sarath", count: 2500, type: "Infantry Fighting Vehicle", description: "License-built IFV with 30mm cannon", image: "India_details/India_army_details/bmp_2_sarath.png" }, //src: https://upload.wikimedia.org/wikipedia/commons/0/05/ICV_BMP_II_Sarath_passes_through_the_Rajpath_during_the_full_dress_rehearsal_for_the_Republic_Day_Parade-2009.jpg
+                { name: "K9 Vajra-T", count: 100, type: "Self-Propelled Howitzer", description: "155mm howitzer built in collaboration with South Korea", image: "India_details/India_army_details/k9_vajra_t.png" } //src: https://upload.wikimedia.org/wikipedia/commons/0/08/K-9_VAJRA-T_passes_through_the_Rajpath%2C_at_the_71st_Republic_Day_Celebrations%2C_at_Rajpath%2C_in_New_Delhi_on_January_26%2C_2020.jpg
             ]
         },
         navy: {
@@ -190,12 +190,12 @@ const nationsData = {
             founded: "January 26, 1950",
             motto: "Sham No Varunah (May the Lord of Water be auspicious unto us)",
             description: "The Indian Navy is the naval branch of the Indian Armed Forces. It is a blue-water navy with significant capabilities for maritime security in the Indian Ocean region. The Indian Navy operates aircraft carriers, nuclear submarines, and modern destroyers, providing power projection across the Indo-Pacific.",
-            image: "Indian_details/Indian_navy_flag.png",
+            image: "India_details/Indian_navy_flag.png",
             equipment: [
-                { name: "INS Vikramaditya", count: 1, type: "Aircraft Carrier", description: "Modified Kiev-class carrier operating MiG-29K fighters" },
-                { name: "INS Vikrant", count: 1, type: "Aircraft Carrier", description: "Indigenous aircraft carrier, India's first domestically built carrier" },
-                { name: "INS Arihant", count: 2, type: "Ballistic Missile Submarine", description: "Nuclear-powered submarine carrying K-15 SLBMs" },
-                { name: "Kolkata-class Destroyer", count: 4, type: "Guided Missile Destroyer", description: "Stealth destroyer with BrahMos supersonic missiles" }
+                { name: "INS Vikramaditya", count: 1, type: "Aircraft Carrier", description: "Modified Kiev-class carrier operating MiG-29K fighters", image: "India_details/India_navy_details/ins_vikramaditya.png" }, //src: https://en.wikipedia.org/wiki/INS_Vikramaditya#/media/File:INS_Vikramaditya_during_trials.jpg
+                { name: "INS Vikrant", count: 1, type: "Aircraft Carrier", description: "Indigenous aircraft carrier, India's first domestically built carrier", image: "India_details/India_navy_details/ins_vikrant.png" }, //src: https://upload.wikimedia.org/wikipedia/commons/9/94/IAC-1_Vikrant_going_for_its_maiden_sea_trials.jpg
+                { name: "INS Arihant", count: 2, type: "Ballistic Missile Submarine", description: "Nuclear-powered submarine carrying K-15 SLBMs", image: "India_details/India_navy_details/ins_arihant.png" }, //src: AI-Generated Image
+                { name: "Kolkata-class Destroyer", count: 4, type: "Guided Missile Destroyer", description: "Stealth destroyer with BrahMos supersonic missiles", image: "India_details/India_navy_details/kolkata_class_destroyer.png" } //src: https://en.wikipedia.org/wiki/Kolkata-class_destroyer#/media/File:INS_Kolkata_steams_alongside_the_guided-missile_destroyer_USS_Sterett_(DDG_104)_during_Malabar_2020_(cropped).jpg
             ]
         },
         airforce: {
@@ -204,12 +204,12 @@ const nationsData = {
             founded: "October 8, 1932",
             motto: "Nabha Sprsham Deeptam (Touch the Sky with Glory)",
             description: "The Indian Air Force is the air arm of the Indian Armed Forces. It is the world's fourth-largest air force by fleet strength. The IAF provides air defense, tactical and strategic airlift, and close air support capabilities. Recent modernization includes the acquisition of Rafale fighters and development of indigenous Tejas aircraft.",
-            image: "Indian_details/Indian_airforce_flag.png",
+            image: "India_details/Indian_airforce_flag.png",
             equipment: [
-                { name: "Su-30MKI", count: 260, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter with thrust vectoring" },
-                { name: "Dassault Rafale", count: 36, type: "Multirole Fighter", description: "French 4.5 generation omnirole combat aircraft" },
-                { name: "MiG-29UPG", count: 66, type: "Multirole Fighter", description: "Upgraded twin-engine fighter with modern avionics" },
-                { name: "HAL Tejas Mk.1", count: 40, type: "Light Combat Aircraft", description: "Indigenous single-engine multirole light fighter" }
+                { name: "Su-30MKI", count: 260, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter with thrust vectoring", image: "India_details/India_airforce_details/su30_mki.png" }, // src: https://en.wikipedia.org/wiki/Sukhoi_Su-30MKI#/media/File:Su-30_MKI_firing_Brahmos-ER.jpg
+                { name: "Dassault Rafale", count: 36, type: "Multirole Fighter", description: "French 4.5 generation omnirole combat aircraft", image: "India_details/India_airforce_details/dassault_rafale.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/68/Rafale_aircraft_being_presented_a_water_cannon_salute_to_mark_its_induction_in_Indian_Air_Force.jpg
+                { name: "MiG-29UPG", count: 66, type: "Multirole Fighter", description: "Upgraded twin-engine fighter with modern avionics", image: "India_details/India_airforce_details/mig29_upg.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/5/5f/Mikoyan-Gurevich_MiG-29UPG_Fulcrum%2C_India_-_Air_Force_JP7677166.jpg
+                { name: "HAL Tejas Mk.1", count: 40, type: "Light Combat Aircraft", description: "Indigenous single-engine multirole light fighter", image: "India_details/India_airforce_details/hal_tejas_mk1.png" } //src: https://upload.wikimedia.org/wikipedia/commons/0/0c/HAL_Tejas1.jpg
             ]
         }
     },
