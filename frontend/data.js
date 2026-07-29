@@ -125,10 +125,10 @@ const nationsData = {
             description: "The PLA Ground Force is the land-based service branch of the People's Liberation Army. It is the largest standing ground force in the world, with approximately 975,000 active personnel organized into 13 group armies across five theater commands.",
             image: "Chinese_details/Pla_army_flag.png",
             equipment: [
-                { name: "Type 99A", count: 1200, type: "Main Battle Tank", description: "China's most advanced MBT with composite/ERA armor, 125mm smoothbore gun, and laser warning system" },
-                { name: "Type 96", count: 2500, type: "Main Battle Tank", description: "Cost-effective MBT forming the backbone of PLA armored forces with 125mm gun" },
-                { name: "ZBD-04", count: 1500, type: "Infantry Fighting Vehicle", description: "Tracked amphibious IFV with 30mm autocannon and HJ-73 ATGM capability" },
-                { name: "PLZ-05", count: 400, type: "Self-Propelled Howitzer", description: "155mm tracked self-propelled gun-howitzer with automated loading and fire control" }
+                { name: "Type 99A", count: 1200, type: "Main Battle Tank", description: "China's most advanced MBT with composite/ERA armor, 125mm smoothbore gun, and laser warning system", image: "Chinese_details/China_army_details/type_99a.png" },    // src : https://en.wikipedia.org/wiki/Type_99_tank#/media/File:ZTZ-99A_MBT_20170902.jpg
+                { name: "Type 96", count: 2500, type: "Main Battle Tank", description: "Cost-effective MBT forming the backbone of PLA armored forces with 125mm gun", image: "Chinese_details/China_army_details/type_96.png" }, // src: https://en.wikipedia.org/wiki/Type_96_tank#/media/File:TankBiathlon2017Individual-02.jpg
+                { name: "ZBD-04", count: 1500, type: "Infantry Fighting Vehicle", description: "Tracked amphibious IFV with 30mm autocannon and HJ-73 ATGM capability", image: "Chinese_details/China_army_details/zbd_04.png" }, // src: https://en.wikipedia.org/wiki/ZBD-04#/media/File:ZBD-04_Infantry_fighting_vehicle_during_an_anniversary_parade.jpg
+                { name: "PLZ-05", count: 400, type: "Self-Propelled Howitzer", description: "155mm tracked self-propelled gun-howitzer with automated loading and fire control", image: "Chinese_details/China_army_details/plz_05.png" } // src: https://en.wikipedia.org/wiki/PLZ-05#/media/File:PLZ-05_Self-Propelled_Artillery_20170919.jpg
             ]
         },
         navy: {
@@ -139,10 +139,10 @@ const nationsData = {
             description: "The PLA Navy is the largest navy in the world by number of vessels. China has rapidly expanded its fleet with three aircraft carriers, advanced destroyers, and nuclear submarines, projecting power across the Western Pacific and into the Indian Ocean.",
             image: "Chinese_details/Pla_navy_flag.png",
             equipment: [
-                { name: "Liaoning Carrier", count: 1, type: "Aircraft Carrier", description: "Refurbished Soviet Kuznetsov-class carrier operating J-15 fighters with ski-jump launch" },
-                { name: "Shandong Carrier", count: 1, type: "Aircraft Carrier", description: "First domestically built carrier with improved design and increased aircraft capacity" },
-                { name: "Fujian Carrier", count: 1, type: "Aircraft Carrier", description: "China's most advanced carrier featuring electromagnetic catapult launch system (EMALS)" },
-                { name: "Type 094 SSBN", count: 6, type: "Ballistic Missile Submarine", description: "Nuclear-powered submarine carrying JL-2 submarine-launched ballistic missiles" }
+                { name: "Liaoning Carrier", count: 1, type: "Aircraft Carrier", description: "Refurbished Soviet Kuznetsov-class carrier operating J-15 fighters with ski-jump launch", image: "Chinese_details/China_navy_details/liaoning_carrier.png" }, // src: https://commons.wikimedia.org/w/index.php?search=liaoning+&title=Special%3AMediaSearch&type=image
+                { name: "Shandong Carrier", count: 1, type: "Aircraft Carrier", description: "First domestically built carrier with improved design and increased aircraft capacity", image: "Chinese_details/China_navy_details/shandong_carrier.png" }, // src: https://en.wikipedia.org/wiki/Chinese_aircraft_carrier_Shandong#/media/File:Type_002_aircraft_carrier_of_People's_Liberation_Army_Navy.jpg
+                { name: "Fujian Carrier", count: 1, type: "Aircraft Carrier", description: "China's most advanced carrier featuring electromagnetic catapult launch system (EMALS)", image: "Chinese_details/China_navy_details/fujian_carrier.png" }, // src: https://en.wikipedia.org/wiki/Chinese_aircraft_carrier_Fujian#/media/File:PLAN_CV-18_Fujian_20250911.jpg
+                { name: "Type 094 SSBN", count: 6, type: "Ballistic Missile Submarine", description: "Nuclear-powered submarine carrying JL-2 submarine-launched ballistic missiles", image: "Chinese_details/China_navy_details/type_094_ssbn.png" } //src: https://en.wikipedia.org/wiki/Type_094_submarine#/media/File:Jin_(Type_094)_Class_Ballistic_Missile_Submarine.JPG
             ]
         },
         airforce: {
@@ -153,10 +153,10 @@ const nationsData = {
             description: "The PLA Air Force is the third-largest air force in the world and the largest in Asia. It has rapidly modernized with 5th-generation stealth fighters, advanced early warning aircraft, and long-range strategic bombers capable of striking targets across the Pacific.",
             image: "Chinese_details/Pla_airforce_flag.png",
             equipment: [
-                { name: "J-20", count: 200, type: "5th Gen Stealth Fighter", description: "Twin-engine stealth air superiority fighter with advanced sensors and supermaneuverability" },
-                { name: "J-16", count: 300, type: "Multirole Strike Fighter", description: "Twin-seat heavy multirole fighter based on Su-30 with AESA radar and PL-15 missiles" },
-                { name: "J-10C", count: 350, type: "Multirole Fighter", description: "Single-engine 4.5-gen delta-canard fighter with AESA radar for air superiority and ground attack" },
-                { name: "H-6K", count: 180, type: "Strategic Bomber", description: "Modernized long-range bomber capable of carrying CJ-20 cruise missiles for stand-off strikes" }
+                { name: "J-20", count: 200, type: "5th Gen Stealth Fighter", description: "Twin-engine stealth air superiority fighter with advanced sensors and supermaneuverability", image: "Chinese_details/China_airforce_details/j_20.png" }, //src: https://en.wikipedia.org/wiki/Chengdu_J-20#/media/File:J-20s.jpg
+                { name: "J-16", count: 300, type: "Multirole Strike Fighter", description: "Twin-seat heavy multirole fighter based on Su-30 with AESA radar and PL-15 missiles", image: "Chinese_details/China_airforce_details/j_16.png" }, //src: https://en.wikipedia.org/wiki/Shenyang_J-16#/media/File:PLAAF_J-16_-_1.jpg
+                { name: "J-10C", count: 350, type: "Multirole Fighter", description: "Single-engine 4.5-gen delta-canard fighter with AESA radar for air superiority and ground attack", image: "Chinese_details/China_airforce_details/j_10c.png" }, //src: https://en.wikipedia.org/wiki/Chengdu_J-10#/media/File:PLAAF_J-10A_-_1.jpg
+                { name: "H-6K", count: 180, type: "Strategic Bomber", description: "Modernized long-range bomber capable of carrying CJ-20 cruise missiles for stand-off strikes", image: "Chinese_details/China_airforce_details/h_6k.png" } //src: https://en.wikipedia.org/wiki/Xi%27an_H-6#/media/File:%E4%BE%B5%E7%8A%AF%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E8%88%AA%E7%A9%BA%E8%AD%98%E5%88%A5%E5%8D%80%E7%9A%84%E8%BD%9F-6.jpg
             ]
         }
     },
