@@ -231,10 +231,10 @@ const nationsData = {
             description: "The British Army is the principal land warfare force of the United Kingdom. It has served in conflicts worldwide and specializes in expeditionary operations, armored warfare, and counterinsurgency.",
             image: "UK_details/British_army_flag.webp",
             equipment: [
-                { name: "Challenger 2", count: 227, type: "Main Battle Tank", description: "British MBT with Chobham/Dorchester armor and 120mm rifled gun, proven in Iraq" },
-                { name: "Warrior IFV", count: 450, type: "Infantry Fighting Vehicle", description: "Tracked armored vehicle carrying infantry with 30mm Rarden cannon" },
-                { name: "Ajax", count: 400, type: "Armored Reconnaissance", description: "Next-gen armored fighting vehicle family for reconnaissance and fire support" },
-                { name: "AS-90", count: 89, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery with automated loading and burst fire capability" }
+                { name: "Challenger 2", count: 227, type: "Main Battle Tank", description: "British MBT with Chobham/Dorchester armor and 120mm rifled gun, proven in Iraq", image: "UK_details/UK_army_details/challenger_2.png" }, // src: https://en.wikipedia.org/wiki/Challenger_2#/media/File:Challenger_2_Main_Battle_Tank_patrolling_outside_Basra,_Iraq_MOD_45148325.jpg
+                { name: "Warrior IFV", count: 450, type: "Infantry Fighting Vehicle", description: "Tracked armored vehicle carrying infantry with 30mm Rarden cannon", image: "UK_details/UK_army_details/warrior_ifv.png" }, // src: https://en.wikipedia.org/wiki/FV510_Warrior#/media/File:ARMOURED_VEHICLE_FLEET_SUPPORT_CONTRACT_ANNOUNCED_(45149221).jpg
+                { name: "Ajax", count: 400, type: "Armored Reconnaissance", description: "Next-gen armored fighting vehicle family for reconnaissance and fire support", image: "UK_details/UK_army_details/ajax.png" }, // src: https://en.wikipedia.org/wiki/General_Dynamics_Ajax#/media/File:AJAX,_the_Future_Armoured_Fighting_Vehicle_for_the_British_Army_MOD_45159441.jpg
+                { name: "AS-90", count: 89, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery with automated loading and burst fire capability", image: "UK_details/UK_army_details/as_90.png" } // src: https://en.wikipedia.org/wiki/AS-90#/media/File:AHS_Krab_SPH_Exercise_Dynamic_Front_22.jpg
             ]
         },
         navy: {
@@ -245,10 +245,10 @@ const nationsData = {
             description: "The Royal Navy is the UK's principal naval warfare force. It operates two Queen Elizabeth-class aircraft carriers, nuclear submarines, and maintains the UK's continuous at-sea nuclear deterrent.",
             image: "UK_details/Royal_navy_flag.png",
             equipment: [
-                { name: "Queen Elizabeth Carrier", count: 2, type: "Aircraft Carrier", description: "65,000-ton STOVL carriers with twin-island design carrying F-35B fighters" },
-                { name: "Vanguard-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying Trident II D5 missiles" },
-                { name: "Astute-class SSN", count: 6, type: "Attack Submarine", description: "Nuclear-powered hunter-killer submarine with Tomahawk cruise missiles" },
-                { name: "Type 45 Destroyer", count: 6, type: "Air Defence Destroyer", description: "Daring-class destroyer with Sea Viper air defense system" }
+                { name: "Queen Elizabeth Carrier", count: 2, type: "Aircraft Carrier", description: "65,000-ton STOVL carriers with twin-island design carrying F-35B fighters", image: "UK_details/UK_navy_details/queen_elizabeth_carrier.png" }, // src: https://en.wikipedia.org/wiki/Queen_Elizabeth-class_aircraft_carrier#/media/File:HMS_Queen_Elizabeth_and_HMS_Prince_of_Wales_meet_at_sea_for_the_first_time.jpg
+                { name: "Vanguard-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying Trident II D5 missiles", image: "UK_details/UK_navy_details/vanguard_class_ssbn.png" }, // src: https://en.wikipedia.org/wiki/Vanguard-class_submarine#/media/File:HMS_Victorious._08-12-2003_MOD_45143491.jpg
+                { name: "Astute-class SSN", count: 6, type: "Attack Submarine", description: "Nuclear-powered hunter-killer submarine with Tomahawk cruise missiles", image: "UK_details/UK_navy_details/astute_class_ssn.png" }, // src: https://en.wikipedia.org/wiki/Astute-class_submarine#/media/File:HMS_Ambush_long.jpg
+                { name: "Type 45 Destroyer", count: 6, type: "Air Defence Destroyer", description: "Daring-class destroyer with Sea Viper air defense system", image: "UK_details/UK_navy_details/type_45_destroyer.png" } // src: https://en.wikipedia.org/wiki/Type_45_destroyer#/media/File:HMS_Defender_(8614177368).jpg
             ]
         },
         airforce: {
@@ -259,10 +259,10 @@ const nationsData = {
             description: "The Royal Air Force is the UK's aerial warfare force and the world's oldest independent air force. It operates Typhoon and F-35B fighters, strategic transport, and supports nuclear deterrence.",
             image: "UK_details/Royal_airforce_flag.png",
             equipment: [
-                { name: "F-35B Lightning II", count: 33, type: "5th Gen STOVL Fighter", description: "Stealth multirole fighter with short take-off and vertical landing for carrier operations" },
-                { name: "Typhoon FGR4", count: 137, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties" },
-                { name: "A400M Atlas", count: 22, type: "Strategic Transport", description: "Four-engine turboprop military transport aircraft for heavy airlift" },
-                { name: "AH-64E Apache", count: 50, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Hellfire missiles and 30mm chain gun" }
+                { name: "F-35B Lightning II", count: 33, type: "5th Gen STOVL Fighter", description: "Stealth multirole fighter with short take-off and vertical landing for carrier operations", image: "UK_details/UK_airforce_details/f35b_lightning_ii.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II#/media/File:X-35B_Edwards.jpg
+                { name: "Typhoon FGR4", count: 137, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties", image: "UK_details/UK_airforce_details/typhoon_fgr4.png" }, // src: https://en.wikipedia.org/wiki/Eurofighter_Typhoon#/media/File:RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg
+                { name: "A400M Atlas", count: 22, type: "Strategic Transport", description: "Four-engine turboprop military transport aircraft for heavy airlift", image: "UK_details/UK_airforce_details/a_400m_atlas.png" }, // src: https://en.wikipedia.org/wiki/Airbus_A400M_Atlas#/media/File:A400M_-_RIAT_2013_(9360601998).jpg
+                { name: "AH-64E Apache", count: 50, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Hellfire missiles and 30mm chain gun", image: "UK_details/UK_airforce_details/ah_64e_apache.png" } // src: https://en.wikipedia.org/wiki/Boeing_AH-64_Apache#/media/File:RNLAF_AH-64_Apache_at_the_Oirschotse_Heide_Low_Flying_Area_(36570605232).jpg
             ]
         }
     },
@@ -532,7 +532,7 @@ const nationsData = {
         }
     },
     "NorthKorea": {
-        name: "Democratic Peoples Republic of Korea",
+        name: "Democratic People's Republic of Korea",
         flag: "🇰🇵",
         countryCode: "kp",
         rank: 30,
