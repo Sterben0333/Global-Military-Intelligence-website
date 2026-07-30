@@ -261,7 +261,7 @@ const nationsData = {
             equipment: [
                 { name: "F-35B Lightning II", count: 33, type: "5th Gen STOVL Fighter", description: "Stealth multirole fighter with short take-off and vertical landing for carrier operations", image: "UK_details/UK_airforce_details/f35b_lightning_ii.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II#/media/File:X-35B_Edwards.jpg
                 { name: "Typhoon FGR4", count: 137, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties", image: "UK_details/UK_airforce_details/typhoon_fgr4.png" }, // src: https://en.wikipedia.org/wiki/Eurofighter_Typhoon#/media/File:RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg
-                { name: "A400M Atlas", count: 22, type: "Strategic Transport", description: "Four-engine turboprop military transport aircraft for heavy airlift", image: "UK_details/UK_airforce_details/a_400m_atlas.png" }, // src: https://en.wikipedia.org/wiki/Airbus_A400M_Atlas#/media/File:A400M_-_RIAT_2013_(9360601998).jpg
+                { name: "A400M Atlas", count: 22, type: "Strategic Transport", description: "Four-engine turboprop military transport aircraft for heavy airlift", image: "UK_details/UK_airforce_details/a400m_atlas.png" }, // src: https://en.wikipedia.org/wiki/Airbus_A400M_Atlas#/media/File:A400M_-_RIAT_2013_(9360601998).jpg
                 { name: "AH-64E Apache", count: 50, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Hellfire missiles and 30mm chain gun", image: "UK_details/UK_airforce_details/ah_64e_apache.png" } // src: https://en.wikipedia.org/wiki/Boeing_AH-64_Apache#/media/File:RNLAF_AH-64_Apache_at_the_Oirschotse_Heide_Low_Flying_Area_(36570605232).jpg
             ]
         }
@@ -284,10 +284,10 @@ const nationsData = {
             description: "The French Army is one of NATO's most experienced land forces, regularly deployed in overseas operations across Africa and the Middle East. It is currently undergoing the Scorpion modernization program.",
             image: "France_details/French_army_flag.png",
             equipment: [
-                { name: "Leclerc MBT", count: 222, type: "Main Battle Tank", description: "French 3rd-gen MBT with modular composite armor, 120mm smoothbore gun, and autoloader" },
-                { name: "VBCI", count: 630, type: "Infantry Fighting Vehicle", description: "8x8 wheeled armored IFV with 25mm cannon for mechanized infantry" },
-                { name: "VAB", count: 2700, type: "Armored Personnel Carrier", description: "4x4/6x6 amphibious APC widely used in French overseas deployments" },
-                { name: "CAESAR", count: 77, type: "Self-Propelled Howitzer", description: "155mm wheeled self-propelled gun-howitzer with rapid deployment capability, combat-proven in Ukraine" }
+                { name: "Leclerc MBT", count: 222, type: "Main Battle Tank", description: "French 3rd-gen MBT with modular composite armor, 120mm smoothbore gun, and autoloader", image: "France_details/France_army_details/leclerc_mbt.png" }, // src: https://en.wikipedia.org/wiki/Leclerc_(tank)#/media/File:Leclerc-openphotonet_PICT6015.JPG
+                { name: "VBCI", count: 630, type: "Infantry Fighting Vehicle", description: "8x8 wheeled armored IFV with 25mm cannon for mechanized infantry", image: "France_details/France_army_details/vbci.png" }, // src: https://en.wikipedia.org/wiki/VBCI#/media/File:VBCI_(V%C3%A9hicule_blind%C3%A9_de_combat_d'infanterie)_(1).JPG
+                { name: "VAB", count: 2700, type: "Armored Personnel Carrier", description: "4x4/6x6 amphibious APC widely used in French overseas deployments", image: "France_details/France_army_details/vab.png" }, // src: https://en.wikipedia.org/wiki/V%C3%A9hicule_de_l%27Avant_Blind%C3%A9#/media/File:Fin_de_d%C3%A9fil%C3%A9_14_juillet_2022,_Paris_Porte_d'Orl%C3%A9ans_(1)_04.jpg
+                { name: "CAESAR", count: 77, type: "Self-Propelled Howitzer", description: "155mm wheeled self-propelled gun-howitzer with rapid deployment capability, combat-proven in Ukraine", image: "France_details/France_army_details/caesar.png" } // src: https://en.wikipedia.org/wiki/CAESAR_self-propelled_howitzer#/media/File:9th_Light_Armoured_Marine_Brigade_Bastille_Day_2013_Paris_t114135.jpg
             ]
         },
         navy: {
@@ -298,10 +298,10 @@ const nationsData = {
             description: "The French Navy operates the only nuclear-powered aircraft carrier outside the US Navy — the Charles de Gaulle. It maintains nuclear submarine deterrence and projects power globally.",
             image: "France_details/French_navy_flag.png",
             equipment: [
-                { name: "Charles de Gaulle", count: 1, type: "Nuclear Aircraft Carrier", description: "42,500-ton nuclear-powered carrier with catapult launch system for Rafale-M fighters" },
-                { name: "Triomphant-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying M51 submarine-launched ballistic missiles" },
-                { name: "Suffren-class SSN", count: 3, type: "Attack Submarine", description: "Barracuda-class nuclear attack submarine with MdCN cruise missiles" },
-                { name: "Horizon-class Destroyer", count: 2, type: "Air Defence Destroyer", description: "Franco-Italian air defense destroyer with Aster missile system" }
+                { name: "Charles de Gaulle", count: 1, type: "Nuclear Aircraft Carrier", description: "42,500-ton nuclear-powered carrier with catapult launch system for Rafale-M fighters", image: "France_details/France_navy_details/charles_de_gaulle.png" }, // src: https://en.wikipedia.org/wiki/French_aircraft_carrier_Charles_de_Gaulle#/media/File:French_aircraft_carrier_Charles_de_Gaulle_(R91)_underway_in_the_Ionian_Sea_on_17_March_2022_(220317-N-DH793-1322)cropped.JPG
+                { name: "Triomphant-class SSBN", count: 4, type: "Ballistic Missile Submarine", description: "Nuclear deterrent submarine carrying M51 submarine-launched ballistic missiles", image: "France_details/France_navy_details/triomphant_class_ssbn.png" }, // src: https://en.wikipedia.org/wiki/Triomphant-class_submarine#/media/File:SNLE_de_classe_le_Triomphant.jpg
+                { name: "Suffren-class SSN", count: 3, type: "Attack Submarine", description: "Barracuda-class nuclear attack submarine with MdCN cruise missiles", image: "France_details/France_navy_details/suffren_class_ssn.png" }, // src: https://en.wikipedia.org/wiki/Suffren-class_submarine#/media/File:Suffren_French_Navy.jpg
+                { name: "Horizon-class Destroyer", count: 2, type: "Air Defence Destroyer", description: "Franco-Italian air defense destroyer with Aster missile system", image: "France_details/France_navy_details/horizon_class_destroyer.png" } // src: https://en.wikipedia.org/wiki/Horizon-class_frigate#/media/File:Nave_Caio_Duilio.jpg
             ]
         },
         airforce: {
@@ -312,10 +312,10 @@ const nationsData = {
             description: "The French Air and Space Force operates the Rafale omnirole fighter and maintains France's airborne nuclear deterrent. It has extensive experience in combat operations across Libya, Mali, and Syria.",
             image: "France_details/French_airforce_flag.png",
             equipment: [
-                { name: "Rafale", count: 234, type: "Omnirole Fighter", description: "Twin-engine 4.5-gen fighter with nuclear strike, air dominance, and reconnaissance capability" },
-                { name: "A400M Atlas", count: 18, type: "Strategic Transport", description: "Four-engine turboprop transport for tactical and strategic airlift operations" },
-                { name: "Tiger HAD", count: 67, type: "Attack Helicopter", description: "Eurocopter twin-engine attack helicopter with Hellfire/Mistral missiles" },
-                { name: "NH90", count: 100, type: "Medium Transport Helicopter", description: "NATO multi-role military helicopter for tactical transport and naval operations" }
+                { name: "Rafale", count: 234, type: "Omnirole Fighter", description: "Twin-engine 4.5-gen fighter with nuclear strike, air dominance, and reconnaissance capability", image: "France_details/France_airforce_details/rafale.png" }, // src: https://en.wikipedia.org/wiki/Dassault_Rafale#/media/File:Rafale_-_RIAT_2009_(3751416421).jpg
+                { name: "A400M Atlas", count: 18, type: "Strategic Transport", description: "Four-engine turboprop transport for tactical and strategic airlift operations", image: "France_details/France_airforce_details/a400m_atlas.png" }, // src: https://en.wikipedia.org/wiki/Airbus_A400M_Atlas#/media/File:A400M_-_RIAT_2013_(9360601998).jpg
+                { name: "Tiger HAD", count: 67, type: "Attack Helicopter", description: "Eurocopter twin-engine attack helicopter with Hellfire/Mistral missiles", image: "France_details/France_airforce_details/tiger_had.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/38/French_Army%2C_6010%2C_Eurocopter_EC_665_Tiger_HAD_%2849580123847%29.jpg
+                { name: "NH90", count: 100, type: "Medium Transport Helicopter", description: "NATO multi-role military helicopter for tactical transport and naval operations", image: "France_details/France_airforce_details/nh90.png" } // src: https://en.wikipedia.org/wiki/NHIndustries_NH90#/media/File:NH90_TCG_Kuzey_Ege.jpg
             ]
         }
     },
