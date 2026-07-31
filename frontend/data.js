@@ -384,16 +384,16 @@ const nationsData = {
         image: "Japan_details/Japan_flag.jpg",
         army: {
             tanks: 561, apc: 2000, artillery: 590, mlrs: 99,
-            name: "Japan Ground Self-Defense Force",
+            name: "Japanese Ground Self-Defense Force",
             founded: "July 1, 1954",
             motto: "Defend the Nation",
             description: "The JGSDF is Japan's land warfare branch, specializing in island defense and anti-amphibious operations. It maintains advanced indigenous tanks and is developing rapid deployment capabilities for remote island defense.",
             image: "Japan_details/Japanese_army_flag.png",
             equipment: [
-                { name: "Type 10 MBT", count: 120, type: "Main Battle Tank", description: "Indigenous 4th-gen MBT with modular composite armor and C4I network integration" },
-                { name: "Type 90 MBT", count: 340, type: "Main Battle Tank", description: "Japanese MBT with Rheinmetall 120mm gun and automatic loader" },
-                { name: "Type 16 MCV", count: 200, type: "Mobile Combat Vehicle", description: "8x8 wheeled tank destroyer with 105mm gun for rapid island deployment" },
-                { name: "Type 99 SPH", count: 140, type: "Self-Propelled Howitzer", description: "155mm tracked self-propelled howitzer with automated fire control system" }
+                { name: "Type 10 MBT", count: 120, type: "Main Battle Tank", description: "Indigenous 4th-gen MBT with modular composite armor and C4I network integration", image: "Japan_details/Japan_army_details/type_10_mbt.png" }, // src: https://en.wikipedia.org/wiki/Type_10#/media/File:Type10MBT.jpg
+                { name: "Type 90 MBT", count: 340, type: "Main Battle Tank", description: "Japanese MBT with Rheinmetall 120mm gun and automatic loader", image: "Japan_details/Japan_army_details/type_90_mbt.png" }, // src: https://en.wikipedia.org/wiki/Type_90_tank#/media/File:Japanese_Type_90_Tank_-_2.jpg
+                { name: "Type 16 MCV", count: 200, type: "Mobile Combat Vehicle", description: "8x8 wheeled tank destroyer with 105mm gun for rapid island deployment", image: "Japan_details/Japan_army_details/type_16_mcv.png" }, // src: https://en.wikipedia.org/wiki/Type_16_MCV#/media/File:JGSDF_Type_16_Maneuver_Combat_Vehicle_(26-7978)_left_front_view_at_JASDF_Hamamatsu_Air_Base_October_23,_2022_01.jpg
+                { name: "Type 99 SPH", count: 140, type: "Self-Propelled Howitzer", description: "155mm tracked self-propelled howitzer with automated fire control system", image: "Japan_details/Japan_army_details/type_99_sph.png" } // src: https://en.wikipedia.org/wiki/Type_99_155_mm_self-propelled_howitzer#/media/File:JGSDF_type99_SPH_higashi_fuji_Firing_Space.JPG
             ]
         },
         navy: {
@@ -404,10 +404,10 @@ const nationsData = {
             description: "The JMSDF is one of the most powerful navies in the Pacific. It operates helicopter carriers being converted for F-35B, advanced Aegis destroyers, and the world's most capable conventional submarine fleet.",
             image: "Japan_details/Japanese_navy_flag.jpg",
             equipment: [
-                { name: "Izumo-class Carrier", count: 2, type: "Light Aircraft Carrier", description: "27,000-ton helicopter destroyer being converted to carry F-35B fighters" },
-                { name: "Soryu-class Submarine", count: 12, type: "Attack Submarine", description: "Diesel-electric submarine with Stirling AIP and lithium-ion battery variants" },
-                { name: "Taigei-class Submarine", count: 3, type: "Attack Submarine", description: "Next-gen submarine with lithium-ion batteries for extended underwater endurance" },
-                { name: "Maya-class Destroyer", count: 2, type: "Guided Missile Destroyer", description: "Aegis BMD destroyer with cooperative engagement capability and SM-3 missiles" }
+                { name: "Izumo-class Carrier", count: 2, type: "Light Aircraft Carrier", description: "27,000-ton helicopter destroyer being converted to carry F-35B fighters", image: "Japan_details/Japan_navy_details/izumo_class_carrier.png" }, // src: https://en.wikipedia.org/wiki/Izumo-class_destroyer#/media/File:JS_Izumo%EF%BC%88DDH-183%EF%BC%89seen_from_the_sky_10-03-2021.jpg
+                { name: "Soryu-class Submarine", count: 12, type: "Attack Submarine", description: "Diesel-electric submarine with Stirling AIP and lithium-ion battery variants", image: "Japan_details/Japan_navy_details/soryu_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/S%C5%8Dry%C5%AB-class_submarine#/media/File:Hakuryu-130412-N-LS794-166.jpg
+                { name: "Taigei-class Submarine", count: 3, type: "Attack Submarine", description: "Next-gen submarine with lithium-ion batteries for extended underwater endurance", image: "Japan_details/Japan_navy_details/taigei_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/JS_Hakugei#/media/File:JS_Hakugei(SS-514)_launching_ceremony_at_Kawasaki_Heavy_Industries_Kobe_Shipyard_October_14,_2021_12.jpg
+                { name: "Maya-class Destroyer", count: 2, type: "Guided Missile Destroyer", description: "Aegis BMD destroyer with cooperative engagement capability and SM-3 missiles", image: "Japan_details/Japan_navy_details/maya_class_destroyer.png" } // src: https://en.wikipedia.org/wiki/Maya-class_destroyer#/media/File:DDG_Maya.jpg
             ]
         },
         airforce: {
@@ -418,10 +418,10 @@ const nationsData = {
             description: "The JASDF operates 5th-gen F-35A stealth fighters and F-15J Eagles. Japan is developing the next-gen F-X fighter and investing heavily in stand-off missile capabilities.",
             image: "Japan_details/Japanese_airforce_flag.png",
             equipment: [
-                { name: "F-35A Lightning II", count: 42, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter with integrated sensor suite and data-linking" },
-                { name: "F-15J Eagle", count: 155, type: "Air Superiority Fighter", description: "Twin-engine air superiority fighter with Japanese-upgraded avionics and radar" },
-                { name: "F-2", count: 91, type: "Multirole Fighter", description: "Japanese-developed fighter based on F-16 with AESA radar and ASM-2 anti-ship missiles" },
-                { name: "AH-64D Apache", count: 12, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Longbow radar and Hellfire missiles" }
+                { name: "F-35A Lightning II", count: 42, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter with integrated sensor suite and data-linking", image: "Japan_details/Japan_airforce_details/f35a_lightning_ii.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/6f/F-35A_from_the_Japan_Air_Force.jpg
+                { name: "F-15J Eagle", count: 155, type: "Air Superiority Fighter", description: "Twin-engine air superiority fighter with Japanese-upgraded avionics and radar", image: "Japan_details/Japan_airforce_details/f15j_eagle.png" }, // src: https://en.wikipedia.org/wiki/Mitsubishi_F-15J#/media/File:Two_JASDF_F-15J_take_off_in_formation.JPEG
+                { name: "F-2", count: 91, type: "Multirole Fighter", description: "Japanese-developed fighter based on F-16 with AESA radar and ASM-2 anti-ship missiles", image: "Japan_details/Japan_airforce_details/f2.png" }, // src: https://en.wikipedia.org/wiki/Mitsubishi_F-2#/media/File:F-2A_(53-8535)_at_Tsuiki.jpg
+                { name: "AH-64D Apache", count: 12, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Longbow radar and Hellfire missiles", image: "Japan_details/Japan_airforce_details/ah64d_apache.png" } // src: https://en.wikipedia.org/wiki/Boeing_AH-64_Apache#/media/File:AH-64D_Apache_Longbow.jpg
             ]
         }
     },
