@@ -337,10 +337,10 @@ const nationsData = {
             description: "The German Army is the land component of the Bundeswehr. It produces some of the world's finest armored vehicles including the Leopard 2 tank and Puma IFV, which are exported to many NATO allies.",
             image: "Germany_details/German_army_flag.png",
             equipment: [
-                { name: "Leopard 2A7", count: 266, type: "Main Battle Tank", description: "World-leading MBT with modular armor, 120mm L55A1 gun, and urban warfare package" },
-                { name: "Puma IFV", count: 350, type: "Infantry Fighting Vehicle", description: "Heavily armored tracked IFV with 30mm autocannon and Spike ATGM" },
-                { name: "Boxer", count: 1000, type: "Armored Personnel Carrier", description: "8x8 modular wheeled APC with interchangeable mission modules" },
-                { name: "PzH 2000", count: 108, type: "Self-Propelled Howitzer", description: "155mm tracked SPH with exceptional range and rate of fire, combat-proven in Ukraine" }
+                { name: "Leopard 2A7", count: 266, type: "Main Battle Tank", description: "World-leading MBT with modular armor, 120mm L55A1 gun, and urban warfare package", image: "Germany_details/Germany_army_details/leopard_2a7.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2#/media/File:Leopard_2_A7V_313_Bad_Frankenhausen_2024.JPG
+                { name: "Puma IFV", count: 350, type: "Infantry Fighting Vehicle", description: "Heavily armored tracked IFV with 30mm autocannon and Spike ATGM", image: "Germany_details/Germany_army_details/puma_ifv.png" }, // src: https://en.wikipedia.org/wiki/Puma_(German_infantry_fighting_vehicle)#/media/File:Puma,_first_series.jpg
+                { name: "Boxer", count: 1000, type: "Armored Personnel Carrier", description: "8x8 modular wheeled APC with interchangeable mission modules", image: "Germany_details/Germany_army_details/boxer.png" }, // src: https://en.wikipedia.org/wiki/Boxer_(armoured_fighting_vehicle)#/media/File:DSCN7330-crop_-_Copy.jpg
+                { name: "PzH 2000", count: 108, type: "Self-Propelled Howitzer", description: "155mm tracked SPH with exceptional range and rate of fire, combat-proven in Ukraine", image: "Germany_details/Germany_army_details/pzh_2000.png" } // src: https://en.wikipedia.org/wiki/Panzerhaubitze_2000#/media/File:Lithuanian_PzH_2000_(2).jpg
             ]
         },
         navy: {
@@ -351,10 +351,10 @@ const nationsData = {
             description: "The German Navy focuses on Baltic Sea defense and NATO maritime operations. It operates advanced conventional submarines and frigates specialized in air defense and anti-submarine warfare.",
             image: "Germany_details/German_navy_flag.png",
             equipment: [
-                { name: "Type 212A Submarine", count: 6, type: "Attack Submarine", description: "Air-independent propulsion submarine — world's first production fuel cell sub" },
-                { name: "F125 Frigate", count: 4, type: "Stabilization Frigate", description: "Baden-Württemberg-class designed for sustained low-intensity operations" },
-                { name: "F124 Frigate", count: 3, type: "Air Defence Frigate", description: "Sachsen-class with SMART-L radar and SM-2 missiles for fleet air defense" },
-                { name: "K130 Corvette", count: 5, type: "Corvette", description: "Braunschweig-class multipurpose corvette with RBS-15 anti-ship missiles" }
+                { name: "Type 212A Submarine", count: 6, type: "Attack Submarine", description: "Air-independent propulsion submarine — world's first production fuel cell sub", image: "Germany_details/Germany_navy_details/type_212a_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_212A_submarine#/media/File:U_34_in_Fahrt.jpg
+                { name: "F125 Frigate", count: 4, type: "Stabilization Frigate", description: "Baden-Württemberg-class designed for sustained low-intensity operations", image: "Germany_details/Germany_navy_details/f125_frigate.png" }, // src: https://en.wikipedia.org/wiki/Baden-W%C3%BCrttemberg-class_frigate#/media/File:BADEN-WURTTEMBERG_00257_(cropped).jpg
+                { name: "F124 Frigate", count: 3, type: "Air Defence Frigate", description: "Sachsen-class with SMART-L radar and SM-2 missiles for fleet air defense", image: "Germany_details/Germany_navy_details/f124_frigate.png" }, // src: https://en.wikipedia.org/wiki/Sachsen-class_frigate#/media/File:F221_FGS_Hessen_(8640310899).jpg
+                { name: "K130 Corvette", count: 5, type: "Corvette", description: "Braunschweig-class multipurpose corvette with RBS-15 anti-ship missiles", image: "Germany_details/Germany_navy_details/k130_corvette.png" } // src: https://en.wikipedia.org/wiki/German_corvette_Magdeburg#/media/File:Stralsund_(2025-06-28),_Tag_der_Bundeswehr_2025_28.jpg
             ]
         },
         airforce: {
@@ -365,10 +365,10 @@ const nationsData = {
             description: "The modern Luftwaffe operates Eurofighter Typhoons and Tornado strike aircraft. It is transitioning to the F-35A for nuclear sharing and participating in the Franco-German FCAS program.",
             image: "Germany_details/German_airforce_flag.png",
             equipment: [
-                { name: "Eurofighter Typhoon", count: 140, type: "Multirole Fighter", description: "Twin-engine 4.5-gen delta-canard fighter for air superiority and ground attack" },
-                { name: "Tornado", count: 89, type: "Strike Fighter", description: "Variable-geometry strike/reconnaissance aircraft, nuclear strike capable" },
-                { name: "A400M Atlas", count: 45, type: "Strategic Transport", description: "Tactical/strategic transport aircraft replacing C-160 Transall" },
-                { name: "Tiger UHT", count: 51, type: "Attack Helicopter", description: "Fire-support variant of Eurocopter Tiger with PARS 3 anti-tank missiles" }
+                { name: "Eurofighter Typhoon", count: 140, type: "Multirole Fighter", description: "Twin-engine 4.5-gen delta-canard fighter for air superiority and ground attack", image: "Germany_details/Germany_airforce_details/eurofighter_typhoon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/b/ba/German_Air_Force_Eurofighter_Typhoon_EF2000_31%2B06_Royal_International_Air_Tattoo_2024_01.jpg
+                { name: "Tornado", count: 89, type: "Strike Fighter", description: "Variable-geometry strike/reconnaissance aircraft, nuclear strike capable", image: "Germany_details/Germany_airforce_details/tornado.png" }, // src: https://en.wikipedia.org/wiki/Panavia_Tornado#/media/File:Tornado_ECR_JaBoG_32_1997.JPEG
+                { name: "A400M Atlas", count: 45, type: "Strategic Transport", description: "Tactical/strategic transport aircraft replacing C-160 Transall", image: "Germany_details/Germany_airforce_details/a400m_atlas.png" }, // src: https://en.wikipedia.org/wiki/Airbus_A400M_Atlas#/media/File:German_Air_Force_Airbus_A400M_(out_cropped).jpg
+                { name: "Tiger UHT", count: 51, type: "Attack Helicopter", description: "Fire-support variant of Eurocopter Tiger with PARS 3 anti-tank missiles", image: "Germany_details/Germany_airforce_details/tiger_uht.png" } // src: https://en.wikipedia.org/wiki/Eurocopter_Tiger#/media/File:20170810034242!Eurocopter_EC-665_Tiger_UHT,_Germany_-_Army_AN1547188_(2).jpg
             ]
         }
     },
