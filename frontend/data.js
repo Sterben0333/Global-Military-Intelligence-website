@@ -443,10 +443,10 @@ const nationsData = {
             description: "The ROK Army is one of the largest and most well-equipped in the world, maintaining readiness against the North Korean threat. It has developed world-class indigenous weapons systems.",
             image: "ROK_details/ROK_army_flag.jpg",
             equipment: [
-                { name: "K2 Black Panther", count: 260, type: "Main Battle Tank", description: "Advanced indigenous MBT with composite/ERA armor, 120mm gun, and active protection system" },
-                { name: "K1A2", count: 1027, type: "Main Battle Tank", description: "Upgraded K1 MBT with improved fire control, thermal sights, and 120mm gun" },
-                { name: "K21 IFV", count: 470, type: "Infantry Fighting Vehicle", description: "Amphibious IFV with 40mm autocannon and advanced digital fire control" },
-                { name: "K9 Thunder", count: 1136, type: "Self-Propelled Howitzer", description: "155mm SPH exported to 8+ countries, known for exceptional rate of fire and accuracy" }
+                { name: "K2 Black Panther", count: 260, type: "Main Battle Tank", description: "Advanced indigenous MBT with composite/ERA armor, 120mm gun, and active protection system", image: "ROK_details/ROK_army_details/k2_black_panther.png" }, // src: https://en.wikipedia.org/wiki/K2_Black_Panther#/media/File:U.S.,_ROK_forces_forge_interoperability_with_combined_arms_exercise_-_8_of_8.jpg
+                { name: "K1A2", count: 1027, type: "Main Battle Tank", description: "Upgraded K1 MBT with improved fire control, thermal sights, and 120mm gun", image: "ROK_details/ROK_army_details/k1a2.png" }, // src: https://en.wikipedia.org/wiki/K1_tank#/media/File:%EC%9C%A1%EA%B5%B0_20%EC%82%AC%EB%8B%A8_K1A1%EA%B8%B0%EB%8F%99_(7445965714).jpg
+                { name: "K21 IFV", count: 470, type: "Infantry Fighting Vehicle", description: "Amphibious IFV with 40mm autocannon and advanced digital fire control", image: "ROK_details/ROK_army_details/k21_ifv.png" }, // src: https://en.wikipedia.org/wiki/K21#/media/File:2014.5.20_%EC%9C%A1%EA%B5%B0_%EC%88%98%EB%8F%84%EA%B8%B0%EA%B3%84%ED%99%94%EB%B3%B4%EB%B3%91%EC%82%AC%EB%8B%A8_K-21_%EC%9E%A5%EA%B0%91%EC%B0%A8_%EC%A0%84%ED%88%AC%EC%82%AC%EA%B2%A9%ED%9B%88%EB%A0%A8_K-21_combat_firing_practice,_Republic_of_Korea_Army_Capital_Mechanized_Infantry_Division_(14299828042).jpg
+                { name: "K9 Thunder", count: 1136, type: "Self-Propelled Howitzer", description: "155mm SPH exported to 8+ countries, known for exceptional rate of fire and accuracy", image: "ROK_details/ROK_army_details/k9_thunder.png" } // src: https://en.wikipedia.org/wiki/K9_Thunder#/media/File:2011.2.17_%EC%9C%A1%EA%B5%B06%ED%8F%AC%EB%B3%91%EC%97%AC%EB%8B%A8_k-9,k-55_%EC%9E%90%EC%A3%BC%ED%8F%AC%EC%82%AC%EA%B2%A9_(7633864346).jpg
             ]
         },
         navy: {
@@ -457,10 +457,10 @@ const nationsData = {
             description: "The ROK Navy operates advanced Aegis destroyers, domestically-built submarines, and is developing a light aircraft carrier. It focuses on defending Korean waters and projecting power regionally.",
             image: "ROK_details/ROK_navy_flag.jpg",
             equipment: [
-                { name: "Sejong the Great Destroyer", count: 3, type: "Guided Missile Destroyer", description: "KDX-III Aegis destroyer with 128 VLS cells for air defense and ballistic missile defense" },
-                { name: "Son Won-il Submarine", count: 9, type: "Attack Submarine", description: "Type 214 AIP submarine with fuel cell propulsion for extended underwater operations" },
-                { name: "Dosan Ahn Changho Submarine", count: 3, type: "Attack Submarine", description: "3,000-ton indigenous submarine with vertical launch system for cruise missiles" },
-                { name: "Daegu-class Frigate", count: 8, type: "Guided Missile Frigate", description: "FFX-II multipurpose frigate with reduced radar signature and advanced sensors" }
+                { name: "Sejong the Great Destroyer", count: 3, type: "Guided Missile Destroyer", description: "KDX-III Aegis destroyer with 128 VLS cells for air defense and ballistic missile defense", image: "ROK_details/ROK_navy_details/sejong_the_great_destroyer.png" }, // src: https://en.wikipedia.org/wiki/Sejong_the_Great-class_destroyer#/media/File:ROKS_Sejong_the_Great_(DDG-991),_broadside_view_in_July_2010.jpg
+                { name: "Son Won-il Submarine", count: 9, type: "Attack Submarine", description: "Type 214 AIP submarine with fuel cell propulsion for extended underwater operations", image: "ROK_details/ROK_navy_details/son_won_il_submarine.png" }, // src: https://en.wikipedia.org/wiki/ROKS_Sohn_Won-yil#/media/File:Key_Resolve_-_Foal_Eagle_2008.jpg
+                { name: "Dosan Ahn Changho Submarine", count: 3, type: "Attack Submarine", description: "3,000-ton indigenous submarine with vertical launch system for cruise missiles", image: "ROK_details/ROK_navy_details/dosan_ahn_changho_submarine.png" }, // src: https://en.wikipedia.org/wiki/Dosan_Ahn_Changho-class_submarine#/media/File:ROKS_Dosan_Ahn_Changho_class_submarine.png
+                { name: "Daegu-class Frigate", count: 8, type: "Guided Missile Frigate", description: "FFX-II multipurpose frigate with reduced radar signature and advanced sensors", image: "ROK_details/ROK_navy_details/daegu_class_frigate.png" } // src: https://en.wikipedia.org/wiki/Daegu-class_frigate#/media/File:ROKS_Seoul_(FFG-821)_underway_in_the_Yellow_Sea_during_the_commemoration_of_the_73rd_anniversary_of_the_Battle_of_Incheon_on_14_September_2023_(cropped).jpg
             ]
         },
         airforce: {
@@ -471,10 +471,10 @@ const nationsData = {
             description: "The ROKAF operates F-35A stealth fighters and is developing the indigenous KF-21 Boramae 4.5-gen fighter. It maintains a strong fighter force for air superiority over the Korean Peninsula.",
             image: "ROK_details/ROK_airforce_flag.jpg",
             equipment: [
-                { name: "F-35A Lightning II", count: 60, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter enhancing ROKAF's air dominance and strike capabilities" },
-                { name: "KF-21 Boramae", count: 6, type: "4.5 Gen Fighter", description: "Indigenous twin-engine fighter with AESA radar, first Korean-developed fighter jet" },
-                { name: "F-15K Slam Eagle", count: 59, type: "Strike Fighter", description: "Twin-engine heavy strike fighter with SLAM-ER precision missiles" },
-                { name: "FA-50 Fighting Eagle", count: 60, type: "Light Combat Aircraft", description: "Korean-developed supersonic light fighter/trainer exported globally" }
+                { name: "F-35A Lightning II", count: 60, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter enhancing ROKAF's air dominance and strike capabilities", image: "ROK_details/ROK_airforce_details/f35a_lightning_ii.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II#/media/File:First_F-35_headed_for_USAF_service.jpg
+                { name: "KF-21 Boramae", count: 6, type: "4.5 Gen Fighter", description: "Indigenous twin-engine fighter with AESA radar, first Korean-developed fighter jet", image: "ROK_details/ROK_airforce_details/kf21_boramae.png" }, // src: https://en.wikipedia.org/wiki/KAI_KF-21_Boramae#/media/File:KF-21_prototype_003_and_004_during_flight_testing.jpg
+                { name: "F-15K Slam Eagle", count: 59, type: "Strike Fighter", description: "Twin-engine heavy strike fighter with SLAM-ER precision missiles", image: "ROK_details/ROK_airforce_details/f15k_slam_eagle.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/4/48/F-15K_%ED%9B%88%EB%A0%A8_%287438817442%29.jpg
+                { name: "FA-50 Fighting Eagle", count: 60, type: "Light Combat Aircraft", description: "Korean-developed supersonic light fighter/trainer exported globally", image: "ROK_details/ROK_airforce_details/fa50_fighting_eagle.png" } // src: https://en.wikipedia.org/wiki/KAI_T-50_Golden_Eagle#/media/File:2014.10.8_%EA%B3%B5%EA%B5%B0_FA-50_Republic_of_Korea_Air_Force_(15361855407).jpg
             ]
         }
     },
