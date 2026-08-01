@@ -496,10 +496,10 @@ const nationsData = {
             description: "The Turkish Land Forces are one of the largest armies in NATO, experienced in counterinsurgency operations. Turkey is developing the indigenous Altay main battle tank.",
             image: "Turkey_details/turkey_army_flag.png",
             equipment: [
-                { name: "Leopard 2A4", count: 354, type: "Main Battle Tank", description: "German-built MBT with 120mm gun, the most modern tank in Turkish inventory" },
-                { name: "M60T Sabra", count: 170, type: "Main Battle Tank", description: "Israeli-upgraded M60 Patton with modern fire control and armor package" },
-                { name: "Altay MBT", count: 20, type: "Main Battle Tank", description: "Indigenous next-gen MBT based on K2 Black Panther platform with local systems" },
-                { name: "T-155 Firtina", count: 350, type: "Self-Propelled Howitzer", description: "155mm SPH based on K9 Thunder platform, license-produced in Turkey" }
+                { name: "Leopard 2A4", count: 354, type: "Main Battle Tank", description: "German-built MBT with 120mm gun, the most modern tank in Turkish inventory", image: "Turkey_details/Turkey_army_details/leopard_2a4.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2#/media/File:Dutch_Leopard_2A4_in_Defensive_Hull-down_Position_1997.jpg
+                { name: "M60T Sabra", count: 170, type: "Main Battle Tank", description: "Israeli-upgraded M60 Patton with modern fire control and armor package", image: "Turkey_details/Turkey_army_details/m60t_sabra.png" }, // src: https://en.wikipedia.org/wiki/Sabra_(tank_upgrade_package)#/media/File:Sabra_tank.jpg
+                { name: "Altay MBT", count: 20, type: "Main Battle Tank", description: "Indigenous next-gen MBT based on K2 Black Panther platform with local systems", image: "Turkey_details/Turkey_army_details/altay_mbt.png" }, // src:https://en.wikipedia.org/wiki/Altay_(tank)#/media/File:Altay_Tank.jpg
+                { name: "T-155 Firtina", count: 350, type: "Self-Propelled Howitzer", description: "155mm SPH based on K9 Thunder platform, license-produced in Turkey", image: "Turkey_details/Turkey_army_details/t155_firtina.png" } // src: https://en.wikipedia.org/wiki/T-155_Firtina#/media/File:T-155F%C4%B1rt%C4%B1na_(1).jpg
             ]
         },
         navy: {
@@ -510,10 +510,10 @@ const nationsData = {
             description: "The Turkish Navy operates the TCG Anadolu amphibious assault ship designed to carry Bayraktar TB3 drones and F-35Bs. It operates advanced Type 214 submarines and indigenous MILGEM corvettes.",
             image: "Turkey_details/turkey_navy_flag.png",
             equipment: [
-                { name: "TCG Anadolu LHD", count: 1, type: "Amphibious Assault Ship", description: "27,000-ton LHD serving as drone carrier for Bayraktar TB3 UCAVs" },
-                { name: "Type 214 Submarine", count: 6, type: "Attack Submarine", description: "German-designed AIP submarine with fuel cell propulsion" },
-                { name: "Reis-class Submarine", count: 4, type: "Attack Submarine", description: "Extended Type 214 variant with indigenous combat systems" },
-                { name: "MILGEM Corvette", count: 8, type: "Anti-Submarine Corvette", description: "Indigenous stealth corvette with anti-submarine warfare capability" }
+                { name: "TCG Anadolu LHD", count: 1, type: "Amphibious Assault Ship", description: "27,000-ton LHD serving as drone carrier for Bayraktar TB3 UCAVs", image: "Turkey_details/Turkey_navy_details/tcg_anadolu_lhd.png" }, // src: https://en.wikipedia.org/wiki/TCG_Anadolu#/media/File:Turkish_Navy_amphibious_assault_ship_TCG_Anadolu_(L400)_steams_in_the_Mediterranean_Sea.jpg
+                { name: "Type 214 Submarine", count: 6, type: "Attack Submarine", description: "German-designed AIP submarine with fuel cell propulsion", image: "Turkey_details/Turkey_navy_details/type_214_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_214_submarine#/media/File:ROKS_Yun_Bonggil_(SS_077)_190605-N-SS370-0028.jpg
+                { name: "Reis-class Submarine", count: 4, type: "Attack Submarine", description: "Extended Type 214 variant with indigenous combat systems", image: "Turkey_details/Turkey_navy_details/reis_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Reis-class_submarine#/media/File:Tcg-pirireis.jpg
+                { name: "MILGEM Corvette", count: 8, type: "Anti-Submarine Corvette", description: "Indigenous stealth corvette with anti-submarine warfare capability", image: "Turkey_details/Turkey_navy_details/milgem_corvette.png" } // src: https://en.wikipedia.org/wiki/MILGEM_project#/media/File:TCG_%C4%B0stanbul_(F-515)_(cropped).jpg
             ]
         },
         airforce: {
@@ -524,10 +524,10 @@ const nationsData = {
             description: "The Turkish Air Force operates F-16 fighters and is developing the indigenous KAAN 5th-gen stealth fighter. Turkey's Bayraktar drones have become a global sensation.",
             image: "Turkey_details/turkey_airforce_flag.png",
             equipment: [
-                { name: "F-16 Fighting Falcon", count: 245, type: "Multirole Fighter", description: "Block 50+ variant with CCIP upgrades, backbone of Turkish airpower" },
-                { name: "KAAN (Development)", count: 1, type: "5th Gen Stealth Fighter", description: "Indigenous twin-engine stealth fighter under development, first flown 2024" },
-                { name: "T129 ATAK", count: 60, type: "Attack Helicopter", description: "Turkish-Italian twin-engine attack helicopter with anti-tank missiles" },
-                { name: "Bayraktar TB2", count: 200, type: "UCAV Drone", description: "Combat-proven medium-altitude UAV with MAM-L/MAM-C precision munitions" }
+                { name: "F-16 Fighting Falcon", count: 245, type: "Multirole Fighter", description: "Block 50+ variant with CCIP upgrades, backbone of Turkish airpower", image: "Turkey_details/Turkey_airforce_details/f16_fighting_falcon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/8/83/Lockheed_Martin_F-16D_Fighting_Falcon%2C_Turkey_-_Air_Force_JP7156596.jpg
+                { name: "TAI TF KAAN (Development)", count: 1, type: "5th Gen Stealth Fighter", description: "Indigenous twin-engine stealth fighter under development, first flown 2024", image: "Turkey_details/Turkey_airforce_details/tai_tf_kaan.png" }, // src: https://en.wikipedia.org/wiki/TAI_TF_Kaan#/media/File:IMG-TAI-TFX.jpg
+                { name: "T129 ATAK", count: 60, type: "Attack Helicopter", description: "Turkish-Italian twin-engine attack helicopter with anti-tank missiles", image: "Turkey_details/Turkey_airforce_details/t129_atak.png" }, // src: https://en.wikipedia.org/wiki/TAI/AgustaWestland_T129_ATAK#/media/File:BG12-1001_(14662033896).jpg
+                { name: "Bayraktar TB2", count: 200, type: "UCAV Drone", description: "Combat-proven medium-altitude UAV with MAM-L/MAM-C precision munitions", image: "Turkey_details/Turkey_airforce_details/bayraktar_tb2.png" } // src: https://en.wikipedia.org/wiki/Baykar_Bayraktar_TB2#/media/File:Bayraktar_TB2_Runway.jpg
             ]
         }
     },
