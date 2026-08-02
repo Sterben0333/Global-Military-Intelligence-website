@@ -549,10 +549,10 @@ const nationsData = {
             description: "The KPA Ground Force is the fourth-largest army in the world, maintaining massive artillery concentrations along the DMZ. Most equipment is Soviet/Chinese-origin from the Cold War era.",
             image: "DPRK_details/Northkorea_army_flag.png",
             equipment: [
-                { name: "Chonma-ho", count: 1000, type: "Main Battle Tank", description: "Indigenous MBT derived from T-62 with local modifications and ERA armor" },
-                { name: "Pokpung-ho", count: 200, type: "Main Battle Tank", description: "Most advanced North Korean tank combining T-72/Type 88 features with composite armor" },
-                { name: "T-62", count: 800, type: "Main Battle Tank", description: "Soviet-era tank with 115mm smoothbore gun, still in active frontline service" },
-                { name: "Koksan SPG", count: 500, type: "Self-Propelled Gun", description: "170mm self-propelled gun with 60km range, capable of striking Seoul from the DMZ" }
+                { name: "Chonma-ho", count: 1000, type: "Main Battle Tank", description: "Indigenous MBT derived from T-62 with local modifications and ERA armor", image: "DPRK_details/DPRK_army_details/chonma_ho.png" }, // src: https://en.wikipedia.org/wiki/Chonma-ho#/media/File:North_Korean_Chonma-ho_main_battle_tank.jpg
+                { name: "Pokpung-ho", count: 200, type: "Main Battle Tank", description: "Most advanced North Korean tank combining T-72/Type 88 features with composite armor", image: "DPRK_details/DPRK_army_details/pokpung_ho.png" }, // src: https://en.wikipedia.org/wiki/Pokpung-ho#/media/File:North_Korea_Victory_Day_122_(9465927866)_(cropped).jpg
+                { name: "T-62", count: 800, type: "Main Battle Tank", description: "Soviet-era tank with 115mm smoothbore gun, still in active frontline service", image: "DPRK_details/DPRK_army_details/t62.png" }, // src: https://en.wikipedia.org/wiki/T-62#/media/File:ParkPatriot2015part10-12.jpg
+                { name: "Koksan SPG", count: 500, type: "Self-Propelled Gun", description: "170mm self-propelled gun with 60km range, capable of striking Seoul from the DMZ", image: "DPRK_details/DPRK_army_details/koksan_spg.png" } // src: https://en.wikipedia.org/wiki/M-1978_Koksan#/media/File:170mm_M1989_Koksan_-_North_Korea_Victory_Day-2013_01.jpg
             ]
         },
         navy: {
@@ -563,10 +563,10 @@ const nationsData = {
             description: "The KPN operates one of the largest submarine fleets in the world, though mostly coastal midget and coastal submarines. It is developing submarine-launched ballistic missile capability.",
             image: "DPRK_details/Northkorea_navy_flag.png",
             equipment: [
-                { name: "Sinpo-class Submarine", count: 3, type: "Ballistic Missile Submarine", description: "2,000-ton submarine capable of launching Pukguksong submarine-launched ballistic missiles" },
-                { name: "Romeo-class Submarine", count: 20, type: "Attack Submarine", description: "Soviet-designed diesel-electric submarine license-built in North Korea" },
-                { name: "Sang-O Submarine", count: 40, type: "Coastal Submarine", description: "Indigenous 325-ton coastal submarine for infiltration and mine-laying" },
-                { name: "Najin-class Frigate", count: 2, type: "Frigate", description: "1,500-ton escort frigate with anti-ship missiles and naval guns" }
+                { name: "Sinpo-class Submarine", count: 3, type: "Ballistic Missile Submarine", description: "2,000-ton submarine capable of launching Pukguksong submarine-launched ballistic missiles", image: "DPRK_details/DPRK_navy_details/sinpo_class_submarine.png" }, // AI-generated image
+                { name: "Romeo-class Submarine", count: 20, type: "Attack Submarine", description: "Soviet-designed diesel-electric submarine license-built in North Korea", image: "DPRK_details/DPRK_navy_details/romeo_class_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/4/48/Romeo_class_submarine.jpg
+                { name: "Sang-O Submarine", count: 40, type: "Coastal Submarine", description: "Indigenous 325-ton coastal submarine for infiltration and mine-laying", image: "DPRK_details/DPRK_navy_details/sang_o_submarine.jpg" }, // src: https://en.wikipedia.org/wiki/Sang-O-class_submarine#/media/File:Gangneung_sub_8990.jpg
+                { name: "Najin-class Frigate", count: 2, type: "Frigate", description: "1,500-ton escort frigate with anti-ship missiles and naval guns", image: "DPRK_details/DPRK_navy_details/najin_class_frigate.png" } // src: https://en.wikipedia.org/wiki/Najin-class_frigate#/media/File:North_Korean_Navy_corvette.jpg
             ]
         },
         airforce: {
@@ -577,10 +577,10 @@ const nationsData = {
             description: "The KPAF operates one of the largest air forces in Asia by number, but most aircraft are obsolete Soviet and Chinese designs. The MiG-29 is the most modern fighter in service.",
             image: "DPRK_details/Northkorea_airforce_flag.png",
             equipment: [
-                { name: "MiG-29", count: 40, type: "Air Superiority Fighter", description: "Most advanced NK fighter, 4th-gen twin-engine interceptor with limited modern weapons" },
-                { name: "MiG-23", count: 56, type: "Interceptor", description: "Variable-geometry 3rd-gen fighter used for air defense and ground attack" },
-                { name: "MiG-21", count: 150, type: "Light Interceptor", description: "Aging but numerous 2nd-gen supersonic fighter, backbone of KPAF" },
-                { name: "Il-28 Beagle", count: 80, type: "Tactical Bomber", description: "Soviet-era twin-engine jet bomber capable of delivering nuclear weapons" }
+                { name: "MiG-29", count: 40, type: "Air Superiority Fighter", description: "Most advanced NK fighter, 4th-gen twin-engine interceptor with limited modern weapons", image: "DPRK_details/DPRK_airforce_details/mig_29.png" }, // src: https://en.wikipedia.org/wiki/Mikoyan_MiG-29#/media/File:DPRK_MiG-29.jpg
+                { name: "MiG-23", count: 56, type: "Interceptor", description: "Variable-geometry 3rd-gen fighter used for air defense and ground attack", image: "DPRK_details/DPRK_airforce_details/mig_23.png" }, // src: https://en.wikipedia.org/wiki/Mikoyan-Gurevich_MiG-23#/media/File:Mig-23-DNST8908431_JPG.jpg
+                { name: "MiG-21", count: 150, type: "Light Interceptor", description: "Aging but numerous 2nd-gen supersonic fighter, backbone of KPAF", image: "DPRK_details/DPRK_airforce_details/mig_21.png" }, // src: https://en.wikipedia.org/wiki/Mikoyan-Gurevich_MiG-21#/media/File:Mikoyan-Gurevich_MiG-21PF_USAF.jpg
+                { name: "Il-28 Beagle", count: 80, type: "Tactical Bomber", description: "Soviet-era twin-engine jet bomber capable of delivering nuclear weapons", image: "DPRK_details/DPRK_airforce_details/il_28_beagle.png" } // src: https://en.wikipedia.org/wiki/Ilyushin_Il-28#/media/File:038_Harbin_H-5_PLAAF_(3223304620).jpg
             ]
         }
     },
