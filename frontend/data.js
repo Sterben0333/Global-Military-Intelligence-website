@@ -602,10 +602,10 @@ const nationsData = {
             description: "The Italian Army is organized for rapid overseas deployment and NATO duties. It operates the Ariete MBT and the Centauro wheeled tank destroyer, optimized for rapid deployment in diverse terrains.",
             image: "Italy_details/italy_army_flag.png",
             equipment: [
-                { name: "Ariete C1", count: 200, type: "Main Battle Tank", description: "Italian MBT with composite armor, 120mm smoothbore gun, and HITFIST turret" },
-                { name: "Centauro II", count: 150, type: "Wheeled Tank Destroyer", description: "8x8 wheeled armored vehicle with 120mm gun for rapid deployment" },
-                { name: "Freccia IFV", count: 249, type: "Infantry Fighting Vehicle", description: "8x8 wheeled IFV with 25mm Oerlikon autocannon and Spike ATGM" },
-                { name: "PzH 2000", count: 70, type: "Self-Propelled Howitzer", description: "155mm tracked SPH jointly operated with German Army" }
+                { name: "Ariete C1", count: 200, type: "Main Battle Tank", description: "Italian MBT with composite armor, 120mm smoothbore gun, and HITFIST turret", image: "Italy_details/Italy_army_details/ariete_c1.png" }, // src: https://en.wikipedia.org/wiki/Ariete#/media/File:Italian_Army_-_4th_Tank_Regiment_Ariete_main_battle_tanks_-_January_2023.jpg
+                { name: "Centauro II", count: 150, type: "Wheeled Tank Destroyer", description: "8x8 wheeled armored vehicle with 120mm gun for rapid deployment", image: "Italy_details/Italy_army_details/centauro_ii.png" }, // src: https://en.wikipedia.org/wiki/Centauro_(Tank_destroyer)#/media/File:Centauro01.JPEG
+                { name: "Freccia IFV", count: 249, type: "Infantry Fighting Vehicle", description: "8x8 wheeled IFV with 25mm Oerlikon autocannon and Spike ATGM", image: "Italy_details/Italy_army_details/freccia_ifv.png" }, // src: https://en.wikipedia.org/wiki/Freccia_IFV#/media/File:Italian_Army_-_Mechanized_Brigade_%22Pinerolo%22_Freccia_IFV.jpg
+                { name: "PzH 2000", count: 70, type: "Self-Propelled Howitzer", description: "155mm tracked SPH jointly operated with German Army", image: "Italy_details/Italy_army_details/pzh_2000.png" } // src: https://en.wikipedia.org/wiki/Panzerhaubitze_2000#/media/File:Lithuanian_PzH_2000_(2).jpg
             ]
         },
         navy: {
@@ -616,10 +616,10 @@ const nationsData = {
             description: "The Marina Militare operates two aircraft carriers and a large fleet of FREMM frigates. Italy is a major naval shipbuilder through Fincantieri, supplying warships to navies worldwide.",
             image: "Italy_details/italy_navy_flag.png",
             equipment: [
-                { name: "Cavour Carrier", count: 1, type: "Light Aircraft Carrier", description: "27,100-ton STOVL carrier operating F-35B and AV-8B Harrier" },
-                { name: "Trieste LHD", count: 1, type: "Amphibious Assault Ship", description: "33,000-ton multi-role amphibious ship, largest Italian warship since WWII" },
-                { name: "Todaro-class Submarine", count: 4, type: "Attack Submarine", description: "Type 212A diesel-electric submarine with fuel cell AIP technology" },
-                { name: "FREMM Frigate", count: 10, type: "Multipurpose Frigate", description: "Franco-Italian frigate with anti-submarine and air defense variants" }
+                { name: "Cavour Carrier", count: 1, type: "Light Aircraft Carrier", description: "27,100-ton STOVL carrier operating F-35B and AV-8B Harrier", image: "Italy_details/Italy_navy_details/cavour_carrier.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/95/Italian_aircraft_carrier_Cavour.jpg
+                { name: "Trieste LHD", count: 1, type: "Amphibious Assault Ship", description: "33,000-ton multi-role amphibious ship, largest Italian warship since WWII", image: "Italy_details/Italy_navy_details/trieste_lhd.png" }, // src: https://en.wikipedia.org/wiki/Italian_landing_helicopter_dock_Trieste#/media/File:Italian_LHD_Trieste.jpg
+                { name: "Todaro-class Submarine", count: 4, type: "Attack Submarine", description: "Type 212A diesel-electric submarine with fuel cell AIP technology", image: "Italy_details/Italy_navy_details/todaro_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_212A_submarine#/media/File:Varotodaro.jpg
+                { name: "FREMM Frigate", count: 10, type: "Multipurpose Frigate", description: "Franco-Italian frigate with anti-submarine and air defense variants", image: "Italy_details/Italy_navy_details/fremm_frigate.png" } // src: https://en.wikipedia.org/wiki/FREMM_multipurpose_frigate#/media/File:Nave_Bergamini_3.JPG
             ]
         },
         airforce: {
@@ -630,10 +630,10 @@ const nationsData = {
             description: "The Aeronautica Militare operates Eurofighter Typhoons and F-35 stealth fighters, and is a key participant in European air policing missions across NATO's southern flank.",
             image: "Italy_details/italy_airforce_flag.png",
             equipment: [
-                { name: "F-35A/B Lightning II", count: 30, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter in both CTOL and STOVL variants for land and carrier operations" },
-                { name: "Eurofighter Typhoon", count: 94, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties" },
-                { name: "Tornado", count: 71, type: "Strike Fighter", description: "Variable-geometry interdictor/strike aircraft for deep strike missions" },
-                { name: "AW129 Mangusta", count: 48, type: "Attack Helicopter", description: "Italian twin-engine light attack helicopter with TOW missiles" }
+                { name: "F-35A/B Lightning II", count: 30, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter in both CTOL and STOVL variants for land and carrier operations", image: "Italy_details/Italy_airforce_details/f35a_lightning_ii.png" }, //src: https://upload.wikimedia.org/wikipedia/commons/8/82/Lockheed_Martin_F-35A_%26_B_Lightning_IIs_01_%2828275253796%29.jpg
+                { name: "Eurofighter Typhoon", count: 94, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority, ground attack, and QRA duties", image: "Italy_details/Italy_airforce_details/eurofighter_typhoon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/00/Eurofighter_Typhoon_EF2000%2C_Italy_-_Air_Force_JP6719032.jpg
+                { name: "Tornado", count: 71, type: "Strike Fighter", description: "Variable-geometry interdictor/strike aircraft for deep strike missions", image: "Italy_details/Italy_airforce_details/tornado.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/1/17/6-41%2C_2024%2C_c-s%2C_Fairford%2C_Italy%2C_MM7067%2C_Tornado_IDS_-_9848_%2853998841366%29.jpg
+                { name: "AW129 Mangusta", count: 48, type: "Attack Helicopter", description: "Italian twin-engine light attack helicopter with TOW missiles", image: "Italy_details/Italy_airforce_details/aw129_mangusta.png" } //src: https://en.wikipedia.org/wiki/Agusta_A129_Mangusta#/media/File:20150506052017!Agusta_A129A_Mangusta,_Italy_-_Army_(cropped).jpg
             ]
         }
     },
