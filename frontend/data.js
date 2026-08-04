@@ -655,10 +655,10 @@ const nationsData = {
             description: "The Polish Land Forces are rapidly modernizing with Korean K2 tanks and K9 howitzers, and American Abrams M1A2 SEPv3 tanks. Poland aims to field Europe's most powerful army by 2030.",
             image: "Poland_details/poland_army_flag.png",
             equipment: [
-                { name: "Leopard 2PL", count: 247, type: "Main Battle Tank", description: "Modernized Leopard 2A4 with upgraded fire control, armor, and thermal sights" },
-                { name: "PT-91 Twardy", count: 232, type: "Main Battle Tank", description: "Polish-upgraded T-72M1 with ERA armor, new fire control system, and engine" },
-                { name: "K2 Black Panther", count: 180, type: "Main Battle Tank", description: "Korean MBT acquired for Poland's massive armored force expansion" },
-                { name: "K9 Thunder", count: 212, type: "Self-Propelled Howitzer", description: "155mm SPH acquired from South Korea to replace Soviet-era artillery" }
+                { name: "Leopard 2PL", count: 247, type: "Main Battle Tank", description: "Modernized Leopard 2A4 with upgraded fire control, armor, and thermal sights", image: "Poland_details/Poland_army_details/leopard_2pl.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2PL#/media/File:Leopard_2PL_-_Szkolenie_Wojska_Polskiego_w_Nowej_D%C4%99bie_(cropped).jpg
+                { name: "PT-91 Twardy", count: 232, type: "Main Battle Tank", description: "Polish-upgraded T-72M1 with ERA armor, new fire control system, and engine", image: "Poland_details/Poland_army_details/pt91_twardy.png" }, // src: https://en.wikipedia.org/wiki/PT-91_Twardy#/media/File:PT91_MSPO15_DSC02773.JPG
+                { name: "K2 Black Panther", count: 180, type: "Main Battle Tank", description: "Korean MBT acquired for Poland's massive armored force expansion", image: "Poland_details/Poland_army_details/k2_black_panther.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/60/Polish_army_K2_Black_Panther.webp?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "K9 Thunder", count: 212, type: "Self-Propelled Howitzer", description: "155mm SPH acquired from South Korea to replace Soviet-era artillery", image: "Poland_details/Poland_army_details/k9_thunder.png" } // src: https://en.wikipedia.org/wiki/K9_Thunder#/media/File:2011.2.17_%EC%9C%A1%EA%B5%B06%ED%8F%AC%EB%B3%91%EC%97%AC%EB%8B%A8_k-9,k-55_%EC%9E%90%EC%A3%BC%ED%8F%AC%EC%82%AC%EA%B2%A9_(7633864346).jpg
             ]
         },
         navy: {
@@ -669,10 +669,10 @@ const nationsData = {
             description: "The Polish Navy operates in the Baltic Sea and is planning major modernization with new submarines and frigates under the Miecznik program.",
             image: "Poland_details/poland_navy_flag.jpg",
             equipment: [
-                { name: "Orzel Submarine", count: 1, type: "Attack Submarine", description: "Kilo-class diesel-electric submarine for Baltic operations" },
-                { name: "Kobben-class", count: 2, type: "Coastal Submarine", description: "Norwegian-origin coastal submarine for shallow water operations" },
-                { name: "Oliver H. Perry Frigate", count: 2, type: "Guided Missile Frigate", description: "US-transferred frigate with SM-1 missiles and anti-submarine capability" },
-                { name: "Kormoran II Minehunter", count: 3, type: "Mine Countermeasures", description: "Modern mine countermeasures vessel with composite hull" }
+                { name: "Orzel Submarine", count: 1, type: "Attack Submarine", description: "Kilo-class diesel-electric submarine for Baltic operations", image: "Poland_details/Poland_navy_details/orzel_submarine.png" }, // src: https://en.wikipedia.org/wiki/ORP_Orze%C5%82_%281986%29#/media/File:ORP_Orze%C5%82.JPG
+                { name: "Kobben-class (Decommissioned)", count: 2, type: "Coastal Submarine", description: "Norwegian-origin coastal submarine for shallow water operations", image: "Poland_details/Poland_navy_details/kobben_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Kobben-class_submarine#/media/File:ORP_Bielik_7_powbiel_2.jpg
+                { name: "Oliver H. Perry Frigate", count: 2, type: "Guided Missile Frigate", description: "US-transferred frigate with SM-1 missiles and anti-submarine capability", image: "Poland_details/Poland_navy_details/oliver_h_perry_frigate.png" }, // src: https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate#/media/File:Oliver_Hazard_Perry-class_frigates_underway_in_1982.JPEG
+                { name: "Kormoran II Minehunter", count: 3, type: "Mine Countermeasures", description: "Modern mine countermeasures vessel with composite hull", image: "Poland_details/Poland_navy_details/kormoran_ii_minehunter.png" } // src: https://en.wikipedia.org/wiki/Kormoran_2-class_minehunter#/media/File:Pr%C3%B3by_morskie_ORP_%E2%80%9EKormoran%E2%80%9D.jpg
             ]
         },
         airforce: {
@@ -683,10 +683,10 @@ const nationsData = {
             description: "The Polish Air Force operates F-16 fighters and is transitioning to F-35A stealth fighters. It has also acquired FA-50 light fighters from South Korea.",
             image: "Poland_details/poland_airforce_flag.jpg",
             equipment: [
-                { name: "F-16C/D", count: 48, type: "Multirole Fighter", description: "Block 52+ variant with conformal fuel tanks and advanced avionics" },
-                { name: "FA-50", count: 48, type: "Light Combat Aircraft", description: "Korean-built supersonic trainer/light fighter for gap-fill role" },
-                { name: "MiG-29", count: 28, type: "Air Superiority Fighter", description: "Soviet-era twin-engine interceptor, being retired in favor of F-35A" },
-                { name: "AW149", count: 32, type: "Medium Transport Helicopter", description: "Leonardo twin-engine multi-role helicopter for troop transport" }
+                { name: "F-16C/D", count: 48, type: "Multirole Fighter", description: "Block 52+ variant with conformal fuel tanks and advanced avionics", image: "Poland_details/Poland_airforce_details/f16_cd.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/5/59/F-16C_Poland_%2817149380631%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "FA-50", count: 48, type: "Light Combat Aircraft", description: "Korean-built supersonic trainer/light fighter for gap-fill role", image: "Poland_details/Poland_airforce_details/fa_50.png" }, // src: https://en.wikipedia.org/wiki/KAI_T-50_Golden_Eagle#/media/File:2014.10.8_%EA%B3%B5%EA%B5%B0_FA-50_Republic_of_Korea_Air_Force_(15361855407).jpg
+                { name: "MiG-29", count: 28, type: "Air Superiority Fighter", description: "Soviet-era twin-engine interceptor, being retired in favor of F-35A", image: "Poland_details/Poland_airforce_details/mig_29.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/1/14/MiG-29_4103_Krzesiny_RB4.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AW149", count: 32, type: "Medium Transport Helicopter", description: "Leonardo twin-engine multi-role helicopter for troop transport", image: "Poland_details/Poland_airforce_details/aw149.png" } // src: https://en.wikipedia.org/wiki/AgustaWestland_AW149#/media/File:AW-149_(52229093839).jpg
             ]
         }
     },
