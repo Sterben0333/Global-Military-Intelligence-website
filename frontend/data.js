@@ -708,10 +708,10 @@ const nationsData = {
             description: "The Ukrainian Ground Forces have been battle-hardened since 2022, employing a diverse mix of Soviet-legacy and Western-donated armor, artillery, and vehicles in combined arms warfare.",
             image: "Ukraine_details/ukraine_army_flag.jpg",
             equipment: [
-                { name: "T-64BV", count: 600, type: "Main Battle Tank", description: "Soviet-era MBT with composite armor and 125mm gun, Ukraine's workhorse tank" },
-                { name: "Leopard 2A6", count: 71, type: "Main Battle Tank", description: "German-donated advanced MBT with 120mm L55 gun and improved armor" },
-                { name: "Challenger 2", count: 14, type: "Main Battle Tank", description: "British-donated MBT with Chobham armor, first Western tanks in Ukrainian service" },
-                { name: "M109 Paladin", count: 45, type: "Self-Propelled Howitzer", description: "US-donated 155mm SPH providing long-range fire support with NATO ammunition" }
+                { name: "T-64BV", count: 600, type: "Main Battle Tank", description: "Soviet-era MBT with composite armor and 125mm gun, Ukraine's workhorse tank", image: "Ukraine_details/Ukraine_army_details/t64_bv.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/2/2a/T-64BV_mod.1987.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Leopard 2A6", count: 71, type: "Main Battle Tank", description: "German-donated advanced MBT with 120mm L55 gun and improved armor", image: "Ukraine_details/Ukraine_army_details/leopard_2a6.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/e1/UA_Leopard_2A6_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Challenger 2", count: 14, type: "Main Battle Tank", description: "British-donated MBT with Chobham armor, first Western tanks in Ukrainian service", image: "Ukraine_details/Ukraine_army_details/challenger_2.png" }, // src: https://en.wikipedia.org/wiki/Challenger_2#/media/File:Challenger_2_Main_Battle_Tank_patrolling_outside_Basra,_Iraq_MOD_45148325.jpg
+                { name: "M109 Paladin", count: 45, type: "Self-Propelled Howitzer", description: "US-donated 155mm SPH providing long-range fire support with NATO ammunition", image: "Ukraine_details/Ukraine_army_details/m109_paladin.png" } // AI-generated image
             ]
         },
         navy: {
@@ -722,10 +722,10 @@ const nationsData = {
             description: "The Ukrainian Navy was largely destroyed when Russia seized Crimea but has rebuilt using fast attack craft and unmanned naval drones that have successfully struck Russian warships.",
             image: "Ukraine_details/ukraine_navy_flag.png",
             equipment: [
-                { name: "Hetman Sahaidachny Frigate", count: 1, type: "Frigate", description: "Krivak III-class frigate, flagship of the Ukrainian Navy" },
-                { name: "Gyurza-M Gunboat", count: 18, type: "Armored Gunboat", description: "Indigenous river/coastal gunboat with 30mm cannon and Barrier missiles" },
-                { name: "Island-class Cutter", count: 2, type: "Patrol Boat", description: "US Coast Guard-transferred patrol boats for coastal defense" },
-                { name: "Centaur Assault Boat", count: 15, type: "Assault Craft", description: "Indigenous high-speed landing craft for riverine and coastal operations" }
+                { name: "Hetman Sahaidachny Frigate", count: 1, type: "Frigate", description: "Krivak III-class frigate, flagship of the Ukrainian Navy", image: "Ukraine_details/Ukraine_navy_details/hetman_sahaidachny_frigate.png" }, // src: https://en.wikipedia.org/wiki/Ukrainian_frigate_Hetman_Sahaidachny#/media/File:Ukrainian_navy_frigate_Hetman_Sahaidachnyi.jpg
+                { name: "Gyurza-M Gunboat", count: 18, type: "Armored Gunboat", description: "Indigenous river/coastal gunboat with 30mm cannon and Barrier missiles", image: "Ukraine_details/Ukraine_navy_details/gyurza_m_gunboat.png" }, // src: https://en.wikipedia.org/wiki/Gyurza-M-class_gunboat#/media/File:%D0%9D%D0%BE%D0%B2%D0%BE%D0%B7%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D1%96_%D0%B4%D0%BB%D1%8F_%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85_%D0%92%D0%9C%D0%A1_%D0%BC%D0%B0%D0%BB%D1%96_%D0%B1%D1%80%D0%BE%D0%BD%D1%8C%D0%BE%D0%B2%D0%B0%D0%BD%D1%96_%D0%B0%D1%80%D1%82%D0%B8%D0%BB%D0%B5%D1%80%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D1%96_%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8_%D0%B2_%D1%85%D0%BE%D0%B4%D1%96_%D0%B2%D0%B8%D0%BF%D1%80%D0%BE%D0%B1%D1%83%D0%B2%D0%B0%D0%BD%D1%8C_%D0%B7%D0%B4%D1%96%D0%B9%D1%81%D0%BD%D0%B8%D0%BB%D0%B8_%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D0%BD%D0%B5_%D0%BF%D0%BB%D0%B0%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F_(27359525951).jpg
+                { name: "Island-class Cutter", count: 2, type: "Patrol Boat", description: "US Coast Guard-transferred patrol boats for coastal defense", image: "Ukraine_details/Ukraine_navy_details/island_class_cutter.png" }, // src: https://en.wikipedia.org/wiki/Island-class_patrol_boat#/media/File:USCGC_Knight_island.jpg
+                { name: "Centaur Assault Boat", count: 15, type: "Assault Craft", description: "Indigenous high-speed landing craft for riverine and coastal operations", image: "Ukraine_details/Ukraine_navy_details/centaur_assault_boat.png" } // https://en.wikipedia.org/wiki/Centaur-class_fast_assault_craft#/media/File:Centaur-class_landing_boats,_2018,_02.jpg
             ]
         },
         airforce: {
@@ -736,10 +736,10 @@ const nationsData = {
             description: "The Ukrainian Air Force operates Soviet-era fighters supplemented by incoming F-16s from Western allies. It has maintained air defense despite facing a much larger Russian air force.",
             image: "Ukraine_details/ukraine_airforce_flag.jpg",
             equipment: [
-                { name: "MiG-29", count: 32, type: "Air Superiority Fighter", description: "Soviet 4th-gen twin-engine interceptor, augmented with Western-donated units" },
-                { name: "Su-27", count: 20, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter for air defense and escort missions" },
-                { name: "Su-24", count: 12, type: "Attack Aircraft", description: "Variable-geometry strike bomber adapted for Storm Shadow cruise missiles" },
-                { name: "F-16 (ordered)", count: 80, type: "Multirole Fighter", description: "Western 4th-gen fighter being delivered from Denmark, Netherlands, and Norway" }
+                { name: "MiG-29", count: 32, type: "Air Superiority Fighter", description: "Soviet 4th-gen twin-engine interceptor, augmented with Western-donated units", image: "Ukraine_details/Ukraine_airforce_details/mig_29.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/3f/Ukrainian-Air-Force-MiG-29-1280x720.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Su-27", count: 20, type: "Air Superiority Fighter", description: "Heavy twin-engine fighter for air defense and escort missions", image: "Ukraine_details/Ukraine_airforce_details/su_27.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/e5/Sukhoi_Su-27_-_B-1831M1_-_Radom_Air_Show_-_20180825_1531_5818_DxO.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Su-24", count: 12, type: "Attack Aircraft", description: "Variable-geometry strike bomber adapted for Storm Shadow cruise missiles", image: "Ukraine_details/Ukraine_airforce_details/su_24.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/d/de/Ukrainian_su-24.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-16", count: 80, type: "Multirole Fighter", description: "Western 4th-gen fighter being delivered from Denmark, Netherlands, and Norway", image: "Ukraine_details/Ukraine_airforce_details/f_16.png" } // src: https://upload.wikimedia.org/wikipedia/commons/3/35/F-16AM_Ukrainian_Air_Force_during_take_off.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
