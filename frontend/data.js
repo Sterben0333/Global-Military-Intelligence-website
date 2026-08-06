@@ -761,10 +761,10 @@ const nationsData = {
             description: "The Spanish Army operates Leopard 2 tanks and is modernizing with new IFVs. It contributes to NATO missions and EU battlegroups.",
             image: "Spain_details/spain_army_flag.png",
             equipment: [
-                { name: "Leopard 2E", count: 239, type: "Main Battle Tank", description: "Spanish-built variant of Leopard 2A6 with local fire control upgrades" },
-                { name: "Leopard 2A4", count: 108, type: "Main Battle Tank", description: "Earlier Leopard 2 variant used as reserve and training tank" },
-                { name: "Pizarro IFV", count: 212, type: "Infantry Fighting Vehicle", description: "Spanish variant of ASCOD IFV with 30mm autocannon" },
-                { name: "Centauro", count: 84, type: "Wheeled Tank Destroyer", description: "Italian 8x8 wheeled armored vehicle with 105mm gun for rapid deployment" }
+                { name: "Leopard 2E", count: 239, type: "Main Battle Tank", description: "Spanish-built variant of Leopard 2A6 with local fire control upgrades", image: "Spain_details/Spain_army_details/leopard_2e.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2E#/media/File:TRJE_15_(21953221094).jpg
+                { name: "Leopard 2A4", count: 108, type: "Main Battle Tank", description: "Earlier Leopard 2 variant used as reserve and training tank", image: "Spain_details/Spain_army_details/leopard_2a4.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2E#/media/File:Leopard_2A4_E._T..JPG
+                { name: "Pizarro IFV", count: 212, type: "Infantry Fighting Vehicle", description: "Spanish variant of ASCOD IFV with 30mm autocannon", image: "Spain_details/Spain_army_details/pizarro_ifv.png" }, // src: https://en.wikipedia.org/wiki/ASCOD#/media/File:Trident_Juncture_2018_181103-M-RI194-005.jpg
+                { name: "Centauro", count: 84, type: "Wheeled Tank Destroyer", description: "Italian 8x8 wheeled armored vehicle with 105mm gun for rapid deployment", image: "Spain_details/Spain_army_details/centauro.png" } // src: https://en.wikipedia.org/wiki/Centauro_(Tank_destroyer)#/media/File:Centauro01.JPEG
             ]
         },
         navy: {
@@ -775,10 +775,10 @@ const nationsData = {
             description: "The Armada Española operates the Juan Carlos I multipurpose assault ship and is deploying new S-80 Plus submarines. Spain is one of Europe's major naval powers in the Mediterranean.",
             image: "Spain_details/spain_navy_flag.png",
             equipment: [
-                { name: "Juan Carlos I LHD", count: 1, type: "Amphibious Assault Ship", description: "26,000-ton LHD capable of operating AV-8B Harrier and F-35B fighters" },
-                { name: "S-80 Plus Submarine", count: 4, type: "Attack Submarine", description: "Indigenous AIP submarine, largest conventional sub in Europe at 3,000 tons" },
-                { name: "Álvaro de Bazán Frigate", count: 5, type: "Aegis Frigate", description: "F100-class Aegis combat system frigate with SPY-1D radar" },
-                { name: "Santa María Frigate", count: 6, type: "Guided Missile Frigate", description: "Spanish variant of US Oliver Hazard Perry-class with SM-1 missiles" }
+                { name: "Juan Carlos I LHD", count: 1, type: "Amphibious Assault Ship", description: "26,000-ton LHD capable of operating AV-8B Harrier and F-35B fighters", image: "Spain_details/Spain_navy_details/juan_carlos_i_lhd.png" }, // src: https://en.wikipedia.org/wiki/Spanish_ship_Juan_Carlos_I#/media/File:Spanish_amphibious_assault_ship_Juan_Carlos_I_(L-61)_underway_in_the_Adriatic_Sea,_22_February_2023_(230222-N-MW880-1248).JPG
+                { name: "S-80 Plus Submarine", count: 4, type: "Attack Submarine", description: "Indigenous AIP submarine, largest conventional sub in Europe at 3,000 tons", image: "Spain_details/Spain_navy_details/s80_plus_submarine.png" }, // src: https://en.wikipedia.org/wiki/S-80_Plus-class_submarine#/media/File:Whale_Watching,_Cartagena_Spain_-_Flickr_-_A_Guy_Named_Nyal.jpg
+                { name: "Álvaro de Bazán Frigate", count: 5, type: "Aegis Frigate", description: "F100-class Aegis combat system frigate with SPY-1D radar", image: "Spain_details/Spain_navy_details/alvaro_de_bazan_frigate.png" }, // src: https://en.wikipedia.org/wiki/%C3%81lvaro_de_Baz%C3%A1n-class_frigate#/media/File:Fragata_F-101_%22%C3%81lvaro_de_Baz%C3%A1n%22_fondeada_en_la_R%C3%ADa_de_Pontevedra_(14694192716).jpg
+                { name: "Santa María Frigate", count: 6, type: "Guided Missile Frigate", description: "Spanish variant of US Oliver Hazard Perry-class with SM-1 missiles", image: "Spain_details/Spain_navy_details/santa_maria_frigate.png" } // src: https://en.wikipedia.org/wiki/Santa_Mar%C3%ADa-class_frigate#/media/File:F81_SPS_Santa_Mar%C3%ADa.jpg
             ]
         },
         airforce: {
@@ -789,10 +789,10 @@ const nationsData = {
             description: "The Spanish Air Force operates Eurofighter Typhoons and EF-18 Hornets for air defense. It participates in NATO air policing missions and is a partner in the FCAS future fighter program.",
             image: "Spain_details/spain_airforce_flag.png",
             equipment: [
-                { name: "Eurofighter Typhoon", count: 70, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority and QRA missions" },
-                { name: "EF-18 Hornet", count: 66, type: "Multirole Fighter", description: "US-designed twin-engine fighter adapted for Spanish operations" },
-                { name: "A400M Atlas", count: 14, type: "Strategic Transport", description: "Four-engine turboprop transport, assembled at the Seville AIRBUS plant" },
-                { name: "Tiger HAD", count: 24, type: "Attack Helicopter", description: "Eurocopter attack helicopter with anti-tank and fire-support capability" }
+                { name: "Eurofighter Typhoon", count: 70, type: "Multirole Fighter", description: "Twin-engine 4.5-gen fighter for air superiority and QRA missions", image: "Spain_details/Spain_airforce_details/eurofighter_typhoon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/ee/Eurofighter_Typhoon_Spanish_Air_Force.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "EF-18 Hornet", count: 66, type: "Multirole Fighter", description: "US-designed twin-engine fighter adapted for Spanish operations", image: "Spain_details/Spain_airforce_details/ef18_hornet.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/1/18/EF-18_Hornet_Tiger_Meet.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "A400M Atlas", count: 14, type: "Strategic Transport", description: "Four-engine turboprop transport, assembled at the Seville AIRBUS plant", image: "Spain_details/Spain_airforce_details/a400m_atlas.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A400M_Atlas_of_the_Spanish_Air_Force_%28code_EC-400%29_arrives_RIAT_Fairford_18July2019_arp.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Tiger HAD", count: 24, type: "Attack Helicopter", description: "Eurocopter attack helicopter with anti-tank and fire-support capability", image: "Spain_details/Spain_airforce_details/tiger_had.png" } // src: https://upload.wikimedia.org/wikipedia/commons/a/a5/Spanish_Army_Eurocopter_Tiger_HAD_on_USS_Kearsarge_%28LHD-3%29_in_April_2016.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
