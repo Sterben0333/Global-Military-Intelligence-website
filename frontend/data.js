@@ -814,10 +814,10 @@ const nationsData = {
             description: "The Royal Netherlands Army focuses on mechanized infantry and airmobile operations. It closely integrates with the German Bundeswehr under joint formations.",
             image: "Netherlands_details/netherlands_army_flag.jpg",
             equipment: [
-                { name: "Leopard 2A6 (leased)", count: 18, type: "Main Battle Tank", description: "German MBT leased from Germany for training and NATO commitments" },
-                { name: "CV90", count: 145, type: "Infantry Fighting Vehicle", description: "Swedish IFV with 35mm Bushmaster III cannon and advanced protection" },
-                { name: "Boxer", count: 200, type: "Armored Personnel Carrier", description: "8x8 modular wheeled APC jointly developed with Germany" },
-                { name: "PzH 2000", count: 54, type: "Self-Propelled Howitzer", description: "155mm SPH shared with German forces in joint formations" }
+                { name: "Leopard 2A6 (leased)", count: 18, type: "Main Battle Tank", description: "German MBT leased from Germany for training and NATO commitments", image: "Netherlands_details/Netherlands_army_details/leopard_2a6.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/5/54/Leopard_2A6_Klietz_2018.jpg
+                { name: "CV90", count: 145, type: "Infantry Fighting Vehicle", description: "Swedish IFV with 35mm Bushmaster III cannon and advanced protection", image: "Netherlands_details/Netherlands_army_details/cv90.png" }, // src: https://en.wikipedia.org/wiki/Combat_Vehicle_90#/media/File:Stridsfordon_90_Revinge_2012-2.jpg
+                { name: "Boxer", count: 200, type: "Armored Personnel Carrier", description: "8x8 modular wheeled APC jointly developed with Germany", image: "Netherlands_details/Netherlands_army_details/boxer.png" }, // src: https://en.wikipedia.org/wiki/Boxer_(armoured_fighting_vehicle)#/media/File:DSCN7330-crop_-_Copy.jpg
+                { name: "PzH 2000", count: 54, type: "Self-Propelled Howitzer", description: "155mm SPH shared with German forces in joint formations", image: "Netherlands_details/Netherlands_army_details/pzh_2000.png" } // src: https://en.wikipedia.org/wiki/Panzerhaubitze_2000#/media/File:Lithuanian_PzH_2000_(2).jpg
             ]
         },
         navy: {
@@ -828,10 +828,10 @@ const nationsData = {
             description: "The Royal Netherlands Navy operates globally with De Zeven Provinciën-class frigates, Walrus-class submarines, and the Karel Doorman joint support ship.",
             image: "Netherlands_details/netherlands_navy_flag.png",
             equipment: [
-                { name: "Walrus-class Submarine", count: 4, type: "Attack Submarine", description: "Diesel-electric submarine with advanced sonar and torpedo systems" },
-                { name: "De Zeven Provinciën Frigate", count: 4, type: "Air Defence Frigate", description: "LCF-class frigate with Thales SMART-L radar and SM-2 missiles" },
-                { name: "Karel Doorman JSS", count: 1, type: "Joint Support Ship", description: "28,000-ton logistics and amphibious support ship with helicopter deck" },
-                { name: "Holland-class OPV", count: 4, type: "Offshore Patrol Vessel", description: "3,750-ton ocean-going patrol vessel for constabulary and maritime security" }
+                { name: "Walrus-class Submarine", count: 4, type: "Attack Submarine", description: "Diesel-electric submarine with advanced sonar and torpedo systems", image: "Netherlands_details/Netherlands_navy_details/walrus_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Walrus-class_submarine#/media/File:4_walrusklasse_onderzeeboten.jpg
+                { name: "De Zeven Provinciën Frigate", count: 4, type: "Air Defence Frigate", description: "LCF-class frigate with Thales SMART-L radar and SM-2 missiles", image: "Netherlands_details/Netherlands_navy_details/de_zeven_provincien_frigate.png" }, // src: https://en.wikipedia.org/wiki/De_Zeven_Provinci%C3%ABn-class_frigate#/media/File:HNLMS_De_Zeven_Provincien_(F802).jpg
+                { name: "Karel Doorman JSS", count: 1, type: "Joint Support Ship", description: "28,000-ton logistics and amphibious support ship with helicopter deck", image: "Netherlands_details/Netherlands_navy_details/karel_doorman_jss.png" }, // src: https://en.wikipedia.org/wiki/HNLMS_Karel_Doorman_(A833)#/media/File:HNLMS_Karel_Doorman,_Starboard_Bow,_04.09.2017.jpg
+                { name: "Holland-class OPV", count: 4, type: "Offshore Patrol Vessel", description: "3,750-ton ocean-going patrol vessel for constabulary and maritime security", image: "Netherlands_details/Netherlands_navy_details/holland_class_opv.png" } // src: https://en.wikipedia.org/wiki/Holland-class_patrol_vessel#/media/File:HNLMS_Holland.jpg
             ]
         },
         airforce: {
@@ -842,10 +842,10 @@ const nationsData = {
             description: "The Royal Netherlands Air Force is transitioning entirely to the F-35A, making it one of the first NATO air forces to operate an all-stealth fighter fleet.",
             image: "Netherlands_details/netherlands_airforce_flag.jpg",
             equipment: [
-                { name: "F-35A Lightning II", count: 52, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter replacing F-16, nuclear-sharing capable" },
-                { name: "C-130H Hercules", count: 4, type: "Tactical Transport", description: "Four-engine turboprop tactical transport for air logistics" },
-                { name: "AH-64E Apache", count: 28, type: "Attack Helicopter", description: "Latest Apache variant with improved sensors and Longbow radar" },
-                { name: "CH-47F Chinook", count: 14, type: "Heavy Transport Helicopter", description: "Twin-rotor heavy-lift helicopter for troop and cargo transport" }
+                { name: "F-35A Lightning II", count: 52, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter replacing F-16, nuclear-sharing capable", image: "Netherlands_details/Netherlands_airforce_details/f35a_lightning_ii.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/90/Royal_Netherlands_Air_Force%2C_Lockheed_Martin_F-35A_Lightning_II%2C_F-002_-_2016_KLu_Open_Dagen.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "C-130H Hercules", count: 4, type: "Tactical Transport", description: "Four-engine turboprop tactical transport for air logistics", image: "Netherlands_details/Netherlands_airforce_details/c130h_hercules.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/7/72/Lockheed_C-130H_Hercules%2C_Netherlands_-_Royal_Air_Force_JP6636229.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AH-64E Apache", count: 28, type: "Attack Helicopter", description: "Latest Apache variant with improved sensors and Longbow radar", image: "Netherlands_details/Netherlands_airforce_details/ah_64e_apache.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/e8/Netherlands_Air_Force_AH-64E_Apache_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "CH-47F Chinook", count: 14, type: "Heavy Transport Helicopter", description: "Twin-rotor heavy-lift helicopter for troop and cargo transport", image: "Netherlands_details/Netherlands_airforce_details/ch_47f_chinook.png" } // src: https://upload.wikimedia.org/wikipedia/commons/8/85/Dutch_CH-47_Chinook_in_Iraq_in_2024_-_CH-47F_MYII_CAAS_-_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
