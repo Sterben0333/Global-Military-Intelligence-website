@@ -867,10 +867,10 @@ const nationsData = {
             description: "The Swedish Army specializes in Nordic and Arctic warfare. It produces world-class armored vehicles including the CV90 IFV, exported to 7 countries, and the Archer artillery system.",
             image: "Sweden_details/sweden_army_flag.png",
             equipment: [
-                { name: "Stridsvagn 122 (Leopard 2)", count: 120, type: "Main Battle Tank", description: "Swedish Leopard 2A5 variant with additional composite armor and French thermal sights" },
-                { name: "CV90", count: 509, type: "Infantry Fighting Vehicle", description: "Indigenous tracked IFV family in multiple variants — exported to 7+ nations" },
-                { name: "Patria AMV", count: 113, type: "Armored Personnel Carrier", description: "Finnish 8x8 wheeled APC used for troop transport and fire support" },
-                { name: "Archer SPG", count: 48, type: "Self-Propelled Howitzer", description: "155mm wheeled SPH with automated loading, shoot-and-scoot capability in 30 seconds" }
+                { name: "Stridsvagn 122 (Leopard 2)", count: 120, type: "Main Battle Tank", description: "Swedish Leopard 2A5 variant with additional composite armor and French thermal sights", image: "Sweden_details/Sweden_army_details/stridsvagn_122.png" }, // src: https://en.wikipedia.org/wiki/Stridsvagn_122#/media/File:20260622_mss_robkru01_strv123-a_rollout_149-webb.jpg
+                { name: "CV90", count: 509, type: "Infantry Fighting Vehicle", description: "Indigenous tracked IFV family in multiple variants — exported to 7+ nations", image: "Sweden_details/sweden_army_details/cv90.png" }, // src: https://en.wikipedia.org/wiki/Combat_Vehicle_90#/media/File:Stridsfordon_90_Revinge_2012-2.jpg
+                { name: "Patria AMV", count: 113, type: "Armored Personnel Carrier", description: "Finnish 8x8 wheeled APC used for troop transport and fire support", image: "Sweden_details/sweden_army_details/patria_amv.png" }, // src: https://en.wikipedia.org/wiki/Patria_AMV#/media/File:Pansarterr%C3%A4ngbil_360_Revinge_2015-7.jpg
+                { name: "Archer SPG", count: 48, type: "Self-Propelled Howitzer", description: "155mm wheeled SPH with automated loading, shoot-and-scoot capability in 30 seconds", image: "Sweden_details/sweden_army_details/archer_spg.png" } // src: https://upload.wikimedia.org/wikipedia/commons/e/ef/Dynamic_Front_25_in_Finland_-_Swedish_Army_Artillery_Battery_BAE_Bofors_Archer_Howitzer_%286%29.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -881,10 +881,10 @@ const nationsData = {
             description: "The Swedish Navy specializes in Baltic Sea littoral warfare with world-class stealth corvettes and submarines. The Gotland-class submarine is legendary for defeating US carrier groups in exercises.",
             image: "Sweden_details/sweden_navy_flag.png",
             equipment: [
-                { name: "Gotland-class Submarine", count: 2, type: "Attack Submarine", description: "World's first AIP submarine with Stirling engines — famously 'sank' USS Ronald Reagan in exercises" },
-                { name: "Blekinge-class Submarine", count: 2, type: "Attack Submarine", description: "Next-gen submarine replacing Gotland with enhanced stealth and endurance" },
-                { name: "Visby-class Corvette", count: 5, type: "Stealth Corvette", description: "Carbon-fiber stealth corvette with minimal radar signature for littoral warfare" },
-                { name: "Luleå-class Minelayer", count: 2, type: "Minelayer", description: "Mine warfare vessel for offensive and defensive mine operations in the Baltic" }
+                { name: "Gotland-class Submarine", count: 2, type: "Attack Submarine", description: "World's first AIP submarine with Stirling engines — famously 'sank' USS Ronald Reagan in exercises", image: "Sweden_details/sweden_navy_details/gotland_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Gotland-class_submarine#/media/File:HMS_Gotland_-_Ystad-2015.jpg
+                { name: "Blekinge-class Submarine", count: 2, type: "Attack Submarine", description: "Next-gen submarine replacing Gotland with enhanced stealth and endurance", image: "Sweden_details/sweden_navy_details/blekinge_class_submarine.png" }, // src: AI-Generated image
+                { name: "Visby-class Corvette", count: 5, type: "Stealth Corvette", description: "Carbon-fiber stealth corvette with minimal radar signature for littoral warfare", image: "Sweden_details/sweden_navy_details/visby_class_corvette.png" }, // src: https://en.wikipedia.org/wiki/Visby-class_corvette#/media/File:HMS_Helsingborg_2.jpg
+                { name: "Luleå-class Frigate", count: 2, type: "Frigate", description: "Frigate vessel for offensive and defensive warfare operations in the Baltic", image: "Sweden_details/sweden_navy_details/lulea_class_frigate.png" } // src: https://en.wikipedia.org/wiki/Lule%C3%A5-class_frigate#/media/File:FDI_Ronarch_par_BCR_Somme.jpg
             ]
         },
         airforce: {
@@ -895,10 +895,10 @@ const nationsData = {
             description: "The Flygvapnet operates the indigenous Gripen fighter, designed for dispersed highway operations in wartime. The Gripen is one of the most cost-effective fighters in the world.",
             image: "Sweden_details/sweden_airforce_flag.png",
             equipment: [
-                { name: "JAS 39 Gripen C/D", count: 71, type: "Multirole Fighter", description: "Swedish single-engine fighter designed for highway operations and rapid turnaround" },
-                { name: "JAS 39 Gripen E", count: 27, type: "Multirole Fighter", description: "Latest Gripen variant with AESA radar, increased range, and new avionics" },
-                { name: "C-130H Hercules", count: 6, type: "Tactical Transport", description: "Four-engine tactical transport for air logistics and parachute operations" },
-                { name: "UH-60M Black Hawk", count: 15, type: "Utility Helicopter", description: "American medium-lift helicopter for troop transport and medevac" }
+                { name: "JAS 39 Gripen C/D", count: 71, type: "Multirole Fighter", description: "Swedish single-engine fighter designed for highway operations and rapid turnaround", image: "Sweden_details/sweden_airforce_details/jas39_gripen_cd.png" }, // src: https://en.wikipedia.org/wiki/Saab_JAS_39_Gripen#/media/File:Saab_JAS_39_Gripen_at_Kaivopuisto_Air_Show,_June_2017_(altered)_copy.jpg
+                { name: "JAS 39 Gripen E", count: 27, type: "Multirole Fighter", description: "Latest Gripen variant with AESA radar, increased range, and new avionics", image: "Sweden_details/sweden_airforce_details/jas39_gripen_e.png" }, // src: https://en.wikipedia.org/wiki/Saab_JAS_39_Gripen#/media/File:Saab_JAS-39_Gripen_(53079484003).jpg
+                { name: "C-130H Hercules", count: 6, type: "Tactical Transport", description: "Four-engine tactical transport for air logistics and parachute operations", image: "Sweden_details/sweden_airforce_details/c130h_hercules.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/a4/C-130H_Sweden_%2826973417290%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "UH-60M Black Hawk", count: 15, type: "Utility Helicopter", description: "American medium-lift helicopter for troop transport and medevac", image: "Sweden_details/sweden_airforce_details/uh60m_black_hawk.png" } // src: https://upload.wikimedia.org/wikipedia/commons/3/32/Black_Hawk_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
