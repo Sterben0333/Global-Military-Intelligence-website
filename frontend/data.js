@@ -920,10 +920,10 @@ const nationsData = {
             description: "The Australian Army is modernizing under the LAND 400 program, replacing aging vehicles with Boxer CRV and acquiring HIMARS for long-range strike capability.",
             image: "Australia_details/australia_army_flag.jpg",
             equipment: [
-                { name: "M1A2 Abrams", count: 59, type: "Main Battle Tank", description: "US-built MBT with depleted uranium armor and 120mm smoothbore gun" },
-                { name: "ASLAV", count: 257, type: "Light Armored Vehicle", description: "8x8 wheeled reconnaissance vehicle based on LAV-25 platform" },
-                { name: "Boxer CRV", count: 211, type: "Combat Reconnaissance Vehicle", description: "8x8 modular wheeled vehicle replacing ASLAV under LAND 400 Phase 2" },
-                { name: "M777 Howitzer", count: 54, type: "Towed Howitzer", description: "Ultra-lightweight 155mm towed howitzer with titanium and aluminum construction" }
+                { name: "M1A2 Abrams", count: 59, type: "Main Battle Tank", description: "US-built MBT with depleted uranium armor and 120mm smoothbore gun", image: "Australia_details/australia_army_details/m1a2_abrams.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/b/ba/1AD_and_Australian_Army%27s_3rd_Brigade_conduct_combine_arms_live_fire_exercise_%287965533%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "ASLAV", count: 257, type: "Light Armored Vehicle", description: "8x8 wheeled reconnaissance vehicle based on LAV-25 platform", image: "Australia_details/australia_army_details/aslav.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/2/2f/ASLAV_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Boxer CRV", count: 211, type: "Combat Reconnaissance Vehicle", description: "8x8 modular wheeled vehicle replacing ASLAV under LAND 400 Phase 2", image: "Australia_details/australia_army_details/boxer_crv.png" }, // src: https://en.wikipedia.org/wiki/Boxer_(armoured_fighting_vehicle)#/media/File:DSCN7330-crop_-_Copy.jpg
+                { name: "M777 Howitzer", count: 54, type: "Towed Howitzer", description: "Ultra-lightweight 155mm towed howitzer with titanium and aluminum construction", image: "Australia_details/australia_army_details/m777_howitzer.png" } // src: https://upload.wikimedia.org/wikipedia/commons/7/73/MRF-D_Marines_provide_artillery_support_during_Exercise_Koolendong_2019_%285715381%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -934,10 +934,10 @@ const nationsData = {
             description: "The RAN is set for massive expansion under AUKUS, acquiring SSN-AUKUS nuclear attack submarines. It currently operates Hobart-class Aegis destroyers and Collins-class submarines.",
             image: "Australia_details/australia_navy_flag.jpg",
             equipment: [
-                { name: "Canberra-class LHD", count: 2, type: "Amphibious Assault Ship", description: "27,000-ton landing helicopter dock based on Spanish Juan Carlos I design" },
-                { name: "Collins-class Submarine", count: 6, type: "Attack Submarine", description: "Diesel-electric submarine being replaced by AUKUS nuclear-powered subs" },
-                { name: "Hobart-class Destroyer", count: 3, type: "Aegis Destroyer", description: "Air warfare destroyer with Aegis combat system and SM-2 missiles" },
-                { name: "Anzac-class Frigate", count: 8, type: "General Purpose Frigate", description: "MEKO 200-based frigate being replaced by Hunter-class frigates" }
+                { name: "Canberra-class LHD", count: 2, type: "Amphibious Assault Ship", description: "27,000-ton landing helicopter dock based on Spanish Juan Carlos I design", image: "Australia_details/australia_navy_details/canberra_class_lhd.png" }, // src: https://en.wikipedia.org/wiki/Canberra-class_landing_helicopter_dock#/media/File:HMAS_Adelaide_at_Pearl_Harbor_in_July_2018.jpg
+                { name: "Collins-class Submarine", count: 6, type: "Attack Submarine", description: "Diesel-electric submarine being replaced by AUKUS nuclear-powered subs", image: "Australia_details/australia_navy_details/collins_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Collins-class_submarine#/media/File:HMAS_Rankin_2006.jpg
+                { name: "Hobart-class Destroyer", count: 3, type: "Aegis Destroyer", description: "Air warfare destroyer with Aegis combat system and SM-2 missiles", image: "Australia_details/australia_navy_details/hobart_class_destroyer.png" }, // src: https://en.wikipedia.org/wiki/Hobart-class_destroyer#/media/File:HMAS_Hobart_December_2017.jpg
+                { name: "Anzac-class Frigate", count: 8, type: "General Purpose Frigate", description: "MEKO 200-based frigate being replaced by Hunter-class frigates", image: "Australia_details/australia_navy_details/anzac_class_frigate.png" } // src: https://en.wikipedia.org/wiki/Anzac-class_frigate#/media/File:HMAS_Ballarat_during_RIMPAC_2016.jpg
             ]
         },
         airforce: {
@@ -948,10 +948,10 @@ const nationsData = {
             description: "The RAAF operates the largest F-35A fleet outside the US and is the only country operating the EA-18G Growler electronic warfare aircraft besides America.",
             image: "Australia_details/australia_airforce_flag.jpg",
             equipment: [
-                { name: "F-35A Lightning II", count: 72, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter — Australia's primary air superiority platform" },
-                { name: "F/A-18F Super Hornet", count: 24, type: "Multirole Fighter", description: "Twin-engine naval fighter serving as bridge capability before full F-35 transition" },
-                { name: "EA-18G Growler", count: 11, type: "Electronic Warfare Aircraft", description: "Specialized electronic attack aircraft — only non-US operator globally" },
-                { name: "MRH-90 Taipan", count: 41, type: "Medium Transport Helicopter", description: "NH90 variant for tactical troop transport and logistics" }
+                { name: "F-35A Lightning II", count: 72, type: "5th Gen Stealth Fighter", description: "Stealth multirole fighter — Australia's primary air superiority platform", image: "Australia_details/Australia_airforce_details/f35a_lightning_ii.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/4/4c/First_Australian_F-35A_arriving_at_Luke_AFB_in_December_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F/A-18F Super Hornet", count: 24, type: "Multirole Fighter", description: "Twin-engine naval fighter serving as bridge capability before full F-35 transition", image: "Australia_details/Australia_airforce_details/fa_18f_super_hornet.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/02/A44-203_Boeing_F-A-18F_Super_Hornet_RAAF_%2811676273224%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "EA-18G Growler", count: 11, type: "Electronic Warfare Aircraft", description: "Specialized electronic attack aircraft — only non-US operator globally", image: "Australia_details/Australia_airforce_details/ea_18g_growler.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/b/b4/Australian_EA-18G_at_Joint_Base_Pearl_Harbor-Hickam_in_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "MRH-90 Taipan", count: 41, type: "Medium Transport Helicopter", description: "NH90 variant for tactical troop transport and logistics", image: "Australia_details/Australia_airforce_details/mrh_90_taipan.png" } // src: https://en.wikipedia.org/wiki/NHIndustries_MRH-90_Taipan#/media/File:Australian_Army_(A40-003)_NHI_MRH-(cropped).jpg
             ]
         }
     },
