@@ -973,10 +973,10 @@ const nationsData = {
             description: "The IDF Ground Command operates the world-renowned Merkava MBT series and Namer IFV, both featuring revolutionary front-engine design and Trophy active protection system.",
             image: "Israel_details/israel_army_flag.jpg",
             equipment: [
-                { name: "Merkava IV", count: 660, type: "Main Battle Tank", description: "Israel's indigenous MBT with Trophy APS, front-mounted engine, and troop compartment" },
-                { name: "Merkava III", count: 400, type: "Main Battle Tank", description: "Earlier Merkava variant still in active service with modular armor" },
-                { name: "Namer IFV", count: 200, type: "Infantry Fighting Vehicle", description: "World's heaviest IFV based on Merkava hull with Trophy APS and 60-ton weight" },
-                { name: "M109 Doher", count: 600, type: "Self-Propelled Howitzer", description: "Israeli-modified M109 with improved fire control and autonomous operation" }
+                { name: "Merkava IV", count: 660, type: "Main Battle Tank", description: "Israel's indigenous MBT with Trophy APS, front-mounted engine, and troop compartment", image: "Israel_details/Israel_army_details/merkava_iv.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/af/The_Merkava_IV_Tank_in_the_7th_Armored_Brigade_%2815128364843%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Merkava III", count: 400, type: "Main Battle Tank", description: "Earlier Merkava variant still in active service with modular armor", image: "Israel_details/Israel_army_details/merkava_iii.png" }, // src: https://en.wikipedia.org/wiki/Merkava#/media/File:Merkava3dKasag001.jpg
+                { name: "Namer IFV", count: 200, type: "Infantry Fighting Vehicle", description: "World's heaviest IFV based on Merkava hull with Trophy APS and 60-ton weight", image: "Israel_details/Israel_army_details/namer_ifv.png" }, // src: https://en.wikipedia.org/wiki/Namer#/media/File:Flickr_-_Israel_Defense_Forces_-_13th_Battalion_of_the_Golani_Brigade_Holds_Drill_at_Golan_Heights_(8).jpg
+                { name: "M109 Doher", count: 600, type: "Self-Propelled Howitzer", description: "Israeli-modified M109 with improved fire control and autonomous operation", image: "Israel_details/Israel_army_details/m109_doher.png" } // src: https://upload.wikimedia.org/wikipedia/commons/b/b9/Israeli_Doher_M109_Deployed.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -987,10 +987,10 @@ const nationsData = {
             description: "The Israeli Navy operates Dolphin-class submarines believed to be nuclear-capable, and Sa'ar 6 corvettes with Iron Dome missile defense. It focuses on coastal defense and submarine deterrence.",
             image: "Israel_details/israel_navy_flag.jpg",
             equipment: [
-                { name: "Dolphin-class Submarine", count: 5, type: "Attack Submarine", description: "German-built diesel-electric submarine widely believed to carry nuclear-capable cruise missiles" },
-                { name: "Sa'ar 6 Corvette", count: 4, type: "Guided Missile Corvette", description: "German-designed corvette with C-Dome (naval Iron Dome) air defense system" },
-                { name: "Sa'ar 5 Corvette", count: 3, type: "Guided Missile Corvette", description: "Stealth corvette with Barak-8 SAM and anti-ship missile capability" },
-                { name: "Shaldag MkV Patrol", count: 12, type: "Fast Patrol Craft", description: "High-speed patrol boat for coastal defense and special operations insertion" }
+                { name: "Dolphin-class Submarine", count: 5, type: "Attack Submarine", description: "German-built diesel-electric submarine widely believed to carry nuclear-capable cruise missiles", image: "Israel_details/Israel_navy_details/dolphin_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Dolphin-class_submarine#/media/File:RAHAV_7213.JPG
+                { name: "Sa'ar 6 Corvette", count: 4, type: "Guided Missile Corvette", description: "German-designed corvette with C-Dome (naval Iron Dome) air defense system", image: "Israel_details/Israel_navy_details/sa_ar_6_corvette.png" }, // src: https://en.wikipedia.org/wiki/Sa%27ar_6-class_corvette#/media/File:Sa'ar-6-class-corvette-0026.jpg
+                { name: "Sa'ar 5 Corvette", count: 3, type: "Guided Missile Corvette", description: "Stealth corvette with Barak-8 SAM and anti-ship missile capability", image: "Israel_details/Israel_navy_details/sa_ar_5_corvette.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/cf/Israeli_Sa%27ar_5-class_corvette_underway_in_the_Gulf_of_Aqaba_on_15_February_2022_%28220215-A-AI379-757%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Shaldag MkV Patrol", count: 12, type: "Fast Patrol Craft", description: "High-speed patrol boat for coastal defense and special operations insertion", image: "Israel_details/Israel_navy_details/shaldag_mkv_patrol.png" } // src: https://en.wikipedia.org/wiki/Shaldag-class_patrol_boat#/media/File:ShaldagMK5.jpg
             ]
         },
         airforce: {
@@ -1001,10 +1001,10 @@ const nationsData = {
             description: "The Israeli Air Force is one of the most experienced and capable in the world. It operates the unique F-35I Adir with Israeli modifications and has extensive combat experience in precision strikes.",
             image: "Israel_details/israel_airforce_flag.jpg",
             equipment: [
-                { name: "F-35I Adir", count: 50, type: "5th Gen Stealth Fighter", description: "Israeli-modified F-35A with indigenous EW, sensors, and weapons integration" },
-                { name: "F-15I Ra'am", count: 25, type: "Strike Fighter", description: "Long-range strike variant of F-15E with conformal fuel tanks and Israeli avionics" },
-                { name: "F-16I Sufa", count: 100, type: "Multirole Fighter", description: "Israeli Block 52+ F-16 with conformal fuel tanks and dorsal spine for avionics" },
-                { name: "AH-64D Apache", count: 48, type: "Attack Helicopter", description: "Saraf variant with Israeli modifications and combat-proven in multiple conflicts" }
+                { name: "F-35I Adir", count: 50, type: "5th Gen Stealth Fighter", description: "Israeli-modified F-35A with indigenous EW, sensors, and weapons integration", image: "Israel_details/Israel_airforce_details/f35i_adir.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II_Israeli_procurement#/media/File:IAF-F-35I-2016-12-13_(cropped).jpg
+                { name: "F-15I Ra'am", count: 25, type: "Strike Fighter", description: "Long-range strike variant of F-15E with conformal fuel tanks and Israeli avionics", image: "Israel_details/Israel_airforce_details/f15i_ra_am.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/03/F-15I%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-16I Sufa", count: 100, type: "Multirole Fighter", description: "Israeli Block 52+ F-16 with conformal fuel tanks and dorsal spine for avionics", image: "Israel_details/Israel_airforce_details/f16i_sufa.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/d/d0/IAF-F-16I-2016-12-13.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AH-64D Apache", count: 48, type: "Attack Helicopter", description: "Saraf variant with Israeli modifications and combat-proven in multiple conflicts", image: "Israel_details/Israel_airforce_details/ah_64d_apache.png" } // src: https://upload.wikimedia.org/wikipedia/commons/b/bc/IAF_AH-64D_Apache_with_Spike_NLOS%2C_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
