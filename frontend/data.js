@@ -1026,10 +1026,10 @@ const nationsData = {
             description: "The Egyptian Army is the largest in the Middle East with a massive tank fleet combining American Abrams, Russian T-90S, and thousands of older M60 Pattons.",
             image: "Egypt_details/egypt_army_flag.jpg",
             equipment: [
-                { name: "M1A1 Abrams", count: 1130, type: "Main Battle Tank", description: "US-built MBT co-produced in Egypt, backbone of Egyptian armored forces" },
-                { name: "T-90S", count: 500, type: "Main Battle Tank", description: "Russian MBT acquired to diversify tank fleet with Kontakt-5 ERA armor" },
-                { name: "M60 Patton", count: 1700, type: "Main Battle Tank", description: "Aging but numerous US-origin tank making up the bulk of reserve formations" },
-                { name: "M109 SPH", count: 200, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery providing fire support for armored divisions" }
+                { name: "M1A1 Abrams", count: 1130, type: "Main Battle Tank", description: "US-built MBT co-produced in Egypt, backbone of Egyptian armored forces", image: "Egypt_details/Egypt_army_details/m1a1_abrams.png" }, // src: https://en.wikipedia.org/wiki/M1_Abrams#/media/File:M1A1_Twin_Bridges_training_area_2C_Republic_of_Korea_1-23_Infantry.jpg
+                { name: "T-90S", count: 500, type: "Main Battle Tank", description: "Russian MBT acquired to diversify tank fleet with Kontakt-5 ERA armor", image: "Egypt_details/Egypt_army_details/t90_s.png" }, // src: https://en.wikipedia.org/wiki/T-90#/media/File:T-90S_tank.jpg
+                { name: "M60 Patton", count: 1700, type: "Main Battle Tank", description: "Aging but numerous US-origin tank making up the bulk of reserve formations", image: "Egypt_details/Egypt_army_details/m60_patton.png" }, // src: https://en.wikipedia.org/wiki/M60_tank#/media/File:DM-SC-92-03658.jpg
+                { name: "M109 SPH", count: 200, type: "Self-Propelled Howitzer", description: "155mm self-propelled artillery providing fire support for armored divisions", image: "Egypt_details/Egypt_army_details/m109_sph.png" } // src: https://upload.wikimedia.org/wikipedia/commons/a/ab/Egyptian_M109_during_Operation_Bright_Star_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -1040,10 +1040,10 @@ const nationsData = {
             description: "The Egyptian Navy is the largest in the Middle East and Africa, operating two Mistral-class helicopter carriers purchased from France and a mixed fleet of submarines and frigates.",
             image: "Egypt_details/egypt_navy_flag.jpg",
             equipment: [
-                { name: "Mistral-class LHD", count: 2, type: "Helicopter Carrier", description: "French-built 21,000-ton amphibious assault ship with 16 helicopters" },
-                { name: "Type 209 Submarine", count: 4, type: "Attack Submarine", description: "German-designed diesel-electric submarine for Mediterranean operations" },
-                { name: "Type 033 Submarine", count: 4, type: "Coastal Submarine", description: "Chinese-origin diesel-electric submarine for coastal defense" },
-                { name: "FREMM Frigate", count: 2, type: "Multipurpose Frigate", description: "Franco-Italian frigate with Aster missiles for area air defense" }
+                { name: "Mistral-class LHD", count: 2, type: "Helicopter Carrier", description: "French-built 21,000-ton amphibious assault ship with 16 helicopters", image: "Egypt_details/Egypt_navy_details/mistral_class_lhd.png" }, // src: https://en.wikipedia.org/wiki/Mistral-class_landing_helicopter_dock#/media/File:BPC_Dixmude.jpg
+                { name: "Type 209 Submarine", count: 4, type: "Attack Submarine", description: "German-designed diesel-electric submarine for Mediterranean operations", image: "Egypt_details/Egypt_navy_details/type_209_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_209_submarine#/media/File:S44_Egyptian_submarine_of_German_submarine_class_209-1400mod_at_Kiel.jpg/2
+                { name: "Type 033 Submarine", count: 4, type: "Coastal Submarine", description: "Chinese-origin diesel-electric submarine for coastal defense", image: "Egypt_details/Egypt_navy_details/type_033_submarine.png" }, // src: https://en.wikipedia.org/wiki/Romeo-class_submarine#/media/File:%E6%BD%9C%E8%89%87.JPG
+                { name: "FREMM Frigate", count: 2, type: "Multipurpose Frigate", description: "Franco-Italian frigate with Aster missiles for area air defense", image: "Egypt_details/Egypt_navy_details/fremm_frigate.png" } // src: https://en.wikipedia.org/wiki/FREMM_multipurpose_frigate#/media/File:Carabiniere_(F593),_Fremantle,_2017_(03).jpg
             ]
         },
         airforce: {
@@ -1054,10 +1054,10 @@ const nationsData = {
             description: "The Egyptian Air Force operates a diverse fleet from multiple sources — American F-16s, French Rafales, and Russian MiG-29s — giving it the largest fighter force in Africa.",
             image: "Egypt_details/egypt_airforce_flag.jpg",
             equipment: [
-                { name: "F-16C/D", count: 220, type: "Multirole Fighter", description: "Block 40/52 variants forming the backbone of Egyptian airpower" },
-                { name: "Rafale", count: 54, type: "Omnirole Fighter", description: "French twin-engine fighter providing advanced air superiority capability" },
-                { name: "MiG-29", count: 46, type: "Air Superiority Fighter", description: "Russian 4th-gen twin-engine interceptor diversifying Egypt's fighter fleet" },
-                { name: "AH-64D Apache", count: 46, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Hellfire missiles for anti-armor operations" }
+                { name: "F-16C/D", count: 220, type: "Multirole Fighter", description: "Block 40/52 variants forming the backbone of Egyptian airpower", image: "Egypt_details/Egypt_airforce_details/f16_c_d.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/1/10/An_F-16_of_the_Egyptian_Air_Force_fly_in_support_of_exercise_Agile_Phoenix.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Rafale", count: 54, type: "Omnirole Fighter", description: "French twin-engine fighter providing advanced air superiority capability", image: "Egypt_details/Egypt_airforce_details/rafale.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/b/bc/9265_Rafale_DM_Egyptian_Air_Force_El_Alamein_5.9.24_%2854025821284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "MiG-29", count: 46, type: "Air Superiority Fighter", description: "Russian 4th-gen twin-engine interceptor diversifying Egypt's fighter fleet", image: "Egypt_details/Egypt_airforce_details/mig_29.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/c9/8728_Mig-29M_Egyptian_Air_Force_El_Alamein_4.9.24_%2854020815542%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AH-64D Apache", count: 46, type: "Attack Helicopter", description: "Twin-engine attack helicopter with Hellfire missiles for anti-armor operations", image: "Egypt_details/Egypt_airforce_details/ah_64d_apache.png" } // src: https://en.wikipedia.org/wiki/Boeing_AH-64_Apache#/media/File:AH-64D_Apache_Longbow.jpg
             ]
         }
     },
