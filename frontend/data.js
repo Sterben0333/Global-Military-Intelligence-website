@@ -1079,10 +1079,10 @@ const nationsData = {
             strength: "560,000 active",
             image: "Pakistan_details/pakistan_army_flag.jpg",
             equipment: [
-                { name: "Al-Khalid MBT", count: 600, type: "Main Battle Tank", description: "Jointly developed with China, featuring 125mm smoothbore gun and composite armor" },
-                { name: "T-80UD", count: 320, type: "Main Battle Tank", description: "Ukrainian-built gas turbine tank with strong armor protection" },
-                { name: "Type 85-IIAP", count: 300, type: "Main Battle Tank", description: "Chinese-origin MBT with 125mm gun" },
-                { name: "M113 APC", count: 1800, type: "Armored Personnel Carrier", description: "Widely used tracked APC for infantry transport" }
+                { name: "Al-Khalid MBT", count: 600, type: "Main Battle Tank", description: "Jointly developed with China, featuring 125mm smoothbore gun and composite armor", image: "Pakistan_details/Pakistan_army_details/al_khalid_mbt.png" }, // src: https://en.wikipedia.org/wiki/Al-Khalid_tank#/media/File:Al-Khalid_IDEAS_2012.jpg
+                { name: "T-80UD", count: 320, type: "Main Battle Tank", description: "Ukrainian-built gas turbine tank with strong armor protection", image: "Pakistan_details/Pakistan_army_details/t80_ud.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/c6/Verkhnyaya_Pyshma_Tank_Museum_2012_0078.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Type 85-IIAP", count: 300, type: "Main Battle Tank", description: "Chinese-origin MBT with 125mm gun", image: "Pakistan_details/Pakistan_army_details/type_85_iiap.png" }, // src: https://en.wikipedia.org/wiki/Type_80/88_main_battle_tank#/media/File:Chinese_Type_80-%D0%86%D0%86_Tank.jpg
+                { name: "M113 APC", count: 1800, type: "Armored Personnel Carrier", description: "Widely used tracked APC for infantry transport", image: "Pakistan_details/Pakistan_army_details/m113_apc.png" } // src: https://en.wikipedia.org/wiki/M113_armored_personnel_carrier#/media/File:M113_of_UA_marines_01.jpg
             ]
         },
         navy: {
@@ -1093,10 +1093,10 @@ const nationsData = {
             strength: "30,000 active",
             image: "Pakistan_details/pakistan_navy_flag.jpg",
             equipment: [
-                { name: "Agosta 90B Submarine", count: 3, type: "Attack Submarine", description: "French-designed AIP-equipped diesel submarine with SM39 Exocet capability" },
-                { name: "Type 054A/P Frigate", count: 4, type: "Guided Missile Frigate", description: "Chinese-built modern frigate with HQ-16 SAM and anti-ship missiles" },
-                { name: "Hangor-class Submarine", count: 8, type: "Attack Submarine", description: "Chinese Yuan-class submarine with AIP technology (on order)" },
-                { name: "PNS Alamgir (F-260)", count: 1, type: "Frigate", description: "Ex-US Oliver Hazard Perry-class guided missile frigate" }
+                { name: "Agosta 90B Submarine", count: 3, type: "Attack Submarine", description: "French-designed AIP-equipped diesel submarine with SM39 Exocet capability", image: "Pakistan_details/Pakistan_navy_details/agosta_90b_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/99/Hamza%21.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Type 054A/P Frigate", count: 4, type: "Guided Missile Frigate", description: "Chinese-built modern frigate with HQ-16 SAM and anti-ship missiles", image: "Pakistan_details/Pakistan_navy_details/type_054a_p_frigate.png" }, // src: https://en.wikipedia.org/wiki/Tughril-class_frigate#/media/File:PNS_Shah_Jahan_(F264).jpg
+                { name: "Hangor-class Submarine", count: 8, type: "Attack Submarine", description: "Chinese Yuan-class submarine with AIP technology (on order)", image: "Pakistan_details/Pakistan_navy_details/hangor_class_submarine.png" }, // src: AI - Generated image
+                { name: "PNS Alamgir (F-260)", count: 1, type: "Frigate", description: "Ex-US Oliver Hazard Perry-class guided missile frigate", image: "Pakistan_details/Pakistan_navy_details/pns_alamgir.png" } // src: https://en.wikipedia.org/wiki/USS_McInerney#/media/File:USS_McInerney_(FFG-8)_underway_in_the_Atlantic_Ocean_on_8_June_2004.jpg
             ]
         },
         airforce: {
@@ -1107,10 +1107,10 @@ const nationsData = {
             strength: "70,000 active",
             image: "Pakistan_details/pakistan_airforce_flag.jpg",
             equipment: [
-                { name: "JF-17 Thunder", count: 150, type: "Multirole Fighter", description: "Jointly developed with China, lightweight single-engine multi-role combat aircraft" },
-                { name: "F-16 Fighting Falcon", count: 85, type: "Multirole Fighter", description: "US-built 4th gen fighter, backbone of PAF air superiority" },
-                { name: "J-10CE", count: 36, type: "Multirole Fighter", description: "Chinese 4.5-gen single-engine fighter with AESA radar" },
-                { name: "Mirage III/V", count: 120, type: "Strike Fighter", description: "French-built delta wing fighter used for strike missions" }
+                { name: "JF-17 Thunder", count: 150, type: "Multirole Fighter", description: "Jointly developed with China, lightweight single-engine multi-role combat aircraft", image: "Pakistan_details/Pakistan_airforce_details/jf17_thunder.png" }, // src: https://en.wikipedia.org/wiki/CAC/PAC_JF-17_Thunder#/media/File:Pakistan_Air_Force_Chengdu_JF-17_Gu.jpg
+                { name: "F-16 Fighting Falcon", count: 85, type: "Multirole Fighter", description: "US-built 4th gen fighter, backbone of PAF air superiority", image: "Pakistan_details/Pakistan_airforce_details/f16_fighting_falcon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/38/Pakistan_Air_Force_General_Dynamics_F-16BM_Fighting_Falcon_%28altered%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "J-10CE", count: 36, type: "Multirole Fighter", description: "Chinese 4.5-gen single-engine fighter with AESA radar", image: "Pakistan_details/Pakistan_airforce_details/j10_ce.png" }, // src: https://en.wikipedia.org/wiki/Chengdu_J-10#/media/File:%D0%97%D0%B0%D1%87%D0%B5%D1%82%D0%BD%D1%8B%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B5%D1%82%D1%8B_%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%D0%B0_%C2%AB%D0%90%D0%B2%D0%B8%D0%B0%D0%B4%D0%B0%D1%80%D1%82%D1%81%C2%BB_(%D0%BF._%D0%A7%D0%B0%D0%BD%D1%87%D1%83%D0%BD%D1%8C,_%D0%9A%D0%9D%D0%A0)_(5).jpg
+                { name: "Mirage III/V", count: 120, type: "Strike Fighter", description: "French-built delta wing fighter used for strike missions", image: "Pakistan_details/Pakistan_airforce_details/mirage_iii_v.png" } // src: https://en.wikipedia.org/wiki/Dassault_Mirage_III#/media/File:PAF_Dassault_Mirage_reconnaissance_variant_with_F-16C_Block_52+.jpg
             ]
         }
     },
