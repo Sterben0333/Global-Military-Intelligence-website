@@ -1132,10 +1132,10 @@ const nationsData = {
             strength: "420,000 active",
             image: "Iran_details/iran_army_flag.jpg",
             equipment: [
-                { name: "Karrar MBT", count: 100, type: "Main Battle Tank", description: "Domestically produced tank based on T-72 with advanced electronics and ERA" },
-                { name: "T-72S", count: 480, type: "Main Battle Tank", description: "Russian-built main battle tank, backbone of Iranian armored forces" },
-                { name: "Zulfiqar MBT", count: 150, type: "Main Battle Tank", description: "Indigenous MBT with 125mm smoothbore gun" },
-                { name: "BMP-2", count: 400, type: "Infantry Fighting Vehicle", description: "Soviet-origin IFV with 30mm autocannon" }
+                { name: "Karrar MBT", count: 100, type: "Main Battle Tank", description: "Domestically produced tank based on T-72 with advanced electronics and ERA", image: "Iran_details/Iran_army_details/karrar_mbt.png" }, // src: https://en.wikipedia.org/wiki/Karrar_(tank)#/media/File:18-Karar_tank_-%D8%AA%D8%A7%D9%86%DA%A9_%DA%A9%D8%B1%D8%A7%D8%B1.jpg
+                { name: "T-72S", count: 480, type: "Main Battle Tank", description: "Russian-built main battle tank, backbone of Iranian armored forces", image: "Iran_details/Iran_army_details/t72_s.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/a3/Islamic_Republic_of_Iran_Army_Day%2C_2014_%28261%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Zulfiqar MBT", count: 150, type: "Main Battle Tank", description: "Indigenous MBT with 125mm smoothbore gun", image: "Iran_details/Iran_army_details/zulfiqar_mbt.png" }, // src: https://en.wikipedia.org/wiki/Zulfiqar_(tank)#/media/File:Sacred_Defence_Week_parade,_2012,_in_Tehran_(107).jpg
+                { name: "BMP-2", count: 400, type: "Infantry Fighting Vehicle", description: "Soviet-origin IFV with 30mm autocannon", image: "Iran_details/Iran_army_details/bmp_2.png" } // src: https://upload.wikimedia.org/wikipedia/commons/e/e2/Islamic_Republic_of_Iran_Army_Day%2C_2019_%28153%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -1146,10 +1146,10 @@ const nationsData = {
             strength: "28,000 active",
             image: "Iran_details/iran_navy_flag.jpg",
             equipment: [
-                { name: "Kilo-class Submarine", count: 3, type: "Attack Submarine", description: "Russian-built diesel-electric submarine with torpedo and mine capability" },
-                { name: "Ghadir-class Mini-Sub", count: 14, type: "Midget Submarine", description: "Domestically built coastal defense submarine" },
-                { name: "Moudge-class Frigate", count: 3, type: "Frigate", description: "Indigenous light frigate with anti-ship and SAM missiles" },
-                { name: "Shahid Mahdavi Destroyer", count: 1, type: "Destroyer", description: "New domestically built heavy warship" }
+                { name: "Kilo-class Submarine", count: 3, type: "Attack Submarine", description: "Russian-built diesel-electric submarine with torpedo and mine capability", image: "Iran_details/Iran_navy_details/kilo_class_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/30/Iranian_Kilo-class_submarine_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Ghadir-class Mini-Sub", count: 14, type: "Midget Submarine", description: "Domestically built coastal defense submarine", image: "Iran_details/Iran_navy_details/ghadir_class_mini_sub.png" }, // src: https://en.wikipedia.org/wiki/Ghadir-class_submarine#/media/File:Velayat_94_Military_exercise_27_by_Mbazri.jpg
+                { name: "Moudge-class Frigate", count: 3, type: "Frigate", description: "Indigenous light frigate with anti-ship and SAM missiles", image: "Iran_details/Iran_navy_details/moudge_class_frigate.png" }, // src: https://en.wikipedia.org/wiki/Moudge-class_frigate#/media/File:%D9%86%D8%A7%D9%88%D8%B4%DA%A9%D9%86_%D8%AF%DB%8C%D9%84%D9%85%D8%A7%D9%86.jpg/2
+                { name: "Shahid Mahdavi Destroyer", count: 1, type: "Destroyer", description: "New domestically built heavy warship", image: "Iran_details/Iran_navy_details/shahid_mahdavi_destroyer.png" } // src: https://en.wikipedia.org/wiki/IRIS_Shahid_Mahdavi#/media/File:Commissioning_ceremony_of_IRGC_naval_vessels_in_March_2023_(06).jpg
             ]
         },
         airforce: {
@@ -1160,10 +1160,10 @@ const nationsData = {
             strength: "52,000 active",
             image: "Iran_details/iran_airforce_flag.jpg",
             equipment: [
-                { name: "F-14 Tomcat", count: 40, type: "Interceptor", description: "US-built twin-engine interceptor with AWG-9 radar, modernized with domestic avionics" },
-                { name: "Kowsar Fighter", count: 15, type: "Multirole Fighter", description: "Domestically produced 4th-gen fighter based on F/A-18 design" },
-                { name: "MiG-29", count: 36, type: "Air Superiority Fighter", description: "Russian-built twin-engine air superiority fighter" },
-                { name: "Shahed-136 Drone", count: 1000, type: "Loitering Munition", description: "Cheap kamikaze drone used extensively in regional conflicts" }
+                { name: "F-14 Tomcat", count: 40, type: "Interceptor", description: "US-built twin-engine interceptor with AWG-9 radar, modernized with domestic avionics", image: "Iran_details/Iran_airforce_details/f14_tomcat.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/f/fa/Iranian_AF_F-14_Tomcat_landing_at_Mehrabad.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Kowsar Fighter", count: 15, type: "Multirole Fighter", description: "Domestically produced 4th-gen fighter based on F/A-18 design", image: "Iran_details/Iran_airforce_details/kowsar_fighter.png" }, // src: https://en.wikipedia.org/wiki/HESA_Kowsar#/media/File:HESA_Kowsar4.jpg
+                { name: "MiG-29", count: 36, type: "Air Superiority Fighter", description: "Russian-built twin-engine air superiority fighter", image: "Iran_details/Iran_airforce_details/mig_29.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/f/f6/Iranian_air_force_preparing_for_annual_parade_in_2019_%2819%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Shahed-136 Drone", count: 1000, type: "Loitering Munition", description: "Cheap kamikaze drone used extensively in regional conflicts", image: "Iran_details/Iran_airforce_details/shahed_136_drone.png" } // src: https://en.wikipedia.org/wiki/HESA_Shahed_136#/media/File:2023_IRGC_Aerospace_Force_achievements_Exhibition_in_Kermanshah_(018).jpg
             ]
         }
     },
