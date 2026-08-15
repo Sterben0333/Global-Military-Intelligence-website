@@ -1185,10 +1185,10 @@ const nationsData = {
             strength: "160,000 active",
             image: "SaudiArabia_details/saudiarabia_army_flag.jpg",
             equipment: [
-                { name: "M1A2S Abrams", count: 373, type: "Main Battle Tank", description: "Saudi variant of the M1A2 with improved armor package" },
-                { name: "AMX-30", count: 300, type: "Main Battle Tank", description: "French-built MBT being phased out" },
-                { name: "LAV-25", count: 1117, type: "Armored Fighting Vehicle", description: "Eight-wheeled light armored vehicle for reconnaissance" },
-                { name: "M2 Bradley", count: 400, type: "Infantry Fighting Vehicle", description: "US-built IFV for mechanized infantry" }
+                { name: "M1A2S Abrams", count: 373, type: "Main Battle Tank", description: "Saudi variant of the M1A2 with improved armor package", image: "SaudiArabia_details/SaudiArabia_army_details/m1a2s_abrams.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/0b/M1A2_Abrams_crews_train_on_the_move_in_Kuwait_DVIDS661052.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AMX-30", count: 300, type: "Main Battle Tank", description: "French-built MBT being phased out", image: "SaudiArabia_details/SaudiArabia_army_details/amx_30.png" }, // src: https://commons.wikimedia.org/wiki/File:French_AMX-30_Desert_Storm.jpg
+                { name: "LAV-25", count: 1117, type: "Armored Fighting Vehicle", description: "Eight-wheeled light armored vehicle for reconnaissance", image: "SaudiArabia_details/SaudiArabia_army_details/lav_25.png" }, // src: https://en.wikipedia.org/wiki/LAV-25#/media/File:LAV-25A2.jpg
+                { name: "M2 Bradley", count: 400, type: "Infantry Fighting Vehicle", description: "US-built IFV for mechanized infantry", image: "SaudiArabia_details/SaudiArabia_army_details/m2_bradley.png" } // src: https://en.wikipedia.org/wiki/M2_Bradley#/media/File:US_M2A1_Bradley_deployed_to_Saudi_Arabia_during_Operation_Desert_Shield.jpg
             ]
         },
         navy: {
@@ -1199,10 +1199,10 @@ const nationsData = {
             strength: "15,000 active",
             image: "SaudiArabia_details/saudiarabia_navy_flag.jpg",
             equipment: [
-                { name: "Al-Riyadh Frigate", count: 3, type: "Guided Missile Frigate", description: "French La Fayette-class with Aster 15 SAM and Exocet missiles" },
-                { name: "Al-Madinah Frigate", count: 4, type: "Frigate", description: "French F-2000 type with Otomat anti-ship missiles" },
-                { name: "Al-Siddiq Corvette", count: 9, type: "Missile Corvette", description: "US-built patrol corvettes with Harpoon anti-ship missiles" },
-                { name: "Avante 2200 Corvette", count: 5, type: "Corvette", description: "Spanish-built modern multi-mission corvettes (on order)" }
+                { name: "Al-Riyadh Frigate", count: 3, type: "Guided Missile Frigate", description: "French La Fayette-class with Aster 15 SAM and Exocet missiles", image: "SaudiArabia_details/SaudiArabia_navy_details/al_riyadh_frigate.png" }, // src: https://en.wikipedia.org/wiki/La_Fayette-class_frigate#/media/File:FS_Surcouf.jpg
+                { name: "Al-Madinah Frigate", count: 4, type: "Frigate", description: "French F-2000 type with Otomat anti-ship missiles", image: "SaudiArabia_details/SaudiArabia_navy_details/al_madinah_frigate.png" }, // src: https://en.wikipedia.org/wiki/Al_Madinah-class_frigate#/media/File:Royal_Saudi_Navy_Al_Madinah-class_Frigate_2(1).jpg
+                { name: "Al-Siddiq Fast attack craft", count: 9, type: "Missile Corvette", description: "US-built patrol corvettes with Harpoon anti-ship missiles", image: "SaudiArabia_details/SaudiArabia_navy_details/al_siddiq_fast_attack_craft.png" }, // src: https://en.wikipedia.org/wiki/Al-Siddiq-class_corvette
+                { name: "Avante 2200 Corvette", count: 5, type: "Corvette", description: "Spanish-built modern multi-mission corvettes (on order)", image: "SaudiArabia_details/SaudiArabia_navy_details/avante_2200_corvette.png" } // src: https://en.wikipedia.org/wiki/Avante_2200#/media/File:PC-21_Guaiqueri_14_de_Mayo_2011_Foto_Capit%C3%A1n_Ted.jpg
             ]
         },
         airforce: {
@@ -1213,10 +1213,10 @@ const nationsData = {
             strength: "45,000 active",
             image: "SaudiArabia_details/saudiarabia_airforce_flag.jpg",
             equipment: [
-                { name: "F-15SA Strike Eagle", count: 84, type: "Air Superiority Fighter", description: "Advanced variant of F-15 with fly-by-wire flight controls and AESA radar" },
-                { name: "F-15S Eagle", count: 70, type: "Strike Fighter", description: "Saudi variant of the F-15E for air-to-ground missions" },
-                { name: "Eurofighter Typhoon", count: 72, type: "Multirole Fighter", description: "European twin-engine 4.5-gen multi-role fighter" },
-                { name: "Tornado IDS", count: 80, type: "Strike Aircraft", description: "European variable-sweep wing strike aircraft" }
+                { name: "F-15SA Strike Eagle", count: 84, type: "Air Superiority Fighter", description: "Advanced variant of F-15 with fly-by-wire flight controls and AESA radar", image: "SaudiArabia_details/SaudiArabia_airforce_details/f15sa_strike_eagle.png" }, // src: https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle#/media/File:McDonnell_Douglas_F-15E_First_production_F-15E_(SN_86-0183)_in_flight_060905-F-1234S-026.jpg
+                { name: "F-15S Eagle", count: 70, type: "Strike Fighter", description: "Saudi variant of the F-15E for air-to-ground missions", image: "SaudiArabia_details/SaudiArabia_airforce_details/f15s_eagle.png" }, // src: https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle#/media/File:McDonnell_Douglas_F-15E_First_production_F-15E_(SN_86-0183)_in_flight_060905-F-1234S-026.jpg
+                { name: "Eurofighter Typhoon", count: 72, type: "Multirole Fighter", description: "European twin-engine 4.5-gen multi-role fighter", image: "SaudiArabia_details/SaudiArabia_airforce_details/eurofighter_typhoon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/2/2a/Saudi_eurofighter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Tornado IDS", count: 80, type: "Strike Aircraft", description: "European variable-sweep wing strike aircraft", image: "SaudiArabia_details/SaudiArabia_airforce_details/tornado_ids.png" } // src: https://upload.wikimedia.org/wikipedia/commons/2/26/Panavia_Tornado_IDS_-_Royal_Saudi_Air_Force_-_8306_%2849596125828%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
