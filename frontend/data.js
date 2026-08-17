@@ -1238,10 +1238,10 @@ const nationsData = {
             strength: "223,000 active",
             image: "Brazil_details/brazil_army_flag.png",
             equipment: [
-                { name: "Leopard 1A5 BR", count: 220, type: "Main Battle Tank", description: "Modernized German MBT with thermal imaging and fire control" },
-                { name: "M60A3 TTS", count: 91, type: "Main Battle Tank", description: "American MBT with thermal targeting system" },
-                { name: "VBTP-MR Guarani", count: 400, type: "Armored Personnel Carrier", description: "Modern 6x6 armored vehicle designed and built in Brazil" },
-                { name: "ASTROS II", count: 70, type: "MLRS", description: "Brazilian-made multi-caliber rocket launcher system" }
+                { name: "Leopard 1A5 BR", count: 220, type: "Main Battle Tank", description: "Modernized German MBT with thermal imaging and fire control", image: "Brazil_details/Brazil_army_details/leopard_1a5_br.png" }, // src: https://en.wikipedia.org/wiki/Leopard_1#/media/File:19_04_2022_-_Ministro_da_Defesa_prestigia_celebra%C3%A7%C3%A3o_dos_374_anos_do_Ex%C3%A9rcito_(52017823580).jpg
+                { name: "M60A3 TTS", count: 91, type: "Main Battle Tank", description: "American MBT with thermal targeting system", image: "Brazil_details/Brazil_army_details/m60a3_tts.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/9d/M60A3TTSBRASIL.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "VBTP-MR Guarani", count: 400, type: "Armored Personnel Carrier", description: "Modern 6x6 armored vehicle designed and built in Brazil", image: "Brazil_details/Brazil_army_details/vbtp_mr_guarani.png" }, // src: https://en.wikipedia.org/wiki/VBTP-MR_Guarani#/media/File:19_04_2022-_Dia_do_Ex%C3%A9rcito_Brasileiro_(52016606453).jpg
+                { name: "ASTROS II", count: 70, type: "MLRS", description: "Brazilian-made multi-caliber rocket launcher system", image: "Brazil_details/Brazil_army_details/astros_ii.png" } // src: https://en.wikipedia.org/wiki/Astros_II#/media/File:Opera%C3%A7%C3%A3o_Formosa_2014_(15481886779).jpg
             ]
         },
         navy: {
@@ -1252,10 +1252,10 @@ const nationsData = {
             strength: "80,000 active",
             image: "Brazil_details/brazil_navy_flag.jpg",
             equipment: [
-                { name: "NAM Atlântico", count: 1, type: "Helicopter Carrier", description: "Multi-purpose amphibious assault ship (ex-HMS Ocean)" },
-                { name: "Scorpène-class Submarine", count: 4, type: "Attack Submarine", description: "French-designed diesel-electric submarine built in Brazil" },
-                { name: "Álvaro Alberto SSNB", count: 1, type: "Nuclear Submarine", description: "Under construction — Brazil's first nuclear-powered submarine" },
-                { name: "Tamandaré-class Corvette", count: 4, type: "Corvette", description: "German-designed modern multi-mission corvettes (under construction)" }
+                { name: "NAM Atlântico", count: 1, type: "Helicopter Carrier", description: "Multi-purpose amphibious assault ship (ex-HMS Ocean)", image: "Brazil_details/Brazil_navy_details/nam_atlantico.png" }, // src: https://en.wikipedia.org/wiki/Brazilian_helicopter_carrier_Atl%C3%A2ntico#/media/File:Opera%C3%A7%C3%A3o_%22Poseidon_2021%22_(51475998419).jpg
+                { name: "Scorpène-class Submarine", count: 4, type: "Attack Submarine", description: "French-designed diesel-electric submarine built in Brazil", image: "Brazil_details/Brazil_navy_details/scorpene_class_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/d/d4/Scorpene_Tunku_Abdul_Rahman.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Álvaro Alberto SSBN", count: 1, type: "Nuclear Submarine", description: "Under construction — Brazil's first nuclear-powered submarine", image: "Brazil_details/Brazil_navy_details/alvaro_alberto_ssbn.png" }, // src: https://en.wikipedia.org/wiki/Alvaro_Alberto-class_submarine#/media/File:French_navy_Tonnere_L9014.jpg
+                { name: "Tamandaré-class Corvette", count: 4, type: "Corvette", description: "German-designed modern multi-mission corvettes (under construction)", image: "Brazil_details/Brazil_navy_details/tamandare_class_corvette.png" } // src: https://en.wikipedia.org/wiki/Tamandar%C3%A9-class_frigate#/media/File:Fragata_%E2%80%9CTamandar%C3%A9%E2%80%9D_chega_pela_primeira_vez_ao_Rio_de_Janeiro_(55336643549)_(cropped).jpg
             ]
         },
         airforce: {
@@ -1266,10 +1266,10 @@ const nationsData = {
             strength: "70,000 active",
             image: "Brazil_details/brazil_airforce_flag.jpg",
             equipment: [
-                { name: "Gripen E/F", count: 36, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with AESA radar and supercruise capability" },
-                { name: "AMX A-1", count: 43, type: "Ground Attack Aircraft", description: "Italian-Brazilian subsonic attack aircraft" },
-                { name: "A-29 Super Tucano", count: 99, type: "Light Attack/Trainer", description: "Brazilian-built turboprop counter-insurgency and training aircraft" },
-                { name: "KC-390 Millennium", count: 6, type: "Transport Aircraft", description: "Brazilian-designed twin-jet military transport — most advanced in its class" }
+                { name: "Gripen E/F", count: 36, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with AESA radar and supercruise capability", image: "Brazil_details/Brazil_airforce_details/gripen_e_f.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/4/4b/FAB_Gripen_F-39E_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AMX A-1", count: 43, type: "Ground Attack Aircraft", description: "Italian-Brazilian subsonic attack aircraft", image: "Brazil_details/Brazil_airforce_details/amx_a_1.png" }, // src: https://en.wikipedia.org/wiki/AMX_International_AMX#/media/File:FAB_AMX_International_A-1A_-_Lofting.jpg
+                { name: "A-29 Super Tucano", count: 99, type: "Light Attack/Trainer", description: "Brazilian-built turboprop counter-insurgency and training aircraft", image: "Brazil_details/Brazil_airforce_details/a29_super_tucano.png" }, // src: https://en.wikipedia.org/wiki/Embraer_EMB_314_Super_Tucano#/media/File:Embraer_EMB-314_Super_Tucano_Brazilian_Air_Force_1.jpg
+                { name: "KC-390 Millennium", count: 6, type: "Transport Aircraft", description: "Brazilian-designed twin-jet military transport — most advanced in its class", image: "Brazil_details/Brazil_airforce_details/kc_390_millennium.png" } // src: https://en.wikipedia.org/wiki/Embraer_C-390_Millennium#/media/File:Apresenta%C3%A7%C3%A3o_KC-390_(15576572716).jpg
             ]
         }
     },
