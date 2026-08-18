@@ -1291,10 +1291,10 @@ const nationsData = {
             strength: "300,000 active",
             image: "Indonesia_details/indonesia_army_flag.png",
             equipment: [
-                { name: "Leopard 2A4", count: 61, type: "Main Battle Tank", description: "German-built 3rd gen MBT for heavy armored operations" },
-                { name: "Leopard 2 Revolution", count: 42, type: "Main Battle Tank", description: "Upgraded Leopard 2 with enhanced urban warfare protection" },
-                { name: "Marder 1A3 IFV", count: 50, type: "Infantry Fighting Vehicle", description: "German IFV with 20mm autocannon" },
-                { name: "Anoa 6x6 APC", count: 150, type: "Armored Personnel Carrier", description: "Domestically built Indonesian armored vehicle" }
+                { name: "Leopard 2A4", count: 61, type: "Main Battle Tank", description: "German-built 3rd gen MBT for heavy armored operations", image: "Indonesia_details/Indonesia_army_details/leopard_2a4.png" }, // src: https://en.wikipedia.org/wiki/Leopard_2#/media/File:Leopard_2A4_Austria_6.JPG
+                { name: "Leopard 2 Revolution", count: 42, type: "Main Battle Tank", description: "Upgraded Leopard 2 with enhanced urban warfare protection", image: "Indonesia_details/Indonesia_army_details/leopard_2_revolution.png" }, // src: AI - Generated image
+                { name: "Marder 1A3 IFV", count: 50, type: "Infantry Fighting Vehicle", description: "German IFV with 20mm autocannon", image: "Indonesia_details/Indonesia_army_details/marder_1a3_ifv.png" }, // src: https://en.wikipedia.org/wiki/Marder_(infantry_fighting_vehicle)#/media/File:Marder1A3.6.jpg
+                { name: "Anoa 6x6 APC", count: 150, type: "Armored Personnel Carrier", description: "Domestically built Indonesian armored vehicle", image: "Indonesia_details/Indonesia_army_details/anoa_6x6_apc.png" } // src: https://en.wikipedia.org/wiki/Anoa_(armoured_personnel_carrier)#/media/File:Demo_kendaraan_tempur_Anoa_3_pada_27_Januari_2023.jpg
             ]
         },
         navy: {
@@ -1305,10 +1305,10 @@ const nationsData = {
             strength: "65,000 active",
             image: "Indonesia_details/indonesia_navy_flag.png",
             equipment: [
-                { name: "Type 209/1400 Submarine", count: 2, type: "Attack Submarine", description: "German-built diesel-electric submarine for patrol operations" },
-                { name: "Scorpène-class Submarine", count: 2, type: "Attack Submarine", description: "French-designed submarine (on order)" },
-                { name: "SIGMA-class Frigate", count: 2, type: "Guided Missile Frigate", description: "Dutch-built modern frigate with Exocet missiles" },
-                { name: "Ahmad Yani-class Frigate", count: 6, type: "Frigate", description: "Ex-Dutch Van Speijk-class refurbished frigates" }
+                { name: "Type 209/1400 Submarine", count: 2, type: "Attack Submarine", description: "German-built diesel-electric submarine for patrol operations", image: "Indonesia_details/Indonesia_navy_details/type_209_1400_submarine.png" }, // src: https://en.wikipedia.org/wiki/Nagapasa-class_submarine#/media/File:Submarine_KRI_Nagapasa,_Indonesian_Navy.jpg
+                { name: "Scorpène-class Submarine", count: 2, type: "Attack Submarine", description: "French-designed submarine (on order)", image: "Indonesia_details/Indonesia_navy_details/scorpene_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Scorp%C3%A8ne-class_submarine#/media/File:INS_Kalvari_(S21)_at_sea.jpg
+                { name: "SIGMA-class Frigate", count: 2, type: "Guided Missile Frigate", description: "Dutch-built modern frigate with Exocet missiles", image: "Indonesia_details/Indonesia_navy_details/sigma_class_frigate.png" }, // src: https://en.wikipedia.org/wiki/Sigma-class_design#/media/File:Kri-diponegoro-1600-1200.jpg
+                { name: "Ahmad Yani-class Frigate", count: 6, type: "Frigate", description: "Ex-Dutch Van Speijk-class refurbished frigates", image: "Indonesia_details/Indonesia_navy_details/ahmad_yani_class_frigate.png" } // src: https://en.wikipedia.org/wiki/Ahmad_Yani-class_frigate#/media/File:Presidential_Inspection_empat_Fregat_kelas_Ahmad_Yani,_2025.jpg
             ]
         },
         airforce: {
@@ -1319,10 +1319,10 @@ const nationsData = {
             strength: "35,000 active",
             image: "Indonesia_details/indonesia_airforce_flag.png",
             equipment: [
-                { name: "Su-27/30 Flanker", count: 16, type: "Air Superiority Fighter", description: "Russian heavy twin-engine fighter with long range and BVR capability" },
-                { name: "F-16 C/D Block 52", count: 33, type: "Multirole Fighter", description: "Upgraded US-built 4th gen multirole fighter" },
-                { name: "KF-21 Boramae", count: 0, type: "4.5 Gen Fighter (on order)", description: "Indonesian-Korean jointly developed next-gen fighter — 50 on order" },
-                { name: "T-50i Golden Eagle", count: 16, type: "Lead-In Fighter Trainer", description: "Korean-built advanced jet trainer and light combat aircraft" }
+                { name: "Su-27/30 Flanker", count: 16, type: "Air Superiority Fighter", description: "Russian heavy twin-engine fighter with long range and BVR capability", image: "Indonesia_details/Indonesia_airforce_details/su_27_30_flanker.png" }, // src: upload.wikimedia.org/wikipedia/commons/3/37/Indonesian_Air_Force_Sukhoi_Su-27SKM_Flanker%3B_Halim_Perdanakusuma_%2833142277763%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-16 C/D Block 52", count: 33, type: "Multirole Fighter", description: "Upgraded US-built 4th gen multirole fighter", image: "Indonesia_details/Indonesia_airforce_details/f16_c_d_block_52.png" }, // src:https://upload.wikimedia.org/wikipedia/commons/5/55/Indonesian_Air_Force_General_Dynamic_F-16C.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "KF-21 Boramae", count: 0, type: "4.5 Gen Fighter (on order)", description: "Indonesian-Korean jointly developed next-gen fighter — 50 on order", image: "Indonesia_details/Indonesia_airforce_details/kf_21_boramae.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/a2/KF21ADEX-20.10.2023_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "T-50i Golden Eagle", count: 16, type: "Lead-In Fighter Trainer", description: "Korean-built advanced jet trainer and light combat aircraft", image: "Indonesia_details/Indonesia_airforce_details/t50_i_golden_eagle.png" } // src: https://upload.wikimedia.org/wikipedia/commons/4/45/KAI_T-50i_in_Indonesia_%28modified%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
