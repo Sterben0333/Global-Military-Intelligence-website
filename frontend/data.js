@@ -1344,10 +1344,10 @@ const nationsData = {
             strength: "42,000 active",
             image: "Canada_details/canada_army_flag.jpg",
             equipment: [
-                { name: "Leopard 2A6M CAN", count: 82, type: "Main Battle Tank", description: "German MBT modified for Canadian service with mine protection" },
-                { name: "LAV 6.0", count: 550, type: "Armored Fighting Vehicle", description: "8x8 combat vehicle — backbone of Canadian mechanized forces" },
-                { name: "M777 Howitzer", count: 37, type: "Towed Howitzer", description: "Ultra-lightweight 155mm field artillery" },
-                { name: "TAPVs", count: 500, type: "Tactical Patrol Vehicle", description: "Protected mobility vehicles for light forces" }
+                { name: "Leopard 2A6M CAN", count: 82, type: "Main Battle Tank", description: "German MBT modified for Canadian service with mine protection", image: "Canada_details/Canada_army_details/leopard_2a6m_can.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/5/58/Leopard_2A6_tank_-_IL%C3%9C_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "LAV 6.0", count: 550, type: "Armored Fighting Vehicle", description: "8x8 combat vehicle — backbone of Canadian mechanized forces", image: "Canada_details/Canada_army_details/lav_6.0.png" }, // src: https://en.wikipedia.org/wiki/LAV_6#/media/File:Saint-Andr%C3%A9-Avelin_27_avril_2019_VBL.jpg
+                { name: "M777 Howitzer", count: 37, type: "Towed Howitzer", description: "Ultra-lightweight 155mm field artillery", image: "Canada_details/Canada_army_details/m777_howitzer.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/ef/Triple_7_joint_live-fire_exercise_150326-A-AP268-581.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "TAPVs", count: 500, type: "Tactical Patrol Vehicle", description: "Protected mobility vehicles for light forces", image: "Canada_details/Canada_army_details/tapvs.png" } // src: https://en.wikipedia.org/wiki/Textron_tactical_armoured_patrol_vehicle#/media/File:Textron_TAPV_Ottawa_City_Hall_Left_View.jpg
             ]
         },
         navy: {
@@ -1358,10 +1358,10 @@ const nationsData = {
             strength: "12,000 active",
             image: "Canada_details/canada_navy_flag.jpg",
             equipment: [
-                { name: "Halifax-class Frigate", count: 12, type: "Multi-Role Frigate", description: "Modernized Canadian patrol frigate with Sea Sparrow and Harpoon missiles" },
-                { name: "Victoria-class Submarine", count: 4, type: "Patrol Submarine", description: "Ex-British Upholder-class diesel-electric submarine" },
-                { name: "Harry DeWolf-class AOPV", count: 6, type: "Arctic Patrol Vessel", description: "Ice-capable offshore patrol vessel for Arctic sovereignty" },
-                { name: "CSC Frigate", count: 15, type: "Surface Combatant (planned)", description: "Future Canadian Surface Combatant — 15 ships planned to replace Halifax-class" }
+                { name: "Halifax-class Frigate", count: 12, type: "Multi-Role Frigate", description: "Modernized Canadian patrol frigate with Sea Sparrow and Harpoon missiles", image: "Canada_details/Canada_navy_details/halifax_class_frigate.png" }, // src: https://en.wikipedia.org/wiki/Halifax-class_frigate#/media/File:HMCS_Regina_in_2025.jpg
+                { name: "Victoria-class Submarine", count: 4, type: "Patrol Submarine", description: "Ex-British Upholder-class diesel-electric submarine", image: "Canada_details/Canada_navy_details/victoria_class_submarine.png" }, // src: https://en.wikipedia.org/wiki/Upholder/Victoria-class_submarine#/media/File:HMCS_Corner_Brook_in_2025.jpg
+                { name: "Harry DeWolf-class AOPV", count: 6, type: "Arctic Patrol Vessel", description: "Ice-capable offshore patrol vessel for Arctic sovereignty", image: "Canada_details/Canada_navy_details/harry_dewolf_class_aopv.png" }, // src: https://en.wikipedia.org/wiki/Harry_DeWolf-class_offshore_patrol_vessel#/media/File:HMCS_Harry_DeWolf_under_way_Sep_2021_(cropped).jpg
+                { name: "CSC Frigate", count: 15, type: "Surface Combatant (planned)", description: "Future Canadian Surface Combatant — 15 ships planned to replace Halifax-class", image: "Canada_details/Canada_navy_details/csc_frigate.png" } // src: https://en.wikipedia.org/wiki/River-class_destroyer_(2030s)#/media/File:HMS_Glasgow_(52567292390).jpg
             ]
         },
         airforce: {
@@ -1372,10 +1372,10 @@ const nationsData = {
             strength: "14,500 active",
             image: "Canada_details/canada_airforce_flag.jpg",
             equipment: [
-                { name: "CF-18 Hornet", count: 76, type: "Multirole Fighter", description: "Modernized F/A-18A/B for air defense and strike missions" },
-                { name: "F-35A Lightning II", count: 88, type: "5th Gen Stealth Fighter (on order)", description: "88 F-35A ordered to replace CF-18 fleet" },
-                { name: "CC-177 Globemaster III", count: 5, type: "Strategic Transport", description: "Heavy strategic airlift aircraft" },
-                { name: "CP-140 Aurora", count: 14, type: "Maritime Patrol", description: "Long-range maritime surveillance and ASW aircraft" }
+                { name: "CF-18 Hornet", count: 76, type: "Multirole Fighter", description: "Modernized F/A-18A/B for air defense and strike missions", image: "Canada_details/Canada_airforce_details/cf18_hornet.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/4/4f/CF-18_Hornet_%283870335613%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-35A Lightning II", count: 88, type: "5th Gen Stealth Fighter (on order)", description: "88 F-35A ordered to replace CF-18 fleet", image: "Canada_details/Canada_airforce_details/f35a_lightning_ii.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II#/media/File:F-35A_flight_(cropped).jpg
+                { name: "CC-177 Globemaster III", count: 5, type: "Strategic Transport", description: "Heavy strategic airlift aircraft", image: "Canada_details/Canada_airforce_details/cc177_globemaster_iii.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/a8/Boeing_CC-177_Globemaster_III%2C_Canada_-_Air_Force_JP7107563.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "CP-140 Aurora", count: 14, type: "Maritime Patrol", description: "Long-range maritime surveillance and ASW aircraft", image: "Canada_details/Canada_airforce_details/cp140_aurora.png" } // src: https://en.wikipedia.org/wiki/Lockheed_CP-140_Aurora#/media/File:CP-140A_Arcturus.jpg
             ]
         }
     },
