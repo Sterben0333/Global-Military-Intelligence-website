@@ -1397,10 +1397,10 @@ const nationsData = {
             strength: "130,000 active",
             image: "ROC_details/roc_army_flag.jpg",
             equipment: [
-                { name: "M1A2T Abrams", count: 108, type: "Main Battle Tank", description: "US-built MBT purchased for Taiwan with advanced armor and electronics" },
-                { name: "CM-11 Brave Tiger", count: 450, type: "Main Battle Tank", description: "Domestically assembled MBT based on M48/M60 design" },
-                { name: "CM-32 Clouded Leopard", count: 600, type: "Infantry Fighting Vehicle", description: "Indigenous 8x8 armored vehicle family" },
-                { name: "Thunderbolt-2000 MLRS", count: 57, type: "MLRS", description: "Domestically developed multiple launch rocket system" }
+                { name: "M1A2T Abrams", count: 108, type: "Main Battle Tank", description: "US-built MBT purchased for Taiwan with advanced armor and electronics", image: "ROC_details/ROC_army_details/m1a2t_abrams.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/61/07.10_%E7%B8%BD%E7%B5%B1%E8%A6%96%E5%B0%8E%E3%80%8CM1A2T%E6%96%B0%E5%BC%8F%E6%88%B0%E8%BB%8A%E6%8F%9B%E8%A3%9D%E8%A8%93%E7%B7%B4%E3%80%8D-54645274900.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "CM-11 Brave Tiger", count: 450, type: "Main Battle Tank", description: "Domestically assembled MBT based on M48/M60 design", image: "ROC_details/ROC_army_details/cm_11_brave_tiger.png" }, // src: https://en.wikipedia.org/wiki/CM11_Brave_Tiger#/media/File:ROCA_CM-11_in_Hukou_Camp_after_Exercise_20111105a.jpg
+                { name: "CM-32 Clouded Leopard", count: 600, type: "Infantry Fighting Vehicle", description: "Indigenous 8x8 armored vehicle family", image: "ROC_details/ROC_army_details/cm_32_clouded_leopard.png" }, // src: https://en.wikipedia.org/wiki/Clouded_Leopard_Armored_Vehicle#/media/File:CM-32_Yunpao_APC_Display_at_Hsinchu_AFB_20151121a.jpg
+                { name: "Thunderbolt-2000 MLRS", count: 57, type: "MLRS", description: "Domestically developed multiple launch rocket system", image: "ROC_details/ROC_army_details/thunderbolt_2000_mlrs.png" } // src: https://en.wikipedia.org/wiki/Thunderbolt-2000#/media/File:Thunderbolt_2000_MLRS_in_Hukou_Camp_Open_day_20111105.jpg
             ]
         },
         navy: {
@@ -1411,10 +1411,10 @@ const nationsData = {
             strength: "40,000 active",
             image: "ROC_details/roc_navy_flag.jpg",
             equipment: [
-                { name: "Hai Kun-class Submarine", count: 1, type: "Indigenous Submarine", description: "Taiwan's first domestically built submarine (commissioned 2025)" },
-                { name: "Kee Lung-class Destroyer", count: 4, type: "Guided Missile Destroyer", description: "Ex-US Kidd-class with SM-2 SAMs and Harpoon missiles" },
-                { name: "Cheng Kung-class Frigate", count: 8, type: "Guided Missile Frigate", description: "Taiwan-built Perry-class with SM-1 and Hsiung Feng missiles" },
-                { name: "Tuo Chiang-class Corvette", count: 6, type: "Stealth Corvette", description: "Fast catamaran stealth corvette with anti-ship missiles" }
+                { name: "Hai Kun-class Submarine", count: 1, type: "Indigenous Submarine", description: "Taiwan's first domestically built submarine (commissioned 2025)", image: "ROC_details/ROC_navy_details/hai_kun_class_submarine.png" }, // src: AI - Generated image
+                { name: "Kee Lung-class Destroyer", count: 4, type: "Guided Missile Destroyer", description: "Ex-US Kidd-class with SM-2 SAMs and Harpoon missiles", image: "ROC_details/ROC_navy_details/kee_lung_class_destroyer.png" }, // src: https://en.wikipedia.org/wiki/ROCS_Kee_Lung#/media/File:ROCS_Kee_Lung_(DDG-1801).jpg
+                { name: "Cheng Kung-class Frigate", count: 8, type: "Guided Missile Frigate", description: "Taiwan-built Perry-class with SM-1 and Hsiung Feng missiles", image: "ROC_details/ROC_navy_details/cheng_kung_class_frigate.png" }, // src: https://en.wikipedia.org/wiki/Cheng_Kung-class_frigate#/media/File:Tzu_I_Shipped_in_No.12_Pier_of_Zhongzheng_Naval_Base_20130504a.jpg
+                { name: "Tuo Chiang-class Corvette", count: 6, type: "Stealth Corvette", description: "Fast catamaran stealth corvette with anti-ship missiles", image: "ROC_details/ROC_navy_details/tuo_chiang_class_corvette.png" } // src: https://en.wikipedia.org/wiki/Tuo_Chiang-class_corvette#/media/File:03.26_%E7%B8%BD%E7%B5%B1%E4%B8%BB%E6%8C%81%E3%80%8C%E6%B5%B7%E8%BB%8D%E9%AB%98%E6%95%88%E8%83%BD%E8%89%A6%E8%89%87%E5%AE%89%E6%B1%9F%E5%8F%8A%E8%90%AC%E6%B1%9F%E8%BB%8D%E8%89%A6%E4%BA%A4%E8%89%A6%E5%85%B8%E7%A6%AE%E3%80%8D_-_53611020077.jpg
             ]
         },
         airforce: {
@@ -1425,10 +1425,10 @@ const nationsData = {
             strength: "35,000 active",
             image: "ROC_details/roc_airforce_flag.jpg",
             equipment: [
-                { name: "F-16V Viper", count: 141, type: "Multirole Fighter", description: "Upgraded Block 70/72 F-16 with AESA radar — most advanced F-16 variant" },
-                { name: "Mirage 2000-5", count: 47, type: "Multirole Fighter", description: "French-built delta-wing fighter with MICA missiles" },
-                { name: "AIDC F-CK-1 Ching-kuo", count: 127, type: "Light Fighter", description: "Indigenous defense fighter for air defense and ground attack" },
-                { name: "E-2K Hawkeye", count: 6, type: "AEW&C", description: "US-built airborne early warning aircraft for air battle management" }
+                { name: "F-16V Viper", count: 141, type: "Multirole Fighter", description: "Upgraded Block 70/72 F-16 with AESA radar — most advanced F-16 variant", image: "ROC_details/ROC_airforce_details/f16_v_viper.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/3/3a/Taiwan_F-16_Debate_-_Flickr_-_Al_Jazeera_English_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Mirage 2000-5", count: 47, type: "Multirole Fighter", description: "French-built delta-wing fighter with MICA missiles", image: "ROC_details/ROC_airforce_details/mirage_2000_5.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/98/Dassault_Mirage_2000-5DI_%E2%80%982061_DI11%E2%80%99_%2855238039702%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AIDC F-CK-1 Ching-kuo", count: 127, type: "Light Fighter", description: "Indigenous defense fighter for air defense and ground attack", image: "ROC_details/ROC_airforce_details/aidc_f_ck_1_ching_kuo.png" }, // src: https://en.wikipedia.org/wiki/AIDC_F-CK-1_Ching-kuo#/media/File:IDF-Wan_Chien.jpg
+                { name: "E-2K Hawkeye", count: 6, type: "AEW&C", description: "US-built airborne early warning aircraft for air battle management", image: "ROC_details/ROC_airforce_details/e2_k_hawkeye.png" } // src: https://en.wikipedia.org/wiki/Grumman_E-2_Hawkeye#/media/File:E-2K_in_Songshan_Air_Force_Base_20110813.jpg
             ]
         }
     },
