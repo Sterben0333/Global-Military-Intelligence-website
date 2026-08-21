@@ -1450,10 +1450,10 @@ const nationsData = {
             strength: "99,000 active",
             image: "Greece_details/greece_army_flag.png",
             equipment: [
-                { name: "Leopard 2A6 HEL", count: 170, type: "Main Battle Tank", description: "German-built heavy MBT with L/55 120mm gun" },
-                { name: "Leopard 2A4", count: 183, type: "Main Battle Tank", description: "German MBT forming backbone of armored forces" },
-                { name: "Leopard 1A5", count: 501, type: "Main Battle Tank", description: "Older German MBT still in service" },
-                { name: "M270 MLRS", count: 36, type: "MLRS", description: "US-built multiple launch rocket system with ATACMS capability" }
+                { name: "Leopard 2A6 HEL", count: 170, type: "Main Battle Tank", description: "German-built heavy MBT with L/55 120mm gun", image: "Greece_details/Greece_army_details/leopard_2a6_hel.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/1/1c/Leopard_2A6_HEL_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Leopard 2A4", count: 183, type: "Main Battle Tank", description: "German MBT forming backbone of armored forces", image: "Greece_details/Greece_army_details/leopard_2a4.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/0e/West_German_Leopard_2A4_in_camouflage.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Leopard 1A5", count: 501, type: "Main Battle Tank", description: "Older German MBT still in service", image: "Greece_details/Greece_army_details/leopard_1a5.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/5/50/Leopard_1A4_battle_tank_in_Athens_on_March_25%2C_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "M270 MLRS", count: 36, type: "MLRS", description: "US-built multiple launch rocket system with ATACMS capability", image: "Greece_details/Greece_army_details/m270_mlrs.png" } // src: https://en.wikipedia.org/wiki/M270_Multiple_Launch_Rocket_System#/media/File:M270A1_Multiple_Launch_Rocket_System_South_Dakota_ANG.jpg
             ]
         },
         navy: {
@@ -1464,10 +1464,10 @@ const nationsData = {
             strength: "19,000 active",
             image: "Greece_details/greece_navy_flag.png",
             equipment: [
-                { name: "Type 214 Submarine", count: 4, type: "AIP Submarine", description: "German-built air-independent propulsion submarine with stealth features" },
-                { name: "Type 209 Submarine", count: 7, type: "Attack Submarine", description: "German-designed patrol submarine" },
-                { name: "Hydra-class Frigate", count: 4, type: "Guided Missile Frigate", description: "MEKO 200 design with Harpoon and Sea Sparrow" },
-                { name: "FDI HN Frigate", count: 3, type: "Modern Frigate (on order)", description: "French Belharra-class with Aster-30 SAM — cutting edge European design" }
+                { name: "Type 214 Submarine", count: 4, type: "AIP Submarine", description: "German-built air-independent propulsion submarine with stealth features", image: "Greece_details/Greece_navy_details/type_214_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_214_submarine#/media/File:S-120_Papanikolis_1.jpg
+                { name: "Type 209 Submarine", count: 7, type: "Attack Submarine", description: "German-designed patrol submarine", image: "Greece_details/Greece_navy_details/type_209_submarine.png" }, // src: https://en.wikipedia.org/wiki/Type_209_submarine#/media/File:S-118_Okeanos_1.jpg
+                { name: "Hydra-class Frigate", count: 4, type: "Guided Missile Frigate", description: "MEKO 200 design with Harpoon and Sea Sparrow", image: "Greece_details/Greece_navy_details/hydra_class_frigate.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/c9/HS_Hydra_F452_at_Salamis_Naval_Base%2C_Greece.jpg
+                { name: "FDI HN Frigate", count: 3, type: "Modern Frigate (on order)", description: "French Belharra-class with Aster-30 SAM — cutting edge European design", image: "Greece_details/Greece_navy_details/fdi_hn_frigate.png" } // src: hhttps://en.wikipedia.org/wiki/Amiral_Ronarc%27h-class_frigate#/media/File:RonarchSide.jpg
             ]
         },
         airforce: {
@@ -1478,10 +1478,10 @@ const nationsData = {
             strength: "26,600 active",
             image: "Greece_details/greece_airforce_flag.jpg",
             equipment: [
-                { name: "F-16 Block 52+/Viper", count: 154, type: "Multirole Fighter", description: "84 upgraded to Viper configuration with AESA radar" },
-                { name: "Rafale F3R", count: 24, type: "Multirole Fighter", description: "French 4.5-gen omnirole fighter with Meteor missiles" },
-                { name: "Mirage 2000-5", count: 25, type: "Air Defense Fighter", description: "French interceptor with MICA missiles" },
-                { name: "F-35A Lightning II", count: 40, type: "5th Gen Fighter (on order)", description: "40 F-35A approved for purchase — will transform Greek air power" }
+                { name: "F-16 Block 52+/Viper", count: 154, type: "Multirole Fighter", description: "84 upgraded to Viper configuration with AESA radar", image: "Greece_details/Greece_airforce_details/f16_block_52_viper.png" }, // src: https://en.wikipedia.org/wiki/General_Dynamics_F-16_Fighting_Falcon_variants#/media/File:Greek_F-16_Block52_Falcon_1.jpg
+                { name: "Rafale F3R", count: 24, type: "Multirole Fighter", description: "French 4.5-gen omnirole fighter with Meteor missiles", image: "Greece_details/Greece_airforce_details/rafale_f3r.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/9c/U_S_F-35s_join_NATO_Allies_in_Ramstein_Flag_for_cutting-edge_air_force_integration%2C_training_%288682223%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Mirage 2000-5", count: 25, type: "Air Defense Fighter", description: "French interceptor with MICA missiles", image: "Greece_details/Greece_airforce_details/mirage_2000_5.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/d/d1/Dassault_Mirage_2000-5_participating_in_Odyssey_Dawn_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-35A Lightning II", count: 40, type: "5th Gen Fighter (on order)", description: "40 F-35A approved for purchase — will transform Greek air power", image: "Greece_details/Greece_airforce_details/f35a_lightning_ii.png" } // src: https://upload.wikimedia.org/wikipedia/commons/a/ab/U_S_F-35s_launch_into_Ramstein_Flag_exercise_alongside_NATO_allies_%288673792%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
