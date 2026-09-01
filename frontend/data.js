@@ -1503,10 +1503,10 @@ const nationsData = {
             strength: "412,000 active",
             image: "Vietnam_details/vietnam_army_flag.jpg",
             equipment: [
-                { name: "T-90S/SK", count: 64, type: "Main Battle Tank", description: "Russian 3rd-gen MBT with modern fire control and Shtora APS" },
-                { name: "T-54/55/M3", count: 1400, type: "Main Battle Tank", description: "Modernized Cold War-era tanks with improved electronics" },
-                { name: "BMP-1/2", count: 600, type: "Infantry Fighting Vehicle", description: "Soviet-era armored vehicles upgraded for modern combat" },
-                { name: "BM-21 Grad", count: 350, type: "MLRS", description: "122mm multiple rocket launcher on truck chassis" }
+                { name: "T-90S/SK", count: 64, type: "Main Battle Tank", description: "Russian 3rd-gen MBT with modern fire control and Shtora APS", image: "Vietnam_details/vietnam_army_details/t90_s_sk.png" }, // src: https://en.wikipedia.org/wiki/T-90#/media/File:Indian_Army_T-90.jpg
+                { name: "T-54/55/M3", count: 1400, type: "Main Battle Tank", description: "Modernized Cold War-era tanks with improved electronics", image: "Vietnam_details/vietnam_army_details/t54_55_m3.png" }, // src: https://en.wikipedia.org/wiki/T-54/T-55#/media/File:T-55_4.jpg
+                { name: "BMP-1/2", count: 600, type: "Infantry Fighting Vehicle", description: "Soviet-era armored vehicles upgraded for modern combat", image: "Vietnam_details/vietnam_army_details/bmp_1_2.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/f/f5/%D0%91%D0%9C%D0%9F-1_%D1%81_%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%BB%D0%B8%D0%B3%D0%BE%D0%BD%D0%B0_%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%98%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%82%D0%B0_%D0%A1%D1%83%D1%85%D0%BE%D0%BF%D1%83%D1%82%D0%BD%D1%8B%D1%85_%D0%92%D0%BE%D0%B9%D1%81%D0%BA.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "BM-21 Grad", count: 350, type: "MLRS", description: "122mm multiple rocket launcher on truck chassis", image: "Vietnam_details/vietnam_army_details/bm_21_grad.png" } // src: https://en.wikipedia.org/wiki/BM-21_Grad#/media/File:Russian_BM-21_Grad_in_Saint_Petersburg.JPG
             ]
         },
         navy: {
@@ -1517,10 +1517,10 @@ const nationsData = {
             strength: "40,000 active",
             image: "Vietnam_details/vietnam_navy_flag.jpg",
             equipment: [
-                { name: "Kilo-class Submarine", count: 6, type: "Attack Submarine", description: "Russian 'Black Hole' diesel-electric sub with Kalibr cruise missile capability" },
-                { name: "Gepard-class Frigate", count: 4, type: "Guided Missile Frigate", description: "Russian-built light frigate with Kh-35 anti-ship missiles" },
-                { name: "Molniya-class Corvette", count: 10, type: "Missile Corvette", description: "Russian fast attack craft with Kh-35 anti-ship missiles" },
-                { name: "BPS-500 Corvette", count: 2, type: "Corvette", description: "Domestically built patrol corvette" }
+                { name: "Kilo-class Submarine", count: 6, type: "Attack Submarine", description: "Russian 'Black Hole' diesel-electric sub with Kalibr cruise missile capability", image: "Vietnam_details/vietnam_navy_details/kilo_class_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/64/Kilo_Vietnam_Submarine.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Gepard-class Frigate", count: 4, type: "Guided Missile Frigate", description: "Russian-built light frigate with Kh-35 anti-ship missiles", image: "Vietnam_details/vietnam_navy_details/gepard_class_frigate.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/e1/Vietnam_People%27s_Navy_ship_015_Tr%E1%BA%A7n_H%C6%B0ng_%C4%90%E1%BA%A1o_-_Project_11661E_Gepard_3.9_frigate.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Molniya-class Corvette", count: 10, type: "Missile Corvette", description: "Russian fast attack craft with Kh-35 anti-ship missiles", image: "Vietnam_details/vietnam_navy_details/molniya_class_corvette.png" }, // src: https://en.wikipedia.org/wiki/Tarantul-class_corvette#/media/File:ORP_Metalowiec_in_Gdynia.JPG
+                { name: "BPS-500 Corvette", count: 2, type: "Corvette", description: "Domestically built patrol corvette", image: "Vietnam_details/vietnam_navy_details/bps_500_corvette.png" } // src: https://en.wikipedia.org/wiki/BPS-500_missile_boat#/media/File:Vietnam_People's_Navy_Ship_381_(BPS-500).jpg
             ]
         },
         airforce: {
@@ -1531,10 +1531,10 @@ const nationsData = {
             strength: "30,000 active",
             image: "Vietnam_details/vietnam_airforce_flag.jpg",
             equipment: [
-                { name: "Su-30MK2V", count: 36, type: "Multirole Fighter", description: "Russian twin-engine heavy fighter with anti-ship capability" },
-                { name: "Su-27SK/UBK", count: 12, type: "Air Superiority Fighter", description: "Russian air dominance fighter with BVR missiles" },
-                { name: "S-300PMU1", count: 12, type: "SAM System (batteries)", description: "Russian long-range air defense system" },
-                { name: "Yak-130", count: 12, type: "Advanced Jet Trainer", description: "Russian trainer and light combat aircraft" }
+                { name: "Su-30MK2V", count: 36, type: "Multirole Fighter", description: "Russian twin-engine heavy fighter with anti-ship capability", image: "Vietnam_details/vietnam_airforce_details/su_30mk2_v.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/7/7f/Su-30MK2_and_Kh-25.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Su-27SK/UBK", count: 12, type: "Air Superiority Fighter", description: "Russian air dominance fighter with BVR missiles", image: "Vietnam_details/vietnam_airforce_details/su_27sk_ubk.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/04/Su-27_8_August_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "S-300PMU1", count: 12, type: "SAM System (batteries)", description: "Russian long-range air defense system", image: "Vietnam_details/vietnam_airforce_details/s_300pmu1.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/a/af/MoscowParade2009_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Yak-130", count: 12, type: "Advanced Jet Trainer", description: "Russian trainer and light combat aircraft", image: "Vietnam_details/vietnam_airforce_details/yak_130.png" } // src: https://upload.wikimedia.org/wikipedia/commons/f/f5/Yak-130_s%E1%BB%91_hi%E1%BB%87u_2109_thu%E1%BB%99c_KQNDVN.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
