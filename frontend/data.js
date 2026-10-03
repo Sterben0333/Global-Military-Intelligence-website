@@ -1556,10 +1556,10 @@ const nationsData = {
             strength: "50,000 active",
             image: "Singapore_details/singapore_army_flag.png",  //AI-generated image
             equipment: [
-                { name: "Leopard 2SG", count: 96, type: "Main Battle Tank", description: "Upgraded Leopard 2A4 with AMAP composite armor package" },
-                { name: "Hunter AFV", count: 100, type: "Infantry Fighting Vehicle", description: "Domestically developed next-gen IFV with 30mm cannon and ATGM" },
-                { name: "Bionix 25/40 IFV", count: 400, type: "Infantry Fighting Vehicle", description: "Singapore-built tracked IFV with 25mm/40mm cannon variants" },
-                { name: "HIMARS", count: 18, type: "MLRS", description: "US-built High Mobility Artillery Rocket System" }
+                { name: "Leopard 2SG", count: 96, type: "Main Battle Tank", description: "Upgraded Leopard 2A4 with AMAP composite armor package", image: "Singapore_details/singapore_army_details/leopard_2sg.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/9b/81032MID_Singapore_Armed_Forces_Leopard_2SG_Tank.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Hunter AFV", count: 100, type: "Infantry Fighting Vehicle", description: "Domestically developed next-gen IFV with 30mm cannon and ATGM", image: "Singapore_details/singapore_army_details/hunter_afv.png" }, // src: https://en.wikipedia.org/wiki/Hunter_AFV#/media/File:Hunter_AFV_of_the_Singapore_Army.jpg/2
+                { name: "Bionix 25/40 IFV", count: 400, type: "Infantry Fighting Vehicle", description: "Singapore-built tracked IFV with 25mm/40mm cannon variants", image: "Singapore_details/singapore_army_details/bionix_25_40_ifv.png" }, // src: https://en.wikipedia.org/wiki/Bionix_(family_of_armoured_fighting_vehicles)#/media/File:Bionix_AFV_1.jpg
+                { name: "HIMARS", count: 18, type: "MLRS", description: "US-built High Mobility Artillery Rocket System", image: "Singapore_details/singapore_army_details/himars.png" } // src: https://upload.wikimedia.org/wikipedia/commons/6/66/180614-A-IY962-102_-_M142_High_Mobility_Artillery_Rocket_System_%28HIMARS%29_firing_during_Saber_Strike_18_%28Image_4_of_7%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         },
         navy: {
@@ -1570,10 +1570,10 @@ const nationsData = {
             strength: "9,000 active",
             image: "Singapore_details/singapore_navy_flag.png",     //AI-generated image
             equipment: [
-                { name: "Invincible-class Submarine", count: 4, type: "AIP Submarine", description: "Type 218SG — Germany's most advanced export submarine with AIP" },
-                { name: "Formidable-class Frigate", count: 6, type: "Stealth Frigate", description: "French La Fayette-derived stealth frigate with Aster SAM" },
-                { name: "Independence-class LMV", count: 8, type: "Littoral Mission Vessel", description: "Multi-role naval vessel for maritime security" },
-                { name: "Endurance-class LST", count: 4, type: "Landing Ship", description: "Amphibious transport dock for sealift operations" }
+                { name: "Invincible-class Submarine", count: 4, type: "AIP Submarine", description: "Type 218SG — Germany's most advanced export submarine with AIP", image: "Singapore_details/singapore_navy_details/invincible_class_submarine.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/9e/Naval_Ships_in_Kiel_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Formidable-class Frigate", count: 6, type: "Stealth Frigate", description: "French La Fayette-derived stealth frigate with Aster SAM", image: "Singapore_details/singapore_navy_details/formidable_class_frigate.png" }, // src : https://en.wikipedia.org/wiki/Formidable-class_frigate#/media/File:Singapore_Navy_guided-missile_frigate_RSS_Steadfast.jpg
+                { name: "Independence-class LMV", count: 8, type: "Littoral Mission Vessel", description: "Multi-role naval vessel for maritime security", image: "Singapore_details/singapore_navy_details/independence_class_lmv.png" }, // src: https://en.wikipedia.org/wiki/Independence-class_littoral_mission_vessel#/media/File:RSS_Fortitude_in_2018.jpg
+                { name: "Endurance-class LST", count: 4, type: "Landing Ship", description: "Amphibious transport dock for sealift operations", image: "Singapore_details/singapore_navy_details/endurance_class_lst.png" } // src: https://en.wikipedia.org/wiki/Endurance-class_landing_platform_dock#/media/File:Singapore_Strait_Passing_warship.jpg
             ]
         },
         airforce: {
@@ -1584,10 +1584,10 @@ const nationsData = {
             strength: "13,500 active",
             image: "Singapore_details/singapore_airforce_flag.png",     //AI-generated image
             equipment: [
-                { name: "F-15SG Strike Eagle", count: 40, type: "Air Superiority Fighter", description: "Advanced variant of F-15E with conformal fuel tanks and AESA radar" },
-                { name: "F-16D+ Block 52", count: 60, type: "Multirole Fighter", description: "Two-seat variant with conformal fuel tanks and advanced avionics" },
-                { name: "F-35B Lightning II", count: 12, type: "5th Gen STOVL Fighter", description: "Short takeoff/vertical landing stealth fighter (first batch delivered)" },
-                { name: "G550 AEW", count: 4, type: "AEW&C", description: "Gulfstream-based airborne early warning aircraft with EL/W-2085 radar" }
+                { name: "F-15SG Strike Eagle", count: 40, type: "Air Superiority Fighter", description: "Advanced variant of F-15E with conformal fuel tanks and AESA radar", image: "Singapore_details/singapore_airforce_details/f15_sg_strike_eagle.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/d/d6/05-8361_Boeing_F-15SG_Strike_Eagle_428th_Fighter_Squadron_%22Buccaneers%22_Republic_of_Singapore_Air_Force.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-16D+ Block 52", count: 60, type: "Multirole Fighter", description: "Two-seat variant with conformal fuel tanks and advanced avionics", image: "Singapore_details/singapore_airforce_details/f16_d_block_52.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/6/6f/RSAF_F-16D_Block_52%2B_Fighting_Falcon_with_Conformal_Fuel_Tanks_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "F-35B Lightning II", count: 12, type: "5th Gen STOVL Fighter", description: "Short takeoff/vertical landing stealth fighter (first batch delivered)", image: "Singapore_details/singapore_airforce_details/f35b_lightning_ii.png" }, // src: https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II#/media/File:U.S._Marine_Corps_F-35B_Lands_on_JS_Izumo._Image_17_of_35.jpg
+                { name: "G550 AEW", count: 4, type: "AEW&C", description: "Gulfstream-based airborne early warning aircraft with EL/W-2085 radar", image: "Singapore_details/singapore_airforce_details/g550_aew.png" } // src: https://en.wikipedia.org/wiki/EL/W-2085#/media/File:RSAF_Gulfstream_IAI_G550_CAEW_(cropped).jpg
             ]
         }
     },
