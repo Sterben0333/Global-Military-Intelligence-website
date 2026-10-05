@@ -1609,10 +1609,10 @@ const nationsData = {
             strength: "44,000 active",
             image: "UAE_details/uae_army_flag.jpg",
             equipment: [
-                { name: "Leclerc MBT", count: 388, type: "Main Battle Tank", description: "French 3rd-gen MBT with autoloader, CITV, and composite armor — UAE is largest operator" },
-                { name: "BMP-3", count: 700, type: "Infantry Fighting Vehicle", description: "Russian IFV with 100mm gun and ATGM" },
-                { name: "Rabdan 8x8 IFV", count: 400, type: "Infantry Fighting Vehicle", description: "Domestically assembled modern IFV" },
-                { name: "Jobaria MLRS", count: 72, type: "MLRS", description: "UAE-developed multi-barrel rocket launcher system" }
+                { name: "Leclerc MBT", count: 388, type: "Main Battle Tank", description: "French 3rd-gen MBT with autoloader, CITV, and composite armor — UAE is largest operator", image: "UAE_details/uae_army_details/leclerc_mbt.png" }, // src: https://en.wikipedia.org/wiki/Leclerc_(tank)#/media/File:Leclerc-openphotonet_PICT6015.JPG
+                { name: "BMP-3", count: 700, type: "Infantry Fighting Vehicle", description: "Russian IFV with 100mm gun and ATGM", image: "UAE_details/uae_army_details/bmp_3.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/cc/UAE_Army_BMP-3_at_IDEX_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Rabdan 8x8 IFV", count: 400, type: "Infantry Fighting Vehicle", description: "Domestically assembled modern IFV", image: "UAE_details/uae_army_details/rabdan_8x8_ifv.png" }, // src: https://en.wikipedia.org/wiki/Otokar_Arma#/media/File:Rabdan_8x8_in_Indo_Defence_2024.jpg
+                { name: "Jobaria MLRS", count: 72, type: "MLRS", description: "UAE-developed multi-barrel rocket launcher system", image: "UAE_details/uae_army_details/jobaria_mlrs.png" } // AI - Generated image
             ]
         },
         navy: {
@@ -1623,10 +1623,10 @@ const nationsData = {
             strength: "6,500 active",
             image: "UAE_details/uae_navy_flag.png",
             equipment: [
-                { name: "Gowind-class Corvette", count: 2, type: "Corvette", description: "French-built modern multi-mission corvette" },
-                { name: "Abu Dhabi-class Corvette", count: 6, type: "Corvette", description: "Italian Falaj 2-class corvettes with Exocet missiles" },
-                { name: "Baynunah-class Corvette", count: 6, type: "Missile Corvette", description: "French-designed indigenously built corvettes" },
-                { name: "Ghannatha-class FAC", count: 12, type: "Fast Attack Craft", description: "Catamaran missile boats for coastal defense" }
+                { name: "Gowind-class Corvette", count: 2, type: "Corvette", description: "French-built modern multi-mission corvette", image: "UAE_details/uae_navy_details/gowind_class_corvette.png" }, // src: https://en.wikipedia.org/wiki/Gowind-class_design#/media/File:Al_Emaraat.webp
+                { name: "Abu Dhabi-class Corvette", count: 6, type: "Corvette", description: "Italian Falaj 2-class corvettes with Exocet missiles", image: "UAE_details/uae_navy_details/abu_dhabi_class_corvette.png" }, // src: AI - Generated Image
+                { name: "Baynunah-class Corvette", count: 6, type: "Missile Corvette", description: "French-designed indigenously built corvettes", image: "UAE_details/uae_navy_details/baynunah_class_corvette.png" }, // src: https://en.wikipedia.org/wiki/Baynunah-class_corvette#/media/File:Baynunah-class_corvette_Al_Dhafra_P-173_at_NAVDEX.JPG
+                { name: "Ghannatha-class FAC", count: 12, type: "Fast Attack Craft", description: "Catamaran missile boats for coastal defense", image: "UAE_details/uae_navy_details/ghannatha_class_fac.png" } // src: AI -Generated Image
             ]
         },
         airforce: {
@@ -1637,10 +1637,10 @@ const nationsData = {
             strength: "12,000 active",
             image: "UAE_details/uae_airforce_flag.jpg",
             equipment: [
-                { name: "F-16E/F Block 60 Desert Falcon", count: 80, type: "Multirole Fighter", description: "Most advanced F-16 variant with conformal fuel tanks and AESA radar" },
-                { name: "Mirage 2000-9", count: 62, type: "Multirole Fighter", description: "Upgraded French fighter with advanced strike capability" },
-                { name: "Dassault Rafale", count: 80, type: "Multirole Fighter (on order)", description: "French 4.5-gen omnirole fighter — 80 on order" },
-                { name: "THAAD", count: 2, type: "Ballistic Missile Defense (batteries)", description: "US terminal high altitude area defense against ballistic missiles" }
+                { name: "F-16E/F Block 60 Desert Falcon", count: 80, type: "Multirole Fighter", description: "Most advanced F-16 variant with conformal fuel tanks and AESA radar", image: "UAE_details/uae_airforce_details/f16e_f_block_60_desert_falcon.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/e/e0/F-16e_block60.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Mirage 2000-9", count: 62, type: "Multirole Fighter", description: "Upgraded French fighter with advanced strike capability", image: "UAE_details/uae_airforce_details/mirage_2000_9.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/8/80/UAEAF_Mirage_2000-9_at_Dubai_Airshow_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Dassault Rafale", count: 80, type: "Multirole Fighter (on order)", description: "French 4.5-gen omnirole fighter — 80 on order", image: "UAE_details/uae_airforce_details/dassault_rafale.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/9/91/Dassault_Rafale_B_Suisse.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "THAAD", count: 2, type: "Ballistic Missile Defense (batteries)", description: "US terminal high altitude area defense against ballistic missiles", image: "UAE_details/uae_airforce_details/thaad.png" } // src: https://upload.wikimedia.org/wikipedia/commons/4/45/The_first_of_two_Terminal_High_Altitude_Area_Defense_%28THAAD%29_interceptors_is_launched_during_a_successful_intercept_test_-_US_Army.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
             ]
         }
     },
