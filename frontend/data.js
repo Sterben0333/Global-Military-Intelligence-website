@@ -1722,7 +1722,7 @@ const nationsData = {
             ]
         },
         navy: {
-            carriers: 0, submarines: 0, destroyers: 0, frigates: 6,
+            carriers: 0, submarines: 1, destroyers: 0, frigates: 6,
             name: "Mexican Navy (Armada de México)",
             founded: "November 23, 1821",
             motto: "Mexico, Homeland, Honor, Loyalty",
