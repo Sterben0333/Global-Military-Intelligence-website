@@ -1662,10 +1662,10 @@ const nationsData = {
             strength: "40,100 active",
             image: "SouthAfrica_details/southafrica_army_flag.jpg",
             equipment: [
-                { name: "Olifant Mk2", count: 44, type: "Main Battle Tank", description: "Locally upgraded Centurion MBT with 105mm gun" },
-                { name: "Ratel 20/90 IFV", count: 1300, type: "Infantry Fighting Vehicle", description: "South African mine-protected wheeled IFV" },
-                { name: "Rooikat 76", count: 242, type: "Armored Car", description: "Fast 8x8 wheeled tank destroyer with 76mm gun" },
-                { name: "G6 Rhino", count: 43, type: "Self-Propelled Howitzer", description: "6x6 wheeled 155mm howitzer — one of the best in the world" }
+                { name: "Olifant Mk2", count: 44, type: "Main Battle Tank", description: "Locally upgraded Centurion MBT with 105mm gun", image: "SouthAfrica_details/southafrica_army_details/olifant_mk2.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/b/b3/Olifant_Mark_2_Waterkloof.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Ratel 20/90 IFV", count: 1300, type: "Infantry Fighting Vehicle", description: "South African mine-protected wheeled IFV", image: "SouthAfrica_details/southafrica_army_details/ratel_20_90.png" }, // src: https://en.wikipedia.org/wiki/Ratel_IFV#/media/File:Ratel_90_armyrecognition_South-Africa_008_(cropped).jpg
+                { name: "Rooikat 76", count: 242, type: "Armored Car", description: "Fast 8x8 wheeled tank destroyer with 76mm gun", image: "SouthAfrica_details/southafrica_army_details/rooikat_76.png" }, // src: https://en.wikipedia.org/wiki/Rooikat#/media/File:Rooikat_Armoured_Car_(9686598433)_(cropped).jpg
+                { name: "G6 Rhino", count: 43, type: "Self-Propelled Howitzer", description: "6x6 wheeled 155mm howitzer — one of the best in the world", image: "SouthAfrica_details/southafrica_army_details/g6_rhino.png" } // src: https://en.wikipedia.org/wiki/G6_howitzer#/media/File:Denel_G6-45_Ysterplaat_Airshow_2006.jpg
             ]
         },
         navy: {
@@ -1676,10 +1676,10 @@ const nationsData = {
             strength: "7,500 active",
             image: "SouthAfrica_details/southafrica_navy_flag.jpg",
             equipment: [
-                { name: "Type 209/1400 Submarine", count: 3, type: "Patrol Submarine", description: "German-built diesel-electric submarine" },
-                { name: "Valour-class Frigate", count: 4, type: "Stealth Frigate", description: "German MEKO A-200 stealth frigate with Exocet and Umkhonto SAM" },
-                { name: "SAS Drakensberg", count: 1, type: "Replenishment Ship", description: "Combat support ship for fleet replenishment" },
-                { name: "Warrior-class OPV", count: 3, type: "Offshore Patrol Vessel", description: "Multi-role patrol vessel for maritime security" }
+                { name: "Type 209/1400 Submarine", count: 3, type: "Patrol Submarine", description: "German-built diesel-electric submarine", image: "SouthAfrica_details/southafrica_navy_details/type_209_1400_submarine.png" }, // src: https://en.wikipedia.org/wiki/Heroine-class_submarine#/media/File:SAS_Charlotte_Maxeke_with_HMS_Portland_MOD_45157758.jpg
+                { name: "Valour-class Frigate", count: 4, type: "Stealth Frigate", description: "German MEKO A-200 stealth frigate with Exocet and Umkhonto SAM", image: "SouthAfrica_details/southafrica_navy_details/valour_class_frigate.png" }, // src: https://en.wikipedia.org/wiki/Valour-class_frigate#/media/File:SAS_Spioenkop_during_Exercise_IBSAMAR_V_(cropped).JPG
+                { name: "SAS Drakensberg", count: 1, type: "Replenishment Ship", description: "Combat support ship for fleet replenishment", image: "SouthAfrica_details/southafrica_navy_details/sas_drakensberg.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/f/fa/SAS_Drakensberg_A301_c.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Warrior-class OPV", count: 3, type: "Offshore Patrol Vessel", description: "Multi-role patrol vessel for maritime security", image: "SouthAfrica_details/southafrica_navy_details/warrior_class_opv.png" } // src: https://en.wikipedia.org/wiki/Warrior-class_inshore_patrol_vessel#/media/File:SAS_King_Sekhukhune_I_underway_off_Simonstown.jpg
             ]
         },
         airforce: {
@@ -1690,10 +1690,10 @@ const nationsData = {
             strength: "10,300 active",
             image: "SouthAfrica_details/southafrica_airforce_flag.jpg",
             equipment: [
-                { name: "JAS-39 Gripen C/D", count: 26, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with Darter and A-Darter missiles" },
-                { name: "BAE Hawk Mk120", count: 24, type: "Lead-In Fighter Trainer", description: "British jet trainer and light combat aircraft" },
-                { name: "C-130BZ Hercules", count: 7, type: "Transport Aircraft", description: "Workhorse tactical transport aircraft" },
-                { name: "Rooivalk CSH-2", count: 11, type: "Attack Helicopter", description: "Domestically built attack helicopter — Africa's only indigenous combat helicopter" }
+                { name: "JAS-39 Gripen C/D", count: 26, type: "Multirole Fighter", description: "Swedish 4.5-gen fighter with Darter and A-Darter missiles", image: "SouthAfrica_details/southafrica_airforce_details/jas_39_gripen_c_d.png" }, // src: https://commons.wikimedia.org/wiki/File:Saab_JAS-39C_Gripen_3924_24_(8376596238).jpg
+                { name: "BAE Hawk Mk120", count: 24, type: "Lead-In Fighter Trainer", description: "British jet trainer and light combat aircraft", image: "SouthAfrica_details/southafrica_airforce_details/bae_hawk_mk120.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/7/75/SAAF_Hawk_MK120_261_%282%29_%286921224399%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "C-130BZ Hercules", count: 7, type: "Transport Aircraft", description: "Workhorse tactical transport aircraft", image: "SouthAfrica_details/southafrica_airforce_details/c_130bz_hercules.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/0/00/401_2004-04-27_FAWK_003_crop_LR_800x533.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "Rooivalk CSH-2", count: 11, type: "Attack Helicopter", description: "Domestically built attack helicopter — Africa's only indigenous combat helicopter", image: "SouthAfrica_details/southafrica_airforce_details/rooivalk_csh_2.png" } // src: https://en.wikipedia.org/wiki/Denel_Rooivalk#/media/File:Rooivalk_in_flight_(cropped).jpg
             ]
         }
     },
