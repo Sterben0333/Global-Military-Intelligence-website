@@ -1715,24 +1715,24 @@ const nationsData = {
             strength: "198,000 active",
             image: "Mexico_details/mexico_army_flag.png",
             equipment: [
-                { name: "DN-XI Caballo APC", count: 220, type: "Armored Personnel Carrier", description: "Domestically built 4x4/6x6 armored vehicle" },
-                { name: "Oshkosh Sandcat", count: 250, type: "MRAP", description: "Mine-resistant vehicle for counter-narco operations" },
-                { name: "AMX-VCI APC", count: 100, type: "Armored Personnel Carrier", description: "French-built tracked APC" },
-                { name: "MD 530F Cayuse", count: 24, type: "Light Attack Helicopter", description: "Light helicopter armed for counter-narcotics" }
+                { name: "DN-XI Caballo APC", count: 220, type: "Armored Personnel Carrier", description: "Domestically built 4x4/6x6 armored vehicle", image: "Mexico_details/mexico_army_details/dn_xi_caballo_apc.png" }, // src: https://es.wikipedia.org/wiki/DGIM_DN-XI#/media/Archivo:DN-XI_armored_personnel_carrier.jpg
+                { name: "Oshkosh Sandcat", count: 250, type: "MRAP", description: "Mine-resistant vehicle for counter-narco operations", image: "Mexico_details/mexico_army_details/oskhosh_sandcat.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/2/2f/Ej%C3%A9rcitoExpoPuebla1.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "AMX-VCI APC", count: 100, type: "Armored Personnel Carrier", description: "French-built tracked APC", image: "Mexico_details/mexico_army_details/amx_vci_apc.png" }, //src: https://en.wikipedia.org/wiki/AMX-VCI#/media/File:AMX-VCI_del_Ej%C3%A9rcito_Mexicano.jpg
+                { name: "MD 530F Cayuse", count: 24, type: "Light Attack Helicopter", description: "Light helicopter armed for counter-narcotics", image: "Mexico_details/mexico_army_details/md_530f_cayuse.png" } // src: https://en.wikipedia.org/wiki/McDonnell_Douglas_MD_500_Defender#/media/File:Hughes_530MG,_PROLOG_'85.JPEG
             ]
         },
         navy: {
-            carriers: 0, submarines: 0, destroyers: 0, frigates: 6,
+            carriers: 0, submarines: 0, destroyers: 0, frigates: 1,
             name: "Mexican Navy (Armada de México)",
             founded: "November 23, 1821",
             motto: "Mexico, Homeland, Honor, Loyalty",
             strength: "63,000 active (incl. Marines)",
             image: "Mexico_details/mexico_navy_flag.png",
             equipment: [
-                { name: "ARM Reformador Frigate", count: 4, type: "Frigate", description: "Locally built Oaxaca-class and Allende-class frigates" },
-                { name: "POLA-class OPV", count: 8, type: "Offshore Patrol Vessel", description: "Domestically built 1,680-ton long-range patrol vessels" },
-                { name: "Tenochtitlán-class Frigate", count: 2, type: "Guided Missile Frigate", description: "Domestically built SIGMA 10514-class frigate" },
-                { name: "Damen Stan Patrol", count: 12, type: "Patrol Vessel", description: "Dutch-designed coastal patrol vessels" }
+                { name: "Reformador-class Frigate (POLA-101)", count: 1, type: "Guided Missile Frigate", description: "Damen SIGMA 10514-based long-range ocean patrol frigate (ARM Benito Juárez POLA-101, formerly ARM Reformador), armed with Harpoon missiles, RAM SAM, and torpedoes.", image: "Mexico_details/mexico_navy_details/arm_reformador_frigate.png" }, // src: https://en.wikipedia.org/wiki/ARM_Benito_Ju%C3%A1rez_(POLA-101)#/media/File:ARM_Benito_Ju%C3%A1rez_in_2025.jpg
+                { name: "Oaxaca-class OPV", count: 8, type: "Offshore Patrol Vessel", description: "Domestically built 1,680-ton ocean patrol vessels equipped with a helicopter flight deck and 76mm main gun for EEZ surveillance.", image: "Mexico_details/mexico_navy_details/oaxaca_class_opv.png" }, // src: https://en.wikipedia.org/wiki/Oaxaca-class_patrol_vessel#/media/File:Mexican_navy_oaxaca_class.jpg
+                { name: "Tenochtitlán-class Patrol Vessel", count: 10, type: "Coastal Patrol Vessel", description: "Mexican-built coastal patrol craft based on the Damen Stan Patrol 4207 design, used for maritime interdiction and surveillance.", image: "Mexico_details/mexico_navy_details/tenochtitlan_class_patrol.png" }, // src: https://en.wikipedia.org/wiki/Tenochtitlan-class_patrol_vessel#/media/File:Patrulla_Costera_ARM_Teotihuacan.jpg
+                { name: "Durango-class OPV", count: 4, type: "Offshore Patrol Vessel", description: "Domestically built patrol vessels featuring stealth-contoured superstructures and helicopter helipads for maritime patrol.", image: "Mexico_details/mexico_navy_details/durango_class_opv.png" } // src: https://en.wikipedia.org/wiki/Durango-class_patrol_vessel#/media/File:ARM_Durango.jpg
             ]
         },
         airforce: {
@@ -1743,10 +1743,10 @@ const nationsData = {
             strength: "11,770 active",
             image: "Mexico_details/mexico_airforce_flag.png",
             equipment: [
-                { name: "T-6C Texan II", count: 6, type: "Trainer/Light Attack", description: "Advanced turboprop trainer for light strike missions" },
-                { name: "PC-7 Pilatus", count: 60, type: "Trainer/COIN", description: "Swiss turboprop trainer for counter-narcotics" },
-                { name: "C-130J Hercules", count: 4, type: "Transport Aircraft", description: "Tactical transport for logistics and disaster relief" },
-                { name: "UH-60M Black Hawk", count: 20, type: "Utility Helicopter", description: "US-built utility helicopter for security operations" }
+                { name: "T-6C Texan II", count: 6, type: "Trainer/Light Attack", description: "Advanced turboprop trainer for light strike missions", image: "Mexico_details/mexico_airforce_details/t_6c_texan_ii.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/f/f4/TEXAN_II_T-6C%2B.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "PC-7 Pilatus", count: 60, type: "Trainer/COIN", description: "Swiss turboprop trainer for counter-narcotics", image: "Mexico_details/mexico_airforce_details/pc_7_pilatus.png" }, // src: https://upload.wikimedia.org/wikipedia/commons/c/cf/Pilatus_PC-7%2C_Mexico_-_Air_Force_AN1922411.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original
+                { name: "C-130J Hercules", count: 4, type: "Transport Aircraft", description: "Tactical transport for logistics and disaster relief", image: "Mexico_details/mexico_airforce_details/c_130j_hercules.png" }, // src: https://en.wikipedia.org/wiki/Mexican_Air_Force#/media/File:C-130_MK1_FAM_2_(altered).jpg
+                { name: "UH-60M Black Hawk", count: 20, type: "Utility Helicopter", description: "US-built utility helicopter for security operations", image: "Mexico_details/mexico_airforce_details/uh_60m_black_hawk.png" } // src: https://en.wikipedia.org/wiki/Sikorsky_UH-60_Black_Hawk#/media/File:Sikorsky_S-70A-24A_Black_Hawk,_Mexico_-_Air_Force_AN2158152.jpg
             ]
         }
     }
