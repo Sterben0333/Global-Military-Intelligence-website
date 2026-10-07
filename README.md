@@ -7,7 +7,7 @@
 ![Leaflet](https://img.shields.io/badge/Leaflet-v1.9.4-brightgreen?style=for-the-badge&logo=leaflet)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-A state-of-the-art, interactive open-source defense analysis platform providing real-time military data, global troop capabilities, live conflict overlays, historical warfare archives, defense news aggregation, user watchlists, and an administrative control panel.
+An interactive open-source defense analysis platform providing military data, global conflict visualization, historical warfare archives, defense news aggregation, user watchlists, and administrative tools.
 
 ---
 
