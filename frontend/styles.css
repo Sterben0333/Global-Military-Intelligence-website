@@ -280,6 +280,11 @@ html {
     --z-toast: 1100;
 }
 
+/* Dark Map Tiles - CSS filter to darken standard OSM tiles */
+.dark-tiles {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
 /* Reset & Base */
 *,
 *::before,

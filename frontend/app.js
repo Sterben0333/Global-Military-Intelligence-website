@@ -381,10 +381,10 @@ function initMap() {
         maxBounds: [[-90, -180], [90, 180]]
     });
 
-    const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© CartoDB',
-        subdomains: 'abcd',
-        maxZoom: 19
+    const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        className: 'dark-tiles'
     }).addTo(map);
 
     // Dismiss map loader when tiles finish loading
@@ -3766,10 +3766,10 @@ function initConflictMap() {
     });
 
     // Dark tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap, &copy; CARTO',
-        subdomains: 'abcd',
-        maxZoom: 19
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        className: 'dark-tiles'
     }).addTo(conflictMap);
 
     // Add markers for all conflicts
@@ -5040,8 +5040,10 @@ function initConquestMap() {
         maxBoundsViscosity: 0.8
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        maxZoom: 18
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+        className: 'dark-tiles'
     }).addTo(conquestMap);
 
     loadConquestData('ww1', 'all');
